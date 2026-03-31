@@ -1,0 +1,138 @@
+title: Basic Exploration and Interaction
+story: no-signal-home
+description: Tests room navigation, NPC encounters, examining objects, and mid-deck access
+
+---
+
+## Starting room
+
+> look
+[OK: contains "Tug Cockpit"]
+[OK: contains "flashlight"]
+
+> examine viewport
+[OK: contains "Stillwater"]
+
+> take flashlight
+[OK: contains "Taken"]
+
+> take ration bar
+[OK: contains "Taken"]
+
+> inventory
+[OK: contains "flashlight"]
+[OK: contains "ration bar"]
+
+## Enter the Stillwater — Airlock
+
+> south
+[OK: contains "Airlock"]
+
+> examine biohazard sign
+[OK: contains "Meridian"]
+
+## Forward Corridor
+
+> south
+[OK: contains "Forward Corridor"]
+
+> examine floor panel
+[OK: contains_any "panel" "cable" "beneath"]
+
+## Cargo Bay — meet Okafor
+
+> south
+[OK: contains "Cargo Bay"]
+[OK: contains "Okafor"]
+
+## Storage Annex
+
+> east
+[OK: contains "Storage Annex"]
+
+> take hazmat suit
+[OK: contains "Taken"]
+
+> west
+[OK: contains "Cargo Bay"]
+
+## Lower Mid Corridor — ladder up
+
+> north
+[OK: contains "Forward Corridor"]
+
+> west
+[OK: contains "Lower Mid Corridor"]
+
+> examine elevator
+[OK: contains_any "elevator" "dead" "failed"]
+
+## Mid Deck — Central Junction
+
+> up
+[OK: contains "Central Junction"]
+
+## Lab Corridor and Science Lab
+
+> west
+[OK: contains "Lab Corridor"]
+
+> west
+[OK: contains "Science Lab"]
+
+> east
+[OK: contains "Lab Corridor"]
+
+> south
+[OK: contains "Medbay"]
+
+> north
+[OK: contains "Lab Corridor"]
+
+> east
+[OK: contains "Central Junction"]
+
+## Hab Corridor — Mess Hall, Library
+
+> east
+[OK: contains "Hab Corridor"]
+
+> east
+[OK: contains "Mess Hall"]
+
+> west
+[OK: contains "Hab Corridor"]
+
+> south
+[OK: contains "Library"]
+
+> north
+[OK: contains "Hab Corridor"]
+
+> west
+[OK: contains "Central Junction"]
+
+## Upper Deck
+
+> up
+[OK: contains "Upper Corridor"]
+
+> south
+[OK: contains "Crew Bunks"]
+
+> south
+[OK: contains "Common Area"]
+
+> north
+[OK: contains "Crew Bunks"]
+
+> north
+[OK: contains "Upper Corridor"]
+
+## Help and About commands
+
+> help
+[OK: contains_any "help" "HELP" "commands" "move"]
+
+> about
+[OK: contains_any "No Signal Home" "NO SIGNAL HOME" "Sharpee"]

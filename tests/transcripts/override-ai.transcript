@@ -1,0 +1,99 @@
+title: Override AI Ending
+story: no-signal-home
+description: Override AI ending via cable cut in maintenance shaft, then bridge override panel
+
+---
+
+## Start — collect essentials
+
+> look
+[OK: contains "Tug Cockpit"]
+
+> take flashlight
+[OK: contains_any "Taken" "already"]
+
+> take ration bar
+[OK: contains_any "Taken" "already"]
+
+## Enter The Stillwater
+
+> south
+[OK: contains "Airlock"]
+
+> south
+[OK: contains "Forward Corridor"]
+
+## Get cable snips and multi-tool from Engineering
+
+> west
+[OK: contains "Lower Mid Corridor"]
+
+> south
+[OK: contains "Aft Corridor"]
+
+> south
+[OK: contains "Engineering"]
+
+> take cable snips
+[OK: contains "Taken"]
+
+> take multi-tool
+[OK: contains "Taken"]
+
+## Back to Maintenance Shaft and cut AI cables
+
+> north
+[OK: contains "Aft Corridor"]
+
+> north
+[OK: contains "Lower Mid Corridor"]
+
+> east
+[OK: contains "Forward Corridor"]
+
+> east
+[OK: contains "Maintenance Shaft"]
+
+> cut cables
+[OK: contains_any "cut" "sever" "spark" "dead" "dark" "slice"]
+
+## Get keycard from Captain's Cabin
+
+> west
+[OK: contains "Forward Corridor"]
+
+> west
+[OK: contains "Lower Mid Corridor"]
+
+> up
+[OK: contains "Central Junction"]
+
+> up
+[OK: contains "Upper Corridor"]
+
+> east
+[OK: contains "Captain's Cabin"]
+
+> pry open desk
+[OK: contains_any "keycard" "bridge"]
+
+> take keycard
+[OK: contains_any "Taken" "keycard"]
+
+## Unlock bridge and trigger Override ending
+
+> west
+[OK: contains "Upper Corridor"]
+
+> unlock bridge door with keycard
+[OK: contains_any "unlock" "green"]
+
+> open bridge door
+[OK: contains_any "open" "bridge"]
+
+> north
+[OK: contains "Bridge"]
+
+> override security panel
+[OK: contains "THE END"]
+[OK: contains "Override"]

@@ -1,0 +1,121 @@
+title: Escape Alone Walkthrough
+story: no-signal-home
+description: Complete walkthrough — Escape Alone ending via bridge keycard path
+
+---
+
+## Tug Cockpit — Starting location
+
+> look
+[OK: contains "Tug Cockpit"]
+[OK: contains "Stillwater"]
+
+> take flashlight
+[OK: contains_any "Taken" "already"]
+
+> take ration bar
+[OK: contains_any "Taken" "already"]
+
+> inventory
+[OK: contains "flashlight"]
+
+## Enter The Stillwater
+
+> south
+[OK: contains "Airlock"]
+
+> examine biohazard sign
+[OK: contains "Meridian"]
+
+> south
+[OK: contains "Forward Corridor"]
+
+## Explore Lower Deck — find multi-tool and override tool
+
+> south
+[OK: contains "Cargo Bay"]
+
+> east
+[OK: contains "Storage Annex"]
+
+> take hazmat suit
+[OK: contains "Taken"]
+
+> take elevator parts
+[OK: contains "Taken"]
+
+> west
+[OK: contains "Cargo Bay"]
+
+> north
+[OK: contains "Forward Corridor"]
+
+> west
+[OK: contains "Lower Mid Corridor"]
+
+> south
+[OK: contains "Aft Corridor"]
+
+> south
+[OK: contains "Engineering"]
+
+> take multi-tool
+[OK: contains "Taken"]
+
+> take cable snips
+[OK: contains "Taken"]
+
+> take override tool
+[OK: contains "Taken"]
+
+## Go up to Mid Deck, then Upper Deck
+
+> north
+[OK: contains "Aft Corridor"]
+
+> north
+[OK: contains "Lower Mid Corridor"]
+
+> up
+[OK: contains "Central Junction"]
+
+> up
+[OK: contains "Upper Corridor"]
+
+## Open captain's desk, get keycard
+
+> east
+[OK: contains "Captain's Cabin"]
+
+> examine desk
+[OK: contains "lock"]
+
+> pry open desk
+[OK: contains_any "keycard" "bridge"]
+
+> take keycard
+[OK: contains_any "Taken" "keycard"]
+
+## Unlock bridge and escape
+
+> west
+[OK: contains "Upper Corridor"]
+
+> unlock bridge door with keycard
+[OK: contains_any "unlock" "green"]
+
+> open bridge door
+[OK: contains_any "open" "bridge"]
+
+> north
+[OK: contains "Bridge"]
+
+## Launch escape pod — Ending
+
+> examine escape pod
+[OK: contains "escape pod"]
+
+> launch pod
+[OK: contains "escape pod"]
+[OK: contains "THE END"]
+[OK: contains "Escape Alone"]
