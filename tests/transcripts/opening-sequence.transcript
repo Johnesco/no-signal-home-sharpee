@@ -1,0 +1,80 @@
+title: Opening Sequence — Docking Puzzle
+story: no-signal-home
+description: Tests the complete opening sequence: alarm, docking steps, quality checks
+
+---
+
+## Starting room is Tug Cargo Hold
+
+> look
+[OK: contains "Tug Cargo Hold"]
+[OK: contains "alarm"]
+
+## Examine cargo hold items
+
+> examine crates
+[OK: contains "DEEP REACH SALVAGE"]
+
+> examine bedroll
+[OK: contains "sleeping pad"]
+
+> examine datapad
+[OK: contains "DRIFT MODE"]
+
+## Move to cockpit
+
+> south
+[OK: contains "Tug Cockpit"]
+[OK: contains "alarm"]
+
+## Can't go south before docking
+
+> south
+[OK: contains_any "locked" "sealed" "docking"]
+
+## Alarm button
+
+> press button
+[OK: contains "alarm"]
+[OK: contains "Stillwater"]
+[OK: contains "Meridian"]
+
+> press button
+[OK: contains "already"]
+
+## Docking sequence — need to examine controls first
+
+> maneuver
+[OK: contains "examine"]
+
+> examine docking controls
+[OK: contains "docking"]
+[OK: contains "MANEUVER"]
+
+## Docking steps
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> fire thrusters
+[OK: contains_any "brake" "decelerate" "slow"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+> check pressure
+[OK: contains_any "pressure" "green" "seal"]
+
+> seal
+[OK: contains_any "Green" "green" "unlocks"]
+
+## Can now go south to airlock
+
+> south
+[OK: contains "Airlock"]
+
+> examine inspection window
+[OK: contains_any "window" "docking"]
+
+> examine claw marks
+[OK: contains_any "claw" "gouges" "scratches"]

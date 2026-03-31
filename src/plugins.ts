@@ -7,44 +7,320 @@
 import {
   WorldModel,
   IdentityTrait,
+  LockableTrait,
+  OpenableTrait,
+  RoomTrait,
 } from '@sharpee/world-model';
 import type { TurnPlugin, TurnPluginContext } from '@sharpee/plugins';
 import type { ISemanticEvent } from '@sharpee/core';
 import {
   ItemIds, NpcIds, RoomIds, Msg, StateKeys, MAX_SCORE,
+  MemoryTrait, getMemory,
 } from './types';
 import { getSceneryId } from './world';
 
 // ============================================================================
-// TUG DETACH — fires at turn 5
+// MEMORY TRAIT — first-examine flavor text, fires once per entity
 // ============================================================================
 
-function createTugDetachPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin {
+function createMemoryPlugin(): TurnPlugin {
   return {
-    id: 'story.tug-detach',
-    priority: 200,
+    id: 'story.memory',
+    priority: 2,
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
-      const turn = ctx.world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
-      if (turn === 5 && !ctx.world.getStateValue(StateKeys.TUG_DETACHED)) {
-        ctx.world.setStateValue(StateKeys.TUG_DETACHED, true);
+      const actionId = (ctx as any).actionResult?.actionId;
+      const success = (ctx as any).actionResult?.success;
+      if (!success || actionId !== 'if.action.examining') return [];
 
-        // Seal the airlock — remove connection to tug
-        const airlock = ctx.world.getEntity(rooms.airlock);
-        if (airlock) {
-          const roomTrait = airlock.get('room' as any);
+      const targetId = (ctx as any).actionResult?.targetId;
+      if (!targetId) return [];
+
+      const entity = ctx.world.getEntity(targetId);
+      if (!entity) return [];
+
+      const memory = getMemory(entity);
+      if (!memory || memory.recalled || memory.trigger !== actionId) return [];
+
+      memory.recalled = true;
+      return [{ type: 'game.message', data: { messageId: memory.messageId } } as any];
+    },
+  };
+}
+
+// ============================================================================
+// ALARM URGENCY — reminds player about the alarm each turn
+// ============================================================================
+
+function createAlarmUrgencyPlugin(rooms: RoomIds): TurnPlugin {
+  return {
+    id: 'story.alarm-urgency',
+    priority: 5,
+    onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
+      const world = ctx.world;
+      if (!world.getStateValue(StateKeys.ALARM_ACTIVE)) return [];
+      if (world.getStateValue(StateKeys.ALARM_SILENCED)) return [];
+
+      // Don't nag if they just pressed the button
+      const actionId = (ctx as any).actionResult?.actionId;
+      if (actionId === 'story.action.pressing') return [];
+
+      const playerLoc = world.getLocation(world.getPlayer()!.id);
+      if (playerLoc === rooms.tugCargoHold) {
+        return [{ type: 'game.message', data: { messageId: Msg.ALARM_BLOCKED_CARGO } } as any];
+      }
+      if (playerLoc === rooms.tugCockpit) {
+        return [{ type: 'game.message', data: { messageId: Msg.ALARM_BLOCKED_COCKPIT } } as any];
+      }
+      return [];
+    },
+  };
+}
+
+// ============================================================================
+// ALARM FUSE — 10 turns to silence alarm, then 20 turns to maneuver
+// ============================================================================
+
+function createAlarmFusePlugin(rooms: RoomIds): TurnPlugin {
+  return {
+    id: 'story.alarm-fuse',
+    priority: 3,
+    onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
+      const world = ctx.world;
+      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+
+      // Phase 1: Alarm still active — 10 turn limit
+      if (world.getStateValue(StateKeys.ALARM_ACTIVE) && !world.getStateValue(StateKeys.ALARM_SILENCED)) {
+        if (turn >= 10) {
+          return [
+            { type: 'game.message', data: { messageId: Msg.ALARM_COLLISION_DEATH } } as any,
+            { type: 'game.ended', data: { reason: 'death' } } as any,
+          ];
         }
-        // Update tug viewport description
-        const vpId = getSceneryId('tug-viewport');
-        if (vpId) {
-          const vp = ctx.world.getEntity(vpId);
-          if (vp) {
-            const id = vp.get(IdentityTrait);
-            if (id) id.description = 'Through the viewport: empty space where the salvage tug used to be. Nothing but stars.';
+        return [];
+      }
+
+      // Phase 2: Alarm silenced but not yet maneuvered — 20 turn limit
+      if (world.getStateValue(StateKeys.ALARM_SILENCED)) {
+        const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
+        if (dockState === 'approach') {
+          const fuseStart = world.getStateValue(StateKeys.COLLISION_FUSE_START) ?? 0;
+          const elapsed = turn - (fuseStart as number);
+          if (elapsed >= 20) {
+            return [
+              { type: 'game.message', data: { messageId: Msg.COLLISION_DEATH } } as any,
+              { type: 'game.ended', data: { reason: 'death' } } as any,
+            ];
           }
         }
-        return [
-          { type: 'game.message', data: { messageId: Msg.TUG_DETACHED } } as any,
-        ];
+      }
+
+      return [];
+    },
+  };
+}
+
+// ============================================================================
+// VIEWPORT ESCALATION — tied to post-alarm fuse progress
+// ============================================================================
+
+function createViewportPlugin(rooms: RoomIds): TurnPlugin {
+  return {
+    id: 'story.viewport-escalation',
+    priority: 4,
+    onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
+      const world = ctx.world;
+      if (!world.getStateValue(StateKeys.ALARM_SILENCED)) return [];
+      const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
+      if (dockState !== 'approach') return [];
+
+      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+      const fuseStart = world.getStateValue(StateKeys.COLLISION_FUSE_START) ?? 0;
+      const elapsed = turn - (fuseStart as number);
+
+      // Update tug viewport description based on proximity
+      const vpId = getSceneryId('tug-viewport');
+      if (vpId) {
+        const vp = world.getEntity(vpId);
+        if (vp) {
+          const id = vp.get(IdentityTrait);
+          if (id) {
+            if (elapsed >= 15) {
+              id.description = "The Stillwater is all you can see. Dark metal, arm's reach away. You're out of time.";
+            } else if (elapsed >= 10) {
+              id.description = "The hull fills the entire viewport. Individual rivets visible. You can see a docking port, dead ahead.";
+            } else if (elapsed >= 5) {
+              id.description = "The derelict's hull is closer. Details emerging — hull plating, maintenance hatches, a faded corporate logo.";
+            }
+          }
+        }
+      }
+
+      // Show viewport stage messages at thresholds
+      const playerLoc = world.getLocation(world.getPlayer()!.id);
+      if (playerLoc === rooms.tugCockpit) {
+        if (elapsed === 5) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_1 } } as any];
+        if (elapsed === 10) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_2 } } as any];
+        if (elapsed === 15) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_3 } } as any];
+        if (elapsed === 18) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_4 } } as any];
+      }
+
+      return [];
+    },
+  };
+}
+
+// ============================================================================
+// SEAL DEGRADATION — 2-3 turns after boarding the Stillwater
+// ============================================================================
+
+function createSealDegradationPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin {
+  return {
+    id: 'story.seal-degradation',
+    priority: 200,
+    onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
+      const world = ctx.world;
+      if (world.getStateValue(StateKeys.TUG_DETACHED)) return [];
+      if (!world.getStateValue(StateKeys.PLAYER_BOARDED)) return [];
+
+      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+      const boardingTurn = world.getStateValue(StateKeys.BOARDING_TURN) ?? 0;
+      const elapsed = turn - (boardingTurn as number);
+
+      // Fire at 3 turns after boarding
+      if (elapsed >= 3) {
+        world.setStateValue(StateKeys.TUG_DETACHED, true);
+
+        // Lock the airlock door from the Stillwater side
+        const door = world.getEntity(items.airlockDoor);
+        if (door) {
+          const lock = door.get(LockableTrait);
+          const open = door.get(OpenableTrait);
+          if (lock) {
+            lock.isLocked = true;
+            lock.lockedMessage = "The airlock seal is compromised. Hard vacuum on the other side. You'd need an EVA suit to cross back.";
+          }
+          if (open) open.isOpen = false;
+        }
+
+        // Update viewport descriptions
+        const vpId = getSceneryId('tug-viewport');
+        if (vpId) {
+          const vp = world.getEntity(vpId);
+          if (vp) {
+            const id = vp.get(IdentityTrait);
+            if (id) {
+              if (world.getStateValue(StateKeys.DOCKING_BRAKED)) {
+                id.description = 'Through the viewport: your tug, still docked. But frost is forming on the docking junction. The seal is gone.';
+              } else {
+                id.description = 'Through the viewport: empty space where your tug used to be. Nothing but stars.';
+              }
+            }
+          }
+        }
+
+        // Update inspection window description
+        const winId = getSceneryId('inspection-window');
+        if (winId) {
+          const win = world.getEntity(winId);
+          if (win) {
+            const id = win.get(IdentityTrait);
+            if (id) {
+              if (world.getStateValue(StateKeys.DOCKING_BRAKED)) {
+                id.description = 'Through the window: the docking junction, frosted with ice crystals. Your tug is still there, but the seal is compromised. Vacuum between you and it.';
+              } else {
+                id.description = 'Through the window: the docking clamp, sheared and empty. Your tug is gone. A few fragments of metal drift in the void.';
+              }
+            }
+          }
+        }
+
+        // Choose message based on braked flag
+        if (world.getStateValue(StateKeys.DOCKING_BRAKED)) {
+          return [{ type: 'game.message', data: { messageId: Msg.SEAL_DEGRADE_STAYS } } as any];
+        } else {
+          return [{ type: 'game.message', data: { messageId: Msg.SEAL_DEGRADE_DRIFTS } } as any];
+        }
+      }
+
+      return [];
+    },
+  };
+}
+
+// ============================================================================
+// BAD SEAL DEATH — handles escalating warnings and death at airlock
+// ============================================================================
+
+function createBadSealPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin {
+  return {
+    id: 'story.bad-seal',
+    priority: 10,
+    onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
+      const world = ctx.world;
+      const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
+      if (dockState !== 'sealed') return [];
+      if (world.getStateValue(StateKeys.DOCKING_CHECKED_PRESSURE)) return [];
+      if (world.getStateValue(StateKeys.PLAYER_BOARDED)) return [];
+
+      const actionId = (ctx as any).actionResult?.actionId;
+      const success = (ctx as any).actionResult?.success;
+
+      // Detect failed going action (blocked by locked airlock door)
+      if (actionId === 'if.action.going' && !success) {
+        const playerLoc = world.getLocation(world.getPlayer()!.id);
+        if (playerLoc === rooms.tugCockpit) {
+          const count = (world.getStateValue(StateKeys.BAD_SEAL_WARNING_COUNT) as number) || 0;
+          if (count === 0) {
+            // First attempt — show warning (lock message already shown by engine), arm for death
+            world.setStateValue(StateKeys.BAD_SEAL_WARNING_COUNT, 1);
+            // Unlock and open the door so the NEXT attempt goes through
+            const door = world.getEntity(items.airlockDoor);
+            if (door) {
+              const lock = door.get(LockableTrait);
+              const open = door.get(OpenableTrait);
+              if (lock) lock.isLocked = false;
+              if (open) open.isOpen = true;
+            }
+            world.setStateValue(StateKeys.SEAL_DEATH_ARMED, true);
+            return [];
+          }
+        }
+      }
+
+      // Detect player entering airlock with death armed
+      if (world.getStateValue(StateKeys.SEAL_DEATH_ARMED)) {
+        const playerLoc = world.getLocation(world.getPlayer()!.id);
+        if (playerLoc === rooms.airlock) {
+          return [
+            { type: 'game.message', data: { messageId: Msg.BAD_SEAL_DEATH } } as any,
+            { type: 'game.ended', data: { reason: 'death' } } as any,
+          ];
+        }
+      }
+
+      return [];
+    },
+  };
+}
+
+// ============================================================================
+// BOARDING DETECTION — sets PLAYER_BOARDED when entering the Stillwater
+// ============================================================================
+
+function createBoardingPlugin(rooms: RoomIds): TurnPlugin {
+  return {
+    id: 'story.boarding',
+    priority: 8,
+    onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
+      const world = ctx.world;
+      if (world.getStateValue(StateKeys.PLAYER_BOARDED)) return [];
+
+      const playerLoc = world.getLocation(world.getPlayer()!.id);
+      // Player enters the airlock or forward corridor = boarded
+      if (playerLoc === rooms.airlock || playerLoc === rooms.forwardCorridor) {
+        world.setStateValue(StateKeys.PLAYER_BOARDED, true);
+        const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+        world.setStateValue(StateKeys.BOARDING_TURN, turn);
       }
       return [];
     },
@@ -216,6 +492,39 @@ function createDescriptionPlugin(items: ItemIds, rooms: RoomIds): TurnPlugin {
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
       const world = ctx.world;
 
+      // Airlock door locked message varies by docking state
+      const aDoor = world.getEntity(items.airlockDoor);
+      if (aDoor) {
+        const lock = aDoor.get(LockableTrait);
+        if (lock && lock.isLocked) {
+          const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
+          if (dockState === 'approach') {
+            lock.lockedMessage = "The airlock is sealed. You need to complete the docking sequence first.";
+          } else if (dockState === 'maneuvered') {
+            lock.lockedMessage = "The docking arm isn't connected yet. You need to extend it and seal the airlock.";
+          } else if (dockState === 'connected') {
+            lock.lockedMessage = "The airlock isn't pressurized. You need to seal it first.";
+          }
+          // 'sealed' with bad pressure has its own lockedMessage set by the action
+        }
+      }
+
+      // Cockpit description updates after alarm silenced
+      const cockpit = world.getEntity(rooms.tugCockpit);
+      if (cockpit && world.getStateValue(StateKeys.ALARM_SILENCED)) {
+        const id = cockpit.get(IdentityTrait);
+        if (id) {
+          const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
+          if (dockState === 'sealed') {
+            id.description = 'The cockpit is quiet. Instruments show a stable dock. The airlock door to the south is ready.';
+          } else if (dockState === 'approach') {
+            id.description = "A cramped cockpit. The alarm is off but the silence is worse. Through the viewport, a massive hull — Meridian Solutions corporate freighter. Getting closer. You need to dock.";
+          } else {
+            id.description = "A cramped cockpit. Docking in progress. The Stillwater's hull fills the viewport.";
+          }
+        }
+      }
+
       // Captain's desk description
       const desk = world.getEntity(items.captainsDesk);
       if (desk) {
@@ -248,7 +557,13 @@ function createDescriptionPlugin(items: ItemIds, rooms: RoomIds): TurnPlugin {
         const vp = world.getEntity(vpId);
         if (vp) {
           const id = vp.get(IdentityTrait);
-          if (id) id.description = 'Through the viewport: black nothing. Stars. No tug. No rescue. Nothing.';
+          if (id) {
+            if (world.getStateValue(StateKeys.DOCKING_BRAKED)) {
+              id.description = 'Through the viewport: your tug, still docked to the hull. Frost on the docking junction. No way back without a suit.';
+            } else {
+              id.description = 'Through the viewport: black nothing. Stars. Your tug is gone. Nothing.';
+            }
+          }
         }
       }
 
@@ -307,7 +622,13 @@ export function createPlugins(
 ): TurnPlugin[] {
   return [
     createTurnCounterPlugin(),
-    createTugDetachPlugin(rooms, items),
+    createMemoryPlugin(),
+    createAlarmUrgencyPlugin(rooms),
+    createAlarmFusePlugin(rooms),
+    createViewportPlugin(rooms),
+    createBoardingPlugin(rooms),
+    createSealDegradationPlugin(rooms, items),
+    createBadSealPlugin(rooms, items),
     createNpcProgressionPlugin(npcs, rooms),
     createAtmospherePlugin(rooms),
     createRadiationPlugin(rooms),

@@ -15,6 +15,7 @@ import {
 import type { ActionInterceptor } from '@sharpee/world-model';
 import {
   ItemIds, RoomIds, Msg, StateKeys, ScoreIds, getPropId,
+  MemoryTrait, getMemory,
 } from './types';
 import { pryOpenDesk } from './actions';
 
@@ -109,5 +110,6 @@ export function getInterceptors(
         },
       },
     },
+
   ];
 }

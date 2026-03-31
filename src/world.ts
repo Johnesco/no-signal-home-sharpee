@@ -22,7 +22,7 @@ import {
   LightSourceTrait,
 } from '@sharpee/world-model';
 import {
-  RoomIds, ItemIds, ShipPropTrait, TerminalTrait, HazardTrait,
+  RoomIds, ItemIds, ShipPropTrait, TerminalTrait, HazardTrait, MemoryTrait,
 } from './types';
 
 // ============================================================================
@@ -72,12 +72,22 @@ function createSceneryEntity(
 // ============================================================================
 
 export function createRooms(world: WorldModel): RoomIds {
+  // ----- TUG (2 rooms) -----
+
+  const tugCargoHold = world.createEntity('Tug Cargo Hold', EntityType.ROOM);
+  tugCargoHold.add(new IdentityTrait({
+    name: 'Tug Cargo Hold',
+    description: "Dark — but a strobing red light pulses from somewhere south. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, south of here.",
+    properName: true,
+  }));
+  tugCargoHold.add(new RoomTrait());
+
   // ----- LOWER DECK (13 rooms) -----
 
   const tugCockpit = world.createEntity('Tug Cockpit', EntityType.ROOM);
   tugCockpit.add(new IdentityTrait({
     name: 'Tug Cockpit',
-    description: 'A cramped salvage tug cockpit. Instrument panels line the curved walls, most of them dark. The viewport shows the hull of a massive freighter — The Stillwater — filling your entire field of view. A hatch leads south to the airlock.',
+    description: 'A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.',
     properName: true,
   }));
   tugCockpit.add(new RoomTrait());
@@ -280,8 +290,11 @@ export function createRooms(world: WorldModel): RoomIds {
 
   // ----- ROOM CONNECTIONS -----
 
-  // Lower Deck
-  world.connectRooms(tugCockpit.id, airlock.id, Direction.SOUTH);
+  // Tug
+  world.connectRooms(tugCargoHold.id, tugCockpit.id, Direction.SOUTH);
+
+  // Lower Deck — cockpit to airlock starts disconnected (sealed until docking complete)
+  // world.connectRooms(tugCockpit.id, airlock.id, Direction.SOUTH); -- wired dynamically by docking state
   world.connectRooms(airlock.id, forwardCorridor.id, Direction.SOUTH);
   world.connectRooms(forwardCorridor.id, cargoBay.id, Direction.SOUTH);
   world.connectRooms(forwardCorridor.id, maintenanceShaft.id, Direction.EAST);
@@ -319,6 +332,7 @@ export function createRooms(world: WorldModel): RoomIds {
   // Bridge — gated by keycard (connected via door below)
 
   return {
+    tugCargoHold: tugCargoHold.id,
     tugCockpit: tugCockpit.id,
     airlock: airlock.id,
     forwardCorridor: forwardCorridor.id,
@@ -364,7 +378,7 @@ export function createItems(world: WorldModel, rooms: RoomIds): ItemIds {
   }));
   flashlight.add(new SwitchableTrait({ isOn: true }));
   flashlight.add(new LightSourceTrait({ brightness: 3, isLit: true }));
-  world.moveEntity(flashlight.id, rooms.tugCockpit);
+  world.moveEntity(flashlight.id, rooms.tugCargoHold);
 
   const rationBar = world.createEntity('ration bar', EntityType.ITEM);
   rationBar.add(new IdentityTrait({
@@ -374,7 +388,7 @@ export function createItems(world: WorldModel, rooms: RoomIds): ItemIds {
     adjectives: ['ration'],
     article: 'a',
   }));
-  world.moveEntity(rationBar.id, rooms.tugCockpit);
+  world.moveEntity(rationBar.id, rooms.tugCargoHold);
 
   const multitool = world.createEntity('multi-tool', EntityType.ITEM);
   multitool.add(new IdentityTrait({
@@ -506,19 +520,32 @@ export function createItems(world: WorldModel, rooms: RoomIds): ItemIds {
 
   // === DOORS ===
 
-  // Airlock door (cosmetic — opens/closes but not locked)
+  // Airlock door (locked until docking SEALED — gates cockpit↔airlock)
   const airlockDoor = world.createEntity('airlock door', EntityType.DOOR);
   airlockDoor.add(new IdentityTrait({
     name: 'airlock door',
-    description: 'A heavy pressure door between the tug and The Stillwater. It seals with a hydraulic hiss.',
+    description: 'A heavy pressure door between the tug and The Stillwater.',
     aliases: ['pressure door', 'hatch'],
     adjectives: ['airlock', 'pressure', 'heavy'],
     article: 'the',
   }));
-  airlockDoor.add(new OpenableTrait({ isOpen: true }));
+  airlockDoor.add(new OpenableTrait({ isOpen: false }));
+  airlockDoor.add(new LockableTrait({
+    isLocked: true,
+    lockedMessage: "The airlock is sealed. You need to complete the docking sequence first.",
+  }));
   airlockDoor.add(new DoorTrait({ room1: rooms.tugCockpit, room2: rooms.airlock }));
   airlockDoor.add(new SceneryTrait());
-  world.moveEntity(airlockDoor.id, rooms.airlock);
+  airlockDoor.add(new ShipPropTrait('airlock-door'));
+  world.moveEntity(airlockDoor.id, rooms.tugCockpit);
+
+  // Wire cockpit↔airlock exit via door (manually, like bridge door)
+  const cockpitEntity = world.getEntity(rooms.tugCockpit);
+  const airlockRoomEntity = world.getEntity(rooms.airlock);
+  const ckRoom = cockpitEntity?.get(RoomTrait);
+  const alRoom = airlockRoomEntity?.get(RoomTrait);
+  if (ckRoom) ckRoom.exits[Direction.SOUTH] = { destination: rooms.airlock, via: airlockDoor.id };
+  if (alRoom) alRoom.exits[Direction.NORTH] = { destination: rooms.tugCockpit, via: airlockDoor.id };
 
   // Bridge door (locked by keycard)
   const bridgeDoor = world.createEntity('bridge door', EntityType.DOOR);
@@ -657,13 +684,55 @@ export function createItems(world: WorldModel, rooms: RoomIds): ItemIds {
 // ============================================================================
 
 export function createScenery(world: WorldModel, rooms: RoomIds, items: ItemIds): void {
+  // --- Tug Cargo Hold ---
+  const shippingCrates = createSceneryEntity(world, 'shipping crates', rooms.tugCargoHold,
+    'Crates strapped to the walls, stenciled "DEEP REACH SALVAGE." Your crates. Your cargo.',
+    { aliases: ['crates', 'crate', 'containers', 'boxes'], adjectives: ['shipping'], article: 'the', grammaticalNumber: 'plural', propId: 'shipping-crates' });
+  shippingCrates.add(new MemoryTrait('if.action.examining', 'story.memory.crates'));
+
+  const bedroll = createSceneryEntity(world, 'bedroll', rooms.tugCargoHold,
+    "A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.",
+    { aliases: ['bed', 'sleeping pad', 'pad', 'hiding spot', 'sleeping spot'], adjectives: ['thin'], article: 'a', propId: 'bedroll' });
+  bedroll.add(new MemoryTrait('if.action.examining', 'story.memory.bedroll'));
+
+  const datapad = createSceneryEntity(world, 'datapad', rooms.tugCargoHold,
+    'A salvage manifest on a scratched screen. Last entry: "LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN."',
+    { aliases: ['manifest', 'pad', 'screen', 'tablet', 'data pad'], adjectives: ['salvage'], article: 'a', propId: 'datapad' });
+  datapad.add(new ReadableTrait({
+    text: 'DEEP REACH SALVAGE — MANIFEST\n\nCargo: Misc. salvage (unsorted)\nDestination: Kovac Freeport\nFuel: CRITICAL — 3%\nStatus: DRIFT MODE\nNotes: "Fuel ran out past the Kepler relay. Nothing in range. Engaged drift mode, set proximity alarm. If something comes close enough, maybe I can dock and scavenge fuel. If not — well. It was a good run."',
+    isReadable: true,
+  }));
+  datapad.add(new MemoryTrait('if.action.examining', 'story.memory.datapad'));
+
   // --- Tug Cockpit ---
   createSceneryEntity(world, 'instrument panels', rooms.tugCockpit,
-    'Dark instrument panels. The tug is on minimal power — life support only.',
-    { aliases: ['panels', 'instruments', 'controls', 'console'], adjectives: ['instrument', 'dark'], article: 'the', grammaticalNumber: 'plural' });
+    'Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.',
+    { aliases: ['panels', 'instruments', 'console'], adjectives: ['instrument', 'amber'], article: 'the', grammaticalNumber: 'plural' });
   createSceneryEntity(world, 'tug viewport', rooms.tugCockpit,
-    "Through the viewport, The Stillwater's hull fills your view. A corporate freighter, massive and dark. No running lights.",
+    "Through the viewport, The Stillwater's hull fills your view. A corporate freighter, massive and dark. No running lights. Getting closer.",
     { aliases: ['viewport', 'window', 'view', 'porthole'], adjectives: ['tug'], article: 'the', propId: 'tug-viewport' });
+
+  createSceneryEntity(world, 'alarm button', rooms.tugCockpit,
+    'A big red button set into the console, strobing in time with the alarm. The proximity alarm override.',
+    { aliases: ['button', 'red button', 'proximity alarm', 'alarm'], adjectives: ['red', 'alarm', 'big', 'proximity'], article: 'the', propId: 'alarm-button' });
+
+  createSceneryEntity(world, 'docking controls', rooms.tugCockpit,
+    'Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.',
+    { aliases: ['controls', 'joystick', 'throttle', 'docking panel', 'docking console'], adjectives: ['docking', 'manual'], article: 'the', propId: 'docking-controls' });
+
+  const fuelGauge = createSceneryEntity(world, 'fuel gauge', rooms.tugCockpit,
+    'Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.',
+    { aliases: ['gauge', 'fuel', 'fuel indicator', 'fuel reading'], adjectives: ['fuel'], article: 'the', propId: 'fuel-gauge' });
+  fuelGauge.add(new MemoryTrait('if.action.examining', 'story.memory.fuel'));
+
+  const tugComms = createSceneryEntity(world, 'comms system', rooms.tugCockpit,
+    'Your comms rig. The display reads: "NO SIGNAL." Too far from any relay. No one knows you\'re here.',
+    { aliases: ['comms', 'radio', 'communications', 'comm', 'comms rig'], adjectives: ['comms', 'tug'], article: 'the', propId: 'tug-comms' });
+  tugComms.add(new MemoryTrait('if.action.examining', 'story.memory.comms'));
+
+  createSceneryEntity(world, "pilot's seat", rooms.tugCockpit,
+    "Worn cushion, fraying straps. You've sat here for thousands of hours. It smells like recycled air and bad coffee.",
+    { aliases: ['seat', 'chair', 'pilot seat'], adjectives: ["pilot's", 'worn'], article: 'the' });
 
   // --- Airlock ---
   createSceneryEntity(world, 'biohazard sign', rooms.airlock,
@@ -675,6 +744,14 @@ export function createScenery(world: WorldModel, rooms: RoomIds, items: ItemIds)
   createSceneryEntity(world, 'emergency locker', rooms.airlock,
     'A wall-mounted emergency locker. The door hangs open. Inside: empty brackets where equipment used to be.',
     { aliases: ['locker', 'cabinet', 'emergency cabinet'], adjectives: ['emergency', 'wall-mounted'], article: 'an' });
+
+  createSceneryEntity(world, 'inspection window', rooms.airlock,
+    'A small reinforced window in the airlock hull. Through it, you can see the docking junction and a sliver of space beyond.',
+    { aliases: ['window', 'porthole', 'viewport', 'glass'], adjectives: ['inspection', 'reinforced', 'small'], article: 'an', propId: 'inspection-window' });
+
+  createSceneryEntity(world, 'claw marks', rooms.airlock,
+    'Deep gouges along the inner door frame. Something — someone — clawed at this door from inside. Hard enough to score metal.',
+    { aliases: ['marks', 'scratches', 'gouges', 'claw'], adjectives: ['claw'], article: 'the', grammaticalNumber: 'plural' });
 
   // --- Forward Corridor ---
   createSceneryEntity(world, 'overhead pipes', rooms.forwardCorridor,

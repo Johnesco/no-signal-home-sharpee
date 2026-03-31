@@ -16,6 +16,8 @@ import type { ISemanticEvent } from '@sharpee/core';
 // ============================================================================
 
 export interface RoomIds {
+  // Tug (2)
+  tugCargoHold: string;
   // Lower Deck (13)
   tugCockpit: string;
   airlock: string;
@@ -87,7 +89,7 @@ export const config: StoryConfig = {
   author: 'John Googol',
   version: '1.0.0',
   description:
-    'A sci-fi salvage horror text adventure on a derelict corporate freighter. You are a stowaway convict trapped aboard The Stillwater as it wakes from the dead.',
+    'A sci-fi salvage horror text adventure on a derelict corporate freighter. You are a grey-market salvager who drifted into range of The Stillwater after running low on fuel.',
 };
 
 // ============================================================================
@@ -208,6 +210,37 @@ export const Msg = {
   ENDING_OVERRIDE: 'story.ending.override',
   ENDING_MERGE: 'story.ending.merge',
 
+  // --- Opening sequence ---
+  ALARM_BLOCKED_CARGO: 'story.alarm.blocked_cargo',
+  ALARM_BLOCKED_COCKPIT: 'story.alarm.blocked_cockpit',
+  ALARM_SILENCED: 'story.alarm.silenced',
+  ALARM_ALREADY_OFF: 'story.alarm.already_off',
+  ALARM_COLLISION_DEATH: 'story.alarm.collision_death',
+  COLLISION_DEATH: 'story.collision.death',
+  DOCK_NEED_EXAMINE: 'story.dock.need_examine',
+  DOCK_CONTROLS_EXAMINED: 'story.dock.controls_examined',
+  DOCK_MANEUVER: 'story.dock.maneuver',
+  DOCK_BRAKE: 'story.dock.brake',
+  DOCK_CONNECT: 'story.dock.connect',
+  DOCK_CHECK_PRESSURE: 'story.dock.check_pressure',
+  DOCK_SEAL_GOOD: 'story.dock.seal_good',
+  DOCK_SEAL_WARNING: 'story.dock.seal_warning',
+  DOCK_NOT_MANEUVERED: 'story.dock.not_maneuvered',
+  DOCK_NOT_CONNECTED: 'story.dock.not_connected',
+  DOCK_ALREADY_DONE: 'story.dock.already_done',
+  DOCK_EXIT_APPROACH: 'story.dock.exit_approach',
+  DOCK_EXIT_MANEUVERED: 'story.dock.exit_maneuvered',
+  DOCK_EXIT_CONNECTED: 'story.dock.exit_connected',
+  BAD_SEAL_WARNING: 'story.seal.bad_warning',
+  BAD_SEAL_DEATH: 'story.seal.bad_death',
+  SEAL_DEGRADE_STAYS: 'story.seal.degrade_stays',
+  SEAL_DEGRADE_DRIFTS: 'story.seal.degrade_drifts',
+  TUG_RETURN_BLOCKED: 'story.tug.return_blocked',
+  VIEWPORT_STAGE_1: 'story.viewport.stage1',
+  VIEWPORT_STAGE_2: 'story.viewport.stage2',
+  VIEWPORT_STAGE_3: 'story.viewport.stage3',
+  VIEWPORT_STAGE_4: 'story.viewport.stage4',
+
   // --- Atmosphere / timed ---
   SHIP_CREAK: 'story.atmosphere.creak',
   REACTOR_WARMING: 'story.reactor.warming',
@@ -288,6 +321,18 @@ export const StateKeys = {
   DESK_OPENED: 'desk-opened',
   TURN_COUNT: 'turn-count',
   SURVIVORS_READY: 'survivors-ready',
+  // Opening sequence
+  ALARM_ACTIVE: 'alarm-active',
+  ALARM_SILENCED: 'alarm-silenced',
+  DOCKING_STATE: 'docking-state',       // 'approach' | 'maneuvered' | 'connected' | 'sealed'
+  DOCKING_BRAKED: 'docking-braked',
+  DOCKING_CHECKED_PRESSURE: 'docking-checked-pressure',
+  DOCKING_CONTROLS_EXAMINED: 'docking-controls-examined',
+  BAD_SEAL_WARNING_COUNT: 'bad-seal-warning-count',
+  PLAYER_BOARDED: 'player-boarded',
+  BOARDING_TURN: 'boarding-turn',
+  COLLISION_FUSE_START: 'collision-fuse-start',  // turn when post-alarm fuse starts
+  SEAL_DEATH_ARMED: 'seal-death-armed',          // bad seal: door unlocked, next crossing = death
 } as const;
 
 // ============================================================================
@@ -336,6 +381,26 @@ export class HazardTrait implements ITrait {
     this.hazardType = hazardType;
     this.severity = severity;
   }
+}
+
+/**
+ * First-interaction flavor text. Fires once per entity on specified trigger action.
+ */
+export class MemoryTrait implements ITrait {
+  static readonly type = 'story.memory' as const;
+  readonly type = MemoryTrait.type;
+  trigger: string;   // action ID that triggers the memory, e.g. 'if.action.examining'
+  messageId: string;  // language key for the memory text
+  recalled: boolean;
+  constructor(trigger: string, messageId: string) {
+    this.trigger = trigger;
+    this.messageId = messageId;
+    this.recalled = false;
+  }
+}
+
+export function getMemory(entity: IFEntity): MemoryTrait | undefined {
+  return entity.get(MemoryTrait.type) as MemoryTrait | undefined;
 }
 
 // ============================================================================

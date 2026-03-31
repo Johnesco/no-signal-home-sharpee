@@ -11,7 +11,7 @@
 **Project Board:** https://github.com/users/Johnesco/projects/4
 
 ## Project Context
-This is a Sharpee interactive fiction game (TypeScript). It's a sci-fi salvage horror set on a derelict corporate freighter called The Stillwater. The player is a stowaway convict (smuggler/hacker) trapped aboard.
+This is a Sharpee interactive fiction game (TypeScript). It's a sci-fi salvage horror set on a derelict corporate freighter called The Stillwater. The player is a grey-market salvager who drifted into range of the derelict after running low on fuel during a long haul. They dock their tug, board to scavenge, and the tug fails — trapping them aboard.
 
 ## Design Documents
 All design docs are in `docs/`:

@@ -43,22 +43,30 @@ Also bad:
 
 ## PC Voice
 
-The player character doesn't talk much at first. As they examine things, memories and reactions surface.
+The player character is a salvager — a loner who lives on their ship and picks through what corporations leave behind. They don't talk much at first. As they examine things, observations and memories surface. They notice what a salvager would notice: cargo markings, ship condition, what's been touched and what hasn't, what's worth taking.
 
-**Early game (sparse):**
+**Early game (sparse, practical):**
 > You take the wrench. Heavy. Good.
+
+**Early game (on the tug, waking up):**
+> Three percent fuel. That's what you get for drifting. At least you're alive. Mostly.
 
 **Mid game (personality emerging):**
 > The corporate logo is stamped on everything. Even the toilet paper dispenser. Of course it is.
 
-**Late game (memories surfacing):**
-> The manifest lists cargo weights in standard tons. You used to run numbers like these. Different cargo, same lies.
+**Mid game (salvager instincts):**
+> The nav console is a Meridian KR-9. You've pulled three of these from wrecks. They're worth six months of fuel on the grey market. This one's still running.
+
+**Late game (it gets personal):**
+> The manifest lists cargo weights in standard tons. You've moved cargo like this. Different ships, same lies. But never this. Never people.
 
 **Rules:**
 - Never force backstory — let it emerge through objects and situations
 - Dry, not sarcastic. Dark humor, not comedy.
 - Short observations, not monologues
-- The PC is competent — they notice things a smuggler/hacker would notice
+- The PC is competent — they notice things a salvager would notice (ship systems, cargo value, security bypasses, what's been jury-rigged)
+- The PC is a loner — they don't miss company, but they notice when things are built for crews (bunks, mess halls, common areas)
+- The tug is home — any reference to it should carry weight
 
 ## NPC Dialogue
 

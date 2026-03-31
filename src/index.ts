@@ -21,7 +21,7 @@ import {
 import { NpcPlugin } from '@sharpee/plugin-npc';
 import type { Parser } from '@sharpee/parser-en-us';
 import type { LanguageProvider } from '@sharpee/lang-en-us';
-import { config, ShipPropTrait, StateKeys, MAX_SCORE } from './types';
+import { config, ShipPropTrait, MemoryTrait, StateKeys, MAX_SCORE } from './types';
 import type { RoomIds, ItemIds, NpcIds } from './types';
 export { config } from './types';
 import { createRooms, createItems, createScenery } from './world';
@@ -53,7 +53,7 @@ export class NoSignalHomeStory implements Story {
       new IdentityTrait({
         name: 'yourself',
         aliases: ['self', 'me', 'myself'],
-        description: "You're a smuggler and hacker who stowed away on a salvage tug to escape a prison transport. Average build, quick hands, quicker mind. Currently trapped on a ship full of someone else's problems.",
+        description: "Grey-market salvager. You crack cargo manifests, bypass security locks, and strip derelicts for parts. Everything you own is jury-rigged, including this tug. Quick hands, quicker mind. Currently running on fumes next to a ship that shouldn't exist.",
         properName: true,
       }),
     );
@@ -106,6 +106,19 @@ export class NoSignalHomeStory implements Story {
     world.setStateValue(StateKeys.DESK_OPENED, false);
     world.setStateValue(StateKeys.TURN_COUNT, 0);
 
+    // Opening sequence state
+    world.setStateValue(StateKeys.ALARM_ACTIVE, true);
+    world.setStateValue(StateKeys.ALARM_SILENCED, false);
+    world.setStateValue(StateKeys.DOCKING_STATE, 'approach');
+    world.setStateValue(StateKeys.DOCKING_BRAKED, false);
+    world.setStateValue(StateKeys.DOCKING_CHECKED_PRESSURE, false);
+    world.setStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED, false);
+    world.setStateValue(StateKeys.BAD_SEAL_WARNING_COUNT, 0);
+    world.setStateValue(StateKeys.PLAYER_BOARDED, false);
+    world.setStateValue(StateKeys.BOARDING_TURN, 0);
+    world.setStateValue(StateKeys.COLLISION_FUSE_START, 0);
+    world.setStateValue(StateKeys.SEAL_DEATH_ARMED, false);
+
     // Register interceptors with guard
     for (const { actionId, interceptor } of getInterceptors(this.items, this.rooms)) {
       if (!hasActionInterceptor(ShipPropTrait.type, actionId)) {
@@ -113,9 +126,22 @@ export class NoSignalHomeStory implements Story {
       }
     }
 
-    // Place player in tug cockpit
+    // Event chain: examining docking controls sets the gate flag
+    world.chainEvent('if.event.examined', (event) => {
+      const data = event.data as Record<string, any>;
+      if (!data.targetId) return null;
+      const target = world.getEntity(data.targetId);
+      if (!target) return null;
+      const propId = (target.get(ShipPropTrait.type) as any)?.propId;
+      if (propId === 'docking-controls' && !world.getStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED)) {
+        world.setStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED, true);
+      }
+      return null;  // pass through — don't replace the examine event
+    }, { key: 'story.chain.examine-controls' });
+
+    // Place player in tug cargo hold (starting room)
     const player = world.getPlayer()!;
-    world.moveEntity(player.id, this.rooms.tugCockpit);
+    world.moveEntity(player.id, this.rooms.tugCargoHold);
   }
 
   // =========================================================================

@@ -26,26 +26,31 @@
 
 ## THE PLAYER
 
-- Stowaway / convict — escaped prison transport by hiding on salvage tug
-- **Background:** Smuggler + hacker (knows ships, cargo systems, and digital systems)
-- **Backstory revealed through layers:** objects trigger memories, AI finds criminal record, internal monologue in relevant situations — all different sources reveal different parts
-- **Personality:** Emergent — starts sparse, builds through observations. Dark humor, dry commentary.
+- **Occupation:** Salvager, scavenger, grey-market pirate — deals in junk, derelicts, abandoned cargo, cracked data. Not violent, not legal. Survival work in a universe where corporations own everything.
+- **Background:** Knows ships because they live on one. Can hack because cracking cargo manifests and bypassing security locks is the job. Can jury-rig repairs because everything they own is jury-rigged. "Piracy of all kinds" — digital, physical, intellectual. Whatever pays.
+- **How they got here:** Long-haul transit across a large distance. Ship ran low on fuel (or coolant, or something critical). Couldn't make the next port. Made the drastic choice to drift — low-power sleep mode, hoping to encounter another ship or station. The proximity alarm woke them: they've drifted into range of a massive derelict. A corporate freighter. For a salvager, this is daily work — except the scale is enormous and nothing about it feels right.
+- **The tug is theirs.** Not stolen, not borrowed. Their ship, their home. Beat-up, patched, held together with stubbornness. Losing it later is personal.
+- **Personality:** Loner by nature. Sparse, dry, dark humor. Not chatty. Competent and observant — they notice things a salvager would notice (cargo markings, ship condition, what's been touched and what hasn't).
+- **Backstory revealed through layers:** Objects trigger observations and memories. The AI may dig into shipping records or port authority logs. Internal monologue surfaces in relevant situations. All different sources reveal different parts. None of it is forced — curiosity is rewarded, not required.
+- **Meridian connection:** Not personal. They've scavenged Meridian junk before — everyone has, it's a huge corporation. They recognize the branding the way you'd recognize a logo on a dumpster. It becomes personal when they discover what's actually on this ship.
 - **Infection risk:** Player CAN get infected, adds urgency
-- **Salvage tug:** Still docked but damaged — repairing it is an endgame path
+- **Salvage tug:** Their own ship, docked but later fails — repairing it is an endgame path
 
 ---
 
 ## PLOT BEATS
 
 ### ACT 1: ARRIVAL (Early Game)
-**Goal:** Explore, orient, restore basic systems, find bearings, meet first survivors
+**Goal:** Wake up, dock with the derelict, explore, meet first survivors
 
-1. **Opening:** Player wakes up in salvage tug's cargo hold, docked with the Stillwater
-2. **Early exploration:** Figure out where you are, find basic supplies, discover the ship's name and corporate owner
-3. **THE HOOK:** The tug detaches — you hear it go. Your way out just left. Now what?
-4. **Restore systems:** Power, doors, basic life support — ship is mostly dark and locked
-5. **Meet the Engineer** (first NPC): Helpful, knows the ship, currently NORMAL (stage 1 of infection). Tragic because you'll watch them decline.
-6. **Meet the Corporate Officer** (second NPC, early): Found barricaded in officers' quarters, won't open up easily. Info is accurate but motives are selfish. First quest: wants you to retrieve something from a dangerous area, trades info.
+1. **Wake:** Player wakes in the tug's cargo hold. Proximity alarm blaring. Drift mode ended — something massive nearby. Disoriented, cold, alone. Find flashlight, get bearings.
+2. **Orient:** Reach cockpit. Instruments tell the story — fuel critical, can't divert, a derelict corporate freighter filling the viewport. Nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT." For a salvager, this is daily work. Except the scale is wrong and nothing about it feels right.
+3. **Dock:** First puzzle. Two-phase timer: 10 turns to silence the alarm, then 20 turns to complete docking. Docking sequence (MANEUVER → CONNECT → SEAL) has two hidden quality checks: braking (determines if tug stays or drifts away) and checking pressure (determines if crossing the airlock is safe or fatal). Three possible deaths: alarm-on collision, post-alarm collision, bad seal decompression — all telegraphed.
+4. **Board:** Cross through the airlock onto The Stillwater. Biohazard warnings, claw marks on the door frame, silence. The game proper begins. (If pressure wasn't checked, crossing the airlock kills the player — telegraphed with 2 warnings.)
+5. **THE HOOK:** 2-3 turns after boarding, the seal gives way. If the player braked: tug stays docked but inaccessible (seal failed, need EVA suit). If they didn't brake: the impact stress shears the clamp, tug drifts away. Either way — their ship, their home, unreachable. For now.
+6. **Early exploration:** Figure out where you are, find basic supplies, discover the ship's name and corporate owner. Ship is mostly dark and locked.
+7. **Meet the Engineer** (first NPC): Helpful, knows the ship, currently NORMAL (stage 1 of infection). Tragic because you'll watch them decline.
+8. **Meet the Corporate Officer** (second NPC, early): Found barricaded in officers' quarters, won't open up easily. Info is accurate but motives are selfish. First quest: wants you to retrieve something from a dangerous area, trades info.
 
 ### ACT 2: DISCOVERY (Mid Game)
 **Goal:** Uncover what the Stillwater was doing, meet remaining NPCs, pathogen reveal builds

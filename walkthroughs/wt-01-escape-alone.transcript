@@ -4,11 +4,10 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 ---
 
-## Tug Cockpit — Starting location
+## Tug Cargo Hold — Starting location
 
 > look
-[OK: contains "Tug Cockpit"]
-[OK: contains "Stillwater"]
+[OK: contains "Tug Cargo Hold"]
 
 > take flashlight
 [OK: contains_any "Taken" "already"]
@@ -18,6 +17,32 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > inventory
 [OK: contains "flashlight"]
+
+## Opening sequence — dock with The Stillwater
+
+> south
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+
+> examine docking controls
+[OK: contains "docking"]
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> fire thrusters
+[OK: contains_any "brake" "decelerate" "slow"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+> check pressure
+[OK: contains_any "pressure" "green" "seal"]
+
+> seal
+[OK: contains_any "seal" "pressurize" "green"]
 
 ## Enter The Stillwater
 

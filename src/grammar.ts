@@ -23,6 +23,55 @@ export function extendParser(parser: Parser): void {
   // === STORY GRAMMAR PATTERNS ===
   const g = parser.getStoryGrammar();
 
+  // --- Press alarm button ---
+  g.define('press :target').mapsTo('story.action.pressing').withPriority(150).build();
+  g.define('push :target').mapsTo('story.action.pressing').withPriority(150).build();
+  g.define('hit :target').mapsTo('story.action.pressing').withPriority(150).build();
+  g.define('punch :target').mapsTo('story.action.pressing').withPriority(140).build();
+  g.define('press button').mapsTo('story.action.pressing').withPriority(155).build();
+  g.define('push button').mapsTo('story.action.pressing').withPriority(155).build();
+  g.define('silence alarm').mapsTo('story.action.pressing').withPriority(155).build();
+  g.define('turn off alarm').mapsTo('story.action.pressing').withPriority(155).build();
+  g.define('stop alarm').mapsTo('story.action.pressing').withPriority(155).build();
+
+  // --- Docking: Maneuver ---
+  g.define('maneuver').mapsTo('story.action.maneuvering').withPriority(150).build();
+  g.define('take controls').mapsTo('story.action.maneuvering').withPriority(155).build();
+  g.define('take helm').mapsTo('story.action.maneuvering').withPriority(155).build();
+  g.define('take the helm').mapsTo('story.action.maneuvering').withPriority(155).build();
+  g.define('take the controls').mapsTo('story.action.maneuvering').withPriority(155).build();
+  g.define('steer').mapsTo('story.action.maneuvering').withPriority(150).build();
+  g.define('pilot').mapsTo('story.action.maneuvering').withPriority(150).build();
+
+  // --- Docking: Brake ---
+  g.define('brake').mapsTo('story.action.braking').withPriority(150).build();
+  g.define('decelerate').mapsTo('story.action.braking').withPriority(150).build();
+  g.define('slow down').mapsTo('story.action.braking').withPriority(150).build();
+  g.define('fire thrusters').mapsTo('story.action.braking').withPriority(155).build();
+  g.define('reverse thrusters').mapsTo('story.action.braking').withPriority(155).build();
+  g.define('slow').mapsTo('story.action.braking').withPriority(140).build();
+
+  // --- Docking: Connect ---
+  g.define('extend arm').mapsTo('story.action.docking-connect').withPriority(155).build();
+  g.define('extend docking arm').mapsTo('story.action.docking-connect').withPriority(160).build();
+  g.define('dock').mapsTo('story.action.docking-connect').withPriority(150).build();
+  g.define('dock with ship').mapsTo('story.action.docking-connect').withPriority(155).build();
+  g.define('attach').mapsTo('story.action.docking-connect').withPriority(140).build();
+  g.define('latch on').mapsTo('story.action.docking-connect').withPriority(150).build();
+
+  // --- Docking: Check pressure ---
+  g.define('check pressure').mapsTo('story.action.checking-pressure').withPriority(155).build();
+  g.define('check seal').mapsTo('story.action.checking-pressure').withPriority(155).build();
+  g.define('verify seal').mapsTo('story.action.checking-pressure').withPriority(155).build();
+  g.define('test pressure').mapsTo('story.action.checking-pressure').withPriority(155).build();
+  g.define('verify pressure').mapsTo('story.action.checking-pressure').withPriority(155).build();
+
+  // --- Docking: Seal ---
+  g.define('seal').mapsTo('story.action.sealing').withPriority(150).build();
+  g.define('seal airlock').mapsTo('story.action.sealing').withPriority(155).build();
+  g.define('pressurize').mapsTo('story.action.sealing').withPriority(150).build();
+  g.define('pressurize airlock').mapsTo('story.action.sealing').withPriority(155).build();
+
   // --- Pry / Force open ---
   g.define('pry :target').mapsTo('story.action.prying').withPriority(150).build();
   g.define('pry open :target').mapsTo('story.action.prying').withPriority(150).build();

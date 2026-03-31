@@ -1,6 +1,20 @@
 # No Signal Home — Room Map
 
-## THE STILLWATER (25 rooms)
+## THE TUG (2 rooms) — Player's ship, where the game begins
+
+### 0. Tug Cargo Hold (Starting Room)
+- **Description:** Dark, cramped cargo space. Crates strapped to the walls. Cold. The hum of a failing engine somewhere below your feet. You've been sleeping in the gap between two shipping containers.
+- **Objects:** Flashlight (rolled under a pallet), ration bar, shipping crates (stenciled "DEEP REACH SALVAGE"), datapad/manifest (salvage target info), player's bedroll/hiding spot
+- **Exits:** South to Tug Cockpit
+- **Notes:** Player starts here, woken by proximity alarm. This is the tutorial space — teaches EXAMINE, TAKE, LOOK. Backstory through optional object examination (crates → your ship, manifest → autopilot destination, bedroll → you've been here a while). Items moved here from Tug Cockpit.
+
+### 1. Tug Cockpit
+- **Description:** Cramped cockpit. Instruments flash amber — the proximity alarm won't stop. Through the viewport, a massive dark hull fills your entire field of view. Your fuel gauge reads three percent.
+- **Objects:** Instrument panels, docking controls, fuel gauge, nav computer, comms system (dead — "no signal home" title drop), pilot's seat, tug viewport, proximity alarm button (big, red, flashing)
+- **Exits:** North to Tug Cargo Hold, South to Airlock (sealed until SEALED docking state; state-specific blocked messages before that)
+- **Notes:** State-reactive descriptions — instruments and viewport change as docking progresses. Docking puzzle happens here (MANEUVER → optional BRAKE → CONNECT → optional CHECK PRESSURE → SEAL). The nav computer identifies the derelict: "STILLWATER — Meridian Solutions — STATUS: DERELICT." Comms are dead. Fuel is critical. The only option is to dock.
+
+## THE STILLWATER (24 rooms)
 
 ### Vertical Connections
 - **Ladder:** Amidships — connects Lower Mid Corridor ↔ Mid Central Junction ↔ Upper Corridor
@@ -8,19 +22,13 @@
 
 ---
 
-## LOWER DECK (13 rooms) — Industrial, rough, where the game begins
-
-### 1. Tug Cockpit
-- **Description:** Cramped cockpit of the salvage tug you stowed away in. Instruments dark. Smells like recycled air and regret.
-- **Objects:** Flashlight (limited battery), ration bar
-- **Exits:** South to Airlock
-- **Notes:** Player starts here. After the tug detaches, trying to go back here could be interesting (viewport showing empty space where the docking arm was).
+## LOWER DECK (12 rooms) — Industrial, rough
 
 ### 2. Airlock
-- **Description:** Dim red emergency lighting. A faded corporate biohazard notice on the wall. Claw marks along the inner door frame. Silent.
-- **Objects:** Biohazard warning sign (examinable, first lore), emergency locker (empty or near-empty)
-- **Exits:** North to Tug Cockpit (until it detaches), south to Forward Corridor
-- **Notes:** First room on the Stillwater. Sets the tone.
+- **Description:** A cylindrical airlock chamber. Biohazard warning decals peel from the inner hull. Claw marks along the inner door frame. Emergency lighting casts everything in pale amber. Silent.
+- **Objects:** Biohazard warning sign (examinable, first Stillwater lore), emergency locker (empty or near-empty), airlock controls, inspection window (shows tug status post-boarding)
+- **Exits:** North to Tug Cockpit (blocked after seal degradation — need EVA suit), south to Forward Corridor
+- **Notes:** First room on The Stillwater. Sets the tone. Starts sealed — opens after SEALED docking state. Crossing checks `checkedPressure` flag: bad seal = telegraphed death (2 warnings). After 2-3 turns on Stillwater, seal degrades — north exit blocked. Tug visible through inspection window (frosted glass if braked/stayed; empty space if didn't brake/drifted away).
 
 ### 3. Forward Corridor
 - **Description:** Long corridor stretching aft. Overhead panels hang loose. Floor plates rattle underfoot.

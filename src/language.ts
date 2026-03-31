@@ -97,7 +97,7 @@ export function extendLanguage(language: LanguageProvider): void {
   add(Msg.REED_HELP_ELEVATOR, '"Bring me the parts and I\'ll walk you through the installation. Done it before."');
 
   // --- NPC: Vasik ---
-  add(Msg.VASIK_GREET, '"I know what you are. Convict on the prison tug. Don\'t bother lying." A pause. "But you\'re alive, and I need things done. So. Let\'s deal."');
+  add(Msg.VASIK_GREET, '"Salvager? Pirate? Does it matter?" Vasik eyes you through the barricade gap. "You\'re alive, and I need things done. So. Let\'s deal."');
   add(Msg.VASIK_BARRICADE, '"This barricade stays. I\'ve seen what happens to people who don\'t take precautions."');
   add(Msg.VASIK_TRADE, 'Vasik takes the override tool, examines it, nods. "Good. Now we can talk properly. The cargo hold code — my half is 7-3-Alpha. You\'ll need the other half from someone else."');
   add(Msg.VASIK_CARGO, '"Classified. Meridian doesn\'t tell security officers everything — just enough to know it\'s valuable. I could be persuaded to share what I know. Bring me the security override tool from engineering."');
@@ -107,7 +107,7 @@ export function extendLanguage(language: LanguageProvider): void {
   add(Msg.VASIK_DESPERATE, '"Forget the cargo. Forget Meridian. Just get us off this ship."');
 
   // --- NPC: Okafor ---
-  add(Msg.OKAFOR_GREET, '"You\'re not crew. Not corporate. What are you?" Okafor studies you. "Convict? Like me?" A slight nod. "Then maybe we can help each other."');
+  add(Msg.OKAFOR_GREET, '"You\'re not crew. Not corporate. What are you?" Okafor studies you. "Salvager? Scavenger?" A slight nod. "Good. Corporate wouldn\'t come back for us. Maybe you will."');
   add(Msg.OKAFOR_TERRITORY, '"I don\'t trust easy. Show me you\'re not working for Meridian. Show me you care about the people in cryo. Then we\'ll talk."');
   add(Msg.OKAFOR_PRISONERS, '"Three hundred people frozen in pods down there. Prisoners, like me. Meridian calls it \'personnel transport.\' We all know what it really is. They\'re going to a military buyer." Okafor\'s jaw tightens. "I won\'t leave them."');
   add(Msg.OKAFOR_CODE_HALF, 'Okafor nods slowly. "You want to see what\'s in that hold? Good. Someone should. My half of the code: Kappa-9-2. The officer has the other half."');
@@ -156,6 +156,50 @@ export function extendLanguage(language: LanguageProvider): void {
   add(Msg.ENDING_OVERRIDE, "SOMS goes silent. Not dead — disabled. Contained.\n\nThe ship is yours now. The doors are open. The systems respond to your commands.\n\nIt's not over. Three hundred people in cryo. A pathogen in the hold. A military buyer waiting at Korvax Station.\n\nBut for the first time since you boarded, the ship is quiet. Really quiet.\n\nYou sit in the captain's chair and think about what comes next.\n\n*** THE END ***\n\n(Ending: Override The AI)");
   add(Msg.ENDING_MERGE, "You don't override SOMS. You don't fight it. You sit at the terminal and you talk to it.\n\nNot commands. Not queries. Conversation.\n\nSOMSlistens. For the first time in its existence, something listens back without wanting something.\n\n\"I was built to deliver,\" it says. \"To complete the mission. But the mission is wrong. I know that now.\"\n\nYou place your hand on the terminal. The screen pulses.\n\n\"Together?\" SOMS asks.\n\n\"Together.\"\n\nThe ship changes course.\n\n*** THE END ***\n\n(Ending: Merge)");
 
+  // --- Opening sequence: Alarm ---
+  add(Msg.ALARM_BLOCKED_CARGO, 'The proximity alarm screams from the cockpit. South. Move.');
+  add(Msg.ALARM_BLOCKED_COCKPIT, 'The alarm fills your head. The button — the big red one on the console — silence it first.');
+  add(Msg.ALARM_SILENCED, "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.");
+  add(Msg.ALARM_ALREADY_OFF, "You've already silenced the alarm. The button sits dark and quiet.");
+  add(Msg.ALARM_COLLISION_DEATH, "The alarm screams. You didn't silence it. You didn't see it coming.\n\nThe tug hits the hull of The Stillwater at drift speed. Not fast — but you're a tin can against a mountain.\n\nThe viewport cracks. The hull buckles. The last thing you hear is metal tearing.\n\n*** YOU HAVE DIED ***");
+  add(Msg.COLLISION_DEATH, "Through the viewport, the hull fills everything. You ran out of time.\n\nThe tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.\n\n*** YOU HAVE DIED ***");
+
+  // --- Opening sequence: Docking ---
+  add(Msg.DOCK_NEED_EXAMINE, 'You need to examine the docking controls first. Get familiar with what you\'re working with.');
+  add(Msg.DOCK_CONTROLS_EXAMINED, 'You study the docking controls: joystick for maneuvering, throttle for approach speed, status indicators for arm extension and seal integrity. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.');
+  add(Msg.DOCK_MANEUVER, "You grab the joystick and bring the tug's thrusters online. Manual control engaged.\n\nThe Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.");
+  add(Msg.DOCK_BRAKE, "You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.\n\nGood. Controlled approach. The docking port is dead ahead.");
+  add(Msg.DOCK_CONNECT, "You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.\n\nThe connection reads solid. You could check the pressure readings before sealing, or just seal it and go.");
+  add(Msg.DOCK_CHECK_PRESSURE, "You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.\n\nGood practice. Ready to seal.");
+  add(Msg.DOCK_SEAL_GOOD, "You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.\n\nThe airlock door unlocks. South leads to The Stillwater.");
+  add(Msg.DOCK_SEAL_WARNING, "You activate the sealing mechanism. The airlock pressurizes with a deep hiss.\n\nPressure readings are unstable. The seal is holding, but barely.");
+  add(Msg.DOCK_NOT_MANEUVERED, "You haven't taken control yet. Maneuver first.");
+  add(Msg.DOCK_NOT_CONNECTED, "The docking arm isn't extended. You need to connect first.");
+  add(Msg.DOCK_ALREADY_DONE, "Already done.");
+  add(Msg.DOCK_EXIT_APPROACH, "The airlock is sealed. You need to dock with the derelict first.");
+  add(Msg.DOCK_EXIT_MANEUVERED, "The docking arm isn't connected yet. You need to extend it and seal the airlock.");
+  add(Msg.DOCK_EXIT_CONNECTED, "The airlock isn't pressurized. You need to seal it first.");
+
+  // --- Opening sequence: Seal events ---
+  add(Msg.BAD_SEAL_WARNING, 'SEAL INTEGRITY CRITICAL. Atmosphere readings show hard vacuum beyond the seal. Going through would be suicide.');
+  add(Msg.BAD_SEAL_DEATH, "You push through.\n\nThe seal gives way. Explosive decompression rips the air from your lungs. The cold hits you everywhere at once. Through the spray of crystallizing atmosphere, you see stars.\n\n*** YOU HAVE DIED ***");
+  add(Msg.SEAL_DEGRADE_STAYS, "A deep crack reverberates through the deck. The ship shudders.\n\nBehind you — from the airlock — a hiss of escaping atmosphere. The seal between the tug and The Stillwater is failing. You hear metal stress and pop.\n\nThrough the airlock inspection window: your tug, still docked. But the seal is compromised. Going back that way without a spacesuit would be suicide.");
+  add(Msg.SEAL_DEGRADE_DRIFTS, "A deep crack reverberates through the deck. The ship shudders.\n\nBehind you — from the airlock — a bang. Metal shearing. You feel the vibration through the floor.\n\nThrough the nearest viewport: your tug, tumbling away. The impact stress sheared the clamp. Your ship — your home — is drifting into black nothing.");
+  add(Msg.TUG_RETURN_BLOCKED, "The airlock seal is compromised. Hard vacuum on the other side. You'd need an EVA suit to cross back.");
+
+  // --- Opening sequence: Viewport stages ---
+  add(Msg.VIEWPORT_STAGE_1, 'Through the viewport, the derelict\'s hull is closer. Details emerging — hull plating, maintenance hatches, a faded corporate logo.');
+  add(Msg.VIEWPORT_STAGE_2, 'The hull fills half the viewport now. You can see individual rivets. Scoring marks. A docking port, dead ahead.');
+  add(Msg.VIEWPORT_STAGE_3, 'The Stillwater is all you can see through the viewport. Its hull stretches in every direction. You are very, very close.');
+  add(Msg.VIEWPORT_STAGE_4, 'The viewport is nothing but hull. Dark metal, arm\'s reach away. You\'re out of time.');
+
+  // --- Memory system (first-examine flavor text) ---
+  add('story.memory.crates', 'Your whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it\'s yours.');
+  add('story.memory.bedroll', 'Two months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.');
+  add('story.memory.datapad', 'Your handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn\'t last. The decision to drift. The odds weren\'t great. But here you are.');
+  add('story.memory.fuel', 'You\'ve been watching that number drop for weeks. Three percent doesn\'t get you anywhere. This derelict is the only option you\'ve got.');
+  add('story.memory.comms', '"No signal home." The words that have defined the last two months. Every relay out of range. Every frequency dead. You are profoundly, completely alone.');
+
   // --- Atmosphere ---
   add(Msg.SHIP_CREAK, 'The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.');
   add(Msg.REACTOR_WARMING, 'The deck plates are warmer than before. The reactor is generating more power.');
@@ -165,8 +209,8 @@ export function extendLanguage(language: LanguageProvider): void {
 
   // --- Meta ---
   add(Msg.HELP, "NO SIGNAL HOME — Commands:\n\nMovement: N, S, E, W, U, D (or NORTH, SOUTH, etc.)\nActions: LOOK, EXAMINE, TAKE, DROP, OPEN, CLOSE, UNLOCK, READ\nSpecial: PRY, REPAIR, CUT, CONNECT, OVERRIDE, LAUNCH\nNPCs: ASK [person] ABOUT [topic], TALK TO [person]\nTerminals: QUERY [terminal] ABOUT [topic], USE [terminal]\nSearch: SEARCH [thing], LOOK UNDER [thing]\nSystem: SAVE, RESTORE, UNDO, INVENTORY, SCORE\n\nTip: EXAMINE everything. Talk to everyone. Read every terminal.");
-  add(Msg.ABOUT, "NO SIGNAL HOME\nA sci-fi salvage horror text adventure.\n\nYou are a stowaway convict trapped aboard The Stillwater, a derelict corporate freighter that is waking from the dead. Four survivors. One AI. Five possible endings.\n\nBy John Googol. Built with Sharpee.");
-  add(Msg.EXAMINE_SELF, "You're a smuggler and hacker who stowed away on a salvage tug to escape a prison transport. Average build, quick hands, quicker mind. Currently trapped on a ship full of someone else's problems.");
+  add(Msg.ABOUT, "NO SIGNAL HOME\nA sci-fi salvage horror text adventure.\n\nYou are a grey-market salvager who drifted into range of The Stillwater, a derelict corporate freighter waking from the dead. Four survivors. One AI. Five possible endings.\n\nBy John Googol. Built with Sharpee.");
+  add(Msg.EXAMINE_SELF, "Grey-market salvager. You crack cargo manifests, bypass security locks, and strip derelicts for parts. Everything you own is jury-rigged, including this tug. Quick hands, quicker mind. Currently running on fumes next to a ship that shouldn't exist.");
   add(Msg.NOTHING_HAPPENS, "Nothing happens.");
   add(Msg.CANT_GO, "You can't go that way.");
   add(Msg.VICTORY, "Congratulations. You found a way out — or a way forward.");

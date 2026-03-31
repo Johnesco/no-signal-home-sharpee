@@ -16,7 +16,7 @@ import type { ISemanticEvent } from '@sharpee/core';
 import {
   RoomIds, ItemIds, NpcIds, Msg, StateKeys, ScoreIds,
   defineAction, standardBlocked, gameMessage, getPropId,
-  TerminalTrait,
+  TerminalTrait, ShipPropTrait,
 } from './types';
 import { getSceneryId } from './world';
 
@@ -510,6 +510,199 @@ export function getCustomActions(rooms: RoomIds, items: ItemIds, npcs: NpcIds): 
       },
       report(ctx: ActionContext): ISemanticEvent[] {
         return [gameMessage(ctx, Msg.HAZMAT_WORN)];
+      },
+      blocked: standardBlocked,
+    }),
+
+    // --- PRESS ALARM BUTTON ---
+    defineAction('story.action.pressing', 'special', {
+      validate(ctx: ActionContext): ValidationResult {
+        const target = ctx.command.directObject?.entity;
+        // If no target, try to find the alarm button in current room
+        let propId: string | undefined;
+        if (target) {
+          propId = getPropId(target);
+        } else {
+          const buttonId = getSceneryId('alarm-button');
+          if (buttonId) {
+            const button = ctx.world.getEntity(buttonId);
+            if (button) {
+              const loc = ctx.world.getLocation(button.id);
+              const playerLoc = ctx.world.getLocation(ctx.player.id);
+              if (loc === playerLoc) propId = 'alarm-button';
+            }
+          }
+        }
+        if (propId !== 'alarm-button') {
+          return { valid: false, error: Msg.NOTHING_HAPPENS };
+        }
+        if (ctx.world.getStateValue(StateKeys.ALARM_SILENCED)) {
+          return { valid: false, error: Msg.ALARM_ALREADY_OFF };
+        }
+        return { valid: true };
+      },
+      execute(ctx: ActionContext): void {
+        ctx.world.setStateValue(StateKeys.ALARM_SILENCED, true);
+        ctx.world.setStateValue(StateKeys.ALARM_ACTIVE, false);
+        // Start the post-alarm collision fuse
+        const turn = ctx.world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+        ctx.world.setStateValue(StateKeys.COLLISION_FUSE_START, turn);
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, Msg.ALARM_SILENCED)];
+      },
+      blocked: standardBlocked,
+    }),
+
+    // --- MANEUVER (docking step 2) ---
+    defineAction('story.action.maneuvering', 'special', {
+      validate(ctx: ActionContext): ValidationResult {
+        const playerLoc = ctx.world.getLocation(ctx.player.id);
+        if (playerLoc !== rooms.tugCockpit) {
+          return { valid: false, error: Msg.NOTHING_HAPPENS };
+        }
+        if (!ctx.world.getStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED)) {
+          return { valid: false, error: Msg.DOCK_NEED_EXAMINE };
+        }
+        const state = ctx.world.getStateValue(StateKeys.DOCKING_STATE);
+        if (state !== 'approach') {
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        return { valid: true };
+      },
+      execute(ctx: ActionContext): void {
+        ctx.world.setStateValue(StateKeys.DOCKING_STATE, 'maneuvered');
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, Msg.DOCK_MANEUVER)];
+      },
+      blocked: standardBlocked,
+    }),
+
+    // --- BRAKE / DECELERATE (optional docking quality step) ---
+    defineAction('story.action.braking', 'special', {
+      validate(ctx: ActionContext): ValidationResult {
+        const playerLoc = ctx.world.getLocation(ctx.player.id);
+        if (playerLoc !== rooms.tugCockpit) {
+          return { valid: false, error: Msg.NOTHING_HAPPENS };
+        }
+        const state = ctx.world.getStateValue(StateKeys.DOCKING_STATE);
+        if (state !== 'maneuvered') {
+          if (state === 'approach') return { valid: false, error: Msg.DOCK_NOT_MANEUVERED };
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        if (ctx.world.getStateValue(StateKeys.DOCKING_BRAKED)) {
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        return { valid: true };
+      },
+      execute(ctx: ActionContext): void {
+        ctx.world.setStateValue(StateKeys.DOCKING_BRAKED, true);
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, Msg.DOCK_BRAKE)];
+      },
+      blocked: standardBlocked,
+    }),
+
+    // --- CONNECT / EXTEND ARM (docking step 4) ---
+    defineAction('story.action.docking-connect', 'special', {
+      validate(ctx: ActionContext): ValidationResult {
+        const playerLoc = ctx.world.getLocation(ctx.player.id);
+        if (playerLoc !== rooms.tugCockpit) {
+          return { valid: false, error: Msg.NOTHING_HAPPENS };
+        }
+        const state = ctx.world.getStateValue(StateKeys.DOCKING_STATE);
+        if (state === 'approach') {
+          return { valid: false, error: Msg.DOCK_NOT_MANEUVERED };
+        }
+        if (state !== 'maneuvered') {
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        return { valid: true };
+      },
+      execute(ctx: ActionContext): void {
+        ctx.world.setStateValue(StateKeys.DOCKING_STATE, 'connected');
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, Msg.DOCK_CONNECT)];
+      },
+      blocked: standardBlocked,
+    }),
+
+    // --- CHECK PRESSURE / CHECK SEAL (optional quality step) ---
+    defineAction('story.action.checking-pressure', 'special', {
+      validate(ctx: ActionContext): ValidationResult {
+        const playerLoc = ctx.world.getLocation(ctx.player.id);
+        if (playerLoc !== rooms.tugCockpit) {
+          return { valid: false, error: Msg.NOTHING_HAPPENS };
+        }
+        const state = ctx.world.getStateValue(StateKeys.DOCKING_STATE);
+        if (state !== 'connected') {
+          if (state === 'approach' || state === 'maneuvered') {
+            return { valid: false, error: Msg.DOCK_NOT_CONNECTED };
+          }
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        if (ctx.world.getStateValue(StateKeys.DOCKING_CHECKED_PRESSURE)) {
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        return { valid: true };
+      },
+      execute(ctx: ActionContext): void {
+        ctx.world.setStateValue(StateKeys.DOCKING_CHECKED_PRESSURE, true);
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, Msg.DOCK_CHECK_PRESSURE)];
+      },
+      blocked: standardBlocked,
+    }),
+
+    // --- SEAL / PRESSURIZE (docking step 6) ---
+    defineAction('story.action.sealing', 'special', {
+      validate(ctx: ActionContext): ValidationResult {
+        const playerLoc = ctx.world.getLocation(ctx.player.id);
+        if (playerLoc !== rooms.tugCockpit) {
+          return { valid: false, error: Msg.NOTHING_HAPPENS };
+        }
+        const state = ctx.world.getStateValue(StateKeys.DOCKING_STATE);
+        if (state !== 'connected') {
+          if (state === 'approach' || state === 'maneuvered') {
+            return { valid: false, error: Msg.DOCK_NOT_CONNECTED };
+          }
+          return { valid: false, error: Msg.DOCK_ALREADY_DONE };
+        }
+        return { valid: true };
+      },
+      execute(ctx: ActionContext): void {
+        ctx.world.setStateValue(StateKeys.DOCKING_STATE, 'sealed');
+        const checked = ctx.world.getStateValue(StateKeys.DOCKING_CHECKED_PRESSURE);
+        if (checked) {
+          // Good seal — unlock and open airlock door
+          const door = ctx.world.getEntity(items.airlockDoor);
+          if (door) {
+            const lock = door.get(LockableTrait);
+            const open = door.get(OpenableTrait);
+            if (lock) lock.isLocked = false;
+            if (open) open.isOpen = true;
+          }
+        } else {
+          // Bad seal — door stays locked, update message
+          const door = ctx.world.getEntity(items.airlockDoor);
+          if (door) {
+            const lock = door.get(LockableTrait);
+            if (lock) {
+              lock.lockedMessage = 'SEAL INTEGRITY CRITICAL. Atmosphere readings show hard vacuum beyond the seal. Going through would be suicide.';
+            }
+          }
+        }
+        ctx.sharedData.checkedPressure = checked;
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        if (ctx.sharedData.checkedPressure) {
+          return [gameMessage(ctx, Msg.DOCK_SEAL_GOOD)];
+        }
+        return [gameMessage(ctx, Msg.DOCK_SEAL_WARNING)];
       },
       blocked: standardBlocked,
     }),

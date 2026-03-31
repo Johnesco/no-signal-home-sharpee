@@ -4,14 +4,10 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 ---
 
-## Starting room
+## Starting room — Tug Cargo Hold
 
 > look
-[OK: contains "Tug Cockpit"]
-[OK: contains "flashlight"]
-
-> examine viewport
-[OK: contains "Stillwater"]
+[OK: contains "Tug Cargo Hold"]
 
 > take flashlight
 [OK: contains "Taken"]
@@ -22,6 +18,32 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 > inventory
 [OK: contains "flashlight"]
 [OK: contains "ration bar"]
+
+## Opening sequence — dock with The Stillwater
+
+> south
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+
+> examine docking controls
+[OK: contains "docking"]
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> fire thrusters
+[OK: contains_any "brake" "decelerate" "slow"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+> check pressure
+[OK: contains_any "pressure" "green" "seal"]
+
+> seal
+[OK: contains_any "seal" "pressurize" "green"]
 
 ## Enter the Stillwater — Airlock
 

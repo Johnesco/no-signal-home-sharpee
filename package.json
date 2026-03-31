@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "build:browser": "npx sharpee build-browser",
+    "play": "node dist/play.js",
     "dev": "tsc --watch"
   },
   "dependencies": {
