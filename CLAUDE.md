@@ -97,6 +97,7 @@ no-signal-home/
 │   ├── game-design.md     # Master design doc
 │   ├── room-map.md        # 25 rooms, ASCII map
 │   ├── puzzles-and-items.md # Puzzle chains, items
+│   ├── opening-sequence.md # Opening docking puzzle design
 │   ├── npcs.md            # NPC details
 │   ├── procedural-systems.md # SeededRandom systems
 │   └── writing-style.md   # Prose guidelines
@@ -105,11 +106,12 @@ no-signal-home/
 │   ├── types.ts           # IDs, messages, traits, helpers
 │   ├── world.ts           # 25 rooms, items, scenery
 │   ├── npcs.ts            # 4 NPCs + SOMS terminal
-│   ├── actions.ts         # 12 custom actions
+│   ├── actions.ts         # 18 custom actions
 │   ├── interceptors.ts    # 4 action interceptors
-│   ├── grammar.ts         # Parser extensions
-│   ├── language.ts        # All player-facing text
-│   ├── plugins.ts         # 7 turn plugins
+│   ├── grammar.ts         # Parser extensions (~80 patterns)
+│   ├── language.ts        # All player-facing text (~120 messages)
+│   ├── plugins.ts         # 13 turn plugins
+│   ├── play.ts            # Interactive terminal REPL
 │   └── browser-entry.ts   # Web client entry point
 ├── tests/transcripts/     # Unit tests (fresh game per file)
 └── walkthroughs/          # Chained walkthrough tests
@@ -119,14 +121,17 @@ no-signal-home/
 
 ### Implemented
 - [x] 25 rooms across 3 decks with full connectivity
-- [x] 19 portable items, 3 doors, ~50 scenery objects
+- [x] 19 portable items, 3 doors, ~60 scenery objects
+- [x] Opening sequence: alarm, 7-step docking puzzle, seal degradation, 3 deaths, 2 survivals
+- [x] MemoryTrait first-examine flavor text system (5 entities)
+- [x] Two-phase collision timer (10-turn alarm, 20-turn post-alarm)
 - [x] 4 NPCs with behavior systems (Reed, Vasik, Okafor, Lis)
 - [x] SOMS AI terminal with stage-driven responses
-- [x] 12 custom actions (pry, repair, cut cables, override, overload, launch pod, etc.)
+- [x] 18 custom actions (6 docking + 12 original)
 - [x] Escape Alone ending (tested)
 - [x] Override AI ending (tested)
 - [x] Browser client with sci-fi green terminal theme
-- [x] 96 transcript tests passing
+- [x] 139 transcript tests passing (4 transcripts)
 
 ### In Progress
 - [ ] Destroy ending (reactor overload → escape — mechanics exist, needs polish)
@@ -324,6 +329,7 @@ python C:\code\portman\portman.py add no-signal-home dist\web
 ## Project History
 
 ### Recent Changes
+- 2026-03-31: Opening sequence — alarm, docking puzzle, seal degradation, MemoryTrait, 139 tests passing
 - 2026-03-30: Initial game implementation — 25 rooms, 4 NPCs, 12 actions, 2 endings tested, 96 tests passing
 
 ### Architecture Decisions
@@ -331,3 +337,6 @@ python C:\code\portman\portman.py add no-signal-home dist\web
 - All player-facing text through language layer message IDs — never hardcoded English
 - Four-phase action pattern (validate/execute/report/blocked) for all custom actions
 - Walkthrough tests for full ending paths, unit tests for exploration and mechanics
+- MemoryTrait flavor text via turn plugin (not event chain — chains replace events)
+- Docking controls examine gate via event chain (only use chains for state-setting, not messages)
+- Airlock blocking via door lock mechanism with dynamic lockedMessage updates per docking state
