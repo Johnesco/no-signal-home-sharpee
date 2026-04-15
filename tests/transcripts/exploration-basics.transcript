@@ -1,0 +1,160 @@
+title: Basic Exploration and Interaction
+story: no-signal-home
+description: Tests room navigation, NPC encounters, examining objects, and mid-deck access
+
+---
+
+## Starting room — Tug Cargo Hold
+
+> look
+[OK: contains "Tug Cargo Hold"]
+
+> take flashlight
+[OK: contains "Taken"]
+
+> take ration bar
+[OK: contains "Taken"]
+
+> inventory
+[OK: contains "flashlight"]
+[OK: contains "ration bar"]
+
+## Opening sequence — dock with The Stillwater
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+
+> examine docking controls
+[OK: contains "docking"]
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> fire thrusters
+[OK: contains_any "brake" "decelerate" "slow"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+> check pressure
+[OK: contains_any "pressure" "green" "seal"]
+
+> seal
+[OK: contains_any "seal" "pressurize" "green"]
+
+## Enter the Stillwater — Airlock
+
+> aft
+[OK: contains "Airlock"]
+
+> examine biohazard sign
+[OK: contains "Meridian"]
+
+## Forward Corridor
+
+> aft
+[OK: contains "Forward Corridor"]
+
+> examine floor panel
+[OK: contains_any "panel" "cable" "beneath"]
+
+## Cargo Bay — meet Okafor
+
+> aft
+[OK: contains "Cargo Bay"]
+[OK: contains "Okafor"]
+
+## Storage Annex
+
+> starboard
+[OK: contains "Storage Annex"]
+
+> take hazmat suit
+[OK: contains "Taken"]
+
+> port
+[OK: contains "Cargo Bay"]
+
+## Lower Mid Corridor — ladder up
+
+> fore
+[OK: contains "Forward Corridor"]
+
+> port
+[OK: contains "Lower Mid Corridor"]
+
+> examine elevator
+[OK: contains_any "elevator" "dead" "failed"]
+
+## Mid Deck — Central Junction
+
+> up
+[OK: contains "Central Junction"]
+
+## Lab Corridor and Science Lab
+
+> port
+[OK: contains "Lab Corridor"]
+
+> port
+[OK: contains "Science Lab"]
+
+> starboard
+[OK: contains "Lab Corridor"]
+
+> aft
+[OK: contains "Medbay"]
+
+> fore
+[OK: contains "Lab Corridor"]
+
+> starboard
+[OK: contains "Central Junction"]
+
+## Hab Corridor — Mess Hall, Library
+
+> starboard
+[OK: contains "Hab Corridor"]
+
+> starboard
+[OK: contains "Mess Hall"]
+
+> port
+[OK: contains "Hab Corridor"]
+
+> aft
+[OK: contains "Library"]
+
+> fore
+[OK: contains "Hab Corridor"]
+
+> port
+[OK: contains "Central Junction"]
+
+## Upper Deck
+
+> up
+[OK: contains "Upper Corridor"]
+
+> aft
+[OK: contains "Crew Bunks"]
+
+> aft
+[OK: contains "Common Area"]
+
+> fore
+[OK: contains "Crew Bunks"]
+
+> fore
+[OK: contains "Upper Corridor"]
+
+## Help and About commands
+
+> help
+[OK: contains_any "help" "HELP" "commands" "move"]
+
+> about
+[OK: contains_any "No Signal Home" "NO SIGNAL HOME" "Sharpee"]

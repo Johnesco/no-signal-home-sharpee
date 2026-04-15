@@ -1,0 +1,61 @@
+title: Opening Sequence — Path B: Rough Dock (No Brake)
+story: no-signal-home
+description: Tests docking without braking — good seal but tug drifts away on seal degradation
+
+---
+
+## Start in Tug Cargo Hold
+
+> look
+[OK: contains "Tug Cargo Hold"]
+[OK: contains "alarm"]
+
+## Move to cockpit and silence alarm
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+[OK: contains "Stillwater"]
+
+## Examine docking controls (required before maneuver)
+
+> examine docking controls
+[OK: contains "MANEUVER"]
+
+## Dock WITHOUT braking — skip brake step
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+## Check pressure (good seal path)
+
+> check pressure
+[OK: contains_any "pressure" "green" "seal"]
+
+## Seal — should get good seal since pressure was checked
+
+> seal
+[OK: contains_any "Green" "green" "unlocks"]
+
+## Board The Stillwater
+
+> aft
+[OK: contains "Airlock"]
+
+## Wait 3 turns for seal degradation — tug should DRIFT AWAY (no brake)
+
+> examine inspection window
+[OK: contains_any "window" "docking"]
+
+> examine claw marks
+[OK: contains_any "claw" "gouges" "scratches"]
+
+## Third turn after boarding — seal degrades, tug drifts away
+
+> look
+[OK: contains_any "shearing" "tumbling" "drifting" "sheared" "clamp"]

@@ -1,0 +1,41 @@
+look
+take flashlight
+take ration bar
+inventory
+aft
+press button
+examine docking controls
+maneuver
+fire thrusters
+extend arm
+check pressure
+seal
+aft
+examine biohazard sign
+aft
+aft
+starboard
+take hazmat suit
+take elevator parts
+port
+fore
+port
+aft
+aft
+take multi-tool
+take cable snips
+take override tool
+fore
+fore
+up
+up
+starboard
+examine desk
+pry open desk
+take keycard
+port
+unlock bridge door with keycard
+open bridge door
+fore
+examine escape pod
+launch pod

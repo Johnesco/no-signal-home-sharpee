@@ -1,0 +1,92 @@
+title: Opening Sequence — Path E: Post-Alarm Collision Death
+story: no-signal-home
+description: Tests the 20-turn post-alarm timer — silence alarm but never dock, die on collision
+
+---
+
+## Move to cockpit and silence alarm immediately
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+[OK: contains "Stillwater"]
+
+## Waste turns — fuse starts counting after alarm silenced
+## Need 20 elapsed turns. Some commands may be free, so add extras.
+
+> examine instrument panels
+[OK: contains_any "instruments" "readouts" "panels" "Instrument"]
+
+> examine fuel gauge
+[OK: contains_any "fuel" "percent" "three"]
+
+> examine comms system
+[OK: contains_any "comms" "signal" "relay"]
+
+> examine pilot's seat
+[OK: contains_any "cushion" "straps" "sat here"]
+
+> examine docking controls
+[OK: contains_any "docking" "MANEUVER"]
+
+> examine alarm button
+[OK: contains_any "button" "alarm" "already"]
+
+> examine viewport
+[OK: contains_any "viewport" "hull" "Stillwater"]
+
+## Go to cargo hold for more filler
+
+> fore
+[OK: contains "Tug Cargo Hold"]
+
+> examine crates
+[OK: contains "DEEP REACH SALVAGE"]
+
+> examine bedroll
+[OK: contains "sleeping pad"]
+
+> examine datapad
+[OK: contains "DRIFT MODE"]
+
+> take flashlight
+[OK: contains_any "flashlight" "Taken"]
+
+> take ration bar
+[OK: contains_any "ration" "Taken"]
+
+> drop flashlight
+[OK: contains_any "Dropped" "dropped" "flashlight"]
+
+> take flashlight
+[OK: contains_any "flashlight" "Taken"]
+
+> drop ration bar
+[OK: contains_any "Dropped" "dropped" "ration"]
+
+> take ration bar
+[OK: contains_any "ration" "Taken"]
+
+## Back to cockpit for final turns
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> examine fuel gauge
+[OK: contains_any "fuel" "percent" "three"]
+
+> examine comms system
+[OK: contains_any "comms" "signal" "relay"]
+
+> examine instrument panels
+[OK: contains_any "instruments" "readouts" "panels" "Instrument"]
+
+> examine alarm button
+[OK: contains_any "button" "alarm" "already"]
+
+## By now elapsed should be >= 20 — collision death
+
+> examine viewport
+[OK: contains_any "fills everything" "DIED" "collision" "hull" "out of time"]

@@ -1,0 +1,131 @@
+title: Override AI Ending
+story: no-signal-home
+description: Override AI ending via cable cut in maintenance shaft, then bridge override panel
+
+---
+
+## Opening sequence — dock with The Stillwater
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+
+> examine docking controls
+[OK: contains "docking"]
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> fire thrusters
+[OK: contains_any "brake" "decelerate" "slow"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+> check pressure
+[OK: contains_any "pressure" "green" "seal"]
+
+> seal
+[OK: contains_any "seal" "pressurize" "green"]
+
+## Start — collect essentials
+
+> look
+[OK: contains_any "Cockpit" "airlock"]
+
+> fore
+[OK: contains "Tug Cargo Hold"]
+
+> take flashlight
+[OK: contains_any "Taken" "already"]
+
+> take ration bar
+[OK: contains_any "Taken" "already"]
+
+## Enter The Stillwater
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> aft
+[OK: contains "Airlock"]
+
+> aft
+[OK: contains "Forward Corridor"]
+
+## Get cable snips and multi-tool from Engineering
+
+> port
+[OK: contains "Lower Mid Corridor"]
+
+> aft
+[OK: contains "Aft Corridor"]
+
+> aft
+[OK: contains "Engineering"]
+
+> take cable snips
+[OK: contains "Taken"]
+
+> take multi-tool
+[OK: contains "Taken"]
+
+## Back to Maintenance Shaft and cut AI cables
+
+> fore
+[OK: contains "Aft Corridor"]
+
+> fore
+[OK: contains "Lower Mid Corridor"]
+
+> starboard
+[OK: contains "Forward Corridor"]
+
+> starboard
+[OK: contains "Maintenance Shaft"]
+
+> cut cables
+[OK: contains_any "cut" "sever" "spark" "dead" "dark" "slice"]
+
+## Get keycard from Captain's Cabin
+
+> port
+[OK: contains "Forward Corridor"]
+
+> port
+[OK: contains "Lower Mid Corridor"]
+
+> up
+[OK: contains "Central Junction"]
+
+> up
+[OK: contains "Upper Corridor"]
+
+> starboard
+[OK: contains "Captain's Cabin"]
+
+> pry open desk
+[OK: contains_any "keycard" "bridge"]
+
+> take keycard
+[OK: contains_any "Taken" "keycard"]
+
+## Unlock bridge and trigger Override ending
+
+> port
+[OK: contains "Upper Corridor"]
+
+> unlock bridge door with keycard
+[OK: contains_any "unlock" "green"]
+
+> open bridge door
+[OK: contains_any "open" "bridge"]
+
+> fore
+[OK: contains "Bridge"]
+
+> override security panel
+[OK: contains "THE END"]
+[OK: contains "Override"]

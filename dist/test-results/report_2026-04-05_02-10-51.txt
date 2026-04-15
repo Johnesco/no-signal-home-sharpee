@@ -1,0 +1,55 @@
+============================================================
+TRANSCRIPT TEST REPORT
+Generated: 2026-04-05T07:10:51.513Z
+============================================================
+
+Total: 197 tests in 8 transcript(s)
+  Passed: 197
+  Failed: 0
+  Expected Failures: 0
+  Skipped: 0
+  Duration: 381ms
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\exploration-basics.transcript
+  Title: Basic Exploration and Interaction
+  Results: 43 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\opening-path-b-rough-dock.transcript
+  Title: Opening Sequence — Path B: Rough Dock (No Brake)
+  Results: 12 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\opening-path-c-bad-seal.transcript
+  Title: Opening Sequence — Path C: Bad Seal Death
+  Results: 9 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\opening-path-d-alarm-collision.transcript
+  Title: Opening Sequence — Path D: Alarm-On Collision Death
+  Results: 12 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\opening-path-e-post-alarm-collision.transcript
+  Title: Opening Sequence — Path E: Post-Alarm Collision Death
+  Results: 25 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\opening-sequence.transcript
+  Title: Opening Sequence — Docking Puzzle
+  Results: 18 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\tests\transcripts\override-ai.transcript
+  Title: Override AI Ending
+  Results: 37 passed, 0 failed, 0 expected failures, 0 skipped
+
+------------------------------------------------------------
+Transcript: C:\code\npmsharpee\games\no-signal-home\walkthroughs\wt-01-escape-alone.transcript
+  Title: Escape Alone Walkthrough
+  Results: 41 passed, 0 failed, 0 expected failures, 0 skipped
+
+============================================================
+ALL TESTS PASSED
+============================================================

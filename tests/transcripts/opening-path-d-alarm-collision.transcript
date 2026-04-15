@@ -1,0 +1,48 @@
+title: Opening Sequence — Path D: Alarm-On Collision Death
+story: no-signal-home
+description: Tests the 10-turn alarm timer — never silence the alarm, die on collision
+
+---
+
+## Waste turns without silencing the alarm — death at turn 10
+## Some commands (look, inventory) may be free actions, so we add extras
+
+> examine crates
+[OK: contains "DEEP REACH SALVAGE"]
+
+> examine bedroll
+[OK: contains "sleeping pad"]
+
+> examine datapad
+[OK: contains "DRIFT MODE"]
+
+> take flashlight
+[OK: contains_any "flashlight" "Taken"]
+
+> take ration bar
+[OK: contains_any "ration" "Taken"]
+
+> drop flashlight
+[OK: contains_any "Dropped" "dropped" "flashlight"]
+
+> take flashlight
+[OK: contains_any "flashlight" "Taken"]
+
+> drop ration bar
+[OK: contains_any "Dropped" "dropped" "ration"]
+
+> take ration bar
+[OK: contains_any "ration" "Taken"]
+
+## Move to cockpit
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> examine fuel gauge
+[OK: contains_any "fuel" "percent" "three"]
+
+## By now turn count should be >= 10 — collision death
+
+> examine instrument panels
+[OK: contains_any "alarm screams" "DIED" "collision" "hull"]

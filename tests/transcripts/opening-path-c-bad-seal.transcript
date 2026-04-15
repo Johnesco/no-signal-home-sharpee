@@ -1,0 +1,46 @@
+title: Opening Sequence — Path C: Bad Seal Death
+story: no-signal-home
+description: Tests docking without checking pressure — bad seal warning then death on crossing
+
+---
+
+## Start in Tug Cargo Hold
+
+> look
+[OK: contains "Tug Cargo Hold"]
+
+## Move to cockpit and silence alarm
+
+> aft
+[OK: contains "Tug Cockpit"]
+
+> press button
+[OK: contains "alarm"]
+[OK: contains "Stillwater"]
+
+## Examine docking controls
+
+> examine docking controls
+[OK: contains "MANEUVER"]
+
+## Full dock sequence but SKIP pressure check
+
+> maneuver
+[OK: contains_any "control" "thrusters" "manual"]
+
+> fire thrusters
+[OK: contains_any "brake" "decelerate" "slow"]
+
+> extend arm
+[OK: contains_any "clamp" "locked" "docking arm"]
+
+## Seal WITHOUT checking pressure — bad seal + warning fires on same turn
+
+> seal
+[OK: contains_any "unstable" "barely"]
+[OK: contains_any "SEAL INTEGRITY" "vacuum" "suicide"]
+
+## Go aft — door unlocked by plugin, crossing triggers death
+
+> aft
+[OK: contains_any "decompression" "DIED" "cold"]

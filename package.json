@@ -1,0 +1,31 @@
+{
+  "name": "no-signal-home",
+  "version": "1.0.0",
+  "description": "A sci-fi salvage horror text adventure on a derelict corporate freighter.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:browser": "npx sharpee build-browser",
+    "play": "node dist/play.js",
+    "dev": "tsc --watch",
+    "walkthrough": "node generate-walkthrough.js",
+    "postinstall": "npx patch-package"
+  },
+  "dependencies": {
+    "@sharpee/core": "^0.9.107",
+    "@sharpee/engine": "^0.9.107",
+    "@sharpee/plugin-npc": "^0.9.107",
+    "@sharpee/plugin-scheduler": "^0.9.107",
+    "@sharpee/plugin-state-machine": "^0.9.107",
+    "@sharpee/sharpee": "^0.9.107",
+    "@sharpee/stdlib": "^0.9.107",
+    "@sharpee/world-model": "^0.9.107"
+  },
+  "devDependencies": {
+    "@sharpee/transcript-tester": "^0.9.107",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.3"
+  },
+  "author": "John Googol",
+  "license": "MIT"
+}

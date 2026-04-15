@@ -1,0 +1,1251 @@
+>look
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take flashlight
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take ration bar
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>inventory
+You are carrying:
+  flashlight, ration bar
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+
+>maneuver
+You grab the joystick and bring the tug's thrusters online. Manual control engaged.
+
+The Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.
+
+>fire thrusters
+You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.
+
+Good. Controlled approach. The docking port is dead ahead.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>extend arm
+You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.
+
+The connection reads solid. You could check the pressure readings before sealing, or just seal it and go.
+
+>check pressure
+You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.
+
+Good practice. Ready to seal.
+
+>seal
+You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.
+
+The airlock door unlocks. Aft leads to The Stillwater.
+
+>aft
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+
+>examine biohazard sign
+"BIOHAZARD CONTAINMENT PROTOCOLS IN EFFECT. Report symptoms to your supervisor. Meridian Solutions cares about your wellbeing."
+
+>aft
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>examine floor panel
+A loose floor panel. Beneath it, cables snake into darkness.
+A deep crack reverberates through the deck. The ship shudders.
+
+Behind you — from the airlock — a hiss of escaping atmosphere. The seal between the tug and The Stillwater is failing. You hear metal stress and pop.
+
+Through the airlock inspection window: your tug, still docked. But the seal is compromised. Going back that way without a spacesuit would be suicide.
+
+>aft
+Cargo Bay
+
+A cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.
+
+You can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+ npc.speech
+
+>starboard
+Storage Annex
+
+A supply room lined with industrial shelving. Spare parts, sealed ration containers, and maintenance equipment fill the racks. A yellow hazmat suit hangs from a hook near the door. The cargo bay is to port.
+
+You can see hazmat suit, elevator parts, fabricator parts, weapons crate, industrial shelving here.
+
+>take hazmat suit
+Taken.
+
+>port
+Cargo Bay
+
+A cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.
+
+You can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.
+
+>fore
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>port
+Lower Mid Corridor
+
+A junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.
+
+You can see direction signs, elevator here.
+
+>examine elevator
+A freight elevator leading down to the cryo deck. The control panel is dead — the motor assembly has failed.
+
+>up
+Central Junction
+
+A wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: "People First. Profit Always." Ladders lead up and down.
+
+You can see corporate signage here.
+
+>port
+Lab Corridor
+
+A corridor that was once sterile white, now streaked with grime. An old chemical spill has dried to a dark stain on the deck. A safety station with eye wash and gloves sits beside the door. The junction is to starboard. The science lab is to port. Medbay is aft.
+
+You can see chemical spill, safety station here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>port
+Science Lab
+
+Workbenches cluttered with broken equipment — a centrifuge tipped on its side, an analyzer with a cracked display. Sealed sample containers line one shelf. A research terminal flickers in the corner, its screen half-corrupted. The corridor is to starboard.
+
+You can see research terminal, sample containers here.
+
+>starboard
+Lab Corridor
+
+A corridor that was once sterile white, now streaked with grime. An old chemical spill has dried to a dark stain on the deck. A safety station with eye wash and gloves sits beside the door. The junction is to starboard. The science lab is to port. Medbay is aft.
+
+You can see chemical spill, safety station here.
+
+>aft
+Medbay
+
+A medical facility with treatment beds and overhead surgical lights, all dead. A quarantine cell stands in the corner — its door bent outward from inside. Medical supply cabinets line the wall, most ransacked. The lab corridor is fore.
+
+You can see medkit, quarantine cell, patient logs here.
+
+>fore
+Lab Corridor
+
+A corridor that was once sterile white, now streaked with grime. An old chemical spill has dried to a dark stain on the deck. A safety station with eye wash and gloves sits beside the door. The junction is to starboard. The science lab is to port. Medbay is aft.
+
+You can see chemical spill, safety station here.
+
+>starboard
+Central Junction
+
+A wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: "People First. Profit Always." Ladders lead up and down.
+
+You can see corporate signage here.
+
+>starboard
+Hab Corridor
+
+The habitation wing. Warmer here, more human. Crew photos line the wall in mismatched frames. A bulletin board holds shift schedules and personal notices — one reads "DO NOT TRUST THE SYSTEM" in hasty marker. The junction is to port. The mess hall is to starboard. The library is aft.
+
+You can see crew photos, bulletin board here.
+
+>starboard
+Mess Hall
+
+Long tables bolted to the deck. A food fabrication unit sits against the far wall, dark and silent. Corporate propaganda posters decorate every surface. Coffee mugs with crew names sit abandoned. The hab corridor is to port.
+
+You can see food fabrication unit, propaganda posters, crew mugs here.
+
+>port
+Hab Corridor
+
+The habitation wing. Warmer here, more human. Crew photos line the wall in mismatched frames. A bulletin board holds shift schedules and personal notices — one reads "DO NOT TRUST THE SYSTEM" in hasty marker. The junction is to port. The mess hall is to starboard. The library is aft.
+
+You can see crew photos, bulletin board here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>aft
+Library
+
+The ship's data archive. Racks of physical media storage — data crystals, backup drives — fill metal shelving. A comfortable reading chair faces a large terminal display. This feels like the ship's memory. The hab corridor is fore.
+
+You can see archive terminal, data storage racks, Lis, SOMS terminal here.
+
+ npc.speech
+
+>fore
+Hab Corridor
+
+The habitation wing. Warmer here, more human. Crew photos line the wall in mismatched frames. A bulletin board holds shift schedules and personal notices — one reads "DO NOT TRUST THE SYSTEM" in hasty marker. The junction is to port. The mess hall is to starboard. The library is aft.
+
+You can see crew photos, bulletin board here.
+
+>port
+Central Junction
+
+A wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: "People First. Profit Always." Ladders lead up and down.
+
+You can see corporate signage here.
+Reed grabs your arm, eyes clear and desperate. "Listen to me. Something's in me. It's been in me since before you arrived. Don't let it — don't let me —" Their eyes cloud. The moment passes.
+
+>up
+Upper Corridor
+
+A narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.
+
+You can see bridge door, ship schematics, intercom panel here.
+
+>aft
+Crew Bunks
+
+Stacked sleeping pods, four high. Most are stripped bare. One bunk has deep scratches gouged into the wall beside it. Dark stains on the mattress. A security rack holds equipment near the door. EVA suit storage is recessed into the far wall. The corridor is fore. The common area is aft.
+
+You can see stun baton, EVA suit, scratched bunk, security rack, EVA storage here.
+
+>aft
+Common Area
+
+A cramped recreation space. A viewport looks out into black nothing. Someone has built a barricade from furniture and deck plates across the starboard side of the room. A half-finished card game is scattered on a table. An air vent grille is set into the ceiling. The crew bunks are fore.
+
+You can see common viewport, furniture barricade, card game, air vent, Vasik here.
+
+ npc.speech
+
+>fore
+Crew Bunks
+
+Stacked sleeping pods, four high. Most are stripped bare. One bunk has deep scratches gouged into the wall beside it. Dark stains on the mattress. A security rack holds equipment near the door. EVA suit storage is recessed into the far wall. The corridor is fore. The common area is aft.
+
+You can see stun baton, EVA suit, scratched bunk, security rack, EVA storage here.
+
+>fore
+Upper Corridor
+
+A narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.
+
+You can see bridge door, ship schematics, intercom panel here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>help
+NO SIGNAL HOME — Commands:
+
+Movement: FORE, AFT, PORT, STARBOARD, UP, DOWN (or F, A, P, SB, U, D)
+Actions: LOOK, EXAMINE, TAKE, DROP, OPEN, CLOSE, UNLOCK, READ
+Special: PRY, REPAIR, CUT, CONNECT, OVERRIDE, LAUNCH
+NPCs: ASK [person] ABOUT [topic], TALK TO [person]
+Terminals: QUERY [terminal] ABOUT [topic], USE [terminal]
+Search: SEARCH [thing], LOOK UNDER [thing]
+System: SAVE, RESTORE, UNDO, INVENTORY, SCORE
+
+Tip: EXAMINE everything. Talk to everyone. Read every terminal.
+
+>about
+NO SIGNAL HOME
+A sci-fi salvage horror text adventure.
+
+You are a grey-market salvager who drifted into range of The Stillwater, a derelict corporate freighter waking from the dead. Four survivors. One AI. Five possible endings.
+
+By John Googol. Built with Sharpee.
+
+>look
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+
+>maneuver
+You grab the joystick and bring the tug's thrusters online. Manual control engaged.
+
+The Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.
+
+>extend arm
+You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.
+
+The connection reads solid. You could check the pressure readings before sealing, or just seal it and go.
+
+>check pressure
+You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.
+
+Good practice. Ready to seal.
+
+>seal
+You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.
+
+The airlock door unlocks. Aft leads to The Stillwater.
+
+>aft
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>examine inspection window
+A small reinforced window in the airlock hull. Through it, you can see the docking junction and a sliver of space beyond.
+
+>examine claw marks
+Deep gouges along the inner door frame. Something — someone — clawed at this door from inside. Hard enough to score metal.
+
+>look
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+A deep crack reverberates through the deck. The ship shudders.
+
+Behind you — from the airlock — a bang. Metal shearing. You feel the vibration through the floor.
+
+Through the nearest viewport: your tug, tumbling away. The impact stress sheared the clamp. Your ship — your home — is drifting into black nothing.
+
+>look
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+
+>maneuver
+You grab the joystick and bring the tug's thrusters online. Manual control engaged.
+
+The Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.
+
+>fire thrusters
+You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.
+
+Good. Controlled approach. The docking port is dead ahead.
+
+>extend arm
+You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.
+
+The connection reads solid. You could check the pressure readings before sealing, or just seal it and go.
+
+>seal
+You activate the sealing mechanism. The airlock pressurizes with a deep hiss.
+
+Pressure readings are unstable. The seal is holding, but barely.
+SEAL INTEGRITY CRITICAL. Atmosphere readings show hard vacuum beyond the seal. Going through would be suicide.
+
+>aft
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+You push through.
+
+The seal gives way. Explosive decompression rips the air from your lungs. The cold hits you everywhere at once. Through the spray of crystallizing atmosphere, you see stars.
+
+*** YOU HAVE DIED ***
+
+>examine crates
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Crates strapped to the walls, stenciled "DEEP REACH SALVAGE." Your crates. Your cargo.
+The proximity alarm screams from the cockpit. Aft. Move.
+Your whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it's yours.
+
+>examine bedroll
+A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.
+The proximity alarm screams from the cockpit. Aft. Move.
+Two months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.
+
+>examine datapad
+A salvage manifest on a scratched screen. Last entry: "LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN."
+The proximity alarm screams from the cockpit. Aft. Move.
+Your handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn't last. The decision to drift. The odds weren't great. But here you are.
+
+>take flashlight
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take ration bar
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>drop flashlight
+Dropped.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take flashlight
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>drop ration bar
+Dropped.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take ration bar
+Taken.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>examine fuel gauge
+Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+The alarm screams. You didn't silence it. You didn't see it coming.
+
+The tug hits the hull of The Stillwater at drift speed. Not fast — but you're a tin can against a mountain.
+
+The viewport cracks. The hull buckles. The last thing you hear is metal tearing.
+
+*** YOU HAVE DIED ***
+You've been watching that number drop for weeks. Three percent doesn't get you anywhere. This derelict is the only option you've got.
+
+>examine instrument panels
+Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+The alarm screams. You didn't silence it. You didn't see it coming.
+
+The tug hits the hull of The Stillwater at drift speed. Not fast — but you're a tin can against a mountain.
+
+The viewport cracks. The hull buckles. The last thing you hear is metal tearing.
+
+*** YOU HAVE DIED ***
+
+>aft
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>examine instrument panels
+Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.
+
+>examine fuel gauge
+Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.
+You've been watching that number drop for weeks. Three percent doesn't get you anywhere. This derelict is the only option you've got.
+
+>examine comms system
+Your comms rig. The display reads: "NO SIGNAL." Too far from any relay. No one knows you're here.
+"No signal home." The words that have defined the last two months. Every relay out of range. Every frequency dead. You are profoundly, completely alone.
+
+>examine pilot's seat
+Worn cushion, fraying straps. You've sat here for thousands of hours. It smells like recycled air and bad coffee.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+Through the viewport, the derelict's hull is closer. Details emerging — hull plating, maintenance hatches, a faded corporate logo.
+
+>examine alarm button
+A big red button set into the console, strobing in time with the alarm. The proximity alarm override.
+
+>examine viewport
+The derelict's hull is closer. Details emerging — hull plating, maintenance hatches, a faded corporate logo.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>fore
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+
+>examine crates
+Crates strapped to the walls, stenciled "DEEP REACH SALVAGE." Your crates. Your cargo.
+Your whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it's yours.
+
+>examine bedroll
+A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.
+Two months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.
+
+>examine datapad
+A salvage manifest on a scratched screen. Last entry: "LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN."
+Your handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn't last. The decision to drift. The odds weren't great. But here you are.
+
+>take flashlight
+Taken.
+
+>take ration bar
+Taken.
+
+>drop flashlight
+Dropped.
+
+>take flashlight
+Taken.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>drop ration bar
+Dropped.
+
+>take ration bar
+Taken.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. The alarm is off but the silence is worse. Through the viewport, a massive hull — Meridian Solutions corporate freighter. Getting closer. You need to dock.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The viewport is nothing but hull. Dark metal, arm's reach away. You're out of time.
+
+>examine fuel gauge
+Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.
+
+>examine comms system
+Your comms rig. The display reads: "NO SIGNAL." Too far from any relay. No one knows you're here.
+Through the viewport, the hull fills everything. You ran out of time.
+
+The tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.
+
+*** YOU HAVE DIED ***
+
+>examine instrument panels
+Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.
+Through the viewport, the hull fills everything. You ran out of time.
+
+The tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.
+
+*** YOU HAVE DIED ***
+
+>examine alarm button
+A big red button set into the console, strobing in time with the alarm. The proximity alarm override.
+Through the viewport, the hull fills everything. You ran out of time.
+
+The tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.
+
+*** YOU HAVE DIED ***
+
+>examine viewport
+The Stillwater is all you can see. Dark metal, arm's reach away. You're out of time.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+Through the viewport, the hull fills everything. You ran out of time.
+
+The tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.
+
+*** YOU HAVE DIED ***
+
+>look
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>examine crates
+Crates strapped to the walls, stenciled "DEEP REACH SALVAGE." Your crates. Your cargo.
+The proximity alarm screams from the cockpit. Aft. Move.
+Your whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it's yours.
+
+>examine bedroll
+A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.
+The proximity alarm screams from the cockpit. Aft. Move.
+Two months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.
+
+>examine datapad
+A salvage manifest on a scratched screen. Last entry: "LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN."
+The proximity alarm screams from the cockpit. Aft. Move.
+Your handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn't last. The decision to drift. The odds weren't great. But here you are.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>aft
+The airlock door is locked.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>press button
+You've already silenced the alarm. The button sits dark and quiet.
+
+>maneuver
+You need to examine the docking controls first. Get familiar with what you're working with.
+
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+
+>maneuver
+You grab the joystick and bring the tug's thrusters online. Manual control engaged.
+
+The Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.
+
+>fire thrusters
+You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.
+
+Good. Controlled approach. The docking port is dead ahead.
+
+>extend arm
+You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.
+
+The connection reads solid. You could check the pressure readings before sealing, or just seal it and go.
+
+>check pressure
+You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.
+
+Good practice. Ready to seal.
+
+>seal
+You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.
+
+The airlock door unlocks. Aft leads to The Stillwater.
+
+>aft
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+
+>examine inspection window
+A small reinforced window in the airlock hull. Through it, you can see the docking junction and a sliver of space beyond.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>examine claw marks
+Deep gouges along the inner door frame. Something — someone — clawed at this door from inside. Hard enough to score metal.
+
+>aft
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+
+>maneuver
+You grab the joystick and bring the tug's thrusters online. Manual control engaged.
+
+The Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.
+
+>fire thrusters
+You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.
+
+Good. Controlled approach. The docking port is dead ahead.
+
+>extend arm
+You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.
+
+The connection reads solid. You could check the pressure readings before sealing, or just seal it and go.
+
+>check pressure
+You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.
+
+Good practice. Ready to seal.
+
+>seal
+You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.
+
+The airlock door unlocks. Aft leads to The Stillwater.
+
+>look
+Tug Cockpit
+
+The cockpit is quiet. Instruments show a stable dock. The airlock door aft is ready.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>fore
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+
+>take flashlight
+Taken.
+
+>take ration bar
+Taken.
+
+>aft
+Tug Cockpit
+
+The cockpit is quiet. Instruments show a stable dock. The airlock door aft is ready.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+
+>aft
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+
+>aft
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>port
+Lower Mid Corridor
+
+A junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.
+
+You can see direction signs, elevator here.
+
+>aft
+Aft Corridor
+
+The corridor narrows toward the stern. The deck plates are warm underfoot. A low thrum vibrates through the walls — the reactor, waking up. Engineering is aft. The mid corridor is fore.
+
+You can see temperature gauge here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+A deep crack reverberates through the deck. The ship shudders.
+
+Behind you — from the airlock — a hiss of escaping atmosphere. The seal between the tug and The Stillwater is failing. You hear metal stress and pop.
+
+Through the airlock inspection window: your tug, still docked. But the seal is compromised. Going back that way without a spacesuit would be suicide.
+
+>aft
+Engineering
+
+The engineering section. Heavy machinery fills the space — power conduits, coolant pipes, switching panels. A tool rack hangs on the far wall. A comms relay unit is bolted beside the main console. The reactor room is to starboard. The aft corridor is fore. The maintenance shaft opens forward to port.
+
+You can see multi-tool, security override tool, cable snips, reactor controls, tool rack, comms relay, Reed here.
+
+ npc.speech
+
+>take cable snips
+Taken.
+
+ npc.emote
+
+>take multi-tool
+Taken.
+
+>fore
+Aft Corridor
+
+The corridor narrows toward the stern. The deck plates are warm underfoot. A low thrum vibrates through the walls — the reactor, waking up. Engineering is aft. The mid corridor is fore.
+
+You can see temperature gauge here.
+
+>fore
+Lower Mid Corridor
+
+A junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.
+
+You can see direction signs, elevator here.
+
+>starboard
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>starboard
+Maintenance Shaft
+
+A narrow cable conduit running between decks. Bundles of fiber-optic cable snake along the walls. The air is stale and close. Your flashlight picks out junction boxes bolted to the bulkhead. The corridor is to port. The shaft continues aft to engineering.
+
+You can see fiber-optic cables, junction box here.
+
+>cut cables
+You position the snips on the CORE cable and squeeze. The fiber-optic bundle parts with a bright flash.
+
+Every screen on the ship goes dark for three seconds. When they flicker back on, SOMS' voice is gone. Silence. Real silence, for the first time since you boarded.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>port
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>port
+Lower Mid Corridor
+
+A junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.
+
+You can see direction signs, elevator here.
+
+>up
+Central Junction
+
+A wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: "People First. Profit Always." Ladders lead up and down.
+
+You can see corporate signage here.
+
+>up
+Upper Corridor
+
+A narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.
+
+You can see bridge door, ship schematics, intercom panel here.
+
+>starboard
+Captain's Cabin
+
+Modest quarters. Personal effects — framed photos, a half-read book, dried flowers in a vase. A locked desk sits against the bulkhead. The corridor is to port.
+
+You can see captain's journal, locked desk, personal effects here.
+
+>pry open desk
+You work the multi-tool into the gap and lever the lock apart. Metal squeals. The drawer slides open, revealing a bridge keycard.
+
+>take keycard
+You take bridge keycard from locked desk.
+
+>port
+Upper Corridor
+
+A narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.
+
+You can see bridge door, ship schematics, intercom panel here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>unlock bridge door with keycard
+You unlock bridge door with bridge keycard.
+
+>open bridge door
+You open bridge door.
+
+>fore
+Bridge
+
+The nerve center of The Stillwater. A navigation console dominates the forward wall, showing a star chart with a blinking destination marker. A comms array control panel sits beside it. The captain's log terminal glows dimly. A security override panel is mounted near the door. The corridor is aft.
+
+You can see navigation console, comms array panel, captain's log terminal, security override panel, escape pod hatch here.
+Reed grabs your arm, eyes clear and desperate. "Listen to me. Something's in me. It's been in me since before you arrived. Don't let it — don't let me —" Their eyes cloud. The moment passes.
+
+>override security panel
+SOMS goes silent. Not dead — disabled. Contained.
+
+The ship is yours now. The doors are open. The systems respond to your commands.
+
+It's not over. Three hundred people in cryo. A pathogen in the hold. A military buyer waiting at Korvax Station.
+
+But for the first time since you boarded, the ship is quiet. Really quiet.
+
+You sit in the captain's chair and think about what comes next.
+
+*** THE END ***
+
+(Ending: Override The AI)
+Congratulations. You found a way out — or a way forward.
+
+>look
+No Signal Home
+By John Googol
+
+Type HELP for instructions.
+
+Tug Cargo Hold
+
+Dark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.
+
+You can see flashlight, ration bar, shipping crates, bedroll, datapad here.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take flashlight
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>take ration bar
+Taken.
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>inventory
+You are carrying:
+  flashlight, ration bar
+The proximity alarm screams from the cockpit. Aft. Move.
+
+>aft
+Tug Cockpit
+
+A cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.
+
+You can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.
+The alarm fills your head. The button — the big red one on the console — silence it first.
+
+>press button
+You slam the button. The alarm cuts off mid-shriek.
+
+Silence. Your ears ring.
+
+Through the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: "STILLWATER — Meridian Solutions — STATUS: DERELICT."
+
+Your fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.
+
+>examine docking controls
+Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.
+
+Sequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.
+
+>maneuver
+You grab the joystick and bring the tug's thrusters online. Manual control engaged.
+
+The Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.
+
+>fire thrusters
+You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.
+
+Good. Controlled approach. The docking port is dead ahead.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>extend arm
+You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.
+
+The connection reads solid. You could check the pressure readings before sealing, or just seal it and go.
+
+>check pressure
+You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.
+
+Good practice. Ready to seal.
+
+>seal
+You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.
+
+The airlock door unlocks. Aft leads to The Stillwater.
+
+>aft
+Airlock
+
+A cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.
+
+You can see biohazard sign, emergency locker, inspection window, claw marks here.
+
+>examine biohazard sign
+"BIOHAZARD CONTAINMENT PROTOCOLS IN EFFECT. Report symptoms to your supervisor. Meridian Solutions cares about your wellbeing."
+
+>aft
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>aft
+Cargo Bay
+
+A cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.
+
+You can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.
+A deep crack reverberates through the deck. The ship shudders.
+
+Behind you — from the airlock — a hiss of escaping atmosphere. The seal between the tug and The Stillwater is failing. You hear metal stress and pop.
+
+Through the airlock inspection window: your tug, still docked. But the seal is compromised. Going back that way without a spacesuit would be suicide.
+
+ npc.speech
+
+>starboard
+Storage Annex
+
+A supply room lined with industrial shelving. Spare parts, sealed ration containers, and maintenance equipment fill the racks. A yellow hazmat suit hangs from a hook near the door. The cargo bay is to port.
+
+You can see hazmat suit, elevator parts, fabricator parts, weapons crate, industrial shelving here.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>take hazmat suit
+Taken.
+
+>take elevator parts
+Taken.
+
+>port
+Cargo Bay
+
+A cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.
+
+You can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.
+
+>fore
+Forward Corridor
+
+A long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.
+
+You can see overhead pipes, floor panel here.
+
+>port
+Lower Mid Corridor
+
+A junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.
+
+You can see direction signs, elevator here.
+
+>aft
+Aft Corridor
+
+The corridor narrows toward the stern. The deck plates are warm underfoot. A low thrum vibrates through the walls — the reactor, waking up. Engineering is aft. The mid corridor is fore.
+
+You can see temperature gauge here.
+
+>aft
+Engineering
+
+The engineering section. Heavy machinery fills the space — power conduits, coolant pipes, switching panels. A tool rack hangs on the far wall. A comms relay unit is bolted beside the main console. The reactor room is to starboard. The aft corridor is fore. The maintenance shaft opens forward to port.
+
+You can see multi-tool, security override tool, cable snips, reactor controls, tool rack, comms relay, Reed here.
+
+ npc.speech
+
+>take multi-tool
+Taken.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>take cable snips
+Taken.
+
+>take override tool
+Taken.
+
+>fore
+Aft Corridor
+
+The corridor narrows toward the stern. The deck plates are warm underfoot. A low thrum vibrates through the walls — the reactor, waking up. Engineering is aft. The mid corridor is fore.
+
+You can see temperature gauge here.
+
+>fore
+Lower Mid Corridor
+
+A junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.
+
+You can see direction signs, elevator here.
+
+>up
+Central Junction
+
+A wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: "People First. Profit Always." Ladders lead up and down.
+
+You can see corporate signage here.
+
+>up
+Upper Corridor
+
+A narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.
+
+You can see bridge door, ship schematics, intercom panel here.
+
+>starboard
+Captain's Cabin
+
+Modest quarters. Personal effects — framed photos, a half-read book, dried flowers in a vase. A locked desk sits against the bulkhead. The corridor is to port.
+
+You can see captain's journal, locked desk, personal effects here.
+
+>examine desk
+A standard-issue officer's desk bolted to the bulkhead. The drawer has a simple mechanical lock.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
+
+>pry open desk
+You work the multi-tool into the gap and lever the lock apart. Metal squeals. The drawer slides open, revealing a bridge keycard.
+
+>take keycard
+You take bridge keycard from locked desk.
+
+>port
+Upper Corridor
+
+A narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.
+
+You can see bridge door, ship schematics, intercom panel here.
+Reed grabs your arm, eyes clear and desperate. "Listen to me. Something's in me. It's been in me since before you arrived. Don't let it — don't let me —" Their eyes cloud. The moment passes.
+
+>unlock bridge door with keycard
+You unlock bridge door with bridge keycard.
+
+>open bridge door
+You open bridge door.
+
+>fore
+Bridge
+
+The nerve center of The Stillwater. A navigation console dominates the forward wall, showing a star chart with a blinking destination marker. A comms array control panel sits beside it. The captain's log terminal glows dimly. A security override panel is mounted near the door. The corridor is aft.
+
+You can see navigation console, comms array panel, captain's log terminal, security override panel, escape pod hatch here.
+
+>examine escape pod
+An emergency escape pod hatch in the deck. The status indicator shows green — the pod is functional.
+
+>launch pod
+You seal the escape pod hatch and hit the launch control. The pod jolts free of The Stillwater with a bang that shakes your teeth.
+
+Through the tiny viewport, the freighter shrinks. Still dark. Still drifting. Still carrying its cargo of frozen prisoners and borrowed souls.
+
+You made it out. You left everyone behind.
+
+The pod's beacon activates automatically. Someone will pick you up. Eventually.
+
+You stare at the stars and try not to think about Reed's smile.
+
+*** THE END ***
+
+(Ending: Escape Alone)
+Congratulations. You found a way out — or a way forward.
+The hull groans — a deep structural sound. The ship settling, or something shifting in the dark.
