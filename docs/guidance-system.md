@@ -426,8 +426,8 @@ These need PO input before Phase 1 lands.
 Per CLAUDE.md ticket-first + documentation-aware workflow:
 
 - [x] This design doc exists at `docs/guidance-system.md`.
-- [ ] CLAUDE.md updated — add to Design Documents list and file-structure listing.
-- [ ] README.md updated — add to `docs/` tree block in Project Structure.
+- [x] CLAUDE.md updated — listed in Design Documents (line 21) and File Structure Overview (line 123).
+- [x] README.md updated — listed in `docs/` tree block in Project Structure (line 45).
 - [ ] PO sign-off recorded in commit message referencing this doc.
 - [ ] Phase 1 implementation ticket filed, references this doc in its acceptance criteria.
 - [ ] Phase 2 and Phase 3 tickets filed after Phase 1 merges (not before — avoids premature scoping).
