@@ -6,7 +6,7 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 ## Opening sequence — dock with The Stillwater
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > press button
@@ -35,7 +35,7 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 > look
 [OK: contains_any "Cockpit" "airlock"]
 
-> fore
+> north
 [OK: contains "Tug Cargo Hold"]
 
 > take flashlight
@@ -46,24 +46,24 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 ## Enter The Stillwater
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
-> aft
+> south
 [OK: contains "Airlock"]
 
-> aft
+> south
 [OK: contains "Forward Corridor"]
 
 ## Get cable snips and multi-tool from Engineering
 
-> port
+> west
 [OK: contains "Lower Mid Corridor"]
 
-> aft
+> south
 [OK: contains "Aft Corridor"]
 
-> aft
+> south
 [OK: contains "Engineering"]
 
 > take cable snips
@@ -74,16 +74,16 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 ## Back to Maintenance Shaft and cut AI cables
 
-> fore
+> north
 [OK: contains "Aft Corridor"]
 
-> fore
+> north
 [OK: contains "Lower Mid Corridor"]
 
-> starboard
+> east
 [OK: contains "Forward Corridor"]
 
-> starboard
+> east
 [OK: contains "Maintenance Shaft"]
 
 > cut cables
@@ -91,10 +91,10 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 ## Get keycard from Captain's Cabin
 
-> port
+> west
 [OK: contains "Forward Corridor"]
 
-> port
+> west
 [OK: contains "Lower Mid Corridor"]
 
 > up
@@ -103,7 +103,7 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 > up
 [OK: contains "Upper Corridor"]
 
-> starboard
+> east
 [OK: contains "Captain's Cabin"]
 
 > pry open desk
@@ -114,7 +114,7 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 ## Unlock bridge and trigger Override ending
 
-> port
+> west
 [OK: contains "Upper Corridor"]
 
 > unlock bridge door with keycard
@@ -123,7 +123,7 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 > open bridge door
 [OK: contains_any "open" "bridge"]
 
-> fore
+> north
 [OK: contains "Bridge"]
 
 > override security panel

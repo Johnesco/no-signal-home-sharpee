@@ -1,0 +1,28 @@
+diff --git a/node_modules/@sharpee/parser-en-us/direction-mappings.js b/node_modules/@sharpee/parser-en-us/direction-mappings.js
+index 687141f..d316189 100644
+--- a/node_modules/@sharpee/parser-en-us/direction-mappings.js
++++ b/node_modules/@sharpee/parser-en-us/direction-mappings.js
+@@ -28,6 +28,12 @@ exports.DirectionWords = {
+     'inside': world_model_1.Direction.IN,
+     'out': world_model_1.Direction.OUT,
+     'outside': world_model_1.Direction.OUT,
++    // Nautical synonyms (no-signal-home patch)
++    'fore': world_model_1.Direction.NORTH,
++    'forward': world_model_1.Direction.NORTH,
++    'aft': world_model_1.Direction.SOUTH,
++    'port': world_model_1.Direction.WEST,
++    'starboard': world_model_1.Direction.EAST,
+ };
+ /**
+  * Abbreviations → Direction constant mappings.
+@@ -43,6 +49,10 @@ exports.DirectionAbbreviations = {
+     'sw': world_model_1.Direction.SOUTHWEST,
+     'u': world_model_1.Direction.UP,
+     'd': world_model_1.Direction.DOWN,
++    // Nautical abbreviations (no-signal-home patch)
++    'f': world_model_1.Direction.NORTH,
++    'p': world_model_1.Direction.WEST,
++    'sb': world_model_1.Direction.EAST,
+ };
+ /**
+  * Reverse map: Direction constant → preferred display word.

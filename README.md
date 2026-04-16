@@ -13,7 +13,7 @@ Figure out what happened. Decide what matters. Get out alive. Maybe.
 ## Game Details
 
 - **Length:** 3-4 hours per playthrough
-- **Rooms:** 25 across 3 decks
+- **Rooms:** 26 across 4 regions (2-room tug + 3 Stillwater decks)
 - **NPCs:** 4 survivors + an AI with its own agenda
 - **Endings:** 5 (4 main + 1 secret)
 - **Combat:** Optional — every encounter has a non-violent alternative
@@ -37,11 +37,12 @@ This game is designed as a showcase for Sharpee features that are difficult or i
 no-signal-home/
 ├── docs/
 │   ├── game-design.md         # Full design doc — plot, NPCs, endings, mechanics
-│   ├── room-map.md            # 25-room map with ASCII layout
+│   ├── room-map.md            # 26-room map with ASCII layout (4 regions)
 │   ├── puzzles-and-items.md   # Puzzle chains, item locations, dependency graph
 │   ├── npcs.md                # NPC details — names, dialogue, behaviors, Sharpee implementation
 │   ├── writing-style.md       # Prose rules, voice samples, corporate satire tone
-│   └── procedural-systems.md  # Seeded procedural generation, state-reactive descriptions
+│   ├── procedural-systems.md  # Seeded procedural generation, state-reactive descriptions
+│   └── guidance-system.md     # Player guidance system — memories, interruptions, recalls, nudges
 ├── src/                       # Sharpee story source (TypeScript)
 ├── tests/                     # Transcript tests
 └── walkthroughs/              # Full walkthrough transcripts

@@ -21,10 +21,10 @@ import {
 import { NpcPlugin } from '@sharpee/plugin-npc';
 import type { Parser } from '@sharpee/parser-en-us';
 import type { LanguageProvider } from '@sharpee/lang-en-us';
-import { config, ShipPropTrait, MemoryTrait, StateKeys, MAX_SCORE } from './types';
+import { config, ShipPropTrait, MemoryTrait, StateKeys, MAX_SCORE, Regions } from './types';
 import type { RoomIds, ItemIds, NpcIds } from './types';
 export { config } from './types';
-import { createRooms, createItems, createScenery } from './world';
+import { createRegions, createRooms, createItems, createScenery } from './world';
 import { createNpcs, getAllBehaviors } from './npcs';
 import { getCustomActions } from './actions';
 import { getInterceptors } from './interceptors';
@@ -69,9 +69,16 @@ export class NoSignalHomeStory implements Story {
   initializeWorld(world: WorldModel): void {
     world.setMaxScore(MAX_SCORE);
 
-    // Nautical direction vocabulary (ADR-143)
-    // Replaces compass with naval: fore/aft/port/starboard, topside/below decks
-    world.directions().useVocabulary('naval');
+    // Nautical direction vocabulary is provided by:
+    //   1. patches/@sharpee+lang-en-us+*.patch — adds fore/aft/port/starboard
+    //      as synonyms for north/south/west/east in the language provider.
+    //   2. patches/@sharpee+parser-en-us+*.patch — adds nautical words to
+    //      the parser's DirectionWords/DirectionAbbreviations maps.
+    //   3. src/grammar.ts — registers bare-word command patterns ("fore", "aft", etc.).
+    // No runtime call needed — the patches ship at npm-install time.
+
+    // Regions must be created before rooms so assignments can reference them.
+    createRegions(world);
 
     // Create world
     this.rooms = createRooms(world);
@@ -130,18 +137,35 @@ export class NoSignalHomeStory implements Story {
       }
     }
 
-    // Event chain: examining docking controls sets the gate flag
-    world.chainEvent('if.event.examined', (event) => {
+    // When the docking controls are examined for the first time, set the
+    // gate flag that opens up the rest of the docking puzzle. This is a
+    // reactive handler (no event mutation), so registerEventHandler is
+    // the canonical pattern rather than chainEvent.
+    world.registerEventHandler('if.event.examined', (event) => {
       const data = event.data as Record<string, any>;
-      if (!data.targetId) return null;
+      if (!data.targetId) return;
+      if (world.getStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED)) return;
       const target = world.getEntity(data.targetId);
-      if (!target) return null;
+      if (!target) return;
       const propId = (target.get(ShipPropTrait.type) as any)?.propId;
-      if (propId === 'docking-controls' && !world.getStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED)) {
+      if (propId === 'docking-controls') {
         world.setStateValue(StateKeys.DOCKING_CONTROLS_EXAMINED, true);
       }
-      return null;  // pass through — don't replace the examine event
-    }, { key: 'story.chain.examine-controls' });
+    });
+
+    // Region crossing: entering the Stillwater's lower deck = boarding the ship.
+    // This is the canonical place that marks boarding — triggered when the
+    // player exits the tug (or the airlock) into any lower-deck room.
+    // The createBoardingPlugin() in plugins.ts still has a location-based
+    // fallback for safety.
+    world.registerEventHandler('if.event.region_entered', (event) => {
+      const data = event.data as Record<string, any>;
+      if (data.regionId !== Regions.LOWER_DECK) return;
+      if (world.getStateValue(StateKeys.PLAYER_BOARDED)) return;
+      world.setStateValue(StateKeys.PLAYER_BOARDED, true);
+      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+      world.setStateValue(StateKeys.BOARDING_TURN, turn);
+    });
 
     // Place player in tug cargo hold (starting room)
     const player = world.getPlayer()!;

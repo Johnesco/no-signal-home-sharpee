@@ -3,7 +3,7 @@
 **Genre:** Sci-fi salvage / survival horror
 **Engine:** Sharpee (TypeScript IF framework)
 **Setting:** Far future. Corporate freighter "The Stillwater" adrift in deep space for years. Was carrying pathogen, AI core, and hundreds of cryo prisoners to a military buyer. Arms deal that went wrong.
-**Length:** 3-4 hours per playthrough, 25 rooms across 3 decks
+**Length:** 3-4 hours per playthrough, 26 rooms across 4 regions (2-room tug + 24 rooms on 3 Stillwater decks)
 **Name verified clear on IFDB as of 2026-03-19.**
 
 ---

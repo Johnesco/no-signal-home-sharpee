@@ -11,7 +11,7 @@ description: Tests docking without checking pressure — bad seal warning then d
 
 ## Move to cockpit and silence alarm
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > press button
@@ -42,5 +42,5 @@ description: Tests docking without checking pressure — bad seal warning then d
 
 ## Go aft — door unlocked by plugin, crossing triggers death
 
-> aft
+> south
 [OK: contains_any "decompression" "DIED" "cold"]

@@ -16,10 +16,10 @@ import type { ISemanticEvent } from '@sharpee/core';
 // ============================================================================
 
 export interface RoomIds {
-  // Tug (2)
+  // Tug (2) — the salvager's ship
   tugCargoHold: string;
-  // Lower Deck (13)
   tugCockpit: string;
+  // Stillwater — Lower Deck (12)
   airlock: string;
   forwardCorridor: string;
   maintenanceShaft: string;
@@ -32,7 +32,7 @@ export interface RoomIds {
   aftCorridor: string;
   engineering: string;
   reactorRoom: string;
-  // Mid Deck (7)
+  // Stillwater — Mid Deck (7)
   centralJunction: string;
   labCorridor: string;
   scienceLab: string;
@@ -40,13 +40,31 @@ export interface RoomIds {
   habCorridor: string;
   messHall: string;
   library: string;
-  // Upper Deck (5)
+  // Stillwater — Upper Deck (5)
   upperCorridor: string;
   crewBunks: string;
   commonArea: string;
   captainsCabin: string;
   bridge: string;
 }
+
+/**
+ * Region IDs — four geographic areas used to group rooms and fire
+ * region-crossing events (e.g., boarding detection when leaving the tug).
+ */
+export interface RegionIds {
+  tug: string;
+  lowerDeck: string;
+  midDeck: string;
+  upperDeck: string;
+}
+
+export const Regions = {
+  TUG: 'reg-tug',
+  LOWER_DECK: 'reg-lower-deck',
+  MID_DECK: 'reg-mid-deck',
+  UPPER_DECK: 'reg-upper-deck',
+} as const;
 
 export interface ItemIds {
   // Portable items

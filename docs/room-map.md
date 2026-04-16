@@ -189,10 +189,13 @@ Compass directions (N/S/E/W) also work as input but are not used in player-facin
 ---
 
 ## ROOM COUNT SUMMARY
-- Lower Deck: 13 rooms (including Tug Cockpit)
-- Mid Deck: 7 rooms
-- Upper Deck: 5 rooms
-- **Total: 25 rooms**
+- Tug: 2 rooms (Cargo Hold + Cockpit) — the player's starting ship
+- Lower Deck: 12 rooms (Stillwater)
+- Mid Deck: 7 rooms (Stillwater)
+- Upper Deck: 5 rooms (Stillwater)
+- **Total: 26 rooms across 4 regions**
+
+> Implementation note: the four regions (`Regions.TUG`, `Regions.LOWER_DECK`, `Regions.MID_DECK`, `Regions.UPPER_DECK`) are created in `src/world.ts` and each room is assigned via `world.assignRoom()`. The Stillwater's onboarding moment — leaving the tug for the first time — is detected from the `if.event.region_entered` event fired by the going action when the player crosses into `Regions.LOWER_DECK`.
 
 ## NPC LOCATIONS
 - **Engineer:** Engineering (Lower Deck) — moves as infection progresses

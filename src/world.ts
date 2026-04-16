@@ -22,7 +22,8 @@ import {
   LightSourceTrait,
 } from '@sharpee/world-model';
 import {
-  RoomIds, ItemIds, ShipPropTrait, TerminalTrait, HazardTrait, MemoryTrait,
+  RoomIds, ItemIds, RegionIds, Regions,
+  ShipPropTrait, TerminalTrait, HazardTrait, MemoryTrait,
 } from './types';
 
 // ============================================================================
@@ -68,7 +69,32 @@ function createSceneryEntity(
 }
 
 // ============================================================================
-// ROOMS — 25 rooms, 3 decks
+// REGIONS — 4 geographic areas (the tug + 3 decks of The Stillwater)
+// ============================================================================
+
+export function createRegions(world: WorldModel): RegionIds {
+  world.createRegion(Regions.TUG, {
+    name: 'The Tug',
+  });
+  world.createRegion(Regions.LOWER_DECK, {
+    name: 'The Stillwater — Lower Deck',
+  });
+  world.createRegion(Regions.MID_DECK, {
+    name: 'The Stillwater — Mid Deck',
+  });
+  world.createRegion(Regions.UPPER_DECK, {
+    name: 'The Stillwater — Upper Deck',
+  });
+  return {
+    tug: Regions.TUG,
+    lowerDeck: Regions.LOWER_DECK,
+    midDeck: Regions.MID_DECK,
+    upperDeck: Regions.UPPER_DECK,
+  };
+}
+
+// ============================================================================
+// ROOMS — 26 rooms, the tug + 3 decks of The Stillwater
 // ============================================================================
 
 export function createRooms(world: WorldModel): RoomIds {
@@ -82,8 +108,6 @@ export function createRooms(world: WorldModel): RoomIds {
   }));
   tugCargoHold.add(new RoomTrait());
 
-  // ----- LOWER DECK (13 rooms) -----
-
   const tugCockpit = world.createEntity('Tug Cockpit', EntityType.ROOM);
   tugCockpit.add(new IdentityTrait({
     name: 'Tug Cockpit',
@@ -91,6 +115,8 @@ export function createRooms(world: WorldModel): RoomIds {
     properName: true,
   }));
   tugCockpit.add(new RoomTrait());
+
+  // ----- LOWER DECK (12 rooms) -----
 
   const airlock = world.createEntity('Airlock', EntityType.ROOM);
   airlock.add(new IdentityTrait({
@@ -330,6 +356,38 @@ export function createRooms(world: WorldModel): RoomIds {
   world.connectRooms(crewBunks.id, commonArea.id, Direction.SOUTH);
   world.connectRooms(upperCorridor.id, captainsCabin.id, Direction.EAST);
   // Bridge — gated by keycard (connected via door below)
+
+  // ----- REGION ASSIGNMENTS -----
+  // Tug (player's own ship)
+  world.assignRoom(tugCargoHold.id, Regions.TUG);
+  world.assignRoom(tugCockpit.id, Regions.TUG);
+  // Lower Deck of The Stillwater — airlock is the boarding threshold
+  world.assignRoom(airlock.id, Regions.LOWER_DECK);
+  world.assignRoom(forwardCorridor.id, Regions.LOWER_DECK);
+  world.assignRoom(maintenanceShaft.id, Regions.LOWER_DECK);
+  world.assignRoom(cargoBay.id, Regions.LOWER_DECK);
+  world.assignRoom(cargoHold.id, Regions.LOWER_DECK);
+  world.assignRoom(storageAnnex.id, Regions.LOWER_DECK);
+  world.assignRoom(lowerMidCorridor.id, Regions.LOWER_DECK);
+  world.assignRoom(cryoBay.id, Regions.LOWER_DECK);
+  world.assignRoom(cryoControl.id, Regions.LOWER_DECK);
+  world.assignRoom(aftCorridor.id, Regions.LOWER_DECK);
+  world.assignRoom(engineering.id, Regions.LOWER_DECK);
+  world.assignRoom(reactorRoom.id, Regions.LOWER_DECK);
+  // Mid Deck
+  world.assignRoom(centralJunction.id, Regions.MID_DECK);
+  world.assignRoom(labCorridor.id, Regions.MID_DECK);
+  world.assignRoom(scienceLab.id, Regions.MID_DECK);
+  world.assignRoom(medbay.id, Regions.MID_DECK);
+  world.assignRoom(habCorridor.id, Regions.MID_DECK);
+  world.assignRoom(messHall.id, Regions.MID_DECK);
+  world.assignRoom(library.id, Regions.MID_DECK);
+  // Upper Deck
+  world.assignRoom(upperCorridor.id, Regions.UPPER_DECK);
+  world.assignRoom(crewBunks.id, Regions.UPPER_DECK);
+  world.assignRoom(commonArea.id, Regions.UPPER_DECK);
+  world.assignRoom(captainsCabin.id, Regions.UPPER_DECK);
+  world.assignRoom(bridge.id, Regions.UPPER_DECK);
 
   return {
     tugCargoHold: tugCargoHold.id,

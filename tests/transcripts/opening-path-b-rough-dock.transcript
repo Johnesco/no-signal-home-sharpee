@@ -12,7 +12,7 @@ description: Tests docking without braking — good seal but tug drifts away on 
 
 ## Move to cockpit and silence alarm
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > press button
@@ -44,7 +44,7 @@ description: Tests docking without braking — good seal but tug drifts away on 
 
 ## Board The Stillwater
 
-> aft
+> south
 [OK: contains "Airlock"]
 
 ## Wait 3 turns for seal degradation — tug should DRIFT AWAY (no brake)

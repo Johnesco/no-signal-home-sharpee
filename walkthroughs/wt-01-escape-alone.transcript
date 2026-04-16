@@ -20,7 +20,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 ## Opening sequence — dock with The Stillwater
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > press button
@@ -46,21 +46,21 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 ## Enter The Stillwater
 
-> aft
+> south
 [OK: contains "Airlock"]
 
 > examine biohazard sign
 [OK: contains "Meridian"]
 
-> aft
+> south
 [OK: contains "Forward Corridor"]
 
 ## Explore Lower Deck — find multi-tool and override tool
 
-> aft
+> south
 [OK: contains "Cargo Bay"]
 
-> starboard
+> east
 [OK: contains "Storage Annex"]
 
 > take hazmat suit
@@ -69,19 +69,19 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 > take elevator parts
 [OK: contains "Taken"]
 
-> port
+> west
 [OK: contains "Cargo Bay"]
 
-> fore
+> north
 [OK: contains "Forward Corridor"]
 
-> port
+> west
 [OK: contains "Lower Mid Corridor"]
 
-> aft
+> south
 [OK: contains "Aft Corridor"]
 
-> aft
+> south
 [OK: contains "Engineering"]
 
 > take multi-tool
@@ -95,10 +95,10 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 ## Go up to Mid Deck, then Upper Deck
 
-> fore
+> north
 [OK: contains "Aft Corridor"]
 
-> fore
+> north
 [OK: contains "Lower Mid Corridor"]
 
 > up
@@ -109,7 +109,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 ## Open captain's desk, get keycard
 
-> starboard
+> east
 [OK: contains "Captain's Cabin"]
 
 > examine desk
@@ -123,7 +123,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 ## Unlock bridge and escape
 
-> port
+> west
 [OK: contains "Upper Corridor"]
 
 > unlock bridge door with keycard
@@ -132,7 +132,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 > open bridge door
 [OK: contains_any "open" "bridge"]
 
-> fore
+> north
 [OK: contains "Bridge"]
 
 ## Launch escape pod — Ending

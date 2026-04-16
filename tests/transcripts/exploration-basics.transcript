@@ -21,7 +21,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 ## Opening sequence — dock with The Stillwater
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > press button
@@ -47,7 +47,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 ## Enter the Stillwater — Airlock
 
-> aft
+> south
 [OK: contains "Airlock"]
 
 > examine biohazard sign
@@ -55,7 +55,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 ## Forward Corridor
 
-> aft
+> south
 [OK: contains "Forward Corridor"]
 
 > examine floor panel
@@ -63,27 +63,27 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 ## Cargo Bay — meet Okafor
 
-> aft
+> south
 [OK: contains "Cargo Bay"]
 [OK: contains "Okafor"]
 
 ## Storage Annex
 
-> starboard
+> east
 [OK: contains "Storage Annex"]
 
 > take hazmat suit
 [OK: contains "Taken"]
 
-> port
+> west
 [OK: contains "Cargo Bay"]
 
 ## Lower Mid Corridor — ladder up
 
-> fore
+> north
 [OK: contains "Forward Corridor"]
 
-> port
+> west
 [OK: contains "Lower Mid Corridor"]
 
 > examine elevator
@@ -96,42 +96,42 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 ## Lab Corridor and Science Lab
 
-> port
+> west
 [OK: contains "Lab Corridor"]
 
-> port
+> west
 [OK: contains "Science Lab"]
 
-> starboard
+> east
 [OK: contains "Lab Corridor"]
 
-> aft
+> south
 [OK: contains "Medbay"]
 
-> fore
+> north
 [OK: contains "Lab Corridor"]
 
-> starboard
+> east
 [OK: contains "Central Junction"]
 
 ## Hab Corridor — Mess Hall, Library
 
-> starboard
+> east
 [OK: contains "Hab Corridor"]
 
-> starboard
+> east
 [OK: contains "Mess Hall"]
 
-> port
+> west
 [OK: contains "Hab Corridor"]
 
-> aft
+> south
 [OK: contains "Library"]
 
-> fore
+> north
 [OK: contains "Hab Corridor"]
 
-> port
+> west
 [OK: contains "Central Junction"]
 
 ## Upper Deck
@@ -139,16 +139,16 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 > up
 [OK: contains "Upper Corridor"]
 
-> aft
+> south
 [OK: contains "Crew Bunks"]
 
-> aft
+> south
 [OK: contains "Common Area"]
 
-> fore
+> north
 [OK: contains "Crew Bunks"]
 
-> fore
+> north
 [OK: contains "Upper Corridor"]
 
 ## Help and About commands

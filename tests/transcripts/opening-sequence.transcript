@@ -23,13 +23,13 @@ description: Tests the complete opening sequence: alarm, docking steps, quality 
 
 ## Move to cockpit
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 [OK: contains "alarm"]
 
 ## Can't go aft before docking
 
-> aft
+> south
 [OK: contains_any "locked" "sealed" "docking"]
 
 ## Alarm button
@@ -70,7 +70,7 @@ description: Tests the complete opening sequence: alarm, docking steps, quality 
 
 ## Can now go aft to airlock
 
-> aft
+> south
 [OK: contains "Airlock"]
 
 > examine inspection window

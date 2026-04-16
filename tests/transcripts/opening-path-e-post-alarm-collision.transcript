@@ -6,7 +6,7 @@ description: Tests the 20-turn post-alarm timer — silence alarm but never dock
 
 ## Move to cockpit and silence alarm immediately
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > press button
@@ -39,7 +39,7 @@ description: Tests the 20-turn post-alarm timer — silence alarm but never dock
 
 ## Go to cargo hold for more filler
 
-> fore
+> north
 [OK: contains "Tug Cargo Hold"]
 
 > examine crates
@@ -71,7 +71,7 @@ description: Tests the 20-turn post-alarm timer — silence alarm but never dock
 
 ## Back to cockpit for final turns
 
-> aft
+> south
 [OK: contains "Tug Cockpit"]
 
 > examine fuel gauge
