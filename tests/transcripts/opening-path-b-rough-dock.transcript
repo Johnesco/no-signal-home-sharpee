@@ -46,6 +46,7 @@ description: Tests docking without braking — good seal but tug drifts away on 
 
 > south
 [OK: contains "Airlock"]
+[STATE: true, yourself.location = Airlock]
 
 ## Wait 3 turns for seal degradation — tug should DRIFT AWAY (no brake)
 

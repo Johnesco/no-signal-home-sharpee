@@ -68,9 +68,11 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 > take cable snips
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains cable snips]
 
 > take multi-tool
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains multi-tool]
 
 ## Back to Maintenance Shaft and cut AI cables
 
@@ -88,6 +90,7 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 
 > cut cables
 [OK: contains_any "cut" "sever" "spark" "dead" "dark" "slice"]
+[EVENT: true, type="action.success" messageId="story.cable.cut"]
 
 ## Get keycard from Captain's Cabin
 
@@ -129,3 +132,4 @@ description: Override AI ending via cable cut in maintenance shaft, then bridge 
 > override security panel
 [OK: contains "THE END"]
 [OK: contains "Override"]
+[EVENT: true, type="game.ended" reason="victory"]

@@ -14,6 +14,7 @@
   "dependencies": {
     "@sharpee/core": "^0.9.111",
     "@sharpee/engine": "^0.9.111",
+    "@sharpee/plugins": "^0.9.111",
     "@sharpee/lang-en-us": "^0.9.111",
     "@sharpee/parser-en-us": "^0.9.111",
     "@sharpee/plugin-npc": "^0.9.111",

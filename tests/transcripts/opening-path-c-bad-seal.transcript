@@ -44,3 +44,4 @@ description: Tests docking without checking pressure — bad seal warning then d
 
 > south
 [OK: contains_any "decompression" "DIED" "cold"]
+[EVENT: true, type="game.ended" reason="death"]

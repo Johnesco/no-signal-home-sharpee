@@ -12,6 +12,7 @@ description: Tests the 20-turn post-alarm timer — silence alarm but never dock
 > press button
 [OK: contains "alarm"]
 [OK: contains "Stillwater"]
+[EVENT: true, type="action.success" messageId="story.alarm.silenced"]
 
 ## Waste turns — fuse starts counting after alarm silenced
 ## Need 20 elapsed turns. Some commands may be free, so add extras.
@@ -90,3 +91,4 @@ description: Tests the 20-turn post-alarm timer — silence alarm but never dock
 
 > examine viewport
 [OK: contains_any "fills everything" "DIED" "collision" "hull" "out of time"]
+[EVENT: true, type="game.ended" reason="death"]

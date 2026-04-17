@@ -11,9 +11,11 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 > take flashlight
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains flashlight]
 
 > take ration bar
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains ration bar]
 
 > inventory
 [OK: contains "flashlight"]
@@ -49,6 +51,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 > south
 [OK: contains "Airlock"]
+[STATE: true, yourself.location = Airlock]
 
 > examine biohazard sign
 [OK: contains "Meridian"]
@@ -66,6 +69,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 > south
 [OK: contains "Cargo Bay"]
 [OK: contains "Okafor"]
+[STATE: true, yourself.location = Cargo Bay]
 
 ## Storage Annex
 
@@ -74,6 +78,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 > take hazmat suit
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains hazmat suit]
 
 > west
 [OK: contains "Cargo Bay"]
@@ -93,6 +98,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 > up
 [OK: contains "Central Junction"]
+[STATE: true, yourself.location = Central Junction]
 
 ## Lab Corridor and Science Lab
 
@@ -138,6 +144,7 @@ description: Tests room navigation, NPC encounters, examining objects, and mid-d
 
 > up
 [OK: contains "Upper Corridor"]
+[STATE: true, yourself.location = Upper Corridor]
 
 > south
 [OK: contains "Crew Bunks"]

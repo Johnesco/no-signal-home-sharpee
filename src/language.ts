@@ -2,10 +2,54 @@
  * No Signal Home — Language Extensions
  *
  * All player-facing text registered as message IDs.
+ * NPC behavior text is exported as constants so behaviors can reference
+ * the same strings without needing runtime language-provider access.
  */
 
 import type { LanguageProvider } from '@sharpee/lang-en-us';
 import { Msg } from './types';
+
+// ============================================================================
+// NPC BEHAVIOR TEXT — exported for use in npcs.ts behaviors
+// ============================================================================
+
+export const NpcText = {
+  // Reed idle — normal
+  REED_IDLE_PIPE: 'Reed adjusts a pipe fitting, muttering about pressure differentials.',
+  REED_IDLE_GREASE: 'Reed wipes grease from their hands. "Ship\'s waking up. Slowly."',
+  REED_IDLE_GAUGE: 'Reed checks a gauge and frowns.',
+  REED_IDLE_REACTOR: '"Reactor\'s running hotter than it should," Reed says to no one in particular.',
+  // Reed idle — glitch
+  REED_GLITCH_SENTENCE: 'Reed starts a sentence, stops, starts again with different words.',
+  REED_GLITCH_STARE: 'Reed stares at the wall for a long moment, then shakes it off.',
+  REED_GLITCH_REPEAT_Q: '"The reactor — the reactor is — have we talked about the reactor?"',
+  REED_GLITCH_ADJUSTMENT: 'Reed repeats the same adjustment they made a moment ago.',
+  // Reed idle — turned
+  REED_TURNED_WATCH: 'Reed watches you. Smiling.',
+  REED_TURNED_STILL: 'Reed stands perfectly still, head tilted slightly.',
+  REED_TURNED_FINE: '"Everything is fine," Reed says. Their voice is flat.',
+  REED_TURNED_HUM: 'Reed hums something. Not a song you recognize.',
+  // Reed events
+  REED_MEET: 'Reed looks up sharply, then relaxes. "Another person. Thank god. I thought I was the only one left awake."',
+  REED_ENTER_TURNED: 'Reed is here. Watching. Smiling at nothing.',
+  // Vasik idle
+  VASIK_IDLE_COLLAR: 'Vasik straightens their uniform collar. Old habits.',
+  VASIK_IDLE_CALCULATE: 'Vasik\'s eyes flick to you, then away. Calculating.',
+  VASIK_IDLE_RETRIEVAL: '"Meridian will send a retrieval team," Vasik says. "Eventually."',
+  // Vasik events
+  VASIK_MEET: 'A voice from behind the barricade: "Stop. Who are you? You\'re not crew." A pause. "You\'re from the tug. The convict."',
+  // Okafor idle
+  OKAFOR_IDLE_WATCH: 'Okafor keeps one eye on the corridor. Always watching.',
+  OKAFOR_IDLE_BARRICADE: 'Okafor adjusts the barricade, testing its strength.',
+  OKAFOR_IDLE_CRYO: '"Three hundred people in cryo," Okafor says quietly. "And nobody cares."',
+  // Okafor events
+  OKAFOR_MEET: '"You\'re in my bay." Okafor steps out from behind a container, arms folded. "Corporate? Crew?" A hard stare. "Or something else?"',
+  OKAFOR_ENTER_UNSEEN: 'Someone is here. They step into view from behind a shipping container — watchful, tense, blocking your path.',
+  // Lis events
+  LIS_MEET: '"Oh." Lis blinks, confused. "I didn\'t — I thought I was going to storage." A pause. A head tilt. "How can I help you?"',
+  LIS_WINCE: 'Lis winces, presses a hand to their temple. "Sorry. I — lost the thread for a moment."',
+  LIS_PUPPET_IDLE: 'Lis stands very still, eyes focused on something you can\'t see. Then: "Is there something you need?"',
+} as const;
 
 export function extendLanguage(language: LanguageProvider): void {
   const add = (id: string, text: string) => (language as any).addMessage?.(id, text);
@@ -206,6 +250,11 @@ export function extendLanguage(language: LanguageProvider): void {
   add(Msg.CONTAINMENT_FAILING, 'A chemical tang in the air. Sharper now. The containment in the cargo hold is degrading.');
   add(Msg.AI_SPREADING, 'A terminal you haven\'t seen active before flickers to life nearby. SOMS is expanding its reach.');
   add(Msg.DESTINATION_WARNING, 'The navigation display updates: Korvax Station approach in progress. Time is running out.');
+
+  // --- NPC Behavior Text (registered from NpcText constants) ---
+  for (const [key, text] of Object.entries(NpcText)) {
+    add(`npc.behavior.${key}`, text);
+  }
 
   // --- Meta ---
   add(Msg.HELP, "NO SIGNAL HOME — Commands:\n\nMovement: FORE, AFT, PORT, STARBOARD, UP, DOWN (or F, A, P, SB, U, D)\nActions: LOOK, EXAMINE, TAKE, DROP, OPEN, CLOSE, UNLOCK, READ\nSpecial: PRY, REPAIR, CUT, CONNECT, OVERRIDE, LAUNCH\nNPCs: ASK [person] ABOUT [topic], TALK TO [person]\nTerminals: QUERY [terminal] ABOUT [topic], USE [terminal]\nSearch: SEARCH [thing], LOOK UNDER [thing]\nSystem: SAVE, RESTORE, UNDO, INVENTORY, SCORE\n\nTip: EXAMINE everything. Talk to everyone. Read every terminal.");

@@ -15,9 +15,7 @@ import {
   OpenableTrait,
   LockableTrait,
   SceneryTrait,
-  SupporterTrait,
   ReadableTrait,
-  DoorTrait,
   SwitchableTrait,
   LightSourceTrait,
 } from '@sharpee/world-model';
@@ -576,88 +574,56 @@ export function createItems(world: WorldModel, rooms: RoomIds): ItemIds {
   }));
   world.moveEntity(cableSnips.id, rooms.engineering);
 
-  // === DOORS ===
+  // === DOORS (using world.createDoor — handles entity, traits, and exit wiring) ===
 
   // Airlock door (locked until docking SEALED — gates cockpit↔airlock)
-  const airlockDoor = world.createEntity('airlock door', EntityType.DOOR);
-  airlockDoor.add(new IdentityTrait({
-    name: 'airlock door',
+  const airlockDoor = world.createDoor('airlock door', {
+    room1Id: rooms.tugCockpit,
+    room2Id: rooms.airlock,
+    direction: Direction.SOUTH,
     description: 'A heavy pressure door between the tug and The Stillwater.',
     aliases: ['pressure door', 'hatch'],
-    adjectives: ['airlock', 'pressure', 'heavy'],
-    article: 'the',
-  }));
-  airlockDoor.add(new OpenableTrait({ isOpen: false }));
-  airlockDoor.add(new LockableTrait({
+    isOpen: false,
     isLocked: true,
-    lockedMessage: "The airlock is sealed. You need to complete the docking sequence first.",
-  }));
-  airlockDoor.add(new DoorTrait({ room1: rooms.tugCockpit, room2: rooms.airlock }));
-  airlockDoor.add(new SceneryTrait());
+  });
+  // Set fields not covered by createDoor options
+  const airlockId = airlockDoor.get(IdentityTrait);
+  if (airlockId) { airlockId.adjectives = ['airlock', 'pressure', 'heavy']; airlockId.article = 'the'; }
+  const airlockLock = airlockDoor.get(LockableTrait);
+  if (airlockLock) airlockLock.lockedMessage = "The airlock is sealed. You need to complete the docking sequence first.";
   airlockDoor.add(new ShipPropTrait('airlock-door'));
-  world.moveEntity(airlockDoor.id, rooms.tugCockpit);
-
-  // Wire cockpit↔airlock exit via door (manually, like bridge door)
-  const cockpitEntity = world.getEntity(rooms.tugCockpit);
-  const airlockRoomEntity = world.getEntity(rooms.airlock);
-  const ckRoom = cockpitEntity?.get(RoomTrait);
-  const alRoom = airlockRoomEntity?.get(RoomTrait);
-  if (ckRoom) ckRoom.exits[Direction.SOUTH] = { destination: rooms.airlock, via: airlockDoor.id };
-  if (alRoom) alRoom.exits[Direction.NORTH] = { destination: rooms.tugCockpit, via: airlockDoor.id };
 
   // Bridge door (locked by keycard)
-  const bridgeDoor = world.createEntity('bridge door', EntityType.DOOR);
-  bridgeDoor.add(new IdentityTrait({
-    name: 'bridge door',
+  const bridgeDoor = world.createDoor('bridge door', {
+    room1Id: rooms.upperCorridor,
+    room2Id: rooms.bridge,
+    direction: Direction.NORTH,
     description: 'A heavy security door with a keycard reader. The reader blinks red — locked.',
     aliases: ['security door', 'bridge hatch', 'door'],
-    adjectives: ['bridge', 'security', 'heavy'],
-    article: 'the',
-  }));
-  bridgeDoor.add(new OpenableTrait({ isOpen: false }));
-  bridgeDoor.add(new LockableTrait({
+    isOpen: false,
     isLocked: true,
     keyId: keycard.id,
-    lockedMessage: 'The keycard reader blinks red. You need a bridge keycard.',
-  }));
-  bridgeDoor.add(new DoorTrait({ room1: rooms.upperCorridor, room2: rooms.bridge }));
-  bridgeDoor.add(new SceneryTrait());
-  world.moveEntity(bridgeDoor.id, rooms.upperCorridor);
-
-  // Wire bridge door exits manually
-  const upperCorridorEntity = world.getEntity(rooms.upperCorridor);
-  const bridgeEntity = world.getEntity(rooms.bridge);
-  const ucRoom = upperCorridorEntity?.get(RoomTrait);
-  const brRoom = bridgeEntity?.get(RoomTrait);
-  if (ucRoom) ucRoom.exits[Direction.NORTH] = { destination: rooms.bridge, via: bridgeDoor.id };
-  if (brRoom) brRoom.exits[Direction.SOUTH] = { destination: rooms.upperCorridor, via: bridgeDoor.id };
+  });
+  const bridgeId = bridgeDoor.get(IdentityTrait);
+  if (bridgeId) { bridgeId.adjectives = ['bridge', 'security', 'heavy']; bridgeId.article = 'the'; }
+  const bridgeLock = bridgeDoor.get(LockableTrait);
+  if (bridgeLock) bridgeLock.lockedMessage = 'The keycard reader blinks red. You need a bridge keycard.';
 
   // Cargo hold door (locked by code — no keyId, opened programmatically)
-  const cargoHoldDoor = world.createEntity('cargo hold bulkhead', EntityType.DOOR);
-  cargoHoldDoor.add(new IdentityTrait({
-    name: 'cargo hold bulkhead',
+  const cargoHoldDoor = world.createDoor('cargo hold bulkhead', {
+    room1Id: rooms.cargoBay,
+    room2Id: rooms.cargoHold,
+    direction: Direction.SOUTH,
     description: 'A reinforced bulkhead with a security keypad. The display reads "ENTER ACCESS CODE."',
     aliases: ['bulkhead', 'hold door', 'cargo door', 'security door'],
-    adjectives: ['cargo', 'reinforced', 'hold'],
-    article: 'the',
-  }));
-  cargoHoldDoor.add(new OpenableTrait({ isOpen: false }));
-  cargoHoldDoor.add(new LockableTrait({
+    isOpen: false,
     isLocked: true,
-    lockedMessage: 'The keypad blinks. You need the access code.',
-  }));
-  cargoHoldDoor.add(new DoorTrait({ room1: rooms.cargoBay, room2: rooms.cargoHold }));
-  cargoHoldDoor.add(new SceneryTrait());
+  });
+  const cargoId = cargoHoldDoor.get(IdentityTrait);
+  if (cargoId) { cargoId.adjectives = ['cargo', 'reinforced', 'hold']; cargoId.article = 'the'; }
+  const cargoLock = cargoHoldDoor.get(LockableTrait);
+  if (cargoLock) cargoLock.lockedMessage = 'The keypad blinks. You need the access code.';
   cargoHoldDoor.add(new ShipPropTrait('cargo-keypad'));
-  world.moveEntity(cargoHoldDoor.id, rooms.cargoBay);
-
-  // Wire cargo hold door exits
-  const cargoBayEntity = world.getEntity(rooms.cargoBay);
-  const cargoHoldEntity = world.getEntity(rooms.cargoHold);
-  const cbRoom = cargoBayEntity?.get(RoomTrait);
-  const chRoom = cargoHoldEntity?.get(RoomTrait);
-  if (cbRoom) cbRoom.exits[Direction.SOUTH] = { destination: rooms.cargoHold, via: cargoHoldDoor.id };
-  if (chRoom) chRoom.exits[Direction.NORTH] = { destination: rooms.cargoBay, via: cargoHoldDoor.id };
 
   // === CONTAINERS ===
 

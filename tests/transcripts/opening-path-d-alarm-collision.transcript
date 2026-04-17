@@ -46,3 +46,4 @@ description: Tests the 10-turn alarm timer — never silence the alarm, die on c
 
 > examine instrument panels
 [OK: contains_any "alarm screams" "DIED" "collision" "hull"]
+[EVENT: true, type="game.ended" reason="death"]

@@ -15,6 +15,16 @@ import {
 } from '@sharpee/world-model';
 import type { NpcBehavior, NpcContext, NpcAction } from '@sharpee/stdlib';
 import { RoomIds, NpcIds, StateKeys, TerminalTrait } from './types';
+import { NpcText } from './language';
+
+// ============================================================================
+// NPC BEHAVIOR MESSAGE ID HELPERS
+// ============================================================================
+
+/** Build a message ID from an NpcText key for use in NPC actions */
+function npcMsg(key: keyof typeof NpcText): string {
+  return `npc.behavior.${key}`;
+}
 
 // ============================================================================
 // NPC ENTITY CREATION
@@ -100,25 +110,16 @@ export function createNpcs(world: WorldModel, rooms: RoomIds): NpcIds {
 // NPC BEHAVIORS
 // ============================================================================
 
-const REED_IDLE_NORMAL = [
-  'Reed adjusts a pipe fitting, muttering about pressure differentials.',
-  'Reed wipes grease from their hands. "Ship\'s waking up. Slowly."',
-  'Reed checks a gauge and frowns.',
-  '"Reactor\'s running hotter than it should," Reed says to no one in particular.',
+const REED_IDLE_NORMAL: (keyof typeof NpcText)[] = [
+  'REED_IDLE_PIPE', 'REED_IDLE_GREASE', 'REED_IDLE_GAUGE', 'REED_IDLE_REACTOR',
 ];
 
-const REED_IDLE_GLITCH = [
-  'Reed starts a sentence, stops, starts again with different words.',
-  'Reed stares at the wall for a long moment, then shakes it off.',
-  '"The reactor — the reactor is — have we talked about the reactor?"',
-  'Reed repeats the same adjustment they made a moment ago.',
+const REED_IDLE_GLITCH: (keyof typeof NpcText)[] = [
+  'REED_GLITCH_SENTENCE', 'REED_GLITCH_STARE', 'REED_GLITCH_REPEAT_Q', 'REED_GLITCH_ADJUSTMENT',
 ];
 
-const REED_IDLE_TURNED = [
-  'Reed watches you. Smiling.',
-  'Reed stands perfectly still, head tilted slightly.',
-  '"Everything is fine," Reed says. Their voice is flat.',
-  'Reed hums something. Not a song you recognize.',
+const REED_IDLE_TURNED: (keyof typeof NpcText)[] = [
+  'REED_TURNED_WATCH', 'REED_TURNED_STILL', 'REED_TURNED_FINE', 'REED_TURNED_HUM',
 ];
 
 export const reedBehavior: NpcBehavior = {
@@ -134,20 +135,20 @@ export const reedBehavior: NpcBehavior = {
       context.world.awardScore('story.score.meet_reed', 5, 'Meeting Reed');
       return [{
         type: 'speak',
-        messageId: 'npc.speech',
-        data: { npcName: 'Reed', text: 'Reed looks up sharply, then relaxes. "Another person. Thank god. I thought I was the only one left awake."' },
+        messageId: npcMsg('REED_MEET'),
+        data: { npcName: 'Reed' },
       }];
     }
 
     if (context.random.chance(0.35)) {
-      let pool: string[];
+      let pool: (keyof typeof NpcText)[];
       if (stage <= 1) pool = REED_IDLE_NORMAL;
       else if (stage === 2) pool = REED_IDLE_GLITCH;
       else pool = REED_IDLE_TURNED;
       return [{
         type: 'emote',
-        messageId: 'npc.emote',
-        data: { npcName: 'Reed', text: context.random.pick(pool) },
+        messageId: npcMsg(context.random.pick(pool)),
+        data: { npcName: 'Reed' },
       }];
     }
     return [];
@@ -157,18 +158,16 @@ export const reedBehavior: NpcBehavior = {
     if (stage >= 4) {
       return [{
         type: 'emote',
-        messageId: 'npc.emote',
-        data: { npcName: 'Reed', text: 'Reed is here. Watching. Smiling at nothing.' },
+        messageId: npcMsg('REED_ENTER_TURNED'),
+        data: { npcName: 'Reed' },
       }];
     }
     return [];
   },
 };
 
-const VASIK_IDLE = [
-  'Vasik straightens their uniform collar. Old habits.',
-  'Vasik\'s eyes flick to you, then away. Calculating.',
-  '"Meridian will send a retrieval team," Vasik says. "Eventually."',
+const VASIK_IDLE: (keyof typeof NpcText)[] = [
+  'VASIK_IDLE_COLLAR', 'VASIK_IDLE_CALCULATE', 'VASIK_IDLE_RETRIEVAL',
 ];
 
 export const vasikBehavior: NpcBehavior = {
@@ -182,16 +181,16 @@ export const vasikBehavior: NpcBehavior = {
       context.world.awardScore('story.score.meet_vasik', 5, 'Meeting Vasik');
       return [{
         type: 'speak',
-        messageId: 'npc.speech',
-        data: { npcName: 'Vasik', text: 'A voice from behind the barricade: "Stop. Who are you? You\'re not crew." A pause. "You\'re from the tug. The convict."' },
+        messageId: npcMsg('VASIK_MEET'),
+        data: { npcName: 'Vasik' },
       }];
     }
 
     if (context.random.chance(0.25)) {
       return [{
         type: 'emote',
-        messageId: 'npc.emote',
-        data: { npcName: 'Vasik', text: context.random.pick(VASIK_IDLE) },
+        messageId: npcMsg(context.random.pick(VASIK_IDLE)),
+        data: { npcName: 'Vasik' },
       }];
     }
     return [];
@@ -201,10 +200,8 @@ export const vasikBehavior: NpcBehavior = {
   },
 };
 
-const OKAFOR_IDLE = [
-  'Okafor keeps one eye on the corridor. Always watching.',
-  'Okafor adjusts the barricade, testing its strength.',
-  '"Three hundred people in cryo," Okafor says quietly. "And nobody cares."',
+const OKAFOR_IDLE: (keyof typeof NpcText)[] = [
+  'OKAFOR_IDLE_WATCH', 'OKAFOR_IDLE_BARRICADE', 'OKAFOR_IDLE_CRYO',
 ];
 
 export const okaforBehavior: NpcBehavior = {
@@ -218,16 +215,16 @@ export const okaforBehavior: NpcBehavior = {
       context.world.awardScore('story.score.meet_okafor', 5, 'Meeting Okafor');
       return [{
         type: 'speak',
-        messageId: 'npc.speech',
-        data: { npcName: 'Okafor', text: '"You\'re in my bay." Okafor steps out from behind a container, arms folded. "Corporate? Crew?" A hard stare. "Or something else?"' },
+        messageId: npcMsg('OKAFOR_MEET'),
+        data: { npcName: 'Okafor' },
       }];
     }
 
     if (context.random.chance(0.25)) {
       return [{
         type: 'emote',
-        messageId: 'npc.emote',
-        data: { npcName: 'Okafor', text: context.random.pick(OKAFOR_IDLE) },
+        messageId: npcMsg(context.random.pick(OKAFOR_IDLE)),
+        data: { npcName: 'Okafor' },
       }];
     }
     return [];
@@ -236,8 +233,8 @@ export const okaforBehavior: NpcBehavior = {
     if (!context.world.getStateValue(StateKeys.MET_OKAFOR)) {
       return [{
         type: 'emote',
-        messageId: 'npc.emote',
-        data: { npcName: 'Okafor', text: 'Someone is here. They step into view from behind a shipping container — watchful, tense, blocking your path.' },
+        messageId: npcMsg('OKAFOR_ENTER_UNSEEN'),
+        data: { npcName: 'Okafor' },
       }];
     }
     return [];
@@ -256,8 +253,8 @@ export const lisBehavior: NpcBehavior = {
       context.world.setStateValue(StateKeys.MET_LIS, true);
       return [{
         type: 'speak',
-        messageId: 'npc.speech',
-        data: { npcName: 'Lis', text: '"Oh." Lis blinks, confused. "I didn\'t — I thought I was going to storage." A pause. A head tilt. "How can I help you?"' },
+        messageId: npcMsg('LIS_MEET'),
+        data: { npcName: 'Lis' },
       }];
     }
 
@@ -266,14 +263,14 @@ export const lisBehavior: NpcBehavior = {
       if (isLis) {
         return [{
           type: 'emote',
-          messageId: 'npc.emote',
-          data: { npcName: 'Lis', text: 'Lis winces, presses a hand to their temple. "Sorry. I — lost the thread for a moment."' },
+          messageId: npcMsg('LIS_WINCE'),
+          data: { npcName: 'Lis' },
         }];
       }
       return [{
         type: 'emote',
-        messageId: 'npc.emote',
-        data: { npcName: 'Lis', text: 'Lis stands very still, eyes focused on something you can\'t see. Then: "Is there something you need?"' },
+        messageId: npcMsg('LIS_PUPPET_IDLE'),
+        data: { npcName: 'Lis' },
       }];
     }
     return [];

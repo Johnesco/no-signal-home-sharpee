@@ -167,6 +167,43 @@ export class NoSignalHomeStory implements Story {
       world.setStateValue(StateKeys.BOARDING_TURN, turn);
     });
 
+    // === SCENES — time-bounded story phases (evaluated by engine at priority 60) ===
+
+    // Alarm phase: active from game start until player silences the alarm.
+    // Plugins checking this scene must have priority > 60.
+    world.createScene('scene-alarm', {
+      name: 'Proximity Alarm',
+      begin: (w) => w.getStateValue(StateKeys.ALARM_ACTIVE) === true &&
+                     w.getStateValue(StateKeys.ALARM_SILENCED) !== true,
+      end: (w) => w.getStateValue(StateKeys.ALARM_SILENCED) === true,
+    });
+
+    // Post-alarm collision approach: active after alarm silenced, while docking
+    // state is still 'approach'. Ends when the player begins docking maneuvers.
+    world.createScene('scene-collision-approach', {
+      name: 'Collision Approach',
+      begin: (w) => w.getStateValue(StateKeys.ALARM_SILENCED) === true &&
+                     w.getStateValue(StateKeys.DOCKING_STATE) === 'approach',
+      end: (w) => w.getStateValue(StateKeys.DOCKING_STATE) !== 'approach',
+    });
+
+    // Seal degradation: active after boarding, until tug detaches.
+    // activeTurns tracks how many turns since boarding.
+    world.createScene('scene-seal-window', {
+      name: 'Seal Degradation Window',
+      begin: (w) => w.getStateValue(StateKeys.PLAYER_BOARDED) === true &&
+                     w.getStateValue(StateKeys.TUG_DETACHED) !== true,
+      end: (w) => w.getStateValue(StateKeys.TUG_DETACHED) === true,
+    });
+
+    // Atmosphere: active once the player has boarded the Stillwater. Recurring
+    // ambient events fire based on activeTurns modulo.
+    world.createScene('scene-atmosphere', {
+      name: 'Ship Atmosphere',
+      begin: (w) => w.getStateValue(StateKeys.PLAYER_BOARDED) === true,
+      end: (w) => w.getStateValue(StateKeys.GAME_ENDED) === true,
+    });
+
     // Place player in tug cargo hold (starting room)
     const player = world.getPlayer()!;
     world.moveEntity(player.id, this.rooms.tugCargoHold);

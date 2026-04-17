@@ -11,9 +11,11 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > take flashlight
 [OK: contains_any "Taken" "already"]
+[STATE: true, yourself.inventory contains flashlight]
 
 > take ration bar
 [OK: contains_any "Taken" "already"]
+[STATE: true, yourself.inventory contains ration bar]
 
 > inventory
 [OK: contains "flashlight"]
@@ -25,6 +27,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > press button
 [OK: contains "alarm"]
+[EVENT: true, type="action.success" messageId="story.alarm.silenced"]
 
 > examine docking controls
 [OK: contains "docking"]
@@ -48,12 +51,14 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > south
 [OK: contains "Airlock"]
+[STATE: true, yourself.location = Airlock]
 
 > examine biohazard sign
 [OK: contains "Meridian"]
 
 > south
 [OK: contains "Forward Corridor"]
+[STATE: true, yourself.location = Forward Corridor]
 
 ## Explore Lower Deck — find multi-tool and override tool
 
@@ -65,9 +70,11 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > take hazmat suit
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains hazmat suit]
 
 > take elevator parts
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains elevator parts]
 
 > west
 [OK: contains "Cargo Bay"]
@@ -86,6 +93,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > take multi-tool
 [OK: contains "Taken"]
+[STATE: true, yourself.inventory contains multi-tool]
 
 > take cable snips
 [OK: contains "Taken"]
@@ -120,6 +128,7 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > take keycard
 [OK: contains_any "Taken" "keycard"]
+[STATE: true, yourself.inventory contains bridge keycard]
 
 ## Unlock bridge and escape
 
@@ -134,6 +143,11 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 
 > north
 [OK: contains "Bridge"]
+[STATE: true, yourself.location = Bridge]
+
+## Save for walkthrough chaining — other endings branch from here
+
+$save wt-01
 
 ## Launch escape pod — Ending
 
@@ -144,3 +158,4 @@ description: Complete walkthrough — Escape Alone ending via bridge keycard pat
 [OK: contains "escape pod"]
 [OK: contains "THE END"]
 [OK: contains "Escape Alone"]
+[EVENT: true, type="game.ended" reason="victory"]

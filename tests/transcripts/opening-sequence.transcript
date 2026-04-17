@@ -1,6 +1,6 @@
 title: Opening Sequence — Docking Puzzle
 story: no-signal-home
-description: Tests the complete opening sequence: alarm, docking steps, quality checks
+description: Tests the complete opening sequence: alarm, docking steps, quality checks. Includes EVENT and STATE assertions for key state transitions.
 
 ---
 
@@ -9,6 +9,7 @@ description: Tests the complete opening sequence: alarm, docking steps, quality 
 > look
 [OK: contains "Tug Cargo Hold"]
 [OK: contains "alarm"]
+[STATE: true, yourself.location = Tug Cargo Hold]
 
 ## Examine cargo hold items
 
@@ -26,6 +27,7 @@ description: Tests the complete opening sequence: alarm, docking steps, quality 
 > south
 [OK: contains "Tug Cockpit"]
 [OK: contains "alarm"]
+[STATE: true, yourself.location = Tug Cockpit]
 
 ## Can't go aft before docking
 
@@ -38,6 +40,7 @@ description: Tests the complete opening sequence: alarm, docking steps, quality 
 [OK: contains "alarm"]
 [OK: contains "Stillwater"]
 [OK: contains "Meridian"]
+[EVENT: true, type="action.success" messageId="story.alarm.silenced"]
 
 > press button
 [OK: contains "already"]
@@ -72,6 +75,7 @@ description: Tests the complete opening sequence: alarm, docking steps, quality 
 
 > south
 [OK: contains "Airlock"]
+[STATE: true, yourself.location = Airlock]
 
 > examine inspection window
 [OK: contains_any "window" "docking"]

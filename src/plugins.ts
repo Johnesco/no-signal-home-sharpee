@@ -12,12 +12,33 @@ import {
   RoomTrait,
 } from '@sharpee/world-model';
 import type { TurnPlugin, TurnPluginContext } from '@sharpee/plugins';
+import { createEvent } from '@sharpee/core';
 import type { ISemanticEvent } from '@sharpee/core';
 import {
   ItemIds, NpcIds, RoomIds, Msg, StateKeys, MAX_SCORE,
   MemoryTrait, getMemory,
 } from './types';
 import { getSceneryId } from './world';
+
+/** Get the activeTurns count for a scene (0 if scene not found or not active) */
+function sceneActiveTurns(world: WorldModel, sceneId: string): number {
+  const scene = world.getEntity(sceneId);
+  if (!scene) return 0;
+  // Access SceneTrait by type string to avoid deep import path
+  // (the package exports map only exposes the root entry point)
+  const trait = scene.get('scene' as any) as { activeTurns?: number } | undefined;
+  return trait?.activeTurns ?? 0;
+}
+
+/** Type-safe event factory — emits a game.message event with a language-provider messageId */
+function msg(messageId: string): ISemanticEvent {
+  return createEvent('game.message', { messageId });
+}
+
+/** Type-safe event factory — emits a game.ended event */
+function ended(reason: string): ISemanticEvent {
+  return createEvent('game.ended', { reason });
+}
 
 // ============================================================================
 // MEMORY TRAIT — first-examine flavor text, fires once per entity
@@ -28,11 +49,11 @@ function createMemoryPlugin(): TurnPlugin {
     id: 'story.memory',
     priority: 2,
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
-      const actionId = (ctx as any).actionResult?.actionId;
-      const success = (ctx as any).actionResult?.success;
+      const actionId = ctx.actionResult?.actionId;
+      const success = ctx.actionResult?.success;
       if (!success || actionId !== 'if.action.examining') return [];
 
-      const targetId = (ctx as any).actionResult?.targetId;
+      const targetId = ctx.actionResult?.targetId;
       if (!targetId) return [];
 
       const entity = ctx.world.getEntity(targetId);
@@ -42,7 +63,7 @@ function createMemoryPlugin(): TurnPlugin {
       if (!memory || memory.recalled || memory.trigger !== actionId) return [];
 
       memory.recalled = true;
-      return [{ type: 'game.message', data: { messageId: memory.messageId } } as any];
+      return [msg(memory.messageId)];
     },
   };
 }
@@ -61,15 +82,15 @@ function createAlarmUrgencyPlugin(rooms: RoomIds): TurnPlugin {
       if (world.getStateValue(StateKeys.ALARM_SILENCED)) return [];
 
       // Don't nag if they just pressed the button
-      const actionId = (ctx as any).actionResult?.actionId;
+      const actionId = ctx.actionResult?.actionId;
       if (actionId === 'story.action.pressing') return [];
 
       const playerLoc = world.getLocation(world.getPlayer()!.id);
       if (playerLoc === rooms.tugCargoHold) {
-        return [{ type: 'game.message', data: { messageId: Msg.ALARM_BLOCKED_CARGO } } as any];
+        return [msg(Msg.ALARM_BLOCKED_CARGO)];
       }
       if (playerLoc === rooms.tugCockpit) {
-        return [{ type: 'game.message', data: { messageId: Msg.ALARM_BLOCKED_COCKPIT } } as any];
+        return [msg(Msg.ALARM_BLOCKED_COCKPIT)];
       }
       return [];
     },
@@ -83,34 +104,22 @@ function createAlarmUrgencyPlugin(rooms: RoomIds): TurnPlugin {
 function createAlarmFusePlugin(rooms: RoomIds): TurnPlugin {
   return {
     id: 'story.alarm-fuse',
-    priority: 3,
+    priority: 65, // Must run after SceneEvaluationPlugin (priority 60)
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
       const world = ctx.world;
-      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
 
-      // Phase 1: Alarm still active — 10 turn limit
-      if (world.getStateValue(StateKeys.ALARM_ACTIVE) && !world.getStateValue(StateKeys.ALARM_SILENCED)) {
-        if (turn >= 10) {
-          return [
-            { type: 'game.message', data: { messageId: Msg.ALARM_COLLISION_DEATH } } as any,
-            { type: 'game.ended', data: { reason: 'death' } } as any,
-          ];
+      // Phase 1: Alarm scene active — 10 turn limit
+      if (world.isSceneActive('scene-alarm')) {
+        if (sceneActiveTurns(world, 'scene-alarm') >= 10) {
+          return [msg(Msg.ALARM_COLLISION_DEATH), ended('death')];
         }
         return [];
       }
 
-      // Phase 2: Alarm silenced but not yet maneuvered — 20 turn limit
-      if (world.getStateValue(StateKeys.ALARM_SILENCED)) {
-        const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
-        if (dockState === 'approach') {
-          const fuseStart = world.getStateValue(StateKeys.COLLISION_FUSE_START) ?? 0;
-          const elapsed = turn - (fuseStart as number);
-          if (elapsed >= 20) {
-            return [
-              { type: 'game.message', data: { messageId: Msg.COLLISION_DEATH } } as any,
-              { type: 'game.ended', data: { reason: 'death' } } as any,
-            ];
-          }
+      // Phase 2: Collision approach scene active — 20 turn limit
+      if (world.isSceneActive('scene-collision-approach')) {
+        if (sceneActiveTurns(world, 'scene-collision-approach') >= 20) {
+          return [msg(Msg.COLLISION_DEATH), ended('death')];
         }
       }
 
@@ -126,16 +135,12 @@ function createAlarmFusePlugin(rooms: RoomIds): TurnPlugin {
 function createViewportPlugin(rooms: RoomIds): TurnPlugin {
   return {
     id: 'story.viewport-escalation',
-    priority: 4,
+    priority: 66, // Must run after SceneEvaluationPlugin (priority 60)
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
       const world = ctx.world;
-      if (!world.getStateValue(StateKeys.ALARM_SILENCED)) return [];
-      const dockState = world.getStateValue(StateKeys.DOCKING_STATE);
-      if (dockState !== 'approach') return [];
+      if (!world.isSceneActive('scene-collision-approach')) return [];
 
-      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
-      const fuseStart = world.getStateValue(StateKeys.COLLISION_FUSE_START) ?? 0;
-      const elapsed = turn - (fuseStart as number);
+      const elapsed = sceneActiveTurns(world, 'scene-collision-approach');
 
       // Update tug viewport description based on proximity
       const vpId = getSceneryId('tug-viewport');
@@ -158,10 +163,10 @@ function createViewportPlugin(rooms: RoomIds): TurnPlugin {
       // Show viewport stage messages at thresholds
       const playerLoc = world.getLocation(world.getPlayer()!.id);
       if (playerLoc === rooms.tugCockpit) {
-        if (elapsed === 5) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_1 } } as any];
-        if (elapsed === 10) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_2 } } as any];
-        if (elapsed === 15) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_3 } } as any];
-        if (elapsed === 18) return [{ type: 'game.message', data: { messageId: Msg.VIEWPORT_STAGE_4 } } as any];
+        if (elapsed === 5) return [msg(Msg.VIEWPORT_STAGE_1)];
+        if (elapsed === 10) return [msg(Msg.VIEWPORT_STAGE_2)];
+        if (elapsed === 15) return [msg(Msg.VIEWPORT_STAGE_3)];
+        if (elapsed === 18) return [msg(Msg.VIEWPORT_STAGE_4)];
       }
 
       return [];
@@ -176,15 +181,13 @@ function createViewportPlugin(rooms: RoomIds): TurnPlugin {
 function createSealDegradationPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin {
   return {
     id: 'story.seal-degradation',
-    priority: 200,
+    priority: 200, // Already > 60, runs after scene evaluation
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
       const world = ctx.world;
       if (world.getStateValue(StateKeys.TUG_DETACHED)) return [];
-      if (!world.getStateValue(StateKeys.PLAYER_BOARDED)) return [];
+      if (!world.isSceneActive('scene-seal-window')) return [];
 
-      const turn = world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
-      const boardingTurn = world.getStateValue(StateKeys.BOARDING_TURN) ?? 0;
-      const elapsed = turn - (boardingTurn as number);
+      const elapsed = sceneActiveTurns(world, 'scene-seal-window');
 
       // Fire at 3 turns after boarding
       if (elapsed >= 3) {
@@ -236,9 +239,9 @@ function createSealDegradationPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin
 
         // Choose message based on braked flag
         if (world.getStateValue(StateKeys.DOCKING_BRAKED)) {
-          return [{ type: 'game.message', data: { messageId: Msg.SEAL_DEGRADE_STAYS } } as any];
+          return [msg(Msg.SEAL_DEGRADE_STAYS)];
         } else {
-          return [{ type: 'game.message', data: { messageId: Msg.SEAL_DEGRADE_DRIFTS } } as any];
+          return [msg(Msg.SEAL_DEGRADE_DRIFTS)];
         }
       }
 
@@ -267,10 +270,7 @@ function createBadSealPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin {
       if (world.getStateValue(StateKeys.SEAL_DEATH_ARMED)) {
         const playerLoc = world.getLocation(world.getPlayer()!.id);
         if (playerLoc === rooms.airlock) {
-          return [
-            { type: 'game.message', data: { messageId: Msg.BAD_SEAL_DEATH } } as any,
-            { type: 'game.ended', data: { reason: 'death' } } as any,
-          ];
+          return [msg(Msg.BAD_SEAL_DEATH), ended('death')];
         }
       }
 
@@ -296,7 +296,7 @@ function createBadSealPlugin(rooms: RoomIds, items: ItemIds): TurnPlugin {
             if (open) open.isOpen = true;
           }
           world.setStateValue(StateKeys.SEAL_DEATH_ARMED, true);
-          return [{ type: 'game.message', data: { messageId: Msg.BAD_SEAL_WARNING } } as any];
+          return [msg(Msg.BAD_SEAL_WARNING)];
         }
       }
 
@@ -363,7 +363,7 @@ function createNpcProgressionPlugin(npcs: NpcIds, rooms: RoomIds): TurnPlugin {
         ctx.world.setStateValue(StateKeys.REED_STAGE, 2);
       } else if (reedStage === 2 && turn >= 35) {
         ctx.world.setStateValue(StateKeys.REED_STAGE, 3);
-        events.push({ type: 'game.message', data: { messageId: Msg.REED_LUCID } } as any);
+        events.push(msg(Msg.REED_LUCID));
       } else if (reedStage === 3 && turn >= 45) {
         ctx.world.setStateValue(StateKeys.REED_STAGE, 4);
         // Update Reed's description
@@ -427,36 +427,38 @@ function createNpcProgressionPlugin(npcs: NpcIds, rooms: RoomIds): TurnPlugin {
 function createAtmospherePlugin(rooms: RoomIds): TurnPlugin {
   return {
     id: 'story.atmosphere',
-    priority: 500,
+    priority: 500, // Already > 60, runs after scene evaluation
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
-      const turn = ctx.world.getStateValue(StateKeys.TURN_COUNT) ?? 0;
+      if (!ctx.world.isSceneActive('scene-atmosphere')) return [];
+
+      const elapsed = sceneActiveTurns(ctx.world, 'scene-atmosphere');
       const playerLoc = ctx.world.getLocation(ctx.world.getPlayer()!.id);
 
-      // Ship creaks every ~8 turns
-      if (turn > 0 && turn % 8 === 0) {
-        return [{ type: 'game.message', data: { messageId: Msg.SHIP_CREAK } } as any];
+      // Ship creaks every ~8 turns aboard
+      if (elapsed > 0 && elapsed % 8 === 0) {
+        return [msg(Msg.SHIP_CREAK)];
       }
 
-      // Reactor warming (lower deck rooms, after turn 25)
-      if (turn > 25 && turn % 12 === 0 &&
+      // Reactor warming (lower deck rooms, after 25 turns aboard)
+      if (elapsed > 25 && elapsed % 12 === 0 &&
           (playerLoc === rooms.aftCorridor || playerLoc === rooms.engineering || playerLoc === rooms.reactorRoom)) {
-        return [{ type: 'game.message', data: { messageId: Msg.REACTOR_WARMING } } as any];
+        return [msg(Msg.REACTOR_WARMING)];
       }
 
       // AI spreading (after AI stage 2)
       const aiStage = ctx.world.getStateValue(StateKeys.AI_STAGE) ?? 1;
-      if (aiStage >= 2 && turn % 10 === 0) {
-        return [{ type: 'game.message', data: { messageId: Msg.AI_SPREADING } } as any];
+      if (aiStage >= 2 && elapsed % 10 === 0) {
+        return [msg(Msg.AI_SPREADING)];
       }
 
       // Containment failing (after cargo hold opened, periodic)
-      if (ctx.world.getStateValue(StateKeys.CARGO_HOLD_OPEN) && turn % 15 === 0) {
-        return [{ type: 'game.message', data: { messageId: Msg.CONTAINMENT_FAILING } } as any];
+      if (ctx.world.getStateValue(StateKeys.CARGO_HOLD_OPEN) && elapsed % 15 === 0) {
+        return [msg(Msg.CONTAINMENT_FAILING)];
       }
 
-      // Destination warning (after turn 55)
-      if (turn >= 55 && turn % 10 === 0) {
-        return [{ type: 'game.message', data: { messageId: Msg.DESTINATION_WARNING } } as any];
+      // Destination warning (after 55 turns aboard)
+      if (elapsed >= 55 && elapsed % 10 === 0) {
+        return [msg(Msg.DESTINATION_WARNING)];
       }
 
       return [];
@@ -476,7 +478,7 @@ function createRadiationPlugin(rooms: RoomIds): TurnPlugin {
       const playerLoc = ctx.world.getLocation(ctx.world.getPlayer()!.id);
       if (playerLoc === rooms.reactorRoom &&
           !ctx.world.getStateValue(StateKeys.HAZMAT_WEARING)) {
-        return [{ type: 'game.message', data: { messageId: Msg.RADIATION_WARNING } } as any];
+        return [msg(Msg.RADIATION_WARNING)];
       }
       return [];
     },
@@ -531,7 +533,7 @@ function createDescriptionPlugin(items: ItemIds, rooms: RoomIds): TurnPlugin {
       const desk = world.getEntity(items.captainsDesk);
       if (desk) {
         const id = desk.get(IdentityTrait);
-        const open = desk.get('openable' as any) as any;
+        const open = desk.get(OpenableTrait);
         if (id && open) {
           id.description = open.isOpen
             ? "The desk drawer is open. The lock has been forced."
@@ -593,10 +595,7 @@ function createEndingCheckPlugin(): TurnPlugin {
     priority: 1000,
     onAfterAction(ctx: TurnPluginContext): ISemanticEvent[] {
       if (ctx.world.getStateValue(StateKeys.GAME_ENDED)) {
-        return [
-          { type: 'game.message', data: { messageId: Msg.VICTORY } } as any,
-          { type: 'game.ended', data: { reason: 'victory' } } as any,
-        ];
+        return [msg(Msg.VICTORY), ended('victory')];
       }
 
       // Check for reactor overload ending

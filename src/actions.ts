@@ -359,81 +359,83 @@ export function getCustomActions(rooms: RoomIds, items: ItemIds, npcs: NpcIds): 
         if (!topic) return { valid: false, error: Msg.ASK_ABOUT_NOTHING };
         return { valid: true };
       },
-      report(ctx: ActionContext): ISemanticEvent[] {
+      execute(ctx: ActionContext): void {
         const { targetId, topic } = ctx.sharedData;
         const world = ctx.world;
+        let resultMsg: string = Msg.ASK_ABOUT_DEFAULT;
 
         // Reed topics
         if (targetId === npcs.reed) {
           const stage = world.getStateValue(StateKeys.REED_STAGE) ?? 1;
-          if (stage >= 4) return [gameMessage(ctx, Msg.REED_TURNED)];
-          if (stage === 3) return [gameMessage(ctx, Msg.REED_LUCID)];
-          if (topic.includes('ship') || topic.includes('stillwater'))
-            return [gameMessage(ctx, Msg.REED_SHIP)];
-          if (topic.includes('cargo') || topic.includes('hold'))
-            return [gameMessage(ctx, Msg.REED_CARGO)];
-          if (topic.includes('elevator') || topic.includes('lift') || topic.includes('cryo'))
-            return [gameMessage(ctx, Msg.REED_ELEVATOR)];
-          if (topic.includes('crew') || topic.includes('people'))
-            return [gameMessage(ctx, Msg.REED_CREW)];
-          if (topic.includes('self') || topic.includes('yourself') || topic.includes('reed'))
-            return [gameMessage(ctx, Msg.REED_SELF)];
-          return [gameMessage(ctx, Msg.ASK_ABOUT_DEFAULT)];
+          if (stage >= 4) resultMsg = Msg.REED_TURNED;
+          else if (stage === 3) resultMsg = Msg.REED_LUCID;
+          else if (topic.includes('ship') || topic.includes('stillwater'))
+            resultMsg = Msg.REED_SHIP;
+          else if (topic.includes('cargo') || topic.includes('hold'))
+            resultMsg = Msg.REED_CARGO;
+          else if (topic.includes('elevator') || topic.includes('lift') || topic.includes('cryo'))
+            resultMsg = Msg.REED_ELEVATOR;
+          else if (topic.includes('crew') || topic.includes('people'))
+            resultMsg = Msg.REED_CREW;
+          else if (topic.includes('self') || topic.includes('yourself') || topic.includes('reed'))
+            resultMsg = Msg.REED_SELF;
         }
 
         // Vasik topics
-        if (targetId === npcs.vasik) {
+        else if (targetId === npcs.vasik) {
           if (topic.includes('cargo') || topic.includes('hold'))
-            return [gameMessage(ctx, Msg.VASIK_CARGO)];
-          if (topic.includes('company') || topic.includes('meridian'))
-            return [gameMessage(ctx, Msg.VASIK_COMPANY)];
-          if (topic.includes('code') || topic.includes('access'))  {
+            resultMsg = Msg.VASIK_CARGO;
+          else if (topic.includes('company') || topic.includes('meridian'))
+            resultMsg = Msg.VASIK_COMPANY;
+          else if (topic.includes('code') || topic.includes('access')) {
             world.setStateValue(StateKeys.CARGO_CODE_VASIK, true);
-            return [gameMessage(ctx, Msg.VASIK_CODE_HALF)];
+            resultMsg = Msg.VASIK_CODE_HALF;
           }
-          if (topic.includes('override') || topic.includes('tool'))  {
+          else if (topic.includes('override') || topic.includes('tool')) {
             if (world.getLocation(items.overrideTool) === ctx.player.id) {
               world.setStateValue(StateKeys.OVERRIDE_GIVEN, true);
               world.awardScore(ScoreIds.VASIK_TRADE, 5, 'Trading with Vasik');
-              return [gameMessage(ctx, Msg.VASIK_TRADE)];
+              resultMsg = Msg.VASIK_TRADE;
+            } else {
+              resultMsg = Msg.VASIK_OVERRIDE;
             }
-            return [gameMessage(ctx, Msg.VASIK_OVERRIDE)];
           }
-          return [gameMessage(ctx, Msg.ASK_ABOUT_DEFAULT)];
         }
 
         // Okafor topics
-        if (targetId === npcs.okafor) {
+        else if (targetId === npcs.okafor) {
           if (topic.includes('prisoner') || topic.includes('cryo') || topic.includes('people') || topic.includes('frozen'))
-            return [gameMessage(ctx, Msg.OKAFOR_PRISONERS)];
-          if (topic.includes('code') || topic.includes('access') || topic.includes('cargo')) {
+            resultMsg = Msg.OKAFOR_PRISONERS;
+          else if (topic.includes('code') || topic.includes('access') || topic.includes('cargo')) {
             const trust = world.getStateValue(StateKeys.OKAFOR_STAGE) ?? 1;
             if (trust >= 2) {
               world.setStateValue(StateKeys.CARGO_CODE_OKAFOR, true);
               world.awardScore(ScoreIds.OKAFOR_TRUST, 5, 'Earning Okafor\'s trust');
-              return [gameMessage(ctx, Msg.OKAFOR_CODE_HALF)];
+              resultMsg = Msg.OKAFOR_CODE_HALF;
+            } else {
+              resultMsg = Msg.OKAFOR_TERRITORY;
             }
-            return [gameMessage(ctx, Msg.OKAFOR_TERRITORY)];
           }
-          if (topic.includes('escape') || topic.includes('leave') || topic.includes('pod'))
-            return [gameMessage(ctx, Msg.OKAFOR_ESCAPE)];
-          if (topic.includes('self') || topic.includes('yourself') || topic.includes('okafor'))
-            return [gameMessage(ctx, Msg.OKAFOR_SELF)];
-          return [gameMessage(ctx, Msg.ASK_ABOUT_DEFAULT)];
+          else if (topic.includes('escape') || topic.includes('leave') || topic.includes('pod'))
+            resultMsg = Msg.OKAFOR_ESCAPE;
+          else if (topic.includes('self') || topic.includes('yourself') || topic.includes('okafor'))
+            resultMsg = Msg.OKAFOR_SELF;
         }
 
         // Lis topics
-        if (targetId === npcs.lis) {
+        else if (targetId === npcs.lis) {
           const stage = world.getStateValue(StateKeys.LIS_STAGE) ?? 0;
-          if (stage >= 3) return [gameMessage(ctx, Msg.LIS_PUPPET)];
-          if (topic.includes('self') || topic.includes('yourself') || topic.includes('lis'))
-            return [gameMessage(ctx, Msg.LIS_SELF)];
-          if (topic.includes('ai') || topic.includes('soms') || topic.includes('system'))
-            return [gameMessage(ctx, Msg.LIS_HELP)];
-          return [gameMessage(ctx, Msg.ASK_ABOUT_DEFAULT)];
+          if (stage >= 3) resultMsg = Msg.LIS_PUPPET;
+          else if (topic.includes('self') || topic.includes('yourself') || topic.includes('lis'))
+            resultMsg = Msg.LIS_SELF;
+          else if (topic.includes('ai') || topic.includes('soms') || topic.includes('system'))
+            resultMsg = Msg.LIS_HELP;
         }
 
-        return [gameMessage(ctx, Msg.ASK_ABOUT_DEFAULT)];
+        ctx.sharedData.resultMsg = resultMsg;
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, ctx.sharedData.resultMsg as string)];
       },
       blocked: standardBlocked,
     }),
@@ -476,7 +478,7 @@ export function getCustomActions(rooms: RoomIds, items: ItemIds, npcs: NpcIds): 
         ctx.sharedData.target = target;
         return { valid: true };
       },
-      report(ctx: ActionContext): ISemanticEvent[] {
+      execute(ctx: ActionContext): void {
         const target = ctx.sharedData.target as IFEntity;
         const propId = getPropId(target);
         const playerLoc = ctx.world.getLocation(ctx.player.id);
@@ -484,10 +486,13 @@ export function getCustomActions(rooms: RoomIds, items: ItemIds, npcs: NpcIds): 
         if (playerLoc === rooms.messHall && (
           target.name.includes('table') || target.name.includes('mess') ||
           propId === 'food-fabricator' || target.name.includes('mug'))) {
-          const result = revealDataChip(ctx.world, items);
-          return [gameMessage(ctx, result)];
+          ctx.sharedData.resultMsg = revealDataChip(ctx.world, items);
+        } else {
+          ctx.sharedData.resultMsg = 'story.search.nothing';
         }
-        return [gameMessage(ctx, 'story.search.nothing')];
+      },
+      report(ctx: ActionContext): ISemanticEvent[] {
+        return [gameMessage(ctx, ctx.sharedData.resultMsg as string)];
       },
       blocked: standardBlocked,
     }),
