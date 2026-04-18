@@ -1,0 +1,2415 @@
+{
+  "storyId": "no-signal-home-sharpee",
+  "timestamp": "2026-04-18T06:04:19.529Z",
+  "transcripts": [
+    {
+      "file": "exploration-basics.transcript",
+      "title": "Basic Exploration and Interaction",
+      "description": "Tests room navigation, NPC encounters, examining objects, and mid-deck access",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "look",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nTug Cargo Hold\n\nDark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.\n\nYou can see flashlight, ration bar, shipping crates, bedroll, datapad here.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cargo Hold"
+            }
+          ],
+          "comment": "# Starting room — Tug Cargo Hold"
+        },
+        {
+          "lineNumber": 12,
+          "input": "take flashlight",
+          "output": "Taken.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 16,
+          "input": "take ration bar",
+          "output": "Taken.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 20,
+          "input": "inventory",
+          "output": "You are carrying:\n  flashlight, ration bar\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "flashlight"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "ration bar"
+            }
+          ]
+        },
+        {
+          "lineNumber": 26,
+          "input": "south",
+          "output": "Tug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Opening sequence — dock with The Stillwater"
+        },
+        {
+          "lineNumber": 29,
+          "input": "press button",
+          "output": "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            }
+          ]
+        },
+        {
+          "lineNumber": 32,
+          "input": "examine docking controls",
+          "output": "Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "docking"
+            }
+          ]
+        },
+        {
+          "lineNumber": 35,
+          "input": "maneuver",
+          "output": "You grab the joystick and bring the tug's thrusters online. Manual control engaged.\n\nThe Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 38,
+          "input": "fire thrusters",
+          "output": "You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.\n\nGood. Controlled approach. The docking port is dead ahead.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 41,
+          "input": "extend arm",
+          "output": "You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.\n\nThe connection reads solid. You could check the pressure readings before sealing, or just seal it and go.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 44,
+          "input": "check pressure",
+          "output": "You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.\n\nGood practice. Ready to seal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 47,
+          "input": "seal",
+          "output": "You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.\n\nThe airlock door unlocks. Aft leads to The Stillwater.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 52,
+          "input": "south",
+          "output": "Airlock\n\nA cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.\n\nYou can see biohazard sign, emergency locker, inspection window, claw marks here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Airlock"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Enter the Stillwater — Airlock"
+        },
+        {
+          "lineNumber": 56,
+          "input": "examine biohazard sign",
+          "output": "\"BIOHAZARD CONTAINMENT PROTOCOLS IN EFFECT. Report symptoms to your supervisor. Meridian Solutions cares about your wellbeing.\"\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Meridian"
+            }
+          ]
+        },
+        {
+          "lineNumber": 61,
+          "input": "south",
+          "output": "Forward Corridor\n\nA long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.\n\nYou can see overhead pipes, floor panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Forward Corridor"
+            }
+          ],
+          "comment": "# Forward Corridor"
+        },
+        {
+          "lineNumber": 64,
+          "input": "examine floor panel",
+          "output": "A loose floor panel. Beneath it, cables snake into darkness.\nA deep crack reverberates through the deck. The ship shudders.\n\nBehind you — from the airlock — a hiss of escaping atmosphere. The seal between the tug and The Stillwater is failing. You hear metal stress and pop.\n\nThrough the airlock inspection window: your tug, still docked. But the seal is compromised. Going back that way without a spacesuit would be suicide.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 69,
+          "input": "south",
+          "output": "Cargo Bay\n\nA cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.\n\nYou can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.\n\"You're in my bay.\" Okafor steps out from behind a container, arms folded. \"Corporate? Crew?\" A hard stare. \"Or something else?\"\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Cargo Bay"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Okafor"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Cargo Bay — meet Okafor"
+        },
+        {
+          "lineNumber": 76,
+          "input": "east",
+          "output": "Storage Annex\n\nA supply room lined with industrial shelving. Spare parts, sealed ration containers, and maintenance equipment fill the racks. A yellow hazmat suit hangs from a hook near the door. The cargo bay is to port.\n\nYou can see hazmat suit, elevator parts, fabricator parts, weapons crate, industrial shelving here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Storage Annex"
+            }
+          ],
+          "comment": "# Storage Annex"
+        },
+        {
+          "lineNumber": 79,
+          "input": "take hazmat suit",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 83,
+          "input": "west",
+          "output": "Cargo Bay\n\nA cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.\n\nYou can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.\n\"Three hundred people in cryo,\" Okafor says quietly. \"And nobody cares.\"\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Cargo Bay"
+            }
+          ]
+        },
+        {
+          "lineNumber": 88,
+          "input": "north",
+          "output": "Forward Corridor\n\nA long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.\n\nYou can see overhead pipes, floor panel here.\nThe hull groans — a deep structural sound. The ship settling, or something shifting in the dark.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Forward Corridor"
+            }
+          ],
+          "comment": "# Lower Mid Corridor — ladder up"
+        },
+        {
+          "lineNumber": 91,
+          "input": "west",
+          "output": "Lower Mid Corridor\n\nA junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.\n\nYou can see direction signs, elevator here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lower Mid Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 94,
+          "input": "examine elevator",
+          "output": "A freight elevator leading down to the cryo deck. The control panel is dead — the motor assembly has failed.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 99,
+          "input": "up",
+          "output": "Central Junction\n\nA wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: \"People First. Profit Always.\" Ladders lead up and down.\n\nYou can see corporate signage here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Central Junction"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Mid Deck — Central Junction"
+        },
+        {
+          "lineNumber": 105,
+          "input": "west",
+          "output": "Lab Corridor\n\nA corridor that was once sterile white, now streaked with grime. An old chemical spill has dried to a dark stain on the deck. A safety station with eye wash and gloves sits beside the door. The junction is to starboard. The science lab is to port. Medbay is aft.\n\nYou can see chemical spill, safety station here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lab Corridor"
+            }
+          ],
+          "comment": "# Lab Corridor and Science Lab"
+        },
+        {
+          "lineNumber": 108,
+          "input": "west",
+          "output": "Science Lab\n\nWorkbenches cluttered with broken equipment — a centrifuge tipped on its side, an analyzer with a cracked display. Sealed sample containers line one shelf. A research terminal flickers in the corner, its screen half-corrupted. The corridor is to starboard.\n\nYou can see research terminal, sample containers here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Science Lab"
+            }
+          ]
+        },
+        {
+          "lineNumber": 111,
+          "input": "east",
+          "output": "Lab Corridor\n\nA corridor that was once sterile white, now streaked with grime. An old chemical spill has dried to a dark stain on the deck. A safety station with eye wash and gloves sits beside the door. The junction is to starboard. The science lab is to port. Medbay is aft.\n\nYou can see chemical spill, safety station here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lab Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 114,
+          "input": "south",
+          "output": "Medbay\n\nA medical facility with treatment beds and overhead surgical lights, all dead. A quarantine cell stands in the corner — its door bent outward from inside. Medical supply cabinets line the wall, most ransacked. The lab corridor is fore.\n\nYou can see medkit, quarantine cell, patient logs here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Medbay"
+            }
+          ]
+        },
+        {
+          "lineNumber": 117,
+          "input": "north",
+          "output": "Lab Corridor\n\nA corridor that was once sterile white, now streaked with grime. An old chemical spill has dried to a dark stain on the deck. A safety station with eye wash and gloves sits beside the door. The junction is to starboard. The science lab is to port. Medbay is aft.\n\nYou can see chemical spill, safety station here.\nThe hull groans — a deep structural sound. The ship settling, or something shifting in the dark.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lab Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 120,
+          "input": "east",
+          "output": "Central Junction\n\nA wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: \"People First. Profit Always.\" Ladders lead up and down.\n\nYou can see corporate signage here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Central Junction"
+            }
+          ]
+        },
+        {
+          "lineNumber": 125,
+          "input": "east",
+          "output": "Hab Corridor\n\nThe habitation wing. Warmer here, more human. Crew photos line the wall in mismatched frames. A bulletin board holds shift schedules and personal notices — one reads \"DO NOT TRUST THE SYSTEM\" in hasty marker. The junction is to port. The mess hall is to starboard. The library is aft.\n\nYou can see crew photos, bulletin board here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hab Corridor"
+            }
+          ],
+          "comment": "# Hab Corridor — Mess Hall, Library"
+        },
+        {
+          "lineNumber": 128,
+          "input": "east",
+          "output": "Mess Hall\n\nLong tables bolted to the deck. A food fabrication unit sits against the far wall, dark and silent. Corporate propaganda posters decorate every surface. Coffee mugs with crew names sit abandoned. The hab corridor is to port.\n\nYou can see food fabrication unit, propaganda posters, crew mugs here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Mess Hall"
+            }
+          ]
+        },
+        {
+          "lineNumber": 131,
+          "input": "west",
+          "output": "Hab Corridor\n\nThe habitation wing. Warmer here, more human. Crew photos line the wall in mismatched frames. A bulletin board holds shift schedules and personal notices — one reads \"DO NOT TRUST THE SYSTEM\" in hasty marker. The junction is to port. The mess hall is to starboard. The library is aft.\n\nYou can see crew photos, bulletin board here.\nA terminal you haven't seen active before flickers to life nearby. SOMS is expanding its reach.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hab Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 134,
+          "input": "south",
+          "output": "Library\n\nThe ship's data archive. Racks of physical media storage — data crystals, backup drives — fill metal shelving. A comfortable reading chair faces a large terminal display. This feels like the ship's memory. The hab corridor is fore.\n\nYou can see archive terminal, data storage racks, Lis, SOMS terminal here.\n\"Oh.\" Lis blinks, confused. \"I didn't — I thought I was going to storage.\" A pause. A head tilt. \"How can I help you?\"\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Library"
+            }
+          ]
+        },
+        {
+          "lineNumber": 137,
+          "input": "north",
+          "output": "Hab Corridor\n\nThe habitation wing. Warmer here, more human. Crew photos line the wall in mismatched frames. A bulletin board holds shift schedules and personal notices — one reads \"DO NOT TRUST THE SYSTEM\" in hasty marker. The junction is to port. The mess hall is to starboard. The library is aft.\n\nYou can see crew photos, bulletin board here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hab Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 140,
+          "input": "west",
+          "output": "Central Junction\n\nA wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: \"People First. Profit Always.\" Ladders lead up and down.\n\nYou can see corporate signage here.\nReed grabs your arm, eyes clear and desperate. \"Listen to me. Something's in me. It's been in me since before you arrived. Don't let it — don't let me —\" Their eyes cloud. The moment passes.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Central Junction"
+            }
+          ]
+        },
+        {
+          "lineNumber": 145,
+          "input": "up",
+          "output": "Upper Corridor\n\nA narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.\n\nYou can see bridge door, ship schematics, intercom panel here.\nThe hull groans — a deep structural sound. The ship settling, or something shifting in the dark.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Upper Corridor"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Upper Deck"
+        },
+        {
+          "lineNumber": 149,
+          "input": "south",
+          "output": "Crew Bunks\n\nStacked sleeping pods, four high. Most are stripped bare. One bunk has deep scratches gouged into the wall beside it. Dark stains on the mattress. A security rack holds equipment near the door. EVA suit storage is recessed into the far wall. The corridor is fore. The common area is aft.\n\nYou can see stun baton, EVA suit, scratched bunk, security rack, EVA storage here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Crew Bunks"
+            }
+          ]
+        },
+        {
+          "lineNumber": 152,
+          "input": "south",
+          "output": "Common Area\n\nA cramped recreation space. A viewport looks out into black nothing. Someone has built a barricade from furniture and deck plates across the starboard side of the room. A half-finished card game is scattered on a table. An air vent grille is set into the ceiling. The crew bunks are fore.\n\nYou can see common viewport, furniture barricade, card game, air vent, Vasik here.\nA voice from behind the barricade: \"Stop. Who are you? You're not crew.\" A pause. \"You're from the tug. The convict.\"\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Common Area"
+            }
+          ]
+        },
+        {
+          "lineNumber": 155,
+          "input": "north",
+          "output": "Crew Bunks\n\nStacked sleeping pods, four high. Most are stripped bare. One bunk has deep scratches gouged into the wall beside it. Dark stains on the mattress. A security rack holds equipment near the door. EVA suit storage is recessed into the far wall. The corridor is fore. The common area is aft.\n\nYou can see stun baton, EVA suit, scratched bunk, security rack, EVA storage here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Crew Bunks"
+            }
+          ]
+        },
+        {
+          "lineNumber": 158,
+          "input": "north",
+          "output": "Upper Corridor\n\nA narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.\n\nYou can see bridge door, ship schematics, intercom panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Upper Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 163,
+          "input": "help",
+          "output": "NO SIGNAL HOME — Commands:\n\nMovement: FORE, AFT, PORT, STARBOARD, UP, DOWN (or F, A, P, SB, U, D)\nActions: LOOK, EXAMINE, TAKE, DROP, OPEN, CLOSE, UNLOCK, READ\nSpecial: PRY, REPAIR, CUT, CONNECT, OVERRIDE, LAUNCH\nNPCs: ASK [person] ABOUT [topic], TALK TO [person]\nTerminals: QUERY [terminal] ABOUT [topic], USE [terminal]\nSearch: SEARCH [thing], LOOK UNDER [thing]\nSystem: SAVE, RESTORE, UNDO, INVENTORY, SCORE\n\nTip: EXAMINE everything. Talk to everyone. Read every terminal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Help and About commands"
+        },
+        {
+          "lineNumber": 166,
+          "input": "about",
+          "output": "NO SIGNAL HOME\nA sci-fi salvage horror text adventure.\n\nYou are a grey-market salvager who drifted into range of The Stillwater, a derelict corporate freighter waking from the dead. Four survivors. One AI. Five possible endings.\n\nBy John Googol. Built with Sharpee.\nA terminal you haven't seen active before flickers to life nearby. SOMS is expanding its reach.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "passed": 43,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 316
+      }
+    },
+    {
+      "file": "opening-path-b-rough-dock.transcript",
+      "title": "Opening Sequence — Path B: Rough Dock (No Brake)",
+      "description": "Tests docking without braking — good seal but tug drifts away on seal degradation",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "look",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nTug Cargo Hold\n\nDark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.\n\nYou can see flashlight, ration bar, shipping crates, bedroll, datapad here.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cargo Hold"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            }
+          ],
+          "comment": "# Start in Tug Cargo Hold"
+        },
+        {
+          "lineNumber": 15,
+          "input": "south",
+          "output": "Tug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Move to cockpit and silence alarm"
+        },
+        {
+          "lineNumber": 18,
+          "input": "press button",
+          "output": "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Stillwater"
+            }
+          ]
+        },
+        {
+          "lineNumber": 24,
+          "input": "examine docking controls",
+          "output": "Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "MANEUVER"
+            }
+          ],
+          "comment": "# Examine docking controls (required before maneuver)"
+        },
+        {
+          "lineNumber": 29,
+          "input": "maneuver",
+          "output": "You grab the joystick and bring the tug's thrusters online. Manual control engaged.\n\nThe Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Dock WITHOUT braking — skip brake step"
+        },
+        {
+          "lineNumber": 32,
+          "input": "extend arm",
+          "output": "You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.\n\nThe connection reads solid. You could check the pressure readings before sealing, or just seal it and go.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 37,
+          "input": "check pressure",
+          "output": "You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.\n\nGood practice. Ready to seal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Check pressure (good seal path)"
+        },
+        {
+          "lineNumber": 42,
+          "input": "seal",
+          "output": "You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.\n\nThe airlock door unlocks. Aft leads to The Stillwater.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Seal — should get good seal since pressure was checked"
+        },
+        {
+          "lineNumber": 47,
+          "input": "south",
+          "output": "Airlock\n\nA cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.\n\nYou can see biohazard sign, emergency locker, inspection window, claw marks here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Airlock"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Board The Stillwater"
+        },
+        {
+          "lineNumber": 53,
+          "input": "examine inspection window",
+          "output": "A small reinforced window in the airlock hull. Through it, you can see the docking junction and a sliver of space beyond.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Wait 3 turns for seal degradation — tug should DRIFT AWAY (no brake)"
+        },
+        {
+          "lineNumber": 56,
+          "input": "examine claw marks",
+          "output": "Deep gouges along the inner door frame. Something — someone — clawed at this door from inside. Hard enough to score metal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 61,
+          "input": "look",
+          "output": "Airlock\n\nA cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.\n\nYou can see biohazard sign, emergency locker, inspection window, claw marks here.\nA deep crack reverberates through the deck. The ship shudders.\n\nBehind you — from the airlock — a bang. Metal shearing. You feel the vibration through the floor.\n\nThrough the nearest viewport: your tug, tumbling away. The impact stress sheared the clamp. Your ship — your home — is drifting into black nothing.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Third turn after boarding — seal degrades, tug drifts away"
+        }
+      ],
+      "summary": {
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 46
+      }
+    },
+    {
+      "file": "opening-path-c-bad-seal.transcript",
+      "title": "Opening Sequence — Path C: Bad Seal Death",
+      "description": "Tests docking without checking pressure — bad seal warning then death on crossing",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "look",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nTug Cargo Hold\n\nDark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.\n\nYou can see flashlight, ration bar, shipping crates, bedroll, datapad here.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cargo Hold"
+            }
+          ],
+          "comment": "# Start in Tug Cargo Hold"
+        },
+        {
+          "lineNumber": 14,
+          "input": "south",
+          "output": "Tug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Move to cockpit and silence alarm"
+        },
+        {
+          "lineNumber": 17,
+          "input": "press button",
+          "output": "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Stillwater"
+            }
+          ]
+        },
+        {
+          "lineNumber": 23,
+          "input": "examine docking controls",
+          "output": "Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "MANEUVER"
+            }
+          ],
+          "comment": "# Examine docking controls"
+        },
+        {
+          "lineNumber": 28,
+          "input": "maneuver",
+          "output": "You grab the joystick and bring the tug's thrusters online. Manual control engaged.\n\nThe Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Full dock sequence but SKIP pressure check"
+        },
+        {
+          "lineNumber": 31,
+          "input": "fire thrusters",
+          "output": "You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.\n\nGood. Controlled approach. The docking port is dead ahead.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 34,
+          "input": "extend arm",
+          "output": "You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.\n\nThe connection reads solid. You could check the pressure readings before sealing, or just seal it and go.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 39,
+          "input": "seal",
+          "output": "You activate the sealing mechanism. The airlock pressurizes with a deep hiss.\n\nPressure readings are unstable. The seal is holding, but barely.\nSEAL INTEGRITY CRITICAL. Atmosphere readings show hard vacuum beyond the seal. Going through would be suicide.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            },
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Seal WITHOUT checking pressure — bad seal + warning fires on same turn"
+        },
+        {
+          "lineNumber": 45,
+          "input": "south",
+          "output": "Airlock\n\nA cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.\n\nYou can see biohazard sign, emergency locker, inspection window, claw marks here.\nYou push through.\n\nThe seal gives way. Explosive decompression rips the air from your lungs. The cold hits you everywhere at once. Through the spray of crystallizing atmosphere, you see stars.\n\n*** YOU HAVE DIED ***\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Go aft — door unlocked by plugin, crossing triggers death"
+        }
+      ],
+      "summary": {
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 36
+      }
+    },
+    {
+      "file": "opening-path-d-alarm-collision.transcript",
+      "title": "Opening Sequence — Path D: Alarm-On Collision Death",
+      "description": "Tests the 10-turn alarm timer — never silence the alarm, die on collision",
+      "commands": [
+        {
+          "lineNumber": 10,
+          "input": "examine crates",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nCrates strapped to the walls, stenciled \"DEEP REACH SALVAGE.\" Your crates. Your cargo.\nThe proximity alarm screams from the cockpit. Aft. Move.\nYour whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it's yours.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "DEEP REACH SALVAGE"
+            }
+          ],
+          "comment": "# Some commands (look, inventory) may be free actions, so we add extras"
+        },
+        {
+          "lineNumber": 13,
+          "input": "examine bedroll",
+          "output": "A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.\nThe proximity alarm screams from the cockpit. Aft. Move.\nTwo months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "sleeping pad"
+            }
+          ],
+          "comment": "# Waste turns without silencing the alarm — death at turn 10"
+        },
+        {
+          "lineNumber": 16,
+          "input": "examine datapad",
+          "output": "A salvage manifest on a scratched screen. Last entry: \"LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN.\"\nThe proximity alarm screams from the cockpit. Aft. Move.\nYour handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn't last. The decision to drift. The odds weren't great. But here you are.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "DRIFT MODE"
+            }
+          ]
+        },
+        {
+          "lineNumber": 19,
+          "input": "take flashlight",
+          "output": "Taken.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 22,
+          "input": "take ration bar",
+          "output": "Taken.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 25,
+          "input": "drop flashlight",
+          "output": "Dropped.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 28,
+          "input": "take flashlight",
+          "output": "Taken.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 31,
+          "input": "drop ration bar",
+          "output": "Dropped.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 34,
+          "input": "take ration bar",
+          "output": "Taken.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 39,
+          "input": "south",
+          "output": "Tug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Move to cockpit"
+        },
+        {
+          "lineNumber": 42,
+          "input": "examine fuel gauge",
+          "output": "Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.\nThe alarm screams. You didn't silence it. You didn't see it coming.\n\nThe tug hits the hull of The Stillwater at drift speed. Not fast — but you're a tin can against a mountain.\n\nThe viewport cracks. The hull buckles. The last thing you hear is metal tearing.\n\n*** YOU HAVE DIED ***\nThe alarm fills your head. The button — the big red one on the console — silence it first.\nYou've been watching that number drop for weeks. Three percent doesn't get you anywhere. This derelict is the only option you've got.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 47,
+          "input": "examine instrument panels",
+          "output": "Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.\nThe alarm screams. You didn't silence it. You didn't see it coming.\n\nThe tug hits the hull of The Stillwater at drift speed. Not fast — but you're a tin can against a mountain.\n\nThe viewport cracks. The hull buckles. The last thing you hear is metal tearing.\n\n*** YOU HAVE DIED ***\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# By now turn count should be >= 10 — collision death"
+        }
+      ],
+      "summary": {
+        "passed": 12,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 45
+      }
+    },
+    {
+      "file": "opening-path-e-post-alarm-collision.transcript",
+      "title": "Opening Sequence — Path E: Post-Alarm Collision Death",
+      "description": "Tests the 20-turn post-alarm timer — silence alarm but never dock, die on collision",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "south",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nTug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Move to cockpit and silence alarm immediately"
+        },
+        {
+          "lineNumber": 12,
+          "input": "press button",
+          "output": "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Stillwater"
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 20,
+          "input": "examine instrument panels",
+          "output": "Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Need 20 elapsed turns. Some commands may be free, so add extras."
+        },
+        {
+          "lineNumber": 23,
+          "input": "examine fuel gauge",
+          "output": "Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.\nYou've been watching that number drop for weeks. Three percent doesn't get you anywhere. This derelict is the only option you've got.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Waste turns — fuse starts counting after alarm silenced"
+        },
+        {
+          "lineNumber": 26,
+          "input": "examine comms system",
+          "output": "Your comms rig. The display reads: \"NO SIGNAL.\" Too far from any relay. No one knows you're here.\n\"No signal home.\" The words that have defined the last two months. Every relay out of range. Every frequency dead. You are profoundly, completely alone.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 29,
+          "input": "examine pilot's seat",
+          "output": "Worn cushion, fraying straps. You've sat here for thousands of hours. It smells like recycled air and bad coffee.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 32,
+          "input": "examine docking controls",
+          "output": "Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.\nThrough the viewport, the derelict's hull is closer. Details emerging — hull plating, maintenance hatches, a faded corporate logo.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 35,
+          "input": "examine alarm button",
+          "output": "A big red button set into the console, strobing in time with the alarm. The proximity alarm override.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 38,
+          "input": "examine viewport",
+          "output": "The derelict's hull is closer. Details emerging — hull plating, maintenance hatches, a faded corporate logo.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 43,
+          "input": "north",
+          "output": "Tug Cargo Hold\n\nDark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.\n\nYou can see flashlight, ration bar, shipping crates, bedroll, datapad here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cargo Hold"
+            }
+          ],
+          "comment": "# Go to cargo hold for more filler"
+        },
+        {
+          "lineNumber": 46,
+          "input": "examine crates",
+          "output": "Crates strapped to the walls, stenciled \"DEEP REACH SALVAGE.\" Your crates. Your cargo.\nYour whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it's yours.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "DEEP REACH SALVAGE"
+            }
+          ]
+        },
+        {
+          "lineNumber": 49,
+          "input": "examine bedroll",
+          "output": "A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.\nTwo months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "sleeping pad"
+            }
+          ]
+        },
+        {
+          "lineNumber": 52,
+          "input": "examine datapad",
+          "output": "A salvage manifest on a scratched screen. Last entry: \"LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN.\"\nYour handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn't last. The decision to drift. The odds weren't great. But here you are.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "DRIFT MODE"
+            }
+          ]
+        },
+        {
+          "lineNumber": 55,
+          "input": "take flashlight",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 58,
+          "input": "take ration bar",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 61,
+          "input": "drop flashlight",
+          "output": "Dropped.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 64,
+          "input": "take flashlight",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 67,
+          "input": "drop ration bar",
+          "output": "Dropped.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 70,
+          "input": "take ration bar",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 75,
+          "input": "south",
+          "output": "Tug Cockpit\n\nA cramped cockpit. The alarm is off but the silence is worse. Through the viewport, a massive hull — Meridian Solutions corporate freighter. Getting closer. You need to dock.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe viewport is nothing but hull. Dark metal, arm's reach away. You're out of time.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Back to cockpit for final turns"
+        },
+        {
+          "lineNumber": 78,
+          "input": "examine fuel gauge",
+          "output": "Three percent. Not enough to reach the next port. Not enough to divert. Barely enough to keep life support running.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 81,
+          "input": "examine comms system",
+          "output": "Your comms rig. The display reads: \"NO SIGNAL.\" Too far from any relay. No one knows you're here.\nThrough the viewport, the hull fills everything. You ran out of time.\n\nThe tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.\n\n*** YOU HAVE DIED ***\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 84,
+          "input": "examine instrument panels",
+          "output": "Instrument panels flash amber in time with the proximity alarm. Most readings are drowned out by the strobing.\nThrough the viewport, the hull fills everything. You ran out of time.\n\nThe tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.\n\n*** YOU HAVE DIED ***\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 87,
+          "input": "examine alarm button",
+          "output": "A big red button set into the console, strobing in time with the alarm. The proximity alarm override.\nThrough the viewport, the hull fills everything. You ran out of time.\n\nThe tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.\n\n*** YOU HAVE DIED ***\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 92,
+          "input": "examine viewport",
+          "output": "The Stillwater is all you can see. Dark metal, arm's reach away. You're out of time.\nThrough the viewport, the hull fills everything. You ran out of time.\n\nThe tug grinds against The Stillwater's hull. A slow, inevitable collision. Metal screams. The cockpit crumples.\n\n*** YOU HAVE DIED ***\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# By now elapsed should be >= 20 — collision death"
+        }
+      ],
+      "summary": {
+        "passed": 25,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 92
+      }
+    },
+    {
+      "file": "opening-sequence.transcript",
+      "title": "Opening Sequence — Docking Puzzle",
+      "description": "Tests the complete opening sequence: alarm, docking steps, quality checks. Includes EVENT and STATE assertions for key state transitions.",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "look",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nTug Cargo Hold\n\nDark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.\n\nYou can see flashlight, ration bar, shipping crates, bedroll, datapad here.\nThe proximity alarm screams from the cockpit. Aft. Move.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cargo Hold"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Starting room is Tug Cargo Hold"
+        },
+        {
+          "lineNumber": 16,
+          "input": "examine crates",
+          "output": "Crates strapped to the walls, stenciled \"DEEP REACH SALVAGE.\" Your crates. Your cargo.\nThe proximity alarm screams from the cockpit. Aft. Move.\nYour whole operation, strapped to a wall. Three years of scavenging Meridian junkyards and cracking derelict cargo manifests. Not much to show for it. But it's yours.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "DEEP REACH SALVAGE"
+            }
+          ],
+          "comment": "# Examine cargo hold items"
+        },
+        {
+          "lineNumber": 19,
+          "input": "examine bedroll",
+          "output": "A thin sleeping pad wedged between containers. You've been here a while — the indent has your shape.\nThe proximity alarm screams from the cockpit. Aft. Move.\nTwo months in drift mode. You slept here between the crates, wrapped in a thermal blanket, listening to the engine tick down. Wondering if the proximity alarm would ever go off. It just did.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "sleeping pad"
+            }
+          ]
+        },
+        {
+          "lineNumber": 22,
+          "input": "examine datapad",
+          "output": "A salvage manifest on a scratched screen. Last entry: \"LONG HAUL — DRIFT MODE ENGAGED. ETA: UNKNOWN.\"\nThe proximity alarm screams from the cockpit. Aft. Move.\nYour handwriting on the last entry. You remember writing it — the moment you realized the fuel wouldn't last. The decision to drift. The odds weren't great. But here you are.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "DRIFT MODE"
+            }
+          ]
+        },
+        {
+          "lineNumber": 27,
+          "input": "south",
+          "output": "Tug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Move to cockpit"
+        },
+        {
+          "lineNumber": 34,
+          "input": "south",
+          "output": "The airlock door is locked.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Can't go aft before docking"
+        },
+        {
+          "lineNumber": 39,
+          "input": "press button",
+          "output": "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Stillwater"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Meridian"
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Alarm button"
+        },
+        {
+          "lineNumber": 45,
+          "input": "press button",
+          "output": "You've already silenced the alarm. The button sits dark and quiet.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "already"
+            }
+          ]
+        },
+        {
+          "lineNumber": 50,
+          "input": "maneuver",
+          "output": "You need to examine the docking controls first. Get familiar with what you're working with.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "examine"
+            }
+          ],
+          "comment": "# Docking sequence — need to examine controls first"
+        },
+        {
+          "lineNumber": 53,
+          "input": "examine docking controls",
+          "output": "Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "docking"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "MANEUVER"
+            }
+          ]
+        },
+        {
+          "lineNumber": 59,
+          "input": "maneuver",
+          "output": "You grab the joystick and bring the tug's thrusters online. Manual control engaged.\n\nThe Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Docking steps"
+        },
+        {
+          "lineNumber": 62,
+          "input": "fire thrusters",
+          "output": "You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.\n\nGood. Controlled approach. The docking port is dead ahead.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 65,
+          "input": "extend arm",
+          "output": "You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.\n\nThe connection reads solid. You could check the pressure readings before sealing, or just seal it and go.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 68,
+          "input": "check pressure",
+          "output": "You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.\n\nGood practice. Ready to seal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 71,
+          "input": "seal",
+          "output": "You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.\n\nThe airlock door unlocks. Aft leads to The Stillwater.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 76,
+          "input": "south",
+          "output": "Airlock\n\nA cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.\n\nYou can see biohazard sign, emergency locker, inspection window, claw marks here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Airlock"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ],
+          "comment": "# Can now go aft to airlock"
+        },
+        {
+          "lineNumber": 80,
+          "input": "examine inspection window",
+          "output": "A small reinforced window in the airlock hull. Through it, you can see the docking junction and a sliver of space beyond.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 83,
+          "input": "examine claw marks",
+          "output": "Deep gouges along the inner door frame. Something — someone — clawed at this door from inside. Hard enough to score metal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "passed": 18,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 57
+      }
+    },
+    {
+      "file": "override-ai.transcript",
+      "title": "Override AI Ending",
+      "description": "Override AI ending via cable cut in maintenance shaft, then bridge override panel",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "south",
+          "output": "No Signal Home\nBy John Googol\n\nType HELP for instructions.\n\nTug Cockpit\n\nA cramped cockpit. Instruments flash amber — the proximity alarm fills the space with noise. Through the viewport, something massive and dark. Your fuel gauge reads three percent.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\nThe alarm fills your head. The button — the big red one on the console — silence it first.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Opening sequence — dock with The Stillwater"
+        },
+        {
+          "lineNumber": 12,
+          "input": "press button",
+          "output": "You slam the button. The alarm cuts off mid-shriek.\n\nSilence. Your ears ring.\n\nThrough the viewport: a hull. Massive. Dark. Close. Getting closer. The nav computer identifies it: \"STILLWATER — Meridian Solutions — STATUS: DERELICT.\"\n\nYour fuel reads three percent. You can't divert. Can't outrun it. But a derelict this size — for a salvager, that's opportunity. If you can dock before the drift carries you into it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "alarm"
+            }
+          ]
+        },
+        {
+          "lineNumber": 15,
+          "input": "examine docking controls",
+          "output": "Manual docking controls — joystick, throttle, and a bank of status indicators. Standard salvage rig setup. You know this.\n\nSequence: MANEUVER to take control, then CONNECT to extend the docking arm, then SEAL to pressurize.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "docking"
+            }
+          ]
+        },
+        {
+          "lineNumber": 18,
+          "input": "maneuver",
+          "output": "You grab the joystick and bring the tug's thrusters online. Manual control engaged.\n\nThe Stillwater's hull slides across the viewport as you align with a docking port. Closing distance. You could brake to slow the approach, or go straight to connecting the arm.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 21,
+          "input": "fire thrusters",
+          "output": "You fire the reverse thrusters. The tug shudders and decelerates. Approach speed drops to a crawl.\n\nGood. Controlled approach. The docking port is dead ahead.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 24,
+          "input": "extend arm",
+          "output": "You extend the docking arm. Magnetic clamps engage with a deep clunk that reverberates through the hull. Locked on.\n\nThe connection reads solid. You could check the pressure readings before sealing, or just seal it and go.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 27,
+          "input": "check pressure",
+          "output": "You pull up the pressure diagnostic. Atmosphere on the other side reads... breathable. Barely. The seal integrity shows green across the board.\n\nGood practice. Ready to seal.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 30,
+          "input": "seal",
+          "output": "You activate the sealing mechanism. The airlock pressurizes with a deep hiss. Green across the board.\n\nThe airlock door unlocks. Aft leads to The Stillwater.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 35,
+          "input": "look",
+          "output": "Tug Cockpit\n\nThe cockpit is quiet. Instruments show a stable dock. The airlock door aft is ready.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Start — collect essentials"
+        },
+        {
+          "lineNumber": 38,
+          "input": "north",
+          "output": "Tug Cargo Hold\n\nDark — but a strobing red light pulses from somewhere aft. Cold. You've been sleeping in the gap between two shipping containers. A proximity alarm screams from the cockpit, aft of here.\n\nYou can see flashlight, ration bar, shipping crates, bedroll, datapad here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cargo Hold"
+            }
+          ]
+        },
+        {
+          "lineNumber": 41,
+          "input": "take flashlight",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 44,
+          "input": "take ration bar",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 49,
+          "input": "south",
+          "output": "Tug Cockpit\n\nThe cockpit is quiet. Instruments show a stable dock. The airlock door aft is ready.\n\nYou can see airlock door, instrument panels, tug viewport, alarm button, docking controls, fuel gauge, comms system, pilot's seat here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Tug Cockpit"
+            }
+          ],
+          "comment": "# Enter The Stillwater"
+        },
+        {
+          "lineNumber": 52,
+          "input": "south",
+          "output": "Airlock\n\nA cylindrical airlock chamber connecting the tug to The Stillwater. Biohazard warning decals peel from the inner hull. Emergency lighting casts everything in pale amber. The tug is fore. The ship corridor stretches aft.\n\nYou can see biohazard sign, emergency locker, inspection window, claw marks here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Airlock"
+            }
+          ]
+        },
+        {
+          "lineNumber": 55,
+          "input": "south",
+          "output": "Forward Corridor\n\nA long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.\n\nYou can see overhead pipes, floor panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Forward Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 60,
+          "input": "west",
+          "output": "Lower Mid Corridor\n\nA junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.\n\nYou can see direction signs, elevator here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lower Mid Corridor"
+            }
+          ],
+          "comment": "# Get cable snips and multi-tool from Engineering"
+        },
+        {
+          "lineNumber": 63,
+          "input": "south",
+          "output": "Aft Corridor\n\nThe corridor narrows toward the stern. The deck plates are warm underfoot. A low thrum vibrates through the walls — the reactor, waking up. Engineering is aft. The mid corridor is fore.\n\nYou can see temperature gauge here.\nA deep crack reverberates through the deck. The ship shudders.\n\nBehind you — from the airlock — a hiss of escaping atmosphere. The seal between the tug and The Stillwater is failing. You hear metal stress and pop.\n\nThrough the airlock inspection window: your tug, still docked. But the seal is compromised. Going back that way without a spacesuit would be suicide.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Aft Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 66,
+          "input": "south",
+          "output": "Engineering\n\nThe engineering section. Heavy machinery fills the space — power conduits, coolant pipes, switching panels. A tool rack hangs on the far wall. A comms relay unit is bolted beside the main console. The reactor room is to starboard. The aft corridor is fore. The maintenance shaft opens forward to port.\n\nYou can see multi-tool, security override tool, cable snips, reactor controls, tool rack, comms relay, Reed here.\nReed looks up sharply, then relaxes. \"Another person. Thank god. I thought I was the only one left awake.\"\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Engineering"
+            }
+          ]
+        },
+        {
+          "lineNumber": 69,
+          "input": "take cable snips",
+          "output": "Taken.\nReed checks a gauge and frowns.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 73,
+          "input": "take multi-tool",
+          "output": "Taken.\nReed adjusts a pipe fitting, muttering about pressure differentials.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            },
+            {
+              "type": "state-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 79,
+          "input": "north",
+          "output": "Aft Corridor\n\nThe corridor narrows toward the stern. The deck plates are warm underfoot. A low thrum vibrates through the walls — the reactor, waking up. Engineering is aft. The mid corridor is fore.\n\nYou can see temperature gauge here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Aft Corridor"
+            }
+          ],
+          "comment": "# Back to Maintenance Shaft and cut AI cables"
+        },
+        {
+          "lineNumber": 82,
+          "input": "north",
+          "output": "Lower Mid Corridor\n\nA junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.\n\nYou can see direction signs, elevator here.\nThe hull groans — a deep structural sound. The ship settling, or something shifting in the dark.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lower Mid Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 85,
+          "input": "east",
+          "output": "Forward Corridor\n\nA long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.\n\nYou can see overhead pipes, floor panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Forward Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 88,
+          "input": "east",
+          "output": "Maintenance Shaft\n\nA narrow cable conduit running between decks. Bundles of fiber-optic cable snake along the walls. The air is stale and close. Your flashlight picks out junction boxes bolted to the bulkhead. The corridor is to port. The shaft continues aft to engineering.\n\nYou can see fiber-optic cables, junction box here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Maintenance Shaft"
+            }
+          ]
+        },
+        {
+          "lineNumber": 91,
+          "input": "cut cables",
+          "output": "You position the snips on the CORE cable and squeeze. The fiber-optic bundle parts with a bright flash.\n\nEvery screen on the ship goes dark for three seconds. When they flicker back on, SOMS' voice is gone. Silence. Real silence, for the first time since you boarded.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 97,
+          "input": "west",
+          "output": "Forward Corridor\n\nA long corridor running through the bow of The Stillwater. Overhead pipes drip condensation. The air smells of machine oil and something faintly chemical. The airlock is fore. The corridor continues aft toward the cargo bay. A maintenance hatch opens to starboard.\n\nYou can see overhead pipes, floor panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Forward Corridor"
+            }
+          ],
+          "comment": "# Get keycard from Captain's Cabin"
+        },
+        {
+          "lineNumber": 100,
+          "input": "west",
+          "output": "Lower Mid Corridor\n\nA junction point where the forward and aft sections meet. Direction signs point fore and aft, their corporate fonts cheerful against the grimy walls. A ladder leads up through a ceiling hatch. The corridor runs fore and aft. An elevator alcove opens to starboard.\n\nYou can see direction signs, elevator here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Lower Mid Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 103,
+          "input": "up",
+          "output": "Central Junction\n\nA wide junction where the mid deck splits into two wings. Corporate signage directs crew to port for labs and medical, starboard for habitation. A Meridian Solutions poster reads: \"People First. Profit Always.\" Ladders lead up and down.\n\nYou can see corporate signage here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Central Junction"
+            }
+          ]
+        },
+        {
+          "lineNumber": 106,
+          "input": "up",
+          "output": "Upper Corridor\n\nA narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.\n\nYou can see bridge door, ship schematics, intercom panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Upper Corridor"
+            }
+          ]
+        },
+        {
+          "lineNumber": 109,
+          "input": "east",
+          "output": "Captain's Cabin\n\nModest quarters. Personal effects — framed photos, a half-read book, dried flowers in a vase. A locked desk sits against the bulkhead. The corridor is to port.\n\nYou can see captain's journal, locked desk, personal effects here.\nThe hull groans — a deep structural sound. The ship settling, or something shifting in the dark.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Captain's Cabin"
+            }
+          ]
+        },
+        {
+          "lineNumber": 112,
+          "input": "pry open desk",
+          "output": "You work the multi-tool into the gap and lever the lock apart. Metal squeals. The drawer slides open, revealing a bridge keycard.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 115,
+          "input": "take keycard",
+          "output": "You take bridge keycard from locked desk.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 120,
+          "input": "west",
+          "output": "Upper Corridor\n\nA narrow corridor with a low ceiling — submarine-tight. Ship schematics are posted behind scratched plexiglass. An intercom panel is mounted by the ladder. Crew bunks are aft. The captain's cabin is to starboard. The bridge is fore, behind a heavy security door.\n\nYou can see bridge door, ship schematics, intercom panel here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Upper Corridor"
+            }
+          ],
+          "comment": "# Unlock bridge and trigger Override ending"
+        },
+        {
+          "lineNumber": 123,
+          "input": "unlock bridge door with keycard",
+          "output": "You unlock bridge door with bridge keycard.\nA terminal you haven't seen active before flickers to life nearby. SOMS is expanding its reach.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 126,
+          "input": "open bridge door",
+          "output": "You open bridge door.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 129,
+          "input": "north",
+          "output": "Bridge\n\nThe nerve center of The Stillwater. A navigation console dominates the forward wall, showing a star chart with a blinking destination marker. A comms array control panel sits beside it. The captain's log terminal glows dimly. A security override panel is mounted near the door. The corridor is aft.\n\nYou can see navigation console, comms array panel, captain's log terminal, security override panel, escape pod hatch here.\nReed grabs your arm, eyes clear and desperate. \"Listen to me. Something's in me. It's been in me since before you arrived. Don't let it — don't let me —\" Their eyes cloud. The moment passes.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Bridge"
+            }
+          ]
+        },
+        {
+          "lineNumber": 132,
+          "input": "override security panel",
+          "output": "SOMS goes silent. Not dead — disabled. Contained.\n\nThe ship is yours now. The doors are open. The systems respond to your commands.\n\nIt's not over. Three hundred people in cryo. A pathogen in the hold. A military buyer waiting at Korvax Station.\n\nBut for the first time since you boarded, the ship is quiet. Really quiet.\n\nYou sit in the captain's chair and think about what comes next.\n\n*** THE END ***\n\n(Ending: Override The AI)\nCongratulations. You found a way out — or a way forward.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "THE END"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Override"
+            },
+            {
+              "type": "event-assert",
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "passed": 37,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 167
+      }
+    }
+  ],
+  "summary": {
+    "totalPassed": 156,
+    "totalFailed": 0,
+    "totalSkipped": 0,
+    "totalDuration": 759
+  }
+}
