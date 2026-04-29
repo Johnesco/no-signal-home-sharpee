@@ -157,7 +157,7 @@ no-signal-home/
 - [x] Nautical directions (fore/aft/port/starboard) replacing compass directions
 - [x] Regions API adopted: 4 regions with `reg-*` IDs; `region_entered` event drives boarding detection
 - [x] Event handlers use the canonical `world.registerEventHandler()` pattern (no more `chainEvent`)
-- [x] Pinned to `@sharpee/*` 0.9.111 across the board
+- [x] Pinned to `@sharpee/*` 0.9.113 across the board
 - [x] Scenes API — 4 scenes (alarm, collision-approach, seal-window, atmosphere) via `world.createScene()`
 - [x] `world.createDoor()` for all 3 doors (airlock, bridge, cargo hold)
 - [x] NPC behavior text extracted to language provider (`NpcText` ~30 message IDs)
@@ -363,6 +363,7 @@ python C:\code\portman\portman.py add no-signal-home dist\web
 ## Project History
 
 ### Recent Changes
+- 2026-04-28: Engine bump to 0.9.113 — ADR-158 lang-articles (no story changes needed), save-restore engine format v2.0.0, ADR-162 StatusLine reads ScoreLedger. 197/197 tests passing.
 - 2026-04-17: Guide compliance pass (#15–#20) — Scenes API for timed events, `world.createDoor()` for all doors, NPC text to language provider, event factories in plugins, action phase discipline, STATE/EVENT transcript assertions, walkthrough chaining. 197/197 tests passing.
 - 2026-04-16: Test suite restored to 197/197 green — installed `@sharpee/sharpee@0.9.111` CLI locally (npx was resolving to a cached 0.9.92), reverted transcript command lines from nautical to compass as a temporary workaround for an upstream gap (see Architecture Decisions → Nautical directions). Game-facing prose, room descriptions, and NPC dialogue still use nautical words; only the test/walkthrough `> aft`/`> fore` inputs changed.
 - 2026-04-15: Modernization pass — adopted Regions API (Tug + 3 Stillwater decks, 26 room assignments, `if.event.region_entered` boarding handler), converted last `chainEvent` to `registerEventHandler`, bumped all `@sharpee/*` deps to 0.9.111, preview served from canonical `dist/web/`, CLAUDE.md room count corrected 25→26
@@ -381,7 +382,7 @@ python C:\code\portman\portman.py add no-signal-home dist\web
 - Regions API groups the 26 rooms into four regions — `Regions.TUG`, `Regions.LOWER_DECK`, `Regions.MID_DECK`, `Regions.UPPER_DECK` — assigned in `world.ts`; boarding the Stillwater is detected from `if.event.region_entered` (the `going` action in stdlib emits these on region crossing). A location-based fallback in the boarding plugin remains for defense-in-depth.
 - Airlock blocking via door lock mechanism with dynamic lockedMessage updates per docking state
 - Nautical directions via patch-package — two of three layers live: (1) `lang-en-us/data/words.js` + `language-provider.js` expose `fore`/`aft`/`port`/`starboard` as direction synonyms, (2) `parser-en-us/direction-mappings.js` (`DirectionWords`, `DirectionAbbreviations`, `parseDirection`) accept the nautical tokens. **Layer 3 is an upstream gap**: `@sharpee/parser-en-us/grammar.js:164-181` hardcodes a compass-only direction map inside `grammar.forAction('if.action.going').directions({...})` that doesn't read from the language provider, so bare-word input like `> aft` parses as DIRECTION but finds no matching grammar rule ("I don't understand that"). The engine fix is to drive that `.directions(...)` call from `language.getDirections()`. Pending that, test/walkthrough transcripts use compass inputs (`> south` not `> aft`) while in-game prose, room descriptions, and NPC dialogue continue to use nautical words — so players see nautical text but can't type it bare-word until the engine lands the fix. When the fix ships, revert the transcripts with `sed -E 's/^> south$/> aft/; ...` across `walkthroughs/**/*.transcript` and `tests/transcripts/**/*.transcript`.
-- All `@sharpee/*` packages pinned to the same minor (0.9.111); region events require stdlib ≥ 0.9.111 because the `going` action emits them
+- All `@sharpee/*` packages pinned to the same minor (0.9.113); region events require stdlib ≥ 0.9.111 because the `going` action emits them
 - Browser build outputs to `dist/web/` (canonical); local preview / Portman / `.claude/launch.json` all serve from there, never from `browser/`
 - Scenes API: 4 scenes declared in `index.ts` via `world.createScene()`. SceneEvaluationPlugin runs at priority 60; story turn plugins that check scenes use priority 65/66 (> 60). `SceneTrait.activeTurns` tracks how many turns a scene has been active. Deep-importing `SceneTrait` fails at esbuild bundle time (exports map restriction) — use string-based trait access: `scene.get('scene' as any)`.
 - `world.createDoor()` helper replaces manual door entity creation for all 3 doors. Post-creation customization via `door.get(LockableTrait)` for lockedMessage, `door.add(new ShipPropTrait(...))` for interceptor targeting. Reduced ~80 lines of boilerplate.
