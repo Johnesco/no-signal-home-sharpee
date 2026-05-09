@@ -1,6 +1,6 @@
 {
   "storyId": "no-signal-home-sharpee",
-  "timestamp": "2026-04-18T06:04:19.529Z",
+  "timestamp": "2026-05-09T21:14:12.334Z",
   "transcripts": [
     {
       "file": "exploration-basics.transcript",
@@ -129,7 +129,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "control",
+                "thrusters",
+                "manual"
+              ]
             }
           ]
         },
@@ -142,7 +147,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "brake",
+                "decelerate",
+                "slow"
+              ]
             }
           ]
         },
@@ -155,7 +165,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "clamp",
+                "locked",
+                "docking arm"
+              ]
             }
           ]
         },
@@ -168,7 +183,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "pressure",
+                "green",
+                "seal"
+              ]
             }
           ]
         },
@@ -181,7 +201,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "seal",
+                "pressurize",
+                "green"
+              ]
             }
           ]
         },
@@ -242,7 +267,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "panel",
+                "cable",
+                "beneath"
+              ]
             }
           ]
         },
@@ -306,7 +336,7 @@
         {
           "lineNumber": 83,
           "input": "west",
-          "output": "Cargo Bay\n\nA cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.\n\nYou can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.\n\"Three hundred people in cryo,\" Okafor says quietly. \"And nobody cares.\"\n",
+          "output": "Cargo Bay\n\nA cavernous cargo bay with high ceilings lost in shadow. Shipping containers stand in rows, some pried open. Someone has made a camp here — improvised bedding, a makeshift barricade of crates. The corridor is fore. A sealed bulkhead leads aft to the cargo hold. Storage is to starboard.\n\nYou can see cargo hold bulkhead, shipping containers, improvised bedding, makeshift barricade, Okafor here.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -355,7 +385,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "elevator",
+                "dead",
+                "failed"
+              ]
             }
           ]
         },
@@ -632,7 +667,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "help",
+                "HELP",
+                "commands",
+                "move"
+              ]
             }
           ],
           "comment": "# Help and About commands"
@@ -646,7 +687,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "No Signal Home",
+                "NO SIGNAL HOME",
+                "Sharpee"
+              ]
             }
           ]
         }
@@ -655,7 +701,7 @@
         "passed": 43,
         "failed": 0,
         "skipped": 0,
-        "duration": 316
+        "duration": 282
       }
     },
     {
@@ -741,7 +787,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "control",
+                "thrusters",
+                "manual"
+              ]
             }
           ],
           "comment": "# Dock WITHOUT braking — skip brake step"
@@ -755,7 +806,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "clamp",
+                "locked",
+                "docking arm"
+              ]
             }
           ]
         },
@@ -768,7 +824,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "pressure",
+                "green",
+                "seal"
+              ]
             }
           ],
           "comment": "# Check pressure (good seal path)"
@@ -782,7 +843,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Green",
+                "green",
+                "unlocks"
+              ]
             }
           ],
           "comment": "# Seal — should get good seal since pressure was checked"
@@ -815,7 +881,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "window",
+                "docking"
+              ]
             }
           ],
           "comment": "# Wait 3 turns for seal degradation — tug should DRIFT AWAY (no brake)"
@@ -829,7 +899,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "claw",
+                "gouges",
+                "scratches"
+              ]
             }
           ]
         },
@@ -842,7 +917,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "shearing",
+                "tumbling",
+                "drifting",
+                "sheared",
+                "clamp"
+              ]
             }
           ],
           "comment": "# Third turn after boarding — seal degrades, tug drifts away"
@@ -852,7 +934,7 @@
         "passed": 12,
         "failed": 0,
         "skipped": 0,
-        "duration": 46
+        "duration": 65
       }
     },
     {
@@ -933,7 +1015,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "control",
+                "thrusters",
+                "manual"
+              ]
             }
           ],
           "comment": "# Full dock sequence but SKIP pressure check"
@@ -947,7 +1034,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "brake",
+                "decelerate",
+                "slow"
+              ]
             }
           ]
         },
@@ -960,7 +1052,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "clamp",
+                "locked",
+                "docking arm"
+              ]
             }
           ]
         },
@@ -973,11 +1070,20 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "unstable",
+                "barely"
+              ]
             },
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "SEAL INTEGRITY",
+                "vacuum",
+                "suicide"
+              ]
             }
           ],
           "comment": "# Seal WITHOUT checking pressure — bad seal + warning fires on same turn"
@@ -991,7 +1097,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "decompression",
+                "DIED",
+                "cold"
+              ]
             },
             {
               "type": "event-assert",
@@ -1005,7 +1116,7 @@
         "passed": 9,
         "failed": 0,
         "skipped": 0,
-        "duration": 36
+        "duration": 40
       }
     },
     {
@@ -1026,7 +1137,7 @@
               "value": "DEEP REACH SALVAGE"
             }
           ],
-          "comment": "# Some commands (look, inventory) may be free actions, so we add extras"
+          "comment": "# Waste turns without silencing the alarm — death at turn 10\n# Some commands (look, inventory) may be free actions, so we add extras"
         },
         {
           "lineNumber": 13,
@@ -1040,8 +1151,7 @@
               "passed": true,
               "value": "sleeping pad"
             }
-          ],
-          "comment": "# Waste turns without silencing the alarm — death at turn 10"
+          ]
         },
         {
           "lineNumber": 16,
@@ -1066,7 +1176,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "flashlight",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1079,7 +1193,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "ration",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1092,7 +1210,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Dropped",
+                "dropped",
+                "flashlight"
+              ]
             }
           ]
         },
@@ -1105,7 +1228,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "flashlight",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1118,7 +1245,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Dropped",
+                "dropped",
+                "ration"
+              ]
             }
           ]
         },
@@ -1131,7 +1263,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "ration",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1159,7 +1295,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fuel",
+                "percent",
+                "three"
+              ]
             }
           ]
         },
@@ -1172,7 +1313,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "alarm screams",
+                "DIED",
+                "collision",
+                "hull"
+              ]
             },
             {
               "type": "event-assert",
@@ -1186,7 +1333,7 @@
         "passed": 12,
         "failed": 0,
         "skipped": 0,
-        "duration": 45
+        "duration": 58
       }
     },
     {
@@ -1241,10 +1388,16 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "instruments",
+                "readouts",
+                "panels",
+                "Instrument"
+              ]
             }
           ],
-          "comment": "# Need 20 elapsed turns. Some commands may be free, so add extras."
+          "comment": "# Waste turns — fuse starts counting after alarm silenced\n# Need 20 elapsed turns. Some commands may be free, so add extras."
         },
         {
           "lineNumber": 23,
@@ -1255,10 +1408,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fuel",
+                "percent",
+                "three"
+              ]
             }
-          ],
-          "comment": "# Waste turns — fuse starts counting after alarm silenced"
+          ]
         },
         {
           "lineNumber": 26,
@@ -1269,7 +1426,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "comms",
+                "signal",
+                "relay"
+              ]
             }
           ]
         },
@@ -1282,7 +1444,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "cushion",
+                "straps",
+                "sat here"
+              ]
             }
           ]
         },
@@ -1295,7 +1462,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "docking",
+                "MANEUVER"
+              ]
             }
           ]
         },
@@ -1308,7 +1479,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "button",
+                "alarm",
+                "already"
+              ]
             }
           ]
         },
@@ -1321,7 +1497,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "viewport",
+                "hull",
+                "Stillwater"
+              ]
             }
           ]
         },
@@ -1391,7 +1572,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "flashlight",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1404,7 +1589,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "ration",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1417,7 +1606,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Dropped",
+                "dropped",
+                "flashlight"
+              ]
             }
           ]
         },
@@ -1430,7 +1624,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "flashlight",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1443,7 +1641,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Dropped",
+                "dropped",
+                "ration"
+              ]
             }
           ]
         },
@@ -1456,7 +1659,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "ration",
+                "Taken"
+              ]
             }
           ]
         },
@@ -1484,7 +1691,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fuel",
+                "percent",
+                "three"
+              ]
             }
           ]
         },
@@ -1497,7 +1709,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "comms",
+                "signal",
+                "relay"
+              ]
             }
           ]
         },
@@ -1510,7 +1727,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "instruments",
+                "readouts",
+                "panels",
+                "Instrument"
+              ]
             }
           ]
         },
@@ -1523,7 +1746,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "button",
+                "alarm",
+                "already"
+              ]
             }
           ]
         },
@@ -1536,7 +1764,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fills everything",
+                "DIED",
+                "collision",
+                "hull",
+                "out of time"
+              ]
             },
             {
               "type": "event-assert",
@@ -1550,7 +1785,7 @@
         "passed": 25,
         "failed": 0,
         "skipped": 0,
-        "duration": 92
+        "duration": 88
       }
     },
     {
@@ -1658,7 +1893,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "locked",
+                "sealed",
+                "docking"
+              ]
             }
           ],
           "comment": "# Can't go aft before docking"
@@ -1749,7 +1989,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "control",
+                "thrusters",
+                "manual"
+              ]
             }
           ],
           "comment": "# Docking steps"
@@ -1763,7 +2008,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "brake",
+                "decelerate",
+                "slow"
+              ]
             }
           ]
         },
@@ -1776,7 +2026,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "clamp",
+                "locked",
+                "docking arm"
+              ]
             }
           ]
         },
@@ -1789,7 +2044,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "pressure",
+                "green",
+                "seal"
+              ]
             }
           ]
         },
@@ -1802,7 +2062,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Green",
+                "green",
+                "unlocks"
+              ]
             }
           ]
         },
@@ -1834,7 +2099,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "window",
+                "docking"
+              ]
             }
           ]
         },
@@ -1847,7 +2116,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "claw",
+                "gouges",
+                "scratches"
+              ]
             }
           ]
         }
@@ -1856,7 +2130,7 @@
         "passed": 18,
         "failed": 0,
         "skipped": 0,
-        "duration": 57
+        "duration": 45
       }
     },
     {
@@ -1916,7 +2190,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "control",
+                "thrusters",
+                "manual"
+              ]
             }
           ]
         },
@@ -1929,7 +2208,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "brake",
+                "decelerate",
+                "slow"
+              ]
             }
           ]
         },
@@ -1942,7 +2226,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "clamp",
+                "locked",
+                "docking arm"
+              ]
             }
           ]
         },
@@ -1955,7 +2244,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "pressure",
+                "green",
+                "seal"
+              ]
             }
           ]
         },
@@ -1968,7 +2262,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "seal",
+                "pressurize",
+                "green"
+              ]
             }
           ]
         },
@@ -1981,7 +2280,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Cockpit",
+                "airlock"
+              ]
             }
           ],
           "comment": "# Start — collect essentials"
@@ -2009,7 +2312,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "already"
+              ]
             }
           ]
         },
@@ -2022,7 +2329,11 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "already"
+              ]
             }
           ]
         },
@@ -2115,7 +2426,7 @@
         {
           "lineNumber": 69,
           "input": "take cable snips",
-          "output": "Taken.\nReed checks a gauge and frowns.\n",
+          "output": "Taken.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -2133,7 +2444,7 @@
         {
           "lineNumber": 73,
           "input": "take multi-tool",
-          "output": "Taken.\nReed adjusts a pipe fitting, muttering about pressure differentials.\n",
+          "output": "Taken.\nReed checks a gauge and frowns.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -2214,7 +2525,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "cut",
+                "sever",
+                "spark",
+                "dead",
+                "dark",
+                "slice"
+              ]
             },
             {
               "type": "event-assert",
@@ -2302,20 +2621,28 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "keycard",
+                "bridge"
+              ]
             }
           ]
         },
         {
           "lineNumber": 115,
           "input": "take keycard",
-          "output": "You take bridge keycard from locked desk.\n",
+          "output": "You take the bridge keycard from the locked desk.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "keycard"
+              ]
             }
           ]
         },
@@ -2337,26 +2664,34 @@
         {
           "lineNumber": 123,
           "input": "unlock bridge door with keycard",
-          "output": "You unlock bridge door with bridge keycard.\nA terminal you haven't seen active before flickers to life nearby. SOMS is expanding its reach.\n",
+          "output": "You unlock the bridge door with the bridge keycard.\nA terminal you haven't seen active before flickers to life nearby. SOMS is expanding its reach.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "unlock",
+                "green"
+              ]
             }
           ]
         },
         {
           "lineNumber": 126,
           "input": "open bridge door",
-          "output": "You open bridge door.\n",
+          "output": "You open the bridge door.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "open",
+                "bridge"
+              ]
             }
           ]
         },
@@ -2402,7 +2737,7 @@
         "passed": 37,
         "failed": 0,
         "skipped": 0,
-        "duration": 167
+        "duration": 211
       }
     }
   ],
@@ -2410,6 +2745,6 @@
     "totalPassed": 156,
     "totalFailed": 0,
     "totalSkipped": 0,
-    "totalDuration": 759
+    "totalDuration": 789
   }
 }
