@@ -151,12 +151,19 @@ Same treatment for the "examined the controls" gate: it lives on
 **the instrument panel** (`dark` / `live`), lit by examining the docking
 controls.
 
-### 5. One file, for now
+### 5. One file, for now — but the blocker is gone
 
-General `import "<file>"` is parked in the grammar — only
-`import phrasebook "<file>"` exists today. So this is one file until that
-lands. At ~1,100 lines that's comfortable; phrasebooks are the release valve
-when the text volume grows.
+**Resolved in Chord 3.0.0.** This originally said general `import "<file>"` was
+parked in the grammar with only `import phrasebook "<file>"` available. That
+inverted: `import "<file>"` is now *the* single generalized form (ADR-251) and
+the `phrasebook` sub-word has been removed. The `import` line's position is the
+spliced content's arbitration position, and `.chord` is assumed — so it is
+`import "characters"`, not the filename.
+
+So splitting this story is now possible. It stays one file by choice: at ~1,100
+lines that's still comfortable, and the TypeScript edition's split (`zoo-map`,
+`zoo-items`, `characters`, `events`, `scoring`, `language`) is the obvious
+shape to copy when it stops being comfortable.
 
 ### 6. Room prose follows the style guide, not the old descriptions
 
