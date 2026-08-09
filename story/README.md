@@ -4,35 +4,50 @@
 story language. The TypeScript source in `../src/` is the original — it predates
 Chord and stays in place, untouched, until this edition overtakes it.
 
-Status: **gate-clean.** 76 entities, 26 rooms, all reachable. Act 1 (wake →
-dock → board → lose the tug) is fully playable logic; Acts 2–3 are a walkable
-map with stubbed systems.
+Status: **gate-clean at Chord 3.0.0.** 76 entities, 26 rooms, all reachable.
+Act 1 (wake → dock → board → lose the tug) is fully playable logic; Acts 2–3
+are a walkable map with stubbed systems.
 
 ```bash
-./story/chord-check.sh
+npx sharpee compose --check story/no-signal-home.story
 ```
 
 ---
 
 ## Building and checking
 
-There is no `npx sharpee compose` here yet. `@sharpee/chord` (the compiler) and
-`@sharpee/devkit` (which owns the `compose` CLI) ship with the Sharpee 3.0
-platform; this repo pins the `0.9.113` npm line, which has neither. The
-compiler is dependency-free TypeScript, so `chord-check.sh` compiles it out of
-the read-only fork checkout into `story/.chordc/` (gitignored) and runs the
-load-time gates directly. It only ever reads the fork.
+`@sharpee/devkit` (which owns the `compose` CLI) is on npm as of 4.5.0, so the
+real toolchain works here. It is a devDependency; npm nests its own `@sharpee/*`
+4.5.0 copies under it, leaving the `0.9.113` runtime deps that `../src/` builds
+against untouched at the top level. Both `npm run build` and `compose --check`
+pass side by side.
 
-Point it at a different checkout with `SHARPEE_FORK=/path/to/sharpee`.
-
-Delete both scripts and use `npx sharpee compose --check` the day the platform
-lands on npm.
+The old `chord-check.sh` / `chord-check.js` pair — which compiled the
+dependency-free compiler out of the read-only fork into a gitignored
+`story/.chordc/` — is **retired and deleted**, exactly as this file said it
+should be "the day the platform lands on npm."
 
 **Version note:** the reference docs in the fork
-(`docs/reference/chord-language.md`) describe Chord **1.4.0**; the compiler in
-`packages/chord/src` reports **2.1.0**. The source is ahead of its own docs, so
+(`docs/reference/chord-language.md`) still describe Chord **1.4.0**; the
+compiler reports **3.0.0**. The source is well ahead of its own prose docs, so
 prefer `chord-grammar.md` and the catalog in `packages/chord/src/catalog.ts`
-when they disagree with the prose reference.
+when they disagree with the reference.
+
+**Migrated to Chord 3.0.0 (ADR-298, the fielded story block).** The 1,094-line
+body needed no changes across the 2.1.0 → 3.0.0 major bump; only the header
+moved:
+
+| Was (2.x) | Now (3.0.0) |
+|---|---|
+| `story "Title" by "Author"` | bare `story`, then `title:` and `authors:` |
+| `version:` | `story-version:` |
+| `blurb:` | `description:` |
+| *(absent)* | `ifid:` — required for publishing (ADR-284); minted one here |
+
+The header now takes exactly: `title`, `authors`, `testers`, `ifid`, `id`,
+`story-version`, `prologue`, `description`, `client`, `theme`, `template`,
+`themes`, `default-theme`, `storage-prefix`, plus `states`/`score`/`use`/`on`
+lines.
 
 ---
 
@@ -62,6 +77,9 @@ These are calls I made where Chord could not do what the TypeScript did. Each
 is a real change to the game, not a translation detail.
 
 ### 1. Nautical directions no longer work as input — **biggest open item**
+
+Still open as of Chord 3.0.0 — `DIRECTIONS` in `packages/chord/src/parser.ts`
+is unchanged.
 
 Chord's direction set is closed: eight compass points plus `up`/`down`. The
 TypeScript build gets `fore`/`aft`/`port`/`starboard` from two npm patches

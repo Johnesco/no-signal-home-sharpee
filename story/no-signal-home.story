@@ -2,10 +2,13 @@
 ## Chord edition. Ported from the TypeScript source in ../src/ — see
 ## story/README.md for what carried over, what changed, and what is open.
 
-story "No Signal Home" by "John Googol"
+story
+  title: No Signal Home
+  authors: John Googol
+  ifid: 936B8547-6936-4CFE-8B2E-34F0AB30C4D2
   id: no-signal-home
-  version: 0.1.0
-  blurb: Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.
+  story-version: 0.1.0
+  description: Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.
   states: adrift, boarded, waking, converging
   score first-contact worth 10
   score clean-dock worth 10
