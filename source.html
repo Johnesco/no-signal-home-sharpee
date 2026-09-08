@@ -1312,7 +1312,30 @@ pre { margin: 0; padding: 14px 18px 60px; white-space: pre; overflow-x: auto; }
 <span class="ln">1297</span>  
 <span class="ln">1298</span>  before the game starts
 <span class="ln">1299</span>    change the player to the salvager
-<span class="ln">1300</span>  end before</pre>
+<span class="ln">1300</span>  end before
+<span class="ln">1301</span>  
+<span class="ln">1302</span>  
+<span class="ln">1303</span>  ## Nautical direction input (#34). The map uses fore = north, aft = south,
+<span class="ln">1304</span>  ## port = west, starboard = east (docs/room-map.md); the compass words keep working.
+<span class="ln">1305</span>  
+<span class="ln">1306</span>  extend action going
+<span class="ln">1307</span>    grammar
+<span class="ln">1308</span>      fore
+<span class="ln">1309</span>        means direction north
+<span class="ln">1310</span>      aft
+<span class="ln">1311</span>        means direction south
+<span class="ln">1312</span>      port
+<span class="ln">1313</span>        means direction west
+<span class="ln">1314</span>      starboard
+<span class="ln">1315</span>        means direction east
+<span class="ln">1316</span>      go fore
+<span class="ln">1317</span>        means direction north
+<span class="ln">1318</span>      go aft
+<span class="ln">1319</span>        means direction south
+<span class="ln">1320</span>      go port
+<span class="ln">1321</span>        means direction west
+<span class="ln">1322</span>      go starboard
+<span class="ln">1323</span>        means direction east</pre>
 
 <script src="theme-listener.js"></script>
 <script>

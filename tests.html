@@ -29,11 +29,11 @@ ul.asserts li.pass { color: var(--pass); } ul.asserts li.fail { color: var(--fai
   <strong>No Signal Home &mdash; test report</strong>
   <div class="summary">
     <span class="status PASS">PASS</span>
-    <span>132/132 cards</span>
-    <span>226/226 assertions</span>
+    <span>143/143 cards</span>
+    <span>243/243 assertions</span>
     <span>no-signal-home-sharpee.tests.json</span>
     <span>Sharpee 5.3.0 · Chord 3.6.0</span>
-    <span>2026-09-08 02:53</span>
+    <span>2026-09-08 04:15</span>
   </div>
 </header>
 <section class="line"><h2>opening-tug-cargo-hold</h2><article class="card pass"><div class="cmd">&#9989; &gt; opening</div><ul class="asserts"><li class="pass">&#10003; channel info.title is &quot;No Signal Home&quot;</li><li class="pass">&#10003; channel info.description is &quot;Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; look</div><pre class="out">Tug Cargo Hold
@@ -139,7 +139,22 @@ Every cycle of that klaxon is a second you are not spending on whatever it is wa
 
 You never do work out what the alarm was for. The hull comes through the viewport at closing speed and the cockpit stops being a room.
 
-Your last thought, as you are ejected into space, is that must have been a proximity alarm.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; contains &quot;The hull comes through the viewport at closing speed&quot;</li><li class="pass">&#10003; contains &quot;must have been a proximity alarm.&quot;</li></ul></article></section><section class="line"><h2>tug-cockpit · examine instrument panel</h2><article class="card pass"><div class="cmd">&#9989; &gt; examine instrument panel</div><pre class="out">Approach vector, closing rate, attitude. The numbers move while you watch them, and none of them move in a direction you like.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Approach vector, closing rate, attitude.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine fuel gauge</div><pre class="out">Three percent, and the needle is not arguing about it.
+Your last thought, as you are ejected into space, is that must have been a proximity alarm.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; contains &quot;The hull comes through the viewport at closing speed&quot;</li><li class="pass">&#10003; contains &quot;must have been a proximity alarm.&quot;</li></ul></article></section><section class="line"><h2>tug-cargo-hold · aft</h2><article class="card pass"><div class="cmd">&#9989; &gt; aft</div><pre class="out">Tug Cockpit
+Your cockpit. Instruments crowded into an arm&#x27;s reach of the pilot&#x27;s seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cockpit&quot;</li><li class="pass">&#10003; state player.location = Tug Cockpit</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; fore</div><pre class="out">Tug Cargo Hold
+Cramped cargo space, crates strapped to the walls, the gap between two shipping containers worn into the shape of a person. The strobe paints everything red, then nothing, then red.
+
+You can see a flashlight, a ration bar, and a salvage manifest here.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cargo Hold&quot;</li><li class="pass">&#10003; state player.location = Tug Cargo Hold</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; go aft</div><pre class="out">Tug Cockpit
+Your cockpit. Instruments crowded into an arm&#x27;s reach of the pilot&#x27;s seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
+
+The alarm goes on doing the only thing it knows.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cockpit&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; starboard</div><pre class="out">You can&#x27;t go that way.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You can&#x27;t go that way.&quot;</li><li class="pass">&#10003; state player.location = Tug Cockpit</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; port</div><pre class="out">You can&#x27;t go that way.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You can&#x27;t go that way.&quot;</li></ul></article></section><section class="line"><h2>tug-cockpit · examine instrument panel</h2><article class="card pass"><div class="cmd">&#9989; &gt; examine instrument panel</div><pre class="out">Approach vector, closing rate, attitude. The numbers move while you watch them, and none of them move in a direction you like.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Approach vector, closing rate, attitude.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine fuel gauge</div><pre class="out">Three percent, and the needle is not arguing about it.
 
 Three percent. That is what you get for drifting.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Three percent&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine comms system</div><pre class="out">Every channel open. Every channel empty. The carrier light has not come on in four months.
 
@@ -269,7 +284,21 @@ Vasik blocks your way!</pre><ul class="asserts"><li class="pass">&#10003; contai
 Version 0.2.0
 By John Googol
 
-Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;No Signal Home&quot;</li></ul></article></section><section class="line"><h2>engine-room · north</h2><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Aft Corridor
+Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;No Signal Home&quot;</li></ul></article></section><section class="line"><h2>forward-corridor · port</h2><article class="card pass"><div class="cmd">&#9989; &gt; port</div><pre class="out">Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
+
+A crack, deep and structural, somewhere back toward the airlock. The deck jumps under you. Then the long thin whine of atmosphere going somewhere it should not.
+
+Through the inspection window: your tug, still clamped on, frost blooming across the cockpit glass from the inside. Still there. Still yours. Not reachable without a suit.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li><li class="pass">&#10003; state player.location = Lower Mid Corridor</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; starboard</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; go starboard</div><pre class="out">Maintenance Shaft
+Bundled cable and fiber run the length of the conduit, strapped in fat bundles to the bulkhead. Some of it pulses, faintly, in a rhythm that is not quite a heartbeat.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Maintenance Shaft&quot;</li><li class="pass">&#10003; state player.location = Maintenance Shaft</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; go port</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; aft</div><pre class="out">Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+Okafor blocks your way!</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Cargo Bay&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; fore</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li><li class="pass">&#10003; state player.location = Forward Corridor</li></ul></article></section><section class="line"><h2>engine-room · north</h2><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Aft Corridor
 The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Aft Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Lower Mid Corridor
 A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Forward Corridor
 A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Maintenance Shaft

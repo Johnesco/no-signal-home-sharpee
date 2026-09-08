@@ -1298,3 +1298,26 @@ define phrases en-US
 before the game starts
   change the player to the salvager
 end before
+
+
+## Nautical direction input (#34). The map uses fore = north, aft = south,
+## port = west, starboard = east (docs/room-map.md); the compass words keep working.
+
+extend action going
+  grammar
+    fore
+      means direction north
+    aft
+      means direction south
+    port
+      means direction west
+    starboard
+      means direction east
+    go fore
+      means direction north
+    go aft
+      means direction south
+    go port
+      means direction west
+    go starboard
+      means direction east

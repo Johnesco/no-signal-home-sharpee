@@ -122,6 +122,65 @@
               }
             }
           ]
+        },
+        {
+          "branch": 7,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "aft",
+              "assertions": {
+                "contains": [
+                  "Tug Cockpit"
+                ],
+                "states": [
+                  "player.location = Tug Cockpit"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "fore",
+              "assertions": {
+                "contains": [
+                  "Tug Cargo Hold"
+                ],
+                "states": [
+                  "player.location = Tug Cargo Hold"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "go aft",
+              "assertions": {
+                "contains": [
+                  "Tug Cockpit"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "starboard",
+              "assertions": {
+                "contains": [
+                  "You can't go that way."
+                ],
+                "states": [
+                  "player.location = Tug Cockpit"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "port",
+              "assertions": {
+                "contains": [
+                  "You can't go that way."
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -924,6 +983,74 @@
               "assertions": {
                 "contains": [
                   "No Signal Home"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "branch": 8,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "port",
+              "assertions": {
+                "contains": [
+                  "Lower Mid Corridor"
+                ],
+                "states": [
+                  "player.location = Lower Mid Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "starboard",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "go starboard",
+              "assertions": {
+                "contains": [
+                  "Maintenance Shaft"
+                ],
+                "states": [
+                  "player.location = Maintenance Shaft"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "go port",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "aft",
+              "assertions": {
+                "contains": [
+                  "Cargo Bay"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "fore",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ],
+                "states": [
+                  "player.location = Forward Corridor"
                 ]
               }
             }
