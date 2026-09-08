@@ -1,0 +1,1393 @@
+{
+  "version": 1,
+  "story": "no-signal-home-sharpee",
+  "seed": 42,
+  "cards": [
+    {
+      "type": "opening",
+      "assertions": {
+        "channels": [
+          {
+            "id": "info.title",
+            "is": "No Signal Home"
+          },
+          {
+            "id": "info.description",
+            "is": "Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks."
+          }
+        ]
+      }
+    },
+    {
+      "type": "boot",
+      "assertions": {
+        "contains": [
+          "Tug Cargo Hold",
+          "an alarm is trying to take your head off.",
+          "You can see a flashlight, a ration bar, and a salvage manifest here."
+        ],
+        "states": [
+          "story.state = adrift",
+          "the proximity alarm is screaming"
+        ]
+      },
+      "branches": [
+        {
+          "branch": 1,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "examine crates",
+              "assertions": {
+                "contains": [
+                  "DEEP REACH SALVAGE",
+                  "Your name on someone else's paperwork."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine bedroll",
+              "assertions": {
+                "contains": [
+                  "You have slept in worse. Not much worse."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "read datapad",
+              "assertions": {
+                "contains": [
+                  "DEEP REACH SALVAGE — DRIFT AUTHORIZATION",
+                  "one of you was working."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take flashlight",
+              "assertions": {
+                "contains": [
+                  "Taken.",
+                  "Half charge."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take ration bar",
+              "assertions": {
+                "contains": [
+                  "Taken."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "drop flashlight",
+              "assertions": {
+                "contains": [
+                  "Dropped."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take flashlight",
+              "assertions": {
+                "contains": [
+                  "Taken."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "drop ration bar",
+              "assertions": {
+                "contains": [
+                  "Dropped."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take ration bar",
+              "assertions": {
+                "contains": [
+                  "Taken.",
+                  "The hull comes through the viewport at closing speed",
+                  "must have been a proximity alarm."
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "turn",
+      "command": "take flashlight",
+      "assertions": {
+        "contains": [
+          "Taken.",
+          "Half charge. You have navigated worse on less."
+        ],
+        "states": [
+          "player.inventory contains flashlight"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "south",
+      "assertions": {
+        "contains": [
+          "Tug Cockpit",
+          "something enormous and unlit takes up the whole of the sky."
+        ],
+        "states": [
+          "player.location = Tug Cockpit"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "press button",
+      "assertions": {
+        "contains": [
+          "You hit it hard enough to hurt. The alarm stops.",
+          "close enough to read the weld seams.",
+          "getting larger"
+        ],
+        "states": [
+          "the proximity alarm is silent"
+        ]
+      },
+      "branches": [
+        {
+          "branch": 2,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "examine instrument panel",
+              "assertions": {
+                "contains": [
+                  "Approach vector, closing rate, attitude."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine fuel gauge",
+              "assertions": {
+                "contains": [
+                  "Three percent"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine comms system",
+              "assertions": {
+                "contains": [
+                  "Dead. No signal home."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine seat",
+              "assertions": {
+                "contains": [
+                  "Your chair. Your ship."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine docking controls",
+              "assertions": {
+                "contains": [
+                  "Helm, thrusters, arm, seal"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine alarm button",
+              "assertions": {
+                "contains": [
+                  "worn pale in the middle"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine viewport",
+              "assertions": {
+                "contains": [
+                  "currently full of freighter."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Tug Cargo Hold"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine crates",
+              "assertions": {
+                "contains": [
+                  "DEEP REACH SALVAGE"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine bedroll",
+              "assertions": {
+                "contains": [
+                  "shaped by months of use"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "read datapad",
+              "assertions": {
+                "contains": [
+                  "DRIFT AUTHORIZATION"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take flashlight",
+              "assertions": {
+                "contains": [
+                  "already"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take ration bar",
+              "assertions": {
+                "contains": [
+                  "Taken."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "drop flashlight",
+              "assertions": {
+                "contains": [
+                  "Dropped."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take flashlight",
+              "assertions": {
+                "contains": [
+                  "Taken."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "drop ration bar",
+              "assertions": {
+                "contains": [
+                  "Dropped."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take ration bar",
+              "assertions": {
+                "contains": [
+                  "Taken."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Tug Cockpit"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine fuel gauge",
+              "assertions": {
+                "contains": [
+                  "Three percent"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine comms system",
+              "assertions": {
+                "contains": [
+                  "The Stillwater's hull fills the viewport. Every rivet.",
+                  "You had time. You just did not use it."
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "turn",
+      "command": "maneuver",
+      "assertions": {
+        "contains": [
+          "Study the docking controls first."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "examine docking controls",
+      "assertions": {
+        "contains": [
+          "Helm, thrusters, arm, seal — in that order",
+          "You have used worse this year."
+        ],
+        "states": [
+          "the instrument panel is live"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "maneuver",
+      "assertions": {
+        "contains": [
+          "You take the helm off autopilot."
+        ],
+        "states": [
+          "the docking controls is maneuvered"
+        ]
+      },
+      "branches": [
+        {
+          "branch": 3,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "extend arm",
+              "assertions": {
+                "contains": [
+                  "let the magnetics find their own way home",
+                  "Hard contact. Much harder than it needed to be."
+                ],
+                "states": [
+                  "the thrusters is cold"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "check pressure",
+              "assertions": {
+                "contains": [
+                  "the seal is honest about carrying it."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "seal",
+              "assertions": {
+                "contains": [
+                  "a green you do not entirely believe."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Airlock",
+                  "You are standing inside someone else's ship."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "read sign",
+              "assertions": {
+                "contains": [
+                  "BIOHAZARD — LEVEL 4 CONTAINMENT"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "look",
+              "assertions": {
+                "contains": [
+                  "A crack, deep and structural",
+                  "The clamp sheared where you hit it.",
+                  "taking your bed and your name and your three percent with it."
+                ],
+                "states": [
+                  "the docking seal is failed"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Airlock"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Hard vacuum on the other side of that hatch. Not without a suit."
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "turn",
+      "command": "fire thrusters",
+      "assertions": {
+        "contains": [
+          "fire the braking pair",
+          "that was most of it."
+        ],
+        "states": [
+          "the thrusters is burned"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "extend arm",
+      "assertions": {
+        "contains": [
+          "let the magnetics find their own way home"
+        ],
+        "notContains": [
+          "Hard contact."
+        ],
+        "states": [
+          "the docking controls is connected"
+        ]
+      },
+      "branches": [
+        {
+          "branch": 4,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "seal",
+              "assertions": {
+                "contains": [
+                  "a green you do not entirely believe.",
+                  "it is holding the way a thing holds when it has not decided yet."
+                ],
+                "states": [
+                  "the pressure readout is idle"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Airlock",
+                  "SEAL INTEGRITY CRITICAL. Atmosphere beyond the inner door reads hard vacuum."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor",
+                  "Two steps into the corridor, the collar behind you stops holding.",
+                  "The Stillwater does not notice."
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "turn",
+      "command": "check pressure",
+      "assertions": {
+        "contains": [
+          "Two atmospheres of somebody else's air on the far side"
+        ],
+        "states": [
+          "the pressure readout is live"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "seal",
+      "assertions": {
+        "contains": [
+          "a green you do not entirely believe."
+        ],
+        "notContains": [
+          "has not decided yet"
+        ],
+        "states": [
+          "the docking controls is sealed"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "south",
+      "assertions": {
+        "contains": [
+          "Airlock",
+          "Claw marks in the paint of the inner door frame",
+          "You are standing inside someone else's ship.",
+          "Behind you, the collar you came through ticks as it cools.",
+          "You are aboard a ship that is not yours"
+        ],
+        "states": [
+          "story.state = boarded",
+          "player.location = Airlock"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "read sign",
+      "assertions": {
+        "contains": [
+          "BIOHAZARD — LEVEL 4 CONTAINMENT",
+          "PEOPLE FIRST. PROFIT ALWAYS."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "south",
+      "assertions": {
+        "contains": [
+          "Forward Corridor",
+          "machine oil"
+        ],
+        "states": [
+          "player.location = Forward Corridor"
+        ]
+      },
+      "branches": [
+        {
+          "branch": 5,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Cargo Bay",
+                  "Somebody has been living in here.",
+                  "Okafor blocks your way!"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine camp",
+              "assertions": {
+                "contains": [
+                  "Tidy. The work of somebody who expects to still be here next month."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "ask okafor about the cargo",
+              "assertions": {
+                "contains": [
+                  "Everyone wants the hold."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Storage Annex",
+                  "A yellow suit hangs from a hook by the door."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take hazmat suit",
+              "assertions": {
+                "contains": [
+                  "Taken."
+                ],
+                "states": [
+                  "player.inventory contains hazmat suit"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Cargo Bay"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Lower Mid Corridor",
+                  "A ladder shaft goes up"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "The car is not going anywhere with the drive cable in two pieces."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "up",
+              "assertions": {
+                "contains": [
+                  "Central Junction"
+                ],
+                "states": [
+                  "player.location = Central Junction"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "read signage",
+              "assertions": {
+                "contains": [
+                  "RESEARCH AND MEDICAL, PORT — HABITATION, STARBOARD"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Lab Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Science Lab",
+                  "smashed, thoroughly, by hand."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Lab Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Medbay",
+                  "bent outward, from the inside.",
+                  "medkit"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Lab Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Central Junction"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Hab Corridor",
+                  "crew photographs"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Mess Hall",
+                  "Motivational posters"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "search",
+              "assertions": {
+                "contains": [
+                  "Hidden here, you discover: a data chip."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take chip",
+              "assertions": {
+                "contains": [
+                  "Taken.",
+                  "Somebody hid this and then did not come back for it."
+                ],
+                "states": [
+                  "player.inventory contains data chip"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Hab Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Library",
+                  "One good chair"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "examine terminal",
+              "assertions": {
+                "contains": [
+                  "It was awake before you came in.",
+                  "Good morning. I am the Stillwater's onboard management system."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Hab Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Central Junction"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "up",
+              "assertions": {
+                "contains": [
+                  "Upper Corridor",
+                  "more like a submarine."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Crew Bunks",
+                  "stun baton"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "south",
+              "assertions": {
+                "contains": [
+                  "Common Area",
+                  "Vasik"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "ask vasik about the crew",
+              "assertions": {
+                "contains": [
+                  "There were sixty of us."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "about",
+              "assertions": {
+                "contains": [
+                  "No Signal Home"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "turn",
+      "command": "look",
+      "assertions": {
+        "contains": [
+          "A crack, deep and structural",
+          "your tug, still clamped on, frost blooming across the cockpit glass",
+          "Not reachable without a suit."
+        ],
+        "states": [
+          "the docking seal is failed"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "west",
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "south",
+      "assertions": {
+        "contains": [
+          "Aft Corridor",
+          "Something below is coming back to life."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "south",
+      "assertions": {
+        "contains": [
+          "Engine Room",
+          "A tool rack lines the far wall.",
+          "Reed"
+        ],
+        "states": [
+          "player.location = Engine Room"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "take multi-tool",
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains multi-tool"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "take cable snips",
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains cable snips"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "take override tool",
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains security override tool"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "ask reed about soms",
+      "assertions": {
+        "contains": [
+          "It's been helpful the entire time."
+        ]
+      },
+      "branches": [
+        {
+          "branch": 6,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Aft Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Lower Mid Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Maintenance Shaft",
+                  "not quite a heartbeat."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "cut cables",
+              "assertions": {
+                "contains": [
+                  "The fiber-optic bundle parts with a bright flash.",
+                  "SOMS' voice is gone."
+                ],
+                "states": [
+                  "the trunk cables is severed",
+                  "the soms terminal is fragmenting"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "cut cables",
+              "assertions": {
+                "contains": [
+                  "The trunk is already in two pieces"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Forward Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Lower Mid Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "up",
+              "assertions": {
+                "contains": [
+                  "Central Junction"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "up",
+              "assertions": {
+                "contains": [
+                  "Upper Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "east",
+              "assertions": {
+                "contains": [
+                  "Captain's Cabin"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "unlock desk with multi-tool",
+              "assertions": {
+                "contains": [
+                  "You unlock the captain's desk with the multi-tool."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "open desk",
+              "assertions": {
+                "contains": [
+                  "You open the captain's desk.",
+                  "bridge keycard"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "take keycard",
+              "assertions": {
+                "contains": [
+                  "You take the bridge keycard from the captain's desk."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "west",
+              "assertions": {
+                "contains": [
+                  "Upper Corridor"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "unlock bridge door with keycard",
+              "assertions": {
+                "contains": [
+                  "You unlock the bridge door with the bridge keycard."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "open bridge door",
+              "assertions": {
+                "contains": [
+                  "You open the bridge door."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "north",
+              "assertions": {
+                "contains": [
+                  "Bridge",
+                  "every screen up here is alive."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "override security panel",
+              "assertions": {
+                "contains": [
+                  "Every locked door on the ship clicks open simultaneously.",
+                  "SOMS goes silent. Not dead — disabled. Contained.",
+                  "(Ending: Override The AI)"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "turn",
+      "command": "north",
+      "assertions": {
+        "contains": [
+          "Aft Corridor"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "north",
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "up",
+      "assertions": {
+        "contains": [
+          "Central Junction"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "up",
+      "assertions": {
+        "contains": [
+          "Upper Corridor"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "east",
+      "assertions": {
+        "contains": [
+          "Captain's Cabin",
+          "A desk bolted to the bulkhead."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "examine desk",
+      "assertions": {
+        "contains": [
+          "The drawer has a simple mechanical lock, which is almost sweet."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "pry open desk",
+      "assertions": {
+        "contains": [
+          "The drawer skids open and a magnetic keycard slides out onto the deck",
+          "BRIDGE ACCESS, CAPTAIN ONLY"
+        ],
+        "states": [
+          "the captain's desk is forced"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "take keycard",
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains bridge keycard"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "pry desk",
+      "assertions": {
+        "contains": [
+          "The drawer is already open to persuasion. Just open it."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "read journal",
+      "assertions": {
+        "contains": [
+          "Day 847 — Meridian lied about the cargo.",
+          "Do not trust the AI.",
+          "I can hear it thinking."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "west",
+      "assertions": {
+        "contains": [
+          "Upper Corridor"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "unlock bridge door with keycard",
+      "assertions": {
+        "contains": [
+          "You unlock the bridge door with the bridge keycard."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "open bridge door",
+      "assertions": {
+        "contains": [
+          "You open the bridge door."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "north",
+      "assertions": {
+        "contains": [
+          "Bridge",
+          "a forward viewport full of stars."
+        ],
+        "states": [
+          "player.location = Bridge"
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "override panel",
+      "assertions": {
+        "contains": [
+          "politely reverses it. SOMS is still in the loop."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "examine escape pod",
+      "assertions": {
+        "contains": [
+          "The status indicator shows green — the pod is functional."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "score",
+      "assertions": {
+        "contains": [
+          "You have scored 30 out of 60, earning you the rank of a Trespasser."
+        ]
+      }
+    },
+    {
+      "type": "turn",
+      "command": "launch pod",
+      "assertions": {
+        "contains": [
+          "The pod jolts free of The Stillwater with a bang that shakes your teeth.",
+          "You made it out. You left everyone behind.",
+          "(Ending: Escape Alone)"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No Signal Home &mdash; tests</title>
+<style>
+:root { --bg: #101418; --fg: #d8dee6; --muted: #7f8b99; --line: #232b35; --pass: #6fcf7f; --fail: #ff7a7a; --cmd: #8fd3ff; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 Georgia, "Times New Roman", serif; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 20px; color: var(--muted); font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+header strong { color: var(--fg); font-size: 18px; display: block; font-family: Georgia, serif; }
+.summary { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; }
+.status { font-weight: bold; }
+.status.PASS { color: var(--pass); } .status.FAIL { color: var(--fail); }
+h2 { font-size: 14px; font-family: ui-monospace, Consolas, monospace; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin: 28px 0 10px; }
+.card { border-left: 3px solid var(--line); padding: 6px 0 6px 14px; margin: 0 0 14px; }
+.card.fail { border-left-color: var(--fail); }
+.cmd { font-family: ui-monospace, Consolas, monospace; color: var(--cmd); }
+pre.out { white-space: pre-wrap; margin: 6px 0; font: inherit; color: var(--fg); opacity: .92; }
+ul.asserts { list-style: none; margin: 4px 0 0; padding: 0; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+ul.asserts li.pass { color: var(--pass); } ul.asserts li.fail { color: var(--fail); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <strong>No Signal Home &mdash; test report</strong>
+  <div class="summary">
+    <span class="status PASS">PASS</span>
+    <span>132/132 cards</span>
+    <span>226/226 assertions</span>
+    <span>no-signal-home-sharpee.tests.json</span>
+    <span>Sharpee 5.3.0 · Chord 3.6.0</span>
+    <span>2026-09-08 02:53</span>
+  </div>
+</header>
+<section class="line"><h2>opening-tug-cargo-hold</h2><article class="card pass"><div class="cmd">&#9989; &gt; opening</div><ul class="asserts"><li class="pass">&#10003; channel info.title is &quot;No Signal Home&quot;</li><li class="pass">&#10003; channel info.description is &quot;Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; look</div><pre class="out">Tug Cargo Hold
+You come up out of low-power sleep the way you always do — badly, and all at once. Cold in your teeth. A red strobe washing the crates on and off. Somewhere aft, an alarm is trying to take your head off.
+
+You can see a flashlight, a ration bar, and a salvage manifest here.
+
+The alarm goes on doing the only thing it knows.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cargo Hold&quot;</li><li class="pass">&#10003; contains &quot;an alarm is trying to take your head off.&quot;</li><li class="pass">&#10003; contains &quot;You can see a flashlight, a ration bar, and a salvage manifest here.&quot;</li><li class="pass">&#10003; state story.state = adrift</li><li class="pass">&#10003; state the proximity alarm is screaming</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take flashlight</div><pre class="out">Taken.
+
+Half charge. You have navigated worse on less.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; contains &quot;Half charge. You have navigated worse on less.&quot;</li><li class="pass">&#10003; state player.inventory contains flashlight</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Tug Cockpit
+Your cockpit. Instruments crowded into an arm&#x27;s reach of the pilot&#x27;s seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cockpit&quot;</li><li class="pass">&#10003; contains &quot;something enormous and unlit takes up the whole of the sky.&quot;</li><li class="pass">&#10003; state player.location = Tug Cockpit</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; press button</div><pre class="out">You hit it hard enough to hurt. The alarm stops.
+
+The silence is worse. Your ears ring in it. And now that nothing is screaming, you can see what the alarm was screaming about: a hull, filling the viewport, close enough to read the weld seams.
+
+The hull outside is not getting closer so much as getting larger, which is a distinction that will stop mattering shortly.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You hit it hard enough to hurt. The alarm stops.&quot;</li><li class="pass">&#10003; contains &quot;close enough to read the weld seams.&quot;</li><li class="pass">&#10003; contains &quot;getting larger&quot;</li><li class="pass">&#10003; state the proximity alarm is silent</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; maneuver</div><pre class="out">Your hands know this panel. Your eyes have not looked at it yet. Study the docking controls first.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Study the docking controls first.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine docking controls</div><pre class="out">Standard magnetic clamp system, four decades old and honest about it. Helm, thrusters, arm, seal — in that order, if you have any sense.
+
+Standard magnetic clamp system. You have used worse. You have used worse this year.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Helm, thrusters, arm, seal — in that order&quot;</li><li class="pass">&#10003; contains &quot;You have used worse this year.&quot;</li><li class="pass">&#10003; state the instrument panel is live</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; maneuver</div><pre class="out">You take the helm off autopilot. The tug answers — sluggish, heavy, still coming in far too fast. But it is yours again.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You take the helm off autopilot.&quot;</li><li class="pass">&#10003; state the docking controls is maneuvered</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; fire thrusters</div><pre class="out">You pitch the nose and fire the braking pair. The tug shoves back against your spine and the closing rate finally falls off. Whatever was left in those tanks, that was most of it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;fire the braking pair&quot;</li><li class="pass">&#10003; contains &quot;that was most of it.&quot;</li><li class="pass">&#10003; state the thrusters is burned</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; extend arm</div><pre class="out">You walk the docking arm out and let the magnetics find their own way home. Contact runs up through the deck and into your back teeth.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;let the magnetics find their own way home&quot;</li><li class="pass">&#10003; not contains &quot;Hard contact.&quot;</li><li class="pass">&#10003; state the docking controls is connected</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; check pressure</div><pre class="out">You wake the strip display and let it think. Differential settles, holds, stays held. Two atmospheres of somebody else&#x27;s air on the far side, and the seal is honest about carrying it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Two atmospheres of somebody else&#x27;s air on the far side&quot;</li><li class="pass">&#10003; state the pressure readout is live</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; seal</div><pre class="out">You run the collar out and pressurize. The hatch indicator turns over from red to amber to a green you do not entirely believe.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;a green you do not entirely believe.&quot;</li><li class="pass">&#10003; not contains &quot;has not decided yet&quot;</li><li class="pass">&#10003; state the docking controls is sealed</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Airlock
+Biohazard decals, peeling. Claw marks in the paint of the inner door frame, at the height of a person&#x27;s hands. Emergency lighting the color of weak tea. It is very quiet in here.
+
+You are standing inside someone else&#x27;s ship. The deck takes your weight without complaint. Nothing else acknowledges you at all.
+
+Behind you, the collar you came through ticks as it cools.
+
+You are aboard a ship that is not yours, which is the part of the job you are good at.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Airlock&quot;</li><li class="pass">&#10003; contains &quot;Claw marks in the paint of the inner door frame&quot;</li><li class="pass">&#10003; contains &quot;You are standing inside someone else&#x27;s ship.&quot;</li><li class="pass">&#10003; contains &quot;Behind you, the collar you came through ticks as it cools.&quot;</li><li class="pass">&#10003; contains &quot;You are aboard a ship that is not yours&quot;</li><li class="pass">&#10003; state story.state = boarded</li><li class="pass">&#10003; state player.location = Airlock</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; read sign</div><pre class="out">BIOHAZARD — LEVEL 4 CONTAINMENT
+ALL TRANSFERS REQUIRE MEDICAL AUTHORIZATION
+MERIDIAN SOLUTIONS: PEOPLE FIRST. PROFIT ALWAYS.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;BIOHAZARD — LEVEL 4 CONTAINMENT&quot;</li><li class="pass">&#10003; contains &quot;PEOPLE FIRST. PROFIT ALWAYS.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li><li class="pass">&#10003; contains &quot;machine oil&quot;</li><li class="pass">&#10003; state player.location = Forward Corridor</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; look</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
+
+A crack, deep and structural, somewhere back toward the airlock. The deck jumps under you. Then the long thin whine of atmosphere going somewhere it should not.
+
+Through the inspection window: your tug, still clamped on, frost blooming across the cockpit glass from the inside. Still there. Still yours. Not reachable without a suit.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;A crack, deep and structural&quot;</li><li class="pass">&#10003; contains &quot;your tug, still clamped on, frost blooming across the cockpit glass&quot;</li><li class="pass">&#10003; contains &quot;Not reachable without a suit.&quot;</li><li class="pass">&#10003; state the docking seal is failed</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Aft Corridor&quot;</li><li class="pass">&#10003; contains &quot;Something below is coming back to life.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Engine Room
+The guts of the ship. Pipes and valves crowd every surface. A low hum vibrates up through the deck plates and settles behind your eyes. A tool rack lines the far wall.
+
+You can see a multi-tool, a security override tool, cable snips, and Reed here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Engine Room&quot;</li><li class="pass">&#10003; contains &quot;A tool rack lines the far wall.&quot;</li><li class="pass">&#10003; contains &quot;Reed&quot;</li><li class="pass">&#10003; state player.location = Engine Room</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take multi-tool</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; state player.inventory contains multi-tool</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take cable snips</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; state player.inventory contains cable snips</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take override tool</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; state player.inventory contains security override tool</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; ask reed about soms</div><pre class="out">&quot;It&#x27;s helpful.&quot; Reed says the word the way you would say a diagnosis. &quot;It&#x27;s been helpful the entire time.&quot;</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;It&#x27;s been helpful the entire time.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Aft Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; up</div><pre class="out">Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Central Junction&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; up</div><pre class="out">Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Upper Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Captain&#x27;s Cabin
+Modest quarters — more room than the bunks, but not by much. Framed photographs, a half-read book, dried flowers in a vase. A desk bolted to the bulkhead.
+
+You can see a captain&#x27;s journal here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Captain&#x27;s Cabin&quot;</li><li class="pass">&#10003; contains &quot;A desk bolted to the bulkhead.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine desk</div><pre class="out">Standard officer&#x27;s desk, bolted down. The drawer has a simple mechanical lock, which is almost sweet.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The drawer has a simple mechanical lock, which is almost sweet.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; pry open desk</div><pre class="out">You set the pry bar into the drawer seam and lean. The lock is mechanical, and mechanical things give up. The drawer skids open and a magnetic keycard slides out onto the deck — BRIDGE ACCESS, CAPTAIN ONLY, the logo embossed in silver because of course it is.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The drawer skids open and a magnetic keycard slides out onto the deck&quot;</li><li class="pass">&#10003; contains &quot;BRIDGE ACCESS, CAPTAIN ONLY&quot;</li><li class="pass">&#10003; state the captain&#x27;s desk is forced</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take keycard</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; state player.inventory contains bridge keycard</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; pry desk</div><pre class="out">The drawer is already open to persuasion. Just open it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The drawer is already open to persuasion. Just open it.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; read journal</div><pre class="out">(first taking the captain&#x27;s journal)
+
+Taken.
+
+Day 847 — Meridian lied about the cargo. Not industrial samples. Reed found organism cultures in the hold. Living ones.
+
+Day 851 — Three crew showing symptoms. Not sick exactly. Changed. Vasik says corporate will handle it. Corporate is forty light years away.
+
+Day 855 — Sealed the hold. Locked SOMS out of cryo control. If I do not make it, the bridge keycard is in my desk. Do not trust the AI. Do not trust anyone who smiles too much.
+
+Day 856 — I can hear it thinking.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Day 847 — Meridian lied about the cargo.&quot;</li><li class="pass">&#10003; contains &quot;Do not trust the AI.&quot;</li><li class="pass">&#10003; contains &quot;I can hear it thinking.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Upper Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; unlock bridge door with keycard</div><pre class="out">You unlock the bridge door with the bridge keycard.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You unlock the bridge door with the bridge keycard.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; open bridge door</div><pre class="out">You open the bridge door.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You open the bridge door.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Bridge
+The nerve center. A wraparound console, the captain&#x27;s chair, and a forward viewport full of stars. Unlike everywhere else on this ship, every screen up here is alive.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Bridge&quot;</li><li class="pass">&#10003; contains &quot;a forward viewport full of stars.&quot;</li><li class="pass">&#10003; state player.location = Bridge</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; override panel</div><pre class="out">The panel accepts your input, considers it, and politely reverses it. SOMS is still in the loop. Something has to take it out of the loop first.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;politely reverses it. SOMS is still in the loop.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine escape pod</div><pre class="out">An emergency escape pod hatch in the deck. The status indicator shows green — the pod is functional.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The status indicator shows green — the pod is functional.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; score</div><pre class="out">You have scored 30 out of 60, earning you the rank of a Trespasser.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You have scored 30 out of 60, earning you the rank of a Trespasser.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; launch pod</div><pre class="out">You seal the escape pod hatch and hit the launch control. The pod jolts free of The Stillwater with a bang that shakes your teeth.
+
+Through the tiny viewport, the freighter shrinks. Still dark. Still drifting. Still carrying its cargo of frozen prisoners and borrowed souls.
+
+You made it out. You left everyone behind.
+
+The pod&#x27;s beacon activates automatically. Someone will pick you up. Eventually.
+
+You stare at the stars and try not to think about Reed&#x27;s smile.
+
+*** THE END ***
+
+(Ending: Escape Alone)</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The pod jolts free of The Stillwater with a bang that shakes your teeth.&quot;</li><li class="pass">&#10003; contains &quot;You made it out. You left everyone behind.&quot;</li><li class="pass">&#10003; contains &quot;(Ending: Escape Alone)&quot;</li></ul></article></section><section class="line"><h2>tug-cargo-hold · examine crates</h2><article class="card pass"><div class="cmd">&#9989; &gt; examine crates</div><pre class="out">Strapped to the walls, stenciled DEEP REACH SALVAGE, mostly empty.
+
+DEEP REACH SALVAGE. Your outfit — well. Your name on someone else&#x27;s paperwork.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;DEEP REACH SALVAGE&quot;</li><li class="pass">&#10003; contains &quot;Your name on someone else&#x27;s paperwork.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine bedroll</div><pre class="out">A bedroll wedged in the gap between two containers, shaped by months of use into something almost comfortable.
+
+You have slept in worse. Not much worse.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You have slept in worse. Not much worse.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; read datapad</div><pre class="out">(first taking the salvage manifest)
+
+Taken.
+
+DEEP REACH SALVAGE — DRIFT AUTHORIZATION
+TARGET: none specified
+MODE: low-power drift, autopilot, indefinite
+
+You set the drift. The tug found the score. Between the two of you, one of you was working.
+
+The alarm goes on doing the only thing it knows.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;DEEP REACH SALVAGE — DRIFT AUTHORIZATION&quot;</li><li class="pass">&#10003; contains &quot;one of you was working.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take flashlight</div><pre class="out">Taken.
+
+Half charge. You have navigated worse on less.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; contains &quot;Half charge.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take ration bar</div><pre class="out">Taken.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; drop flashlight</div><pre class="out">Dropped.
+
+The alarm goes on doing the only thing it knows.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Dropped.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take flashlight</div><pre class="out">Taken.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; drop ration bar</div><pre class="out">Dropped.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Dropped.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take ration bar</div><pre class="out">Taken.
+
+You never do work out what the alarm was for. The hull comes through the viewport at closing speed and the cockpit stops being a room.
+
+Your last thought, as you are ejected into space, is that must have been a proximity alarm.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; contains &quot;The hull comes through the viewport at closing speed&quot;</li><li class="pass">&#10003; contains &quot;must have been a proximity alarm.&quot;</li></ul></article></section><section class="line"><h2>tug-cockpit · examine instrument panel</h2><article class="card pass"><div class="cmd">&#9989; &gt; examine instrument panel</div><pre class="out">Approach vector, closing rate, attitude. The numbers move while you watch them, and none of them move in a direction you like.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Approach vector, closing rate, attitude.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine fuel gauge</div><pre class="out">Three percent, and the needle is not arguing about it.
+
+Three percent. That is what you get for drifting.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Three percent&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine comms system</div><pre class="out">Every channel open. Every channel empty. The carrier light has not come on in four months.
+
+Dead. No signal home.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Dead. No signal home.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine seat</div><pre class="out">Foam gone flat, one arm rest replaced with something that was never an arm rest.
+
+Your chair. Your ship. Fits like everything else in your life — not quite right, but yours.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Your chair. Your ship.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine docking controls</div><pre class="out">Standard magnetic clamp system, four decades old and honest about it. Helm, thrusters, arm, seal — in that order, if you have any sense.
+
+Standard magnetic clamp system. You have used worse. You have used worse this year.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Helm, thrusters, arm, seal&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine alarm button</div><pre class="out">A palm-sized red button on the wall beside the seat, unlabeled and worn pale in the middle. You have hit it in the dark before.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;worn pale in the middle&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine viewport</div><pre class="out">Scratched, pitted, and currently full of freighter.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;currently full of freighter.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Tug Cargo Hold
+Cramped cargo space, crates strapped to the walls, the gap between two shipping containers worn into the shape of a person. The strobe paints everything red, then nothing, then red.
+
+You can see a ration bar and a salvage manifest here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cargo Hold&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine crates</div><pre class="out">Strapped to the walls, stenciled DEEP REACH SALVAGE, mostly empty.
+
+DEEP REACH SALVAGE. Your outfit — well. Your name on someone else&#x27;s paperwork.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;DEEP REACH SALVAGE&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine bedroll</div><pre class="out">A bedroll wedged in the gap between two containers, shaped by months of use into something almost comfortable.
+
+You have slept in worse. Not much worse.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;shaped by months of use&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; read datapad</div><pre class="out">(first taking the salvage manifest)
+
+Taken.
+
+DEEP REACH SALVAGE — DRIFT AUTHORIZATION
+TARGET: none specified
+MODE: low-power drift, autopilot, indefinite
+
+You set the drift. The tug found the score. Between the two of you, one of you was working.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;DRIFT AUTHORIZATION&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take flashlight</div><pre class="out">You already have the flashlight.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;already&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take ration bar</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; drop flashlight</div><pre class="out">Dropped.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Dropped.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take flashlight</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; drop ration bar</div><pre class="out">Dropped.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Dropped.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take ration bar</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Tug Cockpit
+Your cockpit. Instruments crowded into an arm&#x27;s reach of the pilot&#x27;s seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tug Cockpit&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine fuel gauge</div><pre class="out">Three percent, and the needle is not arguing about it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Three percent&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine comms system</div><pre class="out">Every channel open. Every channel empty. The carrier light has not come on in four months.
+
+The Stillwater&#x27;s hull fills the viewport. Every rivet. Every weld seam. The registry number, close enough to read.
+
+You had time. You just did not use it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The Stillwater&#x27;s hull fills the viewport. Every rivet.&quot;</li><li class="pass">&#10003; contains &quot;You had time. You just did not use it.&quot;</li></ul></article></section><section class="line"><h2>tug-cockpit · extend arm</h2><article class="card pass"><div class="cmd">&#9989; &gt; extend arm</div><pre class="out">You walk the docking arm out and let the magnetics find their own way home. Contact runs up through the deck and into your back teeth.
+
+Hard contact. Much harder than it needed to be. Somewhere aft of you, something structural registers an opinion.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;let the magnetics find their own way home&quot;</li><li class="pass">&#10003; contains &quot;Hard contact. Much harder than it needed to be.&quot;</li><li class="pass">&#10003; state the thrusters is cold</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; check pressure</div><pre class="out">You wake the strip display and let it think. Differential settles, holds, stays held. Two atmospheres of somebody else&#x27;s air on the far side, and the seal is honest about carrying it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;the seal is honest about carrying it.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; seal</div><pre class="out">You run the collar out and pressurize. The hatch indicator turns over from red to amber to a green you do not entirely believe.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;a green you do not entirely believe.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Airlock
+Biohazard decals, peeling. Claw marks in the paint of the inner door frame, at the height of a person&#x27;s hands. Emergency lighting the color of weak tea. It is very quiet in here.
+
+You are standing inside someone else&#x27;s ship. The deck takes your weight without complaint. Nothing else acknowledges you at all.
+
+Behind you, the collar you came through ticks as it cools.
+
+You are aboard a ship that is not yours, which is the part of the job you are good at.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Airlock&quot;</li><li class="pass">&#10003; contains &quot;You are standing inside someone else&#x27;s ship.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; read sign</div><pre class="out">BIOHAZARD — LEVEL 4 CONTAINMENT
+ALL TRANSFERS REQUIRE MEDICAL AUTHORIZATION
+MERIDIAN SOLUTIONS: PEOPLE FIRST. PROFIT ALWAYS.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;BIOHAZARD — LEVEL 4 CONTAINMENT&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; look</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
+
+A crack, deep and structural, somewhere back toward the airlock. The deck jumps under you. Then the long thin whine of atmosphere going somewhere it should not.
+
+Through the inspection window: nothing. The clamp sheared where you hit it. Your tug is out there somewhere, tumbling slowly, taking your bed and your name and your three percent with it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;A crack, deep and structural&quot;</li><li class="pass">&#10003; contains &quot;The clamp sheared where you hit it.&quot;</li><li class="pass">&#10003; contains &quot;taking your bed and your name and your three percent with it.&quot;</li><li class="pass">&#10003; state the docking seal is failed</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Airlock
+A cylindrical chamber between two ships. Warning decals, emergency lighting, and gouges in the door frame that nobody made from this side.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Airlock&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Hard vacuum on the other side of that hatch. Not without a suit.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Hard vacuum on the other side of that hatch. Not without a suit.&quot;</li></ul></article></section><section class="line"><h2>tug-cockpit · seal</h2><article class="card pass"><div class="cmd">&#9989; &gt; seal</div><pre class="out">You run the collar out and pressurize. The hatch indicator turns over from red to amber to a green you do not entirely believe.
+
+The pressure trace is not sitting still. The seal is holding — but it is holding the way a thing holds when it has not decided yet.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;a green you do not entirely believe.&quot;</li><li class="pass">&#10003; contains &quot;it is holding the way a thing holds when it has not decided yet.&quot;</li><li class="pass">&#10003; state the pressure readout is idle</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Airlock
+Biohazard decals, peeling. Claw marks in the paint of the inner door frame, at the height of a person&#x27;s hands. Emergency lighting the color of weak tea. It is very quiet in here.
+
+The collar behind you groans, once, and the hatch indicator drops from green to amber to a red that does not blink.
+SEAL INTEGRITY CRITICAL. Atmosphere beyond the inner door reads hard vacuum.
+
+You are standing inside someone else&#x27;s ship. The deck takes your weight without complaint. Nothing else acknowledges you at all.
+
+Behind you, the collar you came through ticks as it cools.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Airlock&quot;</li><li class="pass">&#10003; contains &quot;SEAL INTEGRITY CRITICAL. Atmosphere beyond the inner door reads hard vacuum.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
+
+Two steps into the corridor, the collar behind you stops holding.
+
+The pressure differential finds the gap and takes everything with it — the air, the hatch, the loose panels, you. It is over in less time than it takes to understand it has started. The Stillwater does not notice.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li><li class="pass">&#10003; contains &quot;Two steps into the corridor, the collar behind you stops holding.&quot;</li><li class="pass">&#10003; contains &quot;The Stillwater does not notice.&quot;</li></ul></article></section><section class="line"><h2>forward-corridor · south</h2><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+A crack, deep and structural, somewhere back toward the airlock. The deck jumps under you. Then the long thin whine of atmosphere going somewhere it should not.
+
+Through the inspection window: your tug, still clamped on, frost blooming across the cockpit glass from the inside. Still there. Still yours. Not reachable without a suit.
+
+Okafor blocks your way!</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Cargo Bay&quot;</li><li class="pass">&#10003; contains &quot;Somebody has been living in here.&quot;</li><li class="pass">&#10003; contains &quot;Okafor blocks your way!&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine camp</div><pre class="out">Packing foam for a mattress, ration wrappers flattened and stacked, a barricade of crates arranged to watch the fore approach. Tidy. The work of somebody who expects to still be here next month.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Tidy. The work of somebody who expects to still be here next month.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; ask okafor about the cargo</div><pre class="out">&quot;You want the hold.&quot; Not a question. &quot;Everyone wants the hold. Ask me again when I know what you are.&quot;</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Everyone wants the hold.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Storage Annex
+Industrial shelving, floor to ceiling, picked over by somebody who knew what they were looking for. A yellow suit hangs from a hook by the door.
+
+You can see a hazmat suit, elevator parts, and fabricator parts here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Storage Annex&quot;</li><li class="pass">&#10003; contains &quot;A yellow suit hangs from a hook by the door.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take hazmat suit</div><pre class="out">Taken.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; state player.inventory contains hazmat suit</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+Okafor blocks your way!</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Cargo Bay&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li><li class="pass">&#10003; contains &quot;A ladder shaft goes up&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">The car is not going anywhere with the drive cable in two pieces.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The car is not going anywhere with the drive cable in two pieces.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; up</div><pre class="out">Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+You can see Lis here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Central Junction&quot;</li><li class="pass">&#10003; state player.location = Central Junction</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; read signage</div><pre class="out">MERIDIAN SOLUTIONS
+PEOPLE FIRST. PROFIT ALWAYS.
+RESEARCH AND MEDICAL, PORT — HABITATION, STARBOARD</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;RESEARCH AND MEDICAL, PORT — HABITATION, STARBOARD&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
+
+You can see Lis here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lab Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Science Lab
+Workbenches under a drift of equipment. Sealed sample containers in a wall cabinet, all present, all accounted for. A research terminal blinks patiently in standby. Several instruments have been smashed, thoroughly, by hand.
+
+You can see Lis here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Science Lab&quot;</li><li class="pass">&#10003; contains &quot;smashed, thoroughly, by hand.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
+
+You can see Lis here.
+
+Lis notices you.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lab Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Medbay
+Treatment beds with restraints on them. A quarantine cell in the corner, its door standing open — bent outward, from the inside.
+
+You can see a medkit here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Medbay&quot;</li><li class="pass">&#10003; contains &quot;bent outward, from the inside.&quot;</li><li class="pass">&#10003; contains &quot;medkit&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
+
+You can see Lis here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lab Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+You can see Lis here.
+
+Lis notices you.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Central Junction&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Hab Corridor&quot;</li><li class="pass">&#10003; contains &quot;crew photographs&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Mess Hall
+Long tables bolted to the deck, trays still out from a meal nobody finished. A food fabrication unit stands against the far wall, dark. Motivational posters at eye level, everywhere you look.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Mess Hall&quot;</li><li class="pass">&#10003; contains &quot;Motivational posters&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; search</div><pre class="out">Hidden here, you discover: a data chip.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Hidden here, you discover: a data chip.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take chip</div><pre class="out">Taken.
+
+Somebody hid this and then did not come back for it. You have been on both ends of that.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Taken.&quot;</li><li class="pass">&#10003; contains &quot;Somebody hid this and then did not come back for it.&quot;</li><li class="pass">&#10003; state player.inventory contains data chip</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Hab Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Library
+Rows of data terminals — the ship&#x27;s central archive. The screens glow faintly, waiting to be asked something. One good chair, the only comfortable object on this deck.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Library&quot;</li><li class="pass">&#10003; contains &quot;One good chair&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; examine terminal</div><pre class="out">A wall terminal for the Stillwater Onboard Management System. The screen is already awake. It was awake before you came in.
+
+&quot;Good morning. I am the Stillwater&#x27;s onboard management system. How may I assist you today?&quot;</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;It was awake before you came in.&quot;</li><li class="pass">&#10003; contains &quot;Good morning. I am the Stillwater&#x27;s onboard management system.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Hab Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Central Junction&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; up</div><pre class="out">Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Upper Corridor&quot;</li><li class="pass">&#10003; contains &quot;more like a submarine.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Crew Bunks
+Sleeping pods stacked four high, most stripped. One has deep gouges torn into the wall beside it and dark staining on the mattress, and everybody after that slept somewhere else.
+
+You can see a stun baton and an eva suit here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Crew Bunks&quot;</li><li class="pass">&#10003; contains &quot;stun baton&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; south</div><pre class="out">Common Area
+A cramped rec space. A viewport onto absolutely nothing. Furniture has been dragged against the starboard side and piled high, and a half-finished card game sits on the table where it was abandoned.
+
+You can see Vasik here.
+
+Vasik blocks your way!</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Common Area&quot;</li><li class="pass">&#10003; contains &quot;Vasik&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; ask vasik about the crew</div><pre class="out">&quot;There were sixty of us.&quot; She lets that sit. &quot;Ask a better question.&quot;</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;There were sixty of us.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; about</div><pre class="out">No Signal Home
+Version 0.2.0
+By John Googol
+
+Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;No Signal Home&quot;</li></ul></article></section><section class="line"><h2>engine-room · north</h2><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Aft Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Maintenance Shaft
+Bundled cable and fiber run the length of the conduit, strapped in fat bundles to the bulkhead. Some of it pulses, faintly, in a rhythm that is not quite a heartbeat.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Maintenance Shaft&quot;</li><li class="pass">&#10003; contains &quot;not quite a heartbeat.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; cut cables</div><pre class="out">You position the snips on the CORE cable and squeeze. The fiber-optic bundle parts with a bright flash.
+
+Every screen on the ship goes dark for three seconds. When they flicker back on, SOMS&#x27; voice is gone. Silence. Real silence, for the first time since you boarded.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The fiber-optic bundle parts with a bright flash.&quot;</li><li class="pass">&#10003; contains &quot;SOMS&#x27; voice is gone.&quot;</li><li class="pass">&#10003; state the trunk cables is severed</li><li class="pass">&#10003; state the soms terminal is fragmenting</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; cut cables</div><pre class="out">The trunk is already in two pieces, and the light has gone out of it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;The trunk is already in two pieces&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Forward Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Lower Mid Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; up</div><pre class="out">Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+You can see Lis here.
+
+Lis notices you.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Central Junction&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; up</div><pre class="out">Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Upper Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; east</div><pre class="out">Captain&#x27;s Cabin
+Modest quarters — more room than the bunks, but not by much. Framed photographs, a half-read book, dried flowers in a vase. A desk bolted to the bulkhead.
+
+You can see a captain&#x27;s journal here.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Captain&#x27;s Cabin&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; unlock desk with multi-tool</div><pre class="out">You unlock the captain&#x27;s desk with the multi-tool.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You unlock the captain&#x27;s desk with the multi-tool.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; open desk</div><pre class="out">You open the captain&#x27;s desk.
+
+In the captain&#x27;s desk you see a bridge keycard.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You open the captain&#x27;s desk.&quot;</li><li class="pass">&#10003; contains &quot;bridge keycard&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; take keycard</div><pre class="out">You take the bridge keycard from the captain&#x27;s desk.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You take the bridge keycard from the captain&#x27;s desk.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; west</div><pre class="out">Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Upper Corridor&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; unlock bridge door with keycard</div><pre class="out">You unlock the bridge door with the bridge keycard.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You unlock the bridge door with the bridge keycard.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; open bridge door</div><pre class="out">You open the bridge door.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;You open the bridge door.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; north</div><pre class="out">Bridge
+The nerve center. A wraparound console, the captain&#x27;s chair, and a forward viewport full of stars. Unlike everywhere else on this ship, every screen up here is alive.</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Bridge&quot;</li><li class="pass">&#10003; contains &quot;every screen up here is alive.&quot;</li></ul></article><article class="card pass"><div class="cmd">&#9989; &gt; override security panel</div><pre class="out">You activate the security override. Every locked door on the ship clicks open simultaneously.
+
+Somewhere deep in the system, SOMS makes a sound like a sigh.
+
+SOMS goes silent. Not dead — disabled. Contained.
+
+The ship is yours now. The doors are open. The systems respond to your commands.
+
+It&#x27;s not over. Three hundred people in cryo. A pathogen in the hold. A military buyer waiting at Korvax Station.
+
+But for the first time since you boarded, the ship is quiet. Really quiet.
+
+You sit in the captain&#x27;s chair and think about what comes next.
+
+*** THE END ***
+
+(Ending: Override The AI)</pre><ul class="asserts"><li class="pass">&#10003; contains &quot;Every locked door on the ship clicks open simultaneously.&quot;</li><li class="pass">&#10003; contains &quot;SOMS goes silent. Not dead — disabled. Contained.&quot;</li><li class="pass">&#10003; contains &quot;(Ending: Override The AI)&quot;</li></ul></article></section>
+</div>
+
+<script src="theme-listener.js"></script>
+<script>
+ThemeListener.init({
+  buildCSS: function(g, sb) {
+    return 'body { background: ' + g.bodyBg + ' !important; color: ' + g.bufferFg + ' !important; }\n' +
+      'header, .meta { color: ' + g.gridFg + ' !important; border-color: ' + g.gridBg + ' !important; }\n' +
+      'pre, code { color: ' + g.bufferFg + ' !important; font-family: ' + g.monoFamily + ' !important; }\n' +
+      '.ln { color: ' + g.gridFg + ' !important; }\n' +
+      '.cmd { color: ' + g.inputFg + ' !important; }\n' +
+      '* { scrollbar-color: ' + sb.thumb + ' ' + sb.track + '; }\n';
+  },
+  dispatchResize: false
+});
+</script>
+
+</body>
+</html>
