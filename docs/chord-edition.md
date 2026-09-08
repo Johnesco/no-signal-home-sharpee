@@ -58,28 +58,20 @@ version reads like the design docs.
 These are calls I made where Chord could not do what the TypeScript did. Each
 is a real change to the game, not a translation detail.
 
-### 1. Nautical directions no longer work as input — **biggest open item**
-
-Still open as of Chord 3.0.0 — `DIRECTIONS` in `packages/chord/src/parser.ts`
-is unchanged.
+### 1. Nautical directions are compass-only until #34 lands
 
 Chord's direction set is closed: eight compass points plus `up`/`down`. The
-TypeScript build gets `fore`/`aft`/`port`/`starboard` from two npm patches
-(`patches/@sharpee+lang-en-us+*.patch`, `patches/@sharpee+parser-en-us+*.patch`)
-plus bare-word command patterns in `src/grammar.ts`. Chord has no hook for any
-of that — `define verb` maps a surface verb onto an existing *action pattern*,
-which is not the same thing as minting a direction token.
+TypeScript build got `fore`/`aft`/`port`/`starboard` from two npm patches
+(`legacy/patches/`) plus bare-word command patterns in `legacy/src/grammar.ts`.
+The shipped Chord edition keeps the nautical prose and takes compass input,
+using the mapping in `docs/room-map.md` (fore = north, aft = south,
+port = west, starboard = east).
 
-The map uses the mapping already documented in `docs/room-map.md`
-(fore = north, aft = south, port = west, starboard = east), and the prose still
-speaks nautically. But the player has to type `NORTH`.
-
-Three ways out, your call:
-- keep the patches and have the story loader apply them (patches survive; Chord
-  just doesn't know about them);
-- ask upstream for author-declarable direction vocabulary — this is a genuine
-  language gap and the game is a good argument for it;
-- accept compass input and drop the nautical conceit from prose too.
+A spike on 2026-09-08 showed the gap is not an engine gap after all: an
+`extend action going` block with bare-word patterns (`fore` /
+`means direction north`, and so on, plus the `go fore` forms) passes
+`compose --check` and plays correctly at Chord 3.6.0. Implementation, the
+phrase-catalog wording, and a nautical test branch are ticketed as #34.
 
 ### 2. The alarm no longer blocks actions
 

@@ -89,7 +89,7 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 - [ ] #22 Elevator repair (cryo deck access); #23 Cargo hold code (Vasik's trade for the override tool, Okafor's half)
 - [ ] #24 NPC patrol movement; #28 reactor warming; #29 AI spreading; #27 SeededRandom procedural systems
 - [ ] #30 Save/restore; #31 score reveal at end
-- [ ] Nautical direction input (see deviations)
+- [ ] #34 Nautical direction input via `extend action going` (spiked, not yet in the story)
 
 ## Working in this project
 
@@ -123,7 +123,7 @@ This project uses the [sdlc-baseline](https://github.com/Johnesco/sdlc-baseline)
 
 ### Project-specific deviations
 
-- **Nautical directions cannot be typed.** Chord's direction set is closed (eight compass points, up, down); the TypeScript edition patched two engine packages to accept fore/aft/port/starboard. The Chord edition keeps nautical prose and compass input. The three ways out are listed in `docs/chord-edition.md` §1; the choice is the PO's.
+- **Nautical directions are compass-only until #34 lands.** Chord's direction set is closed, but a 2026-09-08 spike showed `extend action going` with bare-word patterns (`fore` / `means direction north`) works at 3.6.0. The prose stays nautical; input is compass until the ticket is done. Details in `docs/chord-edition.md` §1.
 - **The alarm nags instead of blocking.** Chord has no global action interceptor. A header daemon pushes the player toward the cockpit every turn while the alarm screams; the ten-turn clock still kills.
 - The 3.6.0 migration and the two endings were done in one session under #32; the endings arguably deserved their own ticket.
 
