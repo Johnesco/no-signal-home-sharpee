@@ -1,6 +1,5 @@
 node_modules/
 dist/
-*.js.map
-.sharpee/
-.claude/
-.test-saves/
+*.log
+.DS_Store
+.claude/settings.local.json

@@ -1,0 +1,39 @@
+take flashlight
+south
+press button
+maneuver
+examine docking controls
+maneuver
+fire thrusters
+extend arm
+check pressure
+seal
+south
+read sign
+south
+look
+west
+south
+south
+take multi-tool
+take cable snips
+take override tool
+ask reed about soms
+north
+north
+up
+up
+east
+examine desk
+pry open desk
+take keycard
+pry desk
+read journal
+west
+unlock bridge door with keycard
+open bridge door
+north
+override panel
+examine escape pod
+score
+launch pod

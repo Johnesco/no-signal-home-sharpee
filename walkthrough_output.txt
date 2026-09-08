@@ -1,0 +1,187 @@
+Tug Cargo Hold
+You come up out of low-power sleep the way you always do — badly, and all at once. Cold in your teeth. A red strobe washing the crates on and off. Somewhere aft, an alarm is trying to take your head off.
+
+You can see a flashlight, a ration bar, and a salvage manifest here.
+
+The alarm goes on doing the only thing it knows.
+
+> take flashlight
+Taken.
+
+Half charge. You have navigated worse on less.
+
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
+
+> south
+Tug Cockpit
+Your cockpit. Instruments crowded into an arm's reach of the pilot's seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
+
+> press button
+You hit it hard enough to hurt. The alarm stops.
+
+The silence is worse. Your ears ring in it. And now that nothing is screaming, you can see what the alarm was screaming about: a hull, filling the viewport, close enough to read the weld seams.
+
+The hull outside is not getting closer so much as getting larger, which is a distinction that will stop mattering shortly.
+
+> maneuver
+Your hands know this panel. Your eyes have not looked at it yet. Study the docking controls first.
+
+> examine docking controls
+Standard magnetic clamp system, four decades old and honest about it. Helm, thrusters, arm, seal — in that order, if you have any sense.
+
+Standard magnetic clamp system. You have used worse. You have used worse this year.
+
+> maneuver
+You take the helm off autopilot. The tug answers — sluggish, heavy, still coming in far too fast. But it is yours again.
+
+> fire thrusters
+You pitch the nose and fire the braking pair. The tug shoves back against your spine and the closing rate finally falls off. Whatever was left in those tanks, that was most of it.
+
+> extend arm
+You walk the docking arm out and let the magnetics find their own way home. Contact runs up through the deck and into your back teeth.
+
+> check pressure
+You wake the strip display and let it think. Differential settles, holds, stays held. Two atmospheres of somebody else's air on the far side, and the seal is honest about carrying it.
+
+> seal
+You run the collar out and pressurize. The hatch indicator turns over from red to amber to a green you do not entirely believe.
+
+> south
+Airlock
+Biohazard decals, peeling. Claw marks in the paint of the inner door frame, at the height of a person's hands. Emergency lighting the color of weak tea. It is very quiet in here.
+
+You are standing inside someone else's ship. The deck takes your weight without complaint. Nothing else acknowledges you at all.
+
+Behind you, the collar you came through ticks as it cools.
+
+You are aboard a ship that is not yours, which is the part of the job you are good at.
+
+> read sign
+BIOHAZARD — LEVEL 4 CONTAINMENT
+ALL TRANSFERS REQUIRE MEDICAL AUTHORIZATION
+MERIDIAN SOLUTIONS: PEOPLE FIRST. PROFIT ALWAYS.
+
+> south
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
+
+> look
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
+
+A crack, deep and structural, somewhere back toward the airlock. The deck jumps under you. Then the long thin whine of atmosphere going somewhere it should not.
+
+Through the inspection window: your tug, still clamped on, frost blooming across the cockpit glass from the inside. Still there. Still yours. Not reachable without a suit.
+
+> west
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
+
+> south
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
+
+> south
+Engine Room
+The guts of the ship. Pipes and valves crowd every surface. A low hum vibrates up through the deck plates and settles behind your eyes. A tool rack lines the far wall.
+
+You can see a multi-tool, a security override tool, cable snips, and Reed here.
+
+> take multi-tool
+Taken.
+
+> take cable snips
+Taken.
+
+> take override tool
+Taken.
+
+> ask reed about soms
+"It's helpful." Reed says the word the way you would say a diagnosis. "It's been helpful the entire time."
+
+> north
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
+
+> north
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
+
+> up
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+> up
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
+
+> east
+Captain's Cabin
+Modest quarters — more room than the bunks, but not by much. Framed photographs, a half-read book, dried flowers in a vase. A desk bolted to the bulkhead.
+
+You can see a captain's journal here.
+
+> examine desk
+Standard officer's desk, bolted down. The drawer has a simple mechanical lock, which is almost sweet.
+
+> pry open desk
+You set the pry bar into the drawer seam and lean. The lock is mechanical, and mechanical things give up. The drawer skids open and a magnetic keycard slides out onto the deck — BRIDGE ACCESS, CAPTAIN ONLY, the logo embossed in silver because of course it is.
+
+> take keycard
+Taken.
+
+> pry desk
+The drawer is already open to persuasion. Just open it.
+
+> read journal
+(first taking the captain's journal)
+
+Taken.
+
+Day 847 — Meridian lied about the cargo. Not industrial samples. Reed found organism cultures in the hold. Living ones.
+
+Day 851 — Three crew showing symptoms. Not sick exactly. Changed. Vasik says corporate will handle it. Corporate is forty light years away.
+
+Day 855 — Sealed the hold. Locked SOMS out of cryo control. If I do not make it, the bridge keycard is in my desk. Do not trust the AI. Do not trust anyone who smiles too much.
+
+Day 856 — I can hear it thinking.
+
+> west
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
+
+> unlock bridge door with keycard
+You unlock the bridge door with the bridge keycard.
+
+> open bridge door
+You open the bridge door.
+
+> north
+Bridge
+The nerve center. A wraparound console, the captain's chair, and a forward viewport full of stars. Unlike everywhere else on this ship, every screen up here is alive.
+
+> override panel
+The panel accepts your input, considers it, and politely reverses it. SOMS is still in the loop. Something has to take it out of the loop first.
+
+> examine escape pod
+An emergency escape pod hatch in the deck. The status indicator shows green — the pod is functional.
+
+> score
+You have scored 30 out of 60, earning you the rank of a Trespasser.
+
+> launch pod
+You seal the escape pod hatch and hit the launch control. The pod jolts free of The Stillwater with a bang that shakes your teeth.
+
+Through the tiny viewport, the freighter shrinks. Still dark. Still drifting. Still carrying its cargo of frozen prisoners and borrowed souls.
+
+You made it out. You left everyone behind.
+
+The pod's beacon activates automatically. Someone will pick you up. Eventually.
+
+You stare at the stars and try not to think about Reed's smile.
+
+*** THE END ***
+
+(Ending: Escape Alone)
