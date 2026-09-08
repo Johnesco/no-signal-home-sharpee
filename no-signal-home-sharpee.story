@@ -9,7 +9,7 @@ story
     John Googol
   ifid: 936B8547-6936-4CFE-8B2E-34F0AB30C4D2
   id: no-signal-home-sharpee
-  story-version: 0.2.0
+  story-version: 0.3.0
   themes: modern-dark, retro-terminal, paper, system-6
   description: Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks.
   states: adrift, boarded, waking, converging
