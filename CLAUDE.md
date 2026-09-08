@@ -9,9 +9,9 @@
 **Name:** No Signal Home
 **Purpose:** Sci-fi salvage horror interactive fiction: a grey-market salvager, a derelict corporate freighter called The Stillwater, four survivors, and an AI that would like to be thought of as a person.
 **Engine:** Sharpee, written in Chord (`no-signal-home-sharpee.story`). The TypeScript edition that came first lives in `legacy/` and is the behavioural reference until the Chord edition overtakes it.
-**Repository:** https://github.com/Johnesco/no-signal-home
+**Repository:** https://github.com/Johnesco/no-signal-home-sharpee (renamed from no-signal-home on 2026-09-08; the April deploy repo is now no-signal-home-ts-build-2026-04)
 **Project Board:** https://github.com/users/Johnesco/projects/4 (project 4, owner Johnesco)
-**Live:** https://johnesco.github.io/ifhub/app.html?game=no-signal-home-sharpee (not yet shipped)
+**Live:** https://johnesco.github.io/ifhub/app.html?game=no-signal-home-sharpee (shipped 2026-09-08)
 
 ## Project Context
 
