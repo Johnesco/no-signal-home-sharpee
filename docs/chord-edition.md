@@ -149,6 +149,13 @@ deliberate.
 
 ---
 
+### 7. `{br}` marks line structure, not paragraphs (2026-09-09)
+
+The port mapped every `
+` in the TypeScript strings to `{br}`, so a `
+
+` paragraph gap became `{br}` on the sentence plus a lone `{br}` line. Chord's paragraph break is a blank line, in phrase bodies and `define phrases` entries as much as in descriptions, so those sixteen markers were replaced with blank lines: the alarm-dies, manifest-text and journal-text phrases, and the alarm-collision, watched-collision and bad-seal-death endings. The nine that remain are hard breaks in texts whose line structure is the point: the nav computer's tag, the manifest header, the seal readout, the biohazard sign and the wayfinding signage. Verified by the tests document (143 cards) and by replaying the affected texts.
+
 ## Stubbed, not implemented
 
 Deliberate placeholders, all reachable-but-inert:

@@ -112,8 +112,8 @@ create the alarm button
     refuse when the proximity alarm is silent: already-quiet
     change the proximity alarm to silent
     phrase alarm-dies
-      You hit it hard enough to hurt. The alarm stops.{br}
-      {br}
+      You hit it hard enough to hurt. The alarm stops.
+
       The silence is worse. Your ears ring in it. And now that nothing is
       screaming, you can see what the alarm was screaming about: a hull,
       filling the viewport, close enough to read the weld seams.
@@ -286,8 +286,8 @@ create the salvage manifest
     phrase manifest-text
       DEEP REACH SALVAGE — DRIFT AUTHORIZATION{br}
       TARGET: none specified{br}
-      MODE: low-power drift, autopilot, indefinite{br}
-      {br}
+      MODE: low-power drift, autopilot, indefinite
+
       You set the drift. The tug found the score. Between the two of you,
       one of you was working.
   end on
@@ -957,16 +957,16 @@ create the captain's journal
     award captains-truth
     phrase journal-text
       Day 847 — Meridian lied about the cargo. Not industrial samples.
-      Reed found organism cultures in the hold. Living ones.{br}
-      {br}
+      Reed found organism cultures in the hold. Living ones.
+
       Day 851 — Three crew showing symptoms. Not sick exactly. Changed.
       Vasik says corporate will handle it. Corporate is forty light years
-      away.{br}
-      {br}
+      away.
+
       Day 855 — Sealed the hold. Locked SOMS out of cryo control. If I do
       not make it, the bridge keycard is in my desk. Do not trust the AI.
-      Do not trust anyone who smiles too much.{br}
-      {br}
+      Do not trust anyone who smiles too much.
+
       Day 856 — I can hear it thinking.
   end on
 
@@ -1204,20 +1204,20 @@ define phrases en-US
 
   alarm-collision:
     You never do work out what the alarm was for. The hull comes through
-    the viewport at closing speed and the cockpit stops being a room.{br}
-    {br}
+    the viewport at closing speed and the cockpit stops being a room.
+
     Your last thought, as you are ejected into space, is that must have
     been a proximity alarm.
 
   watched-collision:
     The Stillwater's hull fills the viewport. Every rivet. Every weld
-    seam. The registry number, close enough to read.{br}
-    {br}
+    seam. The registry number, close enough to read.
+
     You had time. You just did not use it.
 
   bad-seal-death:
-    Two steps into the corridor, the collar behind you stops holding.{br}
-    {br}
+    Two steps into the corridor, the collar behind you stops holding.
+
     The pressure differential finds the gap and takes everything with it —
     the air, the hatch, the loose panels, you. It is over in less time
     than it takes to understand it has started. The Stillwater does not
