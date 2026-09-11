@@ -1,0 +1,21 @@
+{
+  "generated": "derived from the story source",
+  "commands": 306,
+  "understood": 306,
+  "misses": 0,
+  "rooms_swept": 26,
+  "rooms_total": 26,
+  "things_covered": 44,
+  "things_total": 53,
+  "uncovered": [
+    "Lower Deck",
+    "Mid Deck",
+    "Salvage Tug",
+    "Upper Deck",
+    "bridge door",
+    "cargo access code",
+    "cargo bulkhead",
+    "pressure hatch",
+    "salvager"
+  ]
+}

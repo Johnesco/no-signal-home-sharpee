@@ -1,5 +1,42 @@
+look
+x shipping crates
+x crates
+x bedroll
+x bedding
+x flashlight
+i
+x torch
+x ration bar
+i
+x ration
+x salvage manifest
+read salvage manifest
+i
+x manifest
 take flashlight
 south
+x proximity alarm
+x alarm
+x alarm button
+x button
+x instrument panel
+x instruments
+x docking controls
+x controls
+x thrusters
+x thruster
+x pressure readout
+x readout
+x nav computer
+x nav
+x comms system
+x comms
+x fuel gauge
+x gauge
+x pilot's seat
+x seat
+x viewport
+x window
 press button
 maneuver
 examine docking controls
@@ -9,12 +46,35 @@ extend arm
 check pressure
 seal
 south
+x docking seal
+x seal
+x inspection window
+x porthole
+x biohazard sign
+read biohazard sign
+x sign
 read sign
 south
+x loose floor panel
+x floor plate
 look
 west
+x elevator
+x lift
 south
 south
+x multi-tool
+i
+x tool
+x security override tool
+i
+x override tool
+x cable snips
+i
+x snips
+x Reed
+talk to Reed
+x engineer
 take multi-tool
 take cable snips
 take override tool
@@ -22,8 +82,22 @@ ask reed about soms
 north
 north
 up
+x corporate signage
+read corporate signage
+x signage
 up
 east
+x captain's desk
+look in captain's desk
+look in captain's desk
+x desk
+x captain's journal
+read captain's journal
+i
+x journal
+x bridge keycard
+i
+x keycard
 examine desk
 pry open desk
 take keycard
@@ -33,7 +107,200 @@ west
 unlock bridge door with keycard
 open bridge door
 north
+x security override panel
+x override panel
+x escape pod hatch
+x pod
 override panel
 examine escape pod
 score
+open bridge door
+south
+south
+x stun baton
+i
+x baton
+x eva suit
+i
+x spacesuit
+south
+x Vasik
+talk to Vasik
+x officer
+north
+north
+down
+west
+west
+east
+south
+x medkit
+i
+x medical kit
+north
+east
+east
+east
+x data chip
+i
+x chip
+west
+south
+x Lis
+talk to Lis
+x crewman
+x soms terminal
+x soms
+north
+west
+down
+open elevator
+west
+south
+north
+east
+east
+east
+x trunk cables
+x cables
+west
+south
+x makeshift camp
+x camp
+x Okafor
+talk to Okafor
+x prisoner
+open cargo bulkhead
+south
+open cargo bulkhead
+north
+east
+x hazmat suit
+i
+x hazmat
+x elevator parts
+i
+x motor
+x fabricator parts
+i
+x heating elements
+west
+north
+east
+south
+east
+west
+north
+north
+east
+north
+open pressure hatch
+open docking seal
+north
+north
+take shipping crates
+take bedroll
+take flashlight
+turn on flashlight
+eat ration bar
+take ration bar
+drop ration bar
+take salvage manifest
+drop salvage manifest
+south
+take proximity alarm
+push alarm button
+take alarm button
+take instrument panel
+take docking controls
+take thrusters
+take pressure readout
+take nav computer
+take comms system
+take fuel gauge
+take pilot's seat
+take viewport
+open pressure hatch
+open docking controls
+south
+take docking seal
+take inspection window
+take biohazard sign
+south
+take loose floor panel
+east
+take trunk cables
+west
+south
+take makeshift camp
+east
+wear hazmat suit
+take off hazmat suit
+take hazmat suit
+drop hazmat suit
+take elevator parts
+drop elevator parts
+take fabricator parts
+drop fabricator parts
+west
+north
+west
+take elevator
+south
+south
+take multi-tool
+drop multi-tool
+take security override tool
+drop security override tool
+take cable snips
+drop cable snips
+north
+north
+up
+take corporate signage
+west
+south
+take medkit
+drop medkit
+north
+east
+east
+east
+take data chip
+drop data chip
+west
+south
+take soms terminal
+north
+west
+up
+south
+take stun baton
+drop stun baton
+wear eva suit
+take off eva suit
+take eva suit
+drop eva suit
+north
+east
+open captain's desk
+close captain's desk
+open captain's desk
+unlock captain's desk
+open captain's desk
+open captain's desk
+take captain's desk
+take captain's journal
+drop captain's journal
+take bridge keycard
+drop bridge keycard
+west
+open bridge door
+north
+take security override panel
+overriding security override panel
+take escape pod hatch
+launching escape pod hatch
+score
+inventory
 launch pod
