@@ -7,7 +7,7 @@
 # to, and any verb the story defines itself. Refusals are coverage too
 # — taking scenery should fail, and the transcript records that it did.
 #
-# 26 of 26 rooms swept, 44 of 53 things exercised, 289 commands.
+# 26 of 26 rooms swept, 44 of 53 things exercised, 291 commands.
 #
 # Not exercised — held inside a closed thing, carried from the
 # start, or the player character itself: Lower Deck, Mid Deck, Salvage Tug, Upper Deck, bridge door, cargo access code, cargo bulkhead, pressure hatch, salvager.
@@ -15,19 +15,19 @@
 ## Tug Cargo Hold
 
 > look
-> x shipping crates
-> x crates
-> x bedroll
-> x bedding
-> x flashlight
-> x torch
-> x ration bar
-> x ration
-> x salvage manifest
-> read salvage manifest
-> x manifest
 > take flashlight
+
+## Tug Cockpit
+
 > south
+> press button
+> maneuver
+> examine docking controls
+> maneuver
+> fire thrusters
+> extend arm
+> check pressure
+> seal
 > x proximity alarm
 > x alarm
 > x alarm button
@@ -50,14 +50,28 @@
 > x seat
 > x viewport
 > x window
-> press button
-> maneuver
-> examine docking controls
-> maneuver
-> fire thrusters
-> extend arm
-> check pressure
-> seal
+
+## Tug Cargo Hold
+
+> north
+> x shipping crates
+> x crates
+> x bedroll
+> x bedding
+> x flashlight
+> x torch
+> x ration bar
+> x ration
+> x salvage manifest
+> read salvage manifest
+> x manifest
+
+## Tug Cockpit
+
+> south
+
+## Airlock
+
 > south
 > x docking seal
 > x seal
@@ -67,14 +81,26 @@
 > read biohazard sign
 > x sign
 > read sign
+
+## Forward Corridor
+
 > south
 > x loose floor panel
 > x floor plate
 > look
+
+## Lower Mid Corridor
+
 > west
 > x elevator
 > x lift
+
+## Aft Corridor
+
 > south
+
+## Engine Room
+
 > south
 > x multi-tool
 > x tool
@@ -89,13 +115,28 @@
 > take cable snips
 > take override tool
 > ask reed about soms
+
+## Aft Corridor
+
 > north
+
+## Lower Mid Corridor
+
 > north
+
+## Central Junction
+
 > up
 > x corporate signage
 > read corporate signage
 > x signage
+
+## Upper Corridor
+
 > up
+
+## Captain's Cabin
+
 > east
 > x captain's desk
 > look in captain's desk
@@ -110,9 +151,15 @@
 > take keycard
 > pry desk
 > read journal
+
+## Upper Corridor
+
 > west
 > unlock bridge door with keycard
 > open bridge door
+
+## Bridge
+
 > north
 > x security override panel
 > x override panel
@@ -122,49 +169,124 @@
 > examine escape pod
 > score
 > open bridge door
+
+## Upper Corridor
+
 > south
+
+## Crew Bunks
+
 > south
 > x stun baton
 > x baton
 > x eva suit
 > x spacesuit
+
+## Common Area
+
 > south
 > x Vasik
 > talk to Vasik
 > x officer
+
+## Crew Bunks
+
 > north
+
+## Upper Corridor
+
 > north
+
+## Central Junction
+
 > down
+
+## Lab Corridor
+
 > west
+
+## Science Lab
+
 > west
+
+## Lab Corridor
+
 > east
+
+## Medbay
+
 > south
 > x medkit
 > x medical kit
+
+## Lab Corridor
+
 > north
+
+## Central Junction
+
 > east
+
+## Hab Corridor
+
 > east
+
+## Mess Hall
+
 > east
 > x data chip
 > x chip
+
+## Hab Corridor
+
 > west
+
+## Library
+
 > south
 > x Lis
 > talk to Lis
 > x crewman
 > x soms terminal
 > x soms
+
+## Hab Corridor
+
 > north
+
+## Central Junction
+
 > west
+
+## Lower Mid Corridor
+
 > down
 > open elevator
 > west
+
+## Aft Corridor
+
 > south
+
+## Lower Mid Corridor
+
 > north
+
+## Forward Corridor
+
+> east
+
+## Maintenance Shaft
+
 > east
 > east
-> east
+
+## Forward Corridor
+
 > west
+
+## Cargo Bay
+
 > south
 > x makeshift camp
 > x camp
@@ -174,7 +296,13 @@
 > open cargo bulkhead
 > south
 > open cargo bulkhead
+
+## Forward Corridor
+
 > north
+
+## Maintenance Shaft
+
 > east
 > x hazmat suit
 > x hazmat
@@ -182,12 +310,30 @@
 > x motor
 > x fabricator parts
 > x heating elements
+
+## Forward Corridor
+
 > west
+
+## Airlock
+
 > north
 > east
+
+## Forward Corridor
+
 > south
+
+## Maintenance Shaft
+
 > east
+
+## Forward Corridor
+
 > west
+
+## Airlock
+
 > north
 > north
 > east
@@ -205,6 +351,9 @@
 > drop ration bar
 > take salvage manifest
 > drop salvage manifest
+
+## Forward Corridor
+
 > south
 > take proximity alarm
 > push alarm button
@@ -220,19 +369,31 @@
 > take viewport
 > open pressure hatch
 > open docking controls
+
+## Cargo Bay
+
 > south
 > take docking seal
 > take inspection window
 > take biohazard sign
 > south
 > take loose floor panel
+
+## Storage Annex
+
 > east
 > x trunk cables
 > take trunk cables
 > x cables
+
+## Cargo Bay
+
 > west
 > south
 > take makeshift camp
+
+## Storage Annex
+
 > east
 > wear hazmat suit
 > take off hazmat suit
@@ -242,11 +403,26 @@
 > drop elevator parts
 > take fabricator parts
 > drop fabricator parts
+
+## Cargo Bay
+
 > west
+
+## Forward Corridor
+
 > north
+
+## Lower Mid Corridor
+
 > west
 > take elevator
+
+## Aft Corridor
+
 > south
+
+## Engine Room
+
 > south
 > take multi-tool
 > drop multi-tool
@@ -254,26 +430,71 @@
 > drop security override tool
 > take cable snips
 > drop cable snips
+
+## Aft Corridor
+
 > north
+
+## Lower Mid Corridor
+
 > north
+
+## Central Junction
+
 > up
 > take corporate signage
+
+## Lab Corridor
+
 > west
+
+## Medbay
+
 > south
 > take medkit
 > drop medkit
+
+## Lab Corridor
+
 > north
+
+## Central Junction
+
 > east
+
+## Hab Corridor
+
 > east
+
+## Mess Hall
+
 > east
 > take data chip
 > drop data chip
+
+## Hab Corridor
+
 > west
+
+## Library
+
 > south
 > take soms terminal
+
+## Hab Corridor
+
 > north
+
+## Central Junction
+
 > west
+
+## Upper Corridor
+
 > up
+
+## Crew Bunks
+
 > south
 > take stun baton
 > drop stun baton
@@ -281,7 +502,13 @@
 > take off eva suit
 > take eva suit
 > drop eva suit
+
+## Upper Corridor
+
 > north
+
+## Captain's Cabin
+
 > east
 > open captain's desk
 > close captain's desk
@@ -294,8 +521,14 @@
 > drop captain's journal
 > take bridge keycard
 > drop bridge keycard
+
+## Upper Corridor
+
 > west
 > open bridge door
+
+## Bridge
+
 > north
 > take security override panel
 > overriding security override panel

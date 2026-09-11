@@ -1,17 +1,14 @@
 look
-x shipping crates
-x crates
-x bedroll
-x bedding
-x flashlight
-x torch
-x ration bar
-x ration
-x salvage manifest
-read salvage manifest
-x manifest
 take flashlight
 south
+press button
+maneuver
+examine docking controls
+maneuver
+fire thrusters
+extend arm
+check pressure
+seal
 x proximity alarm
 x alarm
 x alarm button
@@ -34,14 +31,19 @@ x pilot's seat
 x seat
 x viewport
 x window
-press button
-maneuver
-examine docking controls
-maneuver
-fire thrusters
-extend arm
-check pressure
-seal
+north
+x shipping crates
+x crates
+x bedroll
+x bedding
+x flashlight
+x torch
+x ration bar
+x ration
+x salvage manifest
+read salvage manifest
+x manifest
+south
 south
 x docking seal
 x seal

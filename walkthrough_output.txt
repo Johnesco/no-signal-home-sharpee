@@ -13,888 +13,1106 @@ You can see a flashlight, a ration bar, and a salvage manifest here.
 
 You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
 
+> take flashlight
+Taken.
+
+Half charge. You have navigated worse on less.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
+
+> south
+Tug Cockpit
+Your cockpit. Instruments crowded into an arm's reach of the pilot's seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
+
+The alarm goes on doing the only thing it knows.
+
+> press button
+You hit it hard enough to hurt. The alarm stops.
+
+The silence is worse. Your ears ring in it. And now that nothing is screaming, you can see what the alarm was screaming about: a hull, filling the viewport, close enough to read the weld seams.
+
+The hull outside is not getting closer so much as getting larger, which is a distinction that will stop mattering shortly.
+
+> maneuver
+Your hands know this panel. Your eyes have not looked at it yet. Study the docking controls first.
+
+> examine docking controls
+Standard magnetic clamp system, four decades old and honest about it. Helm, thrusters, arm, seal — in that order, if you have any sense.
+
+Standard magnetic clamp system. You have used worse. You have used worse this year.
+
+> maneuver
+You take the helm off autopilot. The tug answers — sluggish, heavy, still coming in far too fast. But it is yours again.
+
+> fire thrusters
+You pitch the nose and fire the braking pair. The tug shoves back against your spine and the closing rate finally falls off. Whatever was left in those tanks, that was most of it.
+
+> extend arm
+You walk the docking arm out and let the magnetics find their own way home. Contact runs up through the deck and into your back teeth.
+
+> check pressure
+You wake the strip display and let it think. Differential settles, holds, stays held. Two atmospheres of somebody else's air on the far side, and the seal is honest about carrying it.
+
+> seal
+You run the collar out and pressurize. The hatch indicator turns over from red to amber to a green you do not entirely believe.
+
+> x proximity alarm
+A proximity klaxon wired into the hull sensors, doing the one job it has ever had.
+
+> x alarm
+A proximity klaxon wired into the hull sensors, doing the one job it has ever had.
+
+> x alarm button
+A palm-sized red button on the wall beside the seat, unlabeled and worn pale in the middle. You have hit it in the dark before.
+
+> x button
+A palm-sized red button on the wall beside the seat, unlabeled and worn pale in the middle. You have hit it in the dark before.
+
+> x instrument panel
+Approach vector, closing rate, attitude. The numbers move while you watch them, and none of them move in a direction you like.
+
+> x instruments
+Approach vector, closing rate, attitude. The numbers move while you watch them, and none of them move in a direction you like.
+
+> x docking controls
+Standard magnetic clamp system, four decades old and honest about it. Helm, thrusters, arm, seal — in that order, if you have any sense.
+
+> x controls
+Standard magnetic clamp system, four decades old and honest about it. Helm, thrusters, arm, seal — in that order, if you have any sense.
+
+> x thrusters
+Attitude and braking thrusters. The braking pair have maybe one good burn left in them, which is one more than the fuel gauge suggests.
+
+> x thruster
+Attitude and braking thrusters. The braking pair have maybe one good burn left in them, which is one more than the fuel gauge suggests.
+
+> x pressure readout
+A narrow strip display beside the clamp controls, waiting to be asked a question about atmosphere.
+
+> x readout
+A narrow strip display beside the clamp controls, waiting to be asked a question about atmosphere.
+
+> x nav computer
+It has already tagged the thing outside and put a name on it:
+STILLWATER — MERIDIAN SOLUTIONS — STATUS: DERELICT
+SALVAGE VALUE: HIGH
+
+Meridian Solutions. Top-shelf corporate. This is your best drift in years.
+
+You are aboard a ship that is not yours, which is the part of the job you are good at.
+
+> x nav
+It has already tagged the thing outside and put a name on it:
+STILLWATER — MERIDIAN SOLUTIONS — STATUS: DERELICT
+SALVAGE VALUE: HIGH
+
+> x comms system
+Every channel open. Every channel empty. The carrier light has not come on in four months.
+
+Dead. No signal home.
+
+> x comms
+Every channel open. Every channel empty. The carrier light has not come on in four months.
+
+> x fuel gauge
+Three percent, and the needle is not arguing about it.
+
+Three percent. That is what you get for drifting.
+
+> x gauge
+Three percent, and the needle is not arguing about it.
+
+> x pilot's seat
+Foam gone flat, one arm rest replaced with something that was never an arm rest.
+
+Your chair. Your ship. Fits like everything else in your life — not quite right, but yours.
+
+> x seat
+Foam gone flat, one arm rest replaced with something that was never an arm rest.
+
+> x viewport
+Scratched, pitted, and currently full of freighter.
+
+> x window
+Scratched, pitted, and currently full of freighter.
+
+> north
+Tug Cargo Hold
+Cramped cargo space, crates strapped to the walls, the gap between two shipping containers worn into the shape of a person. The strobe paints everything red, then nothing, then red.
+
+You can see a ration bar and a salvage manifest here.
+
 > x shipping crates
 Strapped to the walls, stenciled DEEP REACH SALVAGE, mostly empty.
 
 DEEP REACH SALVAGE. Your outfit — well. Your name on someone else's paperwork.
 
-Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
-
 > x crates
 Strapped to the walls, stenciled DEEP REACH SALVAGE, mostly empty.
-
-The alarm goes on doing the only thing it knows.
 
 > x bedroll
 A bedroll wedged in the gap between two containers, shaped by months of use into something almost comfortable.
 
 You have slept in worse. Not much worse.
 
-You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
-
 > x bedding
 A bedroll wedged in the gap between two containers, shaped by months of use into something almost comfortable.
-
-Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
 
 > x flashlight
 A heavy work light. The battery bar reads half.
 
-The alarm goes on doing the only thing it knows.
-
 > x torch
 A heavy work light. The battery bar reads half.
-
-You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
 
 > x ration bar
 Meridian Solutions branded, which tells you something about where you shop. YOUR PRODUCTIVITY IS YOUR LEGACY, says the wrapper.
 
-Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
-
 > x ration
 Meridian Solutions branded, which tells you something about where you shop. YOUR PRODUCTIVITY IS YOUR LEGACY, says the wrapper.
 
-You never do work out what the alarm was for. The hull comes through the viewport at closing speed and the cockpit stops being a room.
-
-Your last thought, as you are ejected into space, is that must have been a proximity alarm.
-
 > x salvage manifest
-Error: Engine is not running
+A cracked datapad still holding the last thing you asked it for.
 
 > read salvage manifest
-Error: Engine is not running
+(first taking the salvage manifest)
+
+Taken.
+
+DEEP REACH SALVAGE — DRIFT AUTHORIZATION
+TARGET: none specified
+MODE: low-power drift, autopilot, indefinite
+
+You set the drift. The tug found the score. Between the two of you, one of you was working.
 
 > x manifest
-Error: Engine is not running
-
-> take flashlight
-Error: Engine is not running
+A cracked datapad still holding the last thing you asked it for.
 
 > south
-Error: Engine is not running
-
-> x proximity alarm
-Error: Engine is not running
-
-> x alarm
-Error: Engine is not running
-
-> x alarm button
-Error: Engine is not running
-
-> x button
-Error: Engine is not running
-
-> x instrument panel
-Error: Engine is not running
-
-> x instruments
-Error: Engine is not running
-
-> x docking controls
-Error: Engine is not running
-
-> x controls
-Error: Engine is not running
-
-> x thrusters
-Error: Engine is not running
-
-> x thruster
-Error: Engine is not running
-
-> x pressure readout
-Error: Engine is not running
-
-> x readout
-Error: Engine is not running
-
-> x nav computer
-Error: Engine is not running
-
-> x nav
-Error: Engine is not running
-
-> x comms system
-Error: Engine is not running
-
-> x comms
-Error: Engine is not running
-
-> x fuel gauge
-Error: Engine is not running
-
-> x gauge
-Error: Engine is not running
-
-> x pilot's seat
-Error: Engine is not running
-
-> x seat
-Error: Engine is not running
-
-> x viewport
-Error: Engine is not running
-
-> x window
-Error: Engine is not running
-
-> press button
-Error: Engine is not running
-
-> maneuver
-Error: Engine is not running
-
-> examine docking controls
-Error: Engine is not running
-
-> maneuver
-Error: Engine is not running
-
-> fire thrusters
-Error: Engine is not running
-
-> extend arm
-Error: Engine is not running
-
-> check pressure
-Error: Engine is not running
-
-> seal
-Error: Engine is not running
+Tug Cockpit
+Your cockpit. Instruments crowded into an arm's reach of the pilot's seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
 
 > south
-Error: Engine is not running
+Airlock
+Biohazard decals, peeling. Claw marks in the paint of the inner door frame, at the height of a person's hands. Emergency lighting the color of weak tea. It is very quiet in here.
+
+You are standing inside someone else's ship. The deck takes your weight without complaint. Nothing else acknowledges you at all.
+
+Behind you, the collar you came through ticks as it cools.
 
 > x docking seal
-Error: Engine is not running
+The pressure collar joining your tug to The Stillwater — a concertina of ribbed alloy doing a job it was rated for two decades ago.
 
 > x seal
-Error: Engine is not running
+The pressure collar joining your tug to The Stillwater — a concertina of ribbed alloy doing a job it was rated for two decades ago.
 
 > x inspection window
-Error: Engine is not running
+A hand-span of scratched glass looking back down the collar toward your tug.
+
+A crack, deep and structural, somewhere back toward the airlock. The deck jumps under you. Then the long thin whine of atmosphere going somewhere it should not.
+
+Through the inspection window: your tug, still clamped on, frost blooming across the cockpit glass from the inside. Still there. Still yours. Not reachable without a suit.
 
 > x porthole
-Error: Engine is not running
+A hand-span of scratched glass looking back down the collar toward your tug.
 
 > x biohazard sign
-Error: Engine is not running
+Peeling decals across the inner door, the trefoil still legible under the grime.
 
 > read biohazard sign
-Error: Engine is not running
+BIOHAZARD — LEVEL 4 CONTAINMENT
+ALL TRANSFERS REQUIRE MEDICAL AUTHORIZATION
+MERIDIAN SOLUTIONS: PEOPLE FIRST. PROFIT ALWAYS.
 
 > x sign
-Error: Engine is not running
+Peeling decals across the inner door, the trefoil still legible under the grime.
 
 > read sign
-Error: Engine is not running
+BIOHAZARD — LEVEL 4 CONTAINMENT
+ALL TRANSFERS REQUIRE MEDICAL AUTHORIZATION
+MERIDIAN SOLUTIONS: PEOPLE FIRST. PROFIT ALWAYS.
 
 > south
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > x loose floor panel
-Error: Engine is not running
+One plate sits proud of the rest. Lifted, it shows a cable conduit running away starboard into the dark.
 
 > x floor plate
-Error: Engine is not running
+One plate sits proud of the rest. Lifted, it shows a cable conduit running away starboard into the dark.
 
 > look
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > west
-Error: Engine is not running
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
 
 > x elevator
-Error: Engine is not running
+A freight elevator, doors half open on an empty shaft. The motor housing is off and the drive cable has parted. Somebody removed the parts rather than the elevator.
 
 > x lift
-Error: Engine is not running
+A freight elevator, doors half open on an empty shaft. The motor housing is off and the drive cable has parted. Somebody removed the parts rather than the elevator.
 
 > south
-Error: Engine is not running
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
 
 > south
-Error: Engine is not running
+Engine Room
+The guts of the ship. Pipes and valves crowd every surface. A low hum vibrates up through the deck plates and settles behind your eyes. A tool rack lines the far wall.
+
+You can see a multi-tool, a security override tool, cable snips, and Reed here.
 
 > x multi-tool
-Error: Engine is not running
+Folding multi-tool — pliers, driver heads, a short pry bar, a shorter blade. Standard salvage issue, which is to say: yours, eventually.
 
 > x tool
-Error: Engine is not running
+Folding multi-tool — pliers, driver heads, a short pry bar, a shorter blade. Standard salvage issue, which is to say: yours, eventually.
 
 > x security override tool
-Error: Engine is not running
+A handheld device for bypassing Meridian Solutions security locks. Red housing, single button, small display.
 
 > x override tool
-Error: Engine is not running
+A handheld device for bypassing Meridian Solutions security locks. Red housing, single button, small display.
 
 > x cable snips
-Error: Engine is not running
+Heavy cutters rated for fiber and power conduit. The jaws are sharp and somebody kept them that way.
 
 > x snips
-Error: Engine is not running
+Heavy cutters rated for fiber and power conduit. The jaws are sharp and somebody kept them that way.
 
 > x Reed
-Error: Engine is not running
+Wiry, in grease-dark coveralls, hands that have never once been clean. Practical eyes. Exhausted, and alert anyway.
 
 > talk to Reed
-Error: Engine is not running
+Reed doesn't respond.
 
 > x engineer
-Error: Engine is not running
+Wiry, in grease-dark coveralls, hands that have never once been clean. Practical eyes. Exhausted, and alert anyway.
 
 > take multi-tool
-Error: Engine is not running
+Taken.
 
 > take cable snips
-Error: Engine is not running
+Taken.
 
 > take override tool
-Error: Engine is not running
+Taken.
 
 > ask reed about soms
-Error: Engine is not running
+"It's helpful." Reed says the word the way you would say a diagnosis. "It's been helpful the entire time."
 
 > north
-Error: Engine is not running
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
 
 > north
-Error: Engine is not running
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
 
 > up
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+You can see Lis here.
 
 > x corporate signage
-Error: Engine is not running
+Backlit wayfinding panels, one of them flickering.
 
 > read corporate signage
-Error: Engine is not running
+MERIDIAN SOLUTIONS
+PEOPLE FIRST. PROFIT ALWAYS.
+RESEARCH AND MEDICAL, PORT — HABITATION, STARBOARD
 
 > x signage
-Error: Engine is not running
+Backlit wayfinding panels, one of them flickering.
 
 > up
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > east
-Error: Engine is not running
+Captain's Cabin
+Modest quarters — more room than the bunks, but not by much. Framed photographs, a half-read book, dried flowers in a vase. A desk bolted to the bulkhead.
+
+You can see a captain's journal here.
 
 > x captain's desk
-Error: Engine is not running
+Standard officer's desk, bolted down. The drawer has a simple mechanical lock, which is almost sweet.
 
 > look in captain's desk
-Error: Engine is not running
+The captain's desk is closed.
 
 > x desk
-Error: Engine is not running
+Standard officer's desk, bolted down. The drawer has a simple mechanical lock, which is almost sweet.
 
 > x captain's journal
-Error: Engine is not running
+Leather-bound, filled edge to edge with tight handwriting that gets worse toward the end.
 
 > read captain's journal
-Error: Engine is not running
+(first taking the captain's journal)
+
+Taken.
+
+Day 847 — Meridian lied about the cargo. Not industrial samples. Reed found organism cultures in the hold. Living ones.
+
+Day 851 — Three crew showing symptoms. Not sick exactly. Changed. Vasik says corporate will handle it. Corporate is forty light years away.
+
+Day 855 — Sealed the hold. Locked SOMS out of cryo control. If I do not make it, the bridge keycard is in my desk. Do not trust the AI. Do not trust anyone who smiles too much.
+
+Day 856 — I can hear it thinking.
+
+You know things now. That has never once made anything easier.
 
 > x journal
-Error: Engine is not running
+Leather-bound, filled edge to edge with tight handwriting that gets worse toward the end.
 
 > x bridge keycard
-Error: Engine is not running
+You can't see any such thing.
 
 > x keycard
-Error: Engine is not running
+You can't see any such thing.
 
 > examine desk
-Error: Engine is not running
+Standard officer's desk, bolted down. The drawer has a simple mechanical lock, which is almost sweet.
 
 > pry open desk
-Error: Engine is not running
+You set the pry bar into the drawer seam and lean. The lock is mechanical, and mechanical things give up. The drawer skids open and a magnetic keycard slides out onto the deck — BRIDGE ACCESS, CAPTAIN ONLY, the logo embossed in silver because of course it is.
 
 > take keycard
-Error: Engine is not running
+Taken.
 
 > pry desk
-Error: Engine is not running
+The drawer is already open to persuasion. Just open it.
 
 > read journal
-Error: Engine is not running
+Day 847 — Meridian lied about the cargo. Not industrial samples. Reed found organism cultures in the hold. Living ones.
+
+Day 851 — Three crew showing symptoms. Not sick exactly. Changed. Vasik says corporate will handle it. Corporate is forty light years away.
+
+Day 855 — Sealed the hold. Locked SOMS out of cryo control. If I do not make it, the bridge keycard is in my desk. Do not trust the AI. Do not trust anyone who smiles too much.
+
+Day 856 — I can hear it thinking.
 
 > west
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > unlock bridge door with keycard
-Error: Engine is not running
+You unlock the bridge door with the bridge keycard.
 
 > open bridge door
-Error: Engine is not running
+You open the bridge door.
 
 > north
-Error: Engine is not running
+Bridge
+The nerve center. A wraparound console, the captain's chair, and a forward viewport full of stars. Unlike everywhere else on this ship, every screen up here is alive.
 
 > x security override panel
-Error: Engine is not running
+A security override console. From here, any door on the ship can be locked or unlocked. Powerful — and dangerous.
 
 > x override panel
-Error: Engine is not running
+A security override console. From here, any door on the ship can be locked or unlocked. Powerful — and dangerous.
 
 > x escape pod hatch
-Error: Engine is not running
+An emergency escape pod hatch in the deck. The status indicator shows green — the pod is functional.
 
 > x pod
-Error: Engine is not running
+An emergency escape pod hatch in the deck. The status indicator shows green — the pod is functional.
 
 > override panel
-Error: Engine is not running
+The panel accepts your input, considers it, and politely reverses it. SOMS is still in the loop. Something has to take it out of the loop first.
 
 > examine escape pod
-Error: Engine is not running
+An emergency escape pod hatch in the deck. The status indicator shows green — the pod is functional.
 
 > score
-Error: Engine is not running
+You have scored 40 out of 60, earning you the rank of a Witness.
 
 > open bridge door
-Error: Engine is not running
+The bridge door is already open.
 
 > south
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > south
-Error: Engine is not running
+Crew Bunks
+Sleeping pods stacked four high, most stripped. One has deep gouges torn into the wall beside it and dark staining on the mattress, and everybody after that slept somewhere else.
+
+You can see a stun baton and an eva suit here.
 
 > x stun baton
-Error: Engine is not running
+Security-grade stun baton, charge indicator glowing blue. Non-lethal, theoretically.
 
 > x baton
-Error: Engine is not running
+Security-grade stun baton, charge indicator glowing blue. Non-lethal, theoretically.
 
 > x eva suit
-Error: Engine is not running
+A full extravehicular suit for hull work. Bulky, slow, and the only way anybody is getting back down that collar.
 
 > x spacesuit
-Error: Engine is not running
+A full extravehicular suit for hull work. Bulky, slow, and the only way anybody is getting back down that collar.
 
 > south
-Error: Engine is not running
+Common Area
+A cramped rec space. A viewport onto absolutely nothing. Furniture has been dragged against the starboard side and piled high, and a half-finished card game sits on the table where it was abandoned.
+
+You can see Vasik here.
+
+Vasik blocks your way!
 
 > x Vasik
-Error: Engine is not running
+Sharp-featured, in a Meridian uniform that has been slept in for a long time. Eyes that price everything they land on, including you.
 
 > talk to Vasik
-Error: Engine is not running
+Vasik doesn't respond.
 
 > x officer
-Error: Engine is not running
+Sharp-featured, in a Meridian uniform that has been slept in for a long time. Eyes that price everything they land on, including you.
 
 > north
-Error: Engine is not running
+Crew Bunks
+Sleeping pods stacked four high, most stripped. One has deep gouges torn into the wall beside it and dark staining on the mattress, and everybody after that slept somewhere else.
+
+You can see a stun baton and an eva suit here.
 
 > north
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > down
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
 
 > west
-Error: Engine is not running
+Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
+
+You can see Lis here.
+
+Lis notices you.
 
 > west
-Error: Engine is not running
+Science Lab
+Workbenches under a drift of equipment. Sealed sample containers in a wall cabinet, all present, all accounted for. A research terminal blinks patiently in standby. Several instruments have been smashed, thoroughly, by hand.
 
 > east
-Error: Engine is not running
+Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
+
+You can see Lis here.
+
+Lis notices you.
 
 > south
-Error: Engine is not running
+Medbay
+Treatment beds with restraints on them. A quarantine cell in the corner, its door standing open — bent outward, from the inside.
+
+You can see a medkit here.
 
 > x medkit
-Error: Engine is not running
+Bandages, stimulants, and a full course of broad-spectrum anti-pathogen treatment. Somebody left in a hurry without it.
 
 > x medical kit
-Error: Engine is not running
+Bandages, stimulants, and a full course of broad-spectrum anti-pathogen treatment. Somebody left in a hurry without it.
 
 > north
-Error: Engine is not running
+Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
 
 > east
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
 
 > east
-Error: Engine is not running
+Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.
 
 > east
-Error: Engine is not running
+Mess Hall
+Long tables bolted to the deck, trays still out from a meal nobody finished. A food fabrication unit stands against the far wall, dark. Motivational posters at eye level, everywhere you look.
 
 > x data chip
-Error: Engine is not running
+You can't see any such thing.
 
 > x chip
-Error: Engine is not running
+You can't see any such thing.
 
 > west
-Error: Engine is not running
+Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.
 
 > south
-Error: Engine is not running
+Library
+Rows of data terminals — the ship's central archive. The screens glow faintly, waiting to be asked something. One good chair, the only comfortable object on this deck.
 
 > x Lis
-Error: Engine is not running
+You can't see any such thing.
 
 > talk to Lis
-Error: Engine is not running
+You can't see any such thing.
 
 > x crewman
-Error: Engine is not running
+You can't see any such thing.
 
 > x soms terminal
-Error: Engine is not running
+A wall terminal for the Stillwater Onboard Management System. The screen is already awake. It was awake before you came in.
+
+"Good morning. I am the Stillwater's onboard management system. How may I assist you today?"
 
 > x soms
-Error: Engine is not running
+A wall terminal for the Stillwater Onboard Management System. The screen is already awake. It was awake before you came in.
 
 > north
-Error: Engine is not running
+Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.
 
 > west
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+Lis notices you.
 
 > down
-Error: Engine is not running
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
 
 > open elevator
-Error: Engine is not running
+The elevator can't be opened.
 
 > west
-Error: Engine is not running
+The car is not going anywhere with the drive cable in two pieces.
 
 > south
-Error: Engine is not running
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
 
 > north
-Error: Engine is not running
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
+
+You can see Lis here.
+
+Lis notices you.
 
 > east
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > east
-Error: Engine is not running
+Maintenance Shaft
+Bundled cable and fiber run the length of the conduit, strapped in fat bundles to the bulkhead. Some of it pulses, faintly, in a rhythm that is not quite a heartbeat.
 
 > east
-Error: Engine is not running
+You can't go that way.
 
 > west
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > south
-Error: Engine is not running
+Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+Okafor blocks your way!
 
 > x makeshift camp
-Error: Engine is not running
+Packing foam for a mattress, ration wrappers flattened and stacked, a barricade of crates arranged to watch the fore approach. Tidy. The work of somebody who expects to still be here next month.
 
 > x camp
-Error: Engine is not running
+Packing foam for a mattress, ration wrappers flattened and stacked, a barricade of crates arranged to watch the fore approach. Tidy. The work of somebody who expects to still be here next month.
 
 > x Okafor
-Error: Engine is not running
+Built, watchful, in prison transport greys gone soft with wear. Somebody who learned patience the hard way and has plenty left.
 
 > talk to Okafor
-Error: Engine is not running
+Okafor doesn't respond.
 
 > x prisoner
-Error: Engine is not running
+Built, watchful, in prison transport greys gone soft with wear. Somebody who learned patience the hard way and has plenty left.
 
 > open cargo bulkhead
-Error: Engine is not running
+The cargo bulkhead is locked.
 
 > south
-Error: Engine is not running
+The cargo bulkhead is locked.
 
 > open cargo bulkhead
-Error: Engine is not running
+The cargo bulkhead is locked.
 
 > north
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > east
-Error: Engine is not running
+Maintenance Shaft
+Bundled cable and fiber run the length of the conduit, strapped in fat bundles to the bulkhead. Some of it pulses, faintly, in a rhythm that is not quite a heartbeat.
 
 > x hazmat suit
-Error: Engine is not running
+You can't see any such thing.
 
 > x hazmat
-Error: Engine is not running
+You can't see any such thing.
 
 > x elevator parts
-Error: Engine is not running
+You can't see any such thing.
 
 > x motor
-Error: Engine is not running
+You can't see any such thing.
 
 > x fabricator parts
-Error: Engine is not running
+You can't see any such thing.
 
 > x heating elements
-Error: Engine is not running
+You can't see any such thing.
 
 > west
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > north
-Error: Engine is not running
+Airlock
+A cylindrical chamber between two ships. Warning decals, emergency lighting, and gouges in the door frame that nobody made from this side.
 
 > east
-Error: Engine is not running
+You can't go that way.
 
 > south
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > east
-Error: Engine is not running
+Maintenance Shaft
+Bundled cable and fiber run the length of the conduit, strapped in fat bundles to the bulkhead. Some of it pulses, faintly, in a rhythm that is not quite a heartbeat.
 
 > west
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > north
-Error: Engine is not running
+Airlock
+A cylindrical chamber between two ships. Warning decals, emergency lighting, and gouges in the door frame that nobody made from this side.
 
 > north
-Error: Engine is not running
+Hard vacuum on the other side of that hatch. Not without a suit.
 
 > east
-Error: Engine is not running
+You can't go that way.
 
 > north
-Error: Engine is not running
+Hard vacuum on the other side of that hatch. Not without a suit.
 
 > open pressure hatch
-Error: Engine is not running
+The pressure hatch is already open.
 
 > open docking seal
-Error: Engine is not running
+The docking seal can't be opened.
 
 > north
-Error: Engine is not running
+Hard vacuum on the other side of that hatch. Not without a suit.
 
 > north
-Error: Engine is not running
+Hard vacuum on the other side of that hatch. Not without a suit.
 
 > take shipping crates
-Error: Engine is not running
+You can't see any such thing.
 
 > take bedroll
-Error: Engine is not running
+You can't see any such thing.
 
 > take flashlight
-Error: Engine is not running
+You already have the flashlight.
 
 > turn on flashlight
-Error: Engine is not running
+The flashlight is already on.
 
 > eat ration bar
-Error: Engine is not running
+You can't see any such thing.
 
 > take ration bar
-Error: Engine is not running
+You can't see any such thing.
 
 > drop ration bar
-Error: Engine is not running
+You can't see any such thing.
 
 > take salvage manifest
-Error: Engine is not running
+You already have the salvage manifest.
 
 > drop salvage manifest
-Error: Engine is not running
+Dropped.
 
 > south
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > take proximity alarm
-Error: Engine is not running
+You can't see any such thing.
 
 > push alarm button
-Error: Engine is not running
+You can't see any such thing.
 
 > take alarm button
-Error: Engine is not running
+You can't see any such thing.
 
 > take instrument panel
-Error: Engine is not running
+You can't see any such thing.
 
 > take docking controls
-Error: Engine is not running
+You can't see any such thing.
 
 > take thrusters
-Error: Engine is not running
+You can't see any such thing.
 
 > take pressure readout
-Error: Engine is not running
+You can't see any such thing.
 
 > take nav computer
-Error: Engine is not running
+You can't see any such thing.
 
 > take comms system
-Error: Engine is not running
+You can't see any such thing.
 
 > take fuel gauge
-Error: Engine is not running
+You can't see any such thing.
 
 > take pilot's seat
-Error: Engine is not running
+You can't see any such thing.
 
 > take viewport
-Error: Engine is not running
+You can't see any such thing.
 
 > open pressure hatch
-Error: Engine is not running
+You can't see any such thing.
 
 > open docking controls
-Error: Engine is not running
+You can't see any such thing.
 
 > south
-Error: Engine is not running
+Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+Okafor blocks your way!
 
 > take docking seal
-Error: Engine is not running
+You can't see any such thing.
 
 > take inspection window
-Error: Engine is not running
+You can't see any such thing.
 
 > take biohazard sign
-Error: Engine is not running
+You can't see any such thing.
 
 > south
-Error: Engine is not running
+The cargo bulkhead is locked.
 
 > take loose floor panel
-Error: Engine is not running
+You can't see any such thing.
 
 > east
-Error: Engine is not running
+Storage Annex
+Industrial shelving, floor to ceiling, picked over by somebody who knew what they were looking for. A yellow suit hangs from a hook by the door.
+
+You can see a hazmat suit, elevator parts, and fabricator parts here.
 
 > x trunk cables
-Error: Engine is not running
+You can't see any such thing.
 
 > take trunk cables
-Error: Engine is not running
+You can't see any such thing.
 
 > x cables
-Error: Engine is not running
+You can't see any such thing.
 
 > west
-Error: Engine is not running
+Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+Okafor blocks your way!
 
 > south
-Error: Engine is not running
+The cargo bulkhead is locked.
 
 > take makeshift camp
-Error: Engine is not running
+The makeshift camp is fixed in place.
 
 > east
-Error: Engine is not running
+Storage Annex
+Industrial shelving, floor to ceiling, picked over by somebody who knew what they were looking for. A yellow suit hangs from a hook by the door.
+
+You can see a hazmat suit, elevator parts, and fabricator parts here.
 
 > wear hazmat suit
-Error: Engine is not running
+(first taking the hazmat suit)
+
+Taken.
+
+You put on the hazmat suit.
 
 > take off hazmat suit
-Error: Engine is not running
+You take off the hazmat suit.
 
 > take hazmat suit
-Error: Engine is not running
+You already have the hazmat suit.
 
 > drop hazmat suit
-Error: Engine is not running
+Dropped.
 
 > take elevator parts
-Error: Engine is not running
+Taken.
 
 > drop elevator parts
-Error: Engine is not running
+Dropped.
 
 > take fabricator parts
-Error: Engine is not running
+Taken.
 
 > drop fabricator parts
-Error: Engine is not running
+Dropped.
 
 > west
-Error: Engine is not running
+Cargo Bay
+Cavernous, the ceiling lost above the reach of any light you have. Shipping containers in rows — and one row pried open and dragged around into a rough square. Somebody has been living in here.
+
+You can see Okafor here.
+
+Okafor blocks your way!
 
 > north
-Error: Engine is not running
+Forward Corridor
+A long corridor through the bow. Overhead panels hang loose on their hinges. The floor plates rattle underfoot, and the air smells of machine oil and something faintly chemical underneath it.
 
 > west
-Error: Engine is not running
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
 
 > take elevator
-Error: Engine is not running
+The elevator is fixed in place.
 
 > south
-Error: Engine is not running
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
 
 > south
-Error: Engine is not running
+Engine Room
+The guts of the ship. Pipes and valves crowd every surface. A low hum vibrates up through the deck plates and settles behind your eyes. A tool rack lines the far wall.
+
+You can see Reed here.
 
 > take multi-tool
-Error: Engine is not running
+You already have the multi-tool.
 
 > drop multi-tool
-Error: Engine is not running
+Dropped.
 
 > take security override tool
-Error: Engine is not running
+You already have the security override tool.
 
 > drop security override tool
-Error: Engine is not running
+Dropped.
 
 > take cable snips
-Error: Engine is not running
+You already have the cable snips.
 
 > drop cable snips
-Error: Engine is not running
+Dropped.
 
 > north
-Error: Engine is not running
+Aft Corridor
+The corridor narrows toward the stern. The deck plates are warm underfoot, and getting warmer. Something below is coming back to life.
 
 > north
-Error: Engine is not running
+Lower Mid Corridor
+A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
 
 > up
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
 
 > take corporate signage
-Error: Engine is not running
+The corporate signage is fixed in place.
 
 > west
-Error: Engine is not running
+Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
 
 > south
-Error: Engine is not running
+Medbay
+Treatment beds with restraints on them. A quarantine cell in the corner, its door standing open — bent outward, from the inside.
+
+You can see a medkit here.
 
 > take medkit
-Error: Engine is not running
+Taken.
 
 > drop medkit
-Error: Engine is not running
+Dropped.
 
 > north
-Error: Engine is not running
+Lab Corridor
+Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
 
 > east
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
 
 > east
-Error: Engine is not running
+Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.
 
 > east
-Error: Engine is not running
+Mess Hall
+Long tables bolted to the deck, trays still out from a meal nobody finished. A food fabrication unit stands against the far wall, dark. Motivational posters at eye level, everywhere you look.
 
 > take data chip
-Error: Engine is not running
+You can't see any such thing.
 
 > drop data chip
-Error: Engine is not running
+You can't see any such thing.
 
 > west
-Error: Engine is not running
+Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.
 
 > south
-Error: Engine is not running
+Library
+Rows of data terminals — the ship's central archive. The screens glow faintly, waiting to be asked something. One good chair, the only comfortable object on this deck.
 
 > take soms terminal
-Error: Engine is not running
+The soms terminal is fixed in place.
 
 > north
-Error: Engine is not running
+Hab Corridor
+Warmer colors here, or they were once. A bulletin board with crew photographs pinned to it, curling at the corners.
 
 > west
-Error: Engine is not running
+Central Junction
+A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+You can see Lis here.
+
+Lis notices you.
 
 > up
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > south
-Error: Engine is not running
+Crew Bunks
+Sleeping pods stacked four high, most stripped. One has deep gouges torn into the wall beside it and dark staining on the mattress, and everybody after that slept somewhere else.
+
+You can see a stun baton and an eva suit here.
 
 > take stun baton
-Error: Engine is not running
+Taken.
 
 > drop stun baton
-Error: Engine is not running
+Dropped.
 
 > wear eva suit
-Error: Engine is not running
+(first taking the eva suit)
+
+Taken.
+
+You put on the eva suit.
 
 > take off eva suit
-Error: Engine is not running
+You take off the eva suit.
 
 > take eva suit
-Error: Engine is not running
+You already have the eva suit.
 
 > drop eva suit
-Error: Engine is not running
+Dropped.
 
 > north
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > east
-Error: Engine is not running
+Captain's Cabin
+Modest quarters — more room than the bunks, but not by much. Framed photographs, a half-read book, dried flowers in a vase. A desk bolted to the bulkhead.
+
+You can see Lis here.
 
 > open captain's desk
-Error: Engine is not running
+The captain's desk is locked.
 
 > close captain's desk
-Error: Engine is not running
+The captain's desk is already closed.
 
 > open captain's desk
-Error: Engine is not running
+The captain's desk is locked.
 
 > unlock captain's desk
-Error: Engine is not running
+What do you want to unlock it with?
 
 > open captain's desk
-Error: Engine is not running
+The captain's desk is locked.
 
 > open captain's desk
-Error: Engine is not running
+The captain's desk is locked.
 
 > take captain's desk
-Error: Engine is not running
+The captain's desk is fixed in place.
 
 > take captain's journal
-Error: Engine is not running
+You already have the captain's journal.
 
 > drop captain's journal
-Error: Engine is not running
+Dropped.
 
 > take bridge keycard
-Error: Engine is not running
+You already have the bridge keycard.
 
 > drop bridge keycard
-Error: Engine is not running
+Dropped.
 
 > west
-Error: Engine is not running
+Upper Corridor
+A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
 
 > open bridge door
-Error: Engine is not running
+The bridge door is already open.
 
 > north
-Error: Engine is not running
+Bridge
+The nerve center. A wraparound console, the captain's chair, and a forward viewport full of stars. Unlike everywhere else on this ship, every screen up here is alive.
 
 > take security override panel
-Error: Engine is not running
+The security override panel is fixed in place.
 
 > overriding security override panel
-Error: Engine is not running
+I don't understand that.
 
 > take escape pod hatch
-Error: Engine is not running
+The escape pod hatch is fixed in place.
 
 > launching escape pod hatch
-Error: Engine is not running
+I don't understand that.
 
 > score
-Error: Engine is not running
+You have scored 40 out of 60, earning you the rank of a Witness.
 
 > launch pod
-Error: Engine is not running
+You seal the escape pod hatch and hit the launch control. The pod jolts free of The Stillwater with a bang that shakes your teeth.
+
+Through the tiny viewport, the freighter shrinks. Still dark. Still drifting. Still carrying its cargo of frozen prisoners and borrowed souls.
+
+You made it out. You left everyone behind.
+
+The pod's beacon activates automatically. Someone will pick you up. Eventually.
+
+You stare at the stars and try not to think about Reed's smile.
+
+*** THE END ***
+
+(Ending: Escape Alone)
