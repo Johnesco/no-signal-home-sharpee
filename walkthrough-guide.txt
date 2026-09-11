@@ -7,7 +7,7 @@
 # to, and any verb the story defines itself. Refusals are coverage too
 # — taking scenery should fail, and the transcript records that it did.
 #
-# 26 of 26 rooms swept, 44 of 53 things exercised, 306 commands.
+# 26 of 26 rooms swept, 44 of 53 things exercised, 289 commands.
 #
 # Not exercised — held inside a closed thing, carried from the
 # start, or the player character itself: Lower Deck, Mid Deck, Salvage Tug, Upper Deck, bridge door, cargo access code, cargo bulkhead, pressure hatch, salvager.
@@ -20,14 +20,11 @@
 > x bedroll
 > x bedding
 > x flashlight
-> i
 > x torch
 > x ration bar
-> i
 > x ration
 > x salvage manifest
 > read salvage manifest
-> i
 > x manifest
 > take flashlight
 > south
@@ -80,13 +77,10 @@
 > south
 > south
 > x multi-tool
-> i
 > x tool
 > x security override tool
-> i
 > x override tool
 > x cable snips
-> i
 > x snips
 > x Reed
 > talk to Reed
@@ -105,14 +99,11 @@
 > east
 > x captain's desk
 > look in captain's desk
-> look in captain's desk
 > x desk
 > x captain's journal
 > read captain's journal
-> i
 > x journal
 > x bridge keycard
-> i
 > x keycard
 > examine desk
 > pry open desk
@@ -134,10 +125,8 @@
 > south
 > south
 > x stun baton
-> i
 > x baton
 > x eva suit
-> i
 > x spacesuit
 > south
 > x Vasik
@@ -151,14 +140,12 @@
 > east
 > south
 > x medkit
-> i
 > x medical kit
 > north
 > east
 > east
 > east
 > x data chip
-> i
 > x chip
 > west
 > south
@@ -177,8 +164,6 @@
 > east
 > east
 > east
-> x trunk cables
-> x cables
 > west
 > south
 > x makeshift camp
@@ -192,13 +177,10 @@
 > north
 > east
 > x hazmat suit
-> i
 > x hazmat
 > x elevator parts
-> i
 > x motor
 > x fabricator parts
-> i
 > x heating elements
 > west
 > north
@@ -245,7 +227,9 @@
 > south
 > take loose floor panel
 > east
+> x trunk cables
 > take trunk cables
+> x cables
 > west
 > south
 > take makeshift camp
@@ -318,5 +302,4 @@
 > take escape pod hatch
 > launching escape pod hatch
 > score
-> inventory
 > launch pod

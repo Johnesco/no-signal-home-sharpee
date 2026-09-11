@@ -42,36 +42,27 @@ A heavy work light. The battery bar reads half.
 
 The alarm goes on doing the only thing it knows.
 
-> i
-You aren't carrying anything at all.
-
-You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
-
 > x torch
 A heavy work light. The battery bar reads half.
 
-Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
 
 > x ration bar
+Meridian Solutions branded, which tells you something about where you shop. YOUR PRODUCTIVITY IS YOUR LEGACY, says the wrapper.
+
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
+
+> x ration
 Meridian Solutions branded, which tells you something about where you shop. YOUR PRODUCTIVITY IS YOUR LEGACY, says the wrapper.
 
 You never do work out what the alarm was for. The hull comes through the viewport at closing speed and the cockpit stops being a room.
 
 Your last thought, as you are ejected into space, is that must have been a proximity alarm.
 
-> i
-Error: Engine is not running
-
-> x ration
-Error: Engine is not running
-
 > x salvage manifest
 Error: Engine is not running
 
 > read salvage manifest
-Error: Engine is not running
-
-> i
 Error: Engine is not running
 
 > x manifest
@@ -230,25 +221,16 @@ Error: Engine is not running
 > x multi-tool
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x tool
 Error: Engine is not running
 
 > x security override tool
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x override tool
 Error: Engine is not running
 
 > x cable snips
-Error: Engine is not running
-
-> i
 Error: Engine is not running
 
 > x snips
@@ -305,9 +287,6 @@ Error: Engine is not running
 > look in captain's desk
 Error: Engine is not running
 
-> look in captain's desk
-Error: Engine is not running
-
 > x desk
 Error: Engine is not running
 
@@ -317,16 +296,10 @@ Error: Engine is not running
 > read captain's journal
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x journal
 Error: Engine is not running
 
 > x bridge keycard
-Error: Engine is not running
-
-> i
 Error: Engine is not running
 
 > x keycard
@@ -392,16 +365,10 @@ Error: Engine is not running
 > x stun baton
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x baton
 Error: Engine is not running
 
 > x eva suit
-Error: Engine is not running
-
-> i
 Error: Engine is not running
 
 > x spacesuit
@@ -443,9 +410,6 @@ Error: Engine is not running
 > x medkit
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x medical kit
 Error: Engine is not running
 
@@ -462,9 +426,6 @@ Error: Engine is not running
 Error: Engine is not running
 
 > x data chip
-Error: Engine is not running
-
-> i
 Error: Engine is not running
 
 > x chip
@@ -521,12 +482,6 @@ Error: Engine is not running
 > east
 Error: Engine is not running
 
-> x trunk cables
-Error: Engine is not running
-
-> x cables
-Error: Engine is not running
-
 > west
 Error: Engine is not running
 
@@ -566,25 +521,16 @@ Error: Engine is not running
 > x hazmat suit
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x hazmat
 Error: Engine is not running
 
 > x elevator parts
 Error: Engine is not running
 
-> i
-Error: Engine is not running
-
 > x motor
 Error: Engine is not running
 
 > x fabricator parts
-Error: Engine is not running
-
-> i
 Error: Engine is not running
 
 > x heating elements
@@ -725,7 +671,13 @@ Error: Engine is not running
 > east
 Error: Engine is not running
 
+> x trunk cables
+Error: Engine is not running
+
 > take trunk cables
+Error: Engine is not running
+
+> x cables
 Error: Engine is not running
 
 > west
@@ -942,9 +894,6 @@ Error: Engine is not running
 Error: Engine is not running
 
 > score
-Error: Engine is not running
-
-> inventory
 Error: Engine is not running
 
 > launch pod

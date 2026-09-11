@@ -4,14 +4,11 @@ x crates
 x bedroll
 x bedding
 x flashlight
-i
 x torch
 x ration bar
-i
 x ration
 x salvage manifest
 read salvage manifest
-i
 x manifest
 take flashlight
 south
@@ -64,13 +61,10 @@ x lift
 south
 south
 x multi-tool
-i
 x tool
 x security override tool
-i
 x override tool
 x cable snips
-i
 x snips
 x Reed
 talk to Reed
@@ -89,14 +83,11 @@ up
 east
 x captain's desk
 look in captain's desk
-look in captain's desk
 x desk
 x captain's journal
 read captain's journal
-i
 x journal
 x bridge keycard
-i
 x keycard
 examine desk
 pry open desk
@@ -118,10 +109,8 @@ open bridge door
 south
 south
 x stun baton
-i
 x baton
 x eva suit
-i
 x spacesuit
 south
 x Vasik
@@ -135,14 +124,12 @@ west
 east
 south
 x medkit
-i
 x medical kit
 north
 east
 east
 east
 x data chip
-i
 x chip
 west
 south
@@ -161,8 +148,6 @@ north
 east
 east
 east
-x trunk cables
-x cables
 west
 south
 x makeshift camp
@@ -176,13 +161,10 @@ open cargo bulkhead
 north
 east
 x hazmat suit
-i
 x hazmat
 x elevator parts
-i
 x motor
 x fabricator parts
-i
 x heating elements
 west
 north
@@ -229,7 +211,9 @@ take biohazard sign
 south
 take loose floor panel
 east
+x trunk cables
 take trunk cables
+x cables
 west
 south
 take makeshift camp
@@ -302,5 +286,4 @@ overriding security override panel
 take escape pod hatch
 launching escape pod hatch
 score
-inventory
 launch pod
