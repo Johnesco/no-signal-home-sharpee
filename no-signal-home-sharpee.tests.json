@@ -1503,7 +1503,55 @@
         "contains": [
           "You have scored 30 out of 60, earning you the rank of a Trespasser."
         ]
-      }
+      },
+      "branches": [
+        {
+          "branch": 9,
+          "cards": [
+            {
+              "type": "turn",
+              "command": "launch pod",
+              "assertions": {
+                "contains": [
+                  "The pod jolts free of The Stillwater with a bang that shakes your teeth.",
+                  "You made it out. You left everyone behind.",
+                  "(Ending: Escape Alone)"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "look",
+              "assertions": {
+                "contains": [
+                  "The game has ended"
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "restart",
+              "assertions": {
+                "contains": [
+                  "The story restarts."
+                ]
+              }
+            },
+            {
+              "type": "turn",
+              "command": "look",
+              "assertions": {
+                "contains": [
+                  "Tug Cargo Hold"
+                ],
+                "notContains": [
+                  "The game has ended"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "turn",
