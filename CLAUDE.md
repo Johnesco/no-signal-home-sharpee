@@ -47,7 +47,7 @@ no-signal-home-sharpee/
 ├── CLAUDE.md                          THIS FILE
 ├── README.md                          public documentation
 ├── no-signal-home-sharpee.story       the game, one Chord file (~1,300 lines)
-├── no-signal-home-sharpee.tests.json  tests document: the opening's five outcomes, exploration, both endings
+├── no-signal-home-sharpee.tests/      tests document (segmented; edit through @sharpee/branch-tester, never by hand): the opening's five outcomes, exploration, both endings
 ├── no-signal-home-sharpee.config.json IFID
 ├── ifhub.conf                         the IF Hub card
 ├── docs/                              design documents (see above)

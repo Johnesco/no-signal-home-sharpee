@@ -23,7 +23,7 @@ Figure out what happened. Decide what matters. Get out alive. Maybe.
 ```
 no-signal-home-sharpee/
 ├── no-signal-home-sharpee.story       the game, one Chord file
-├── no-signal-home-sharpee.tests.json  tests document (sharpee test)
+├── no-signal-home-sharpee.tests/      tests document, one file per segment (sharpee test)
 ├── docs/                              design documents and the Chord port notes
 ├── legacy/                            the earlier TypeScript edition, kept as the reference
 └── play.html, game.js, ...            the built web player, laid out by the workspace build
