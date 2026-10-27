@@ -1,0 +1,44 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "a green you do not entirely believe.",
+          "it is holding the way a thing holds when it has not decided yet."
+        ],
+        "states": [
+          "the pressure readout is idle"
+        ]
+      },
+      "command": "seal",
+      "id": "wwzs4zwx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Airlock",
+          "SEAL INTEGRITY CRITICAL. Atmosphere beyond the inner door reads hard vacuum."
+        ]
+      },
+      "command": "south",
+      "id": "lawvqy67",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor",
+          "Two steps into the corridor, the collar behind you stops holding.",
+          "The Stillwater does not notice."
+        ]
+      },
+      "command": "south",
+      "id": "q9na22md",
+      "type": "turn"
+    }
+  ],
+  "id": "yi9oc2bq",
+  "ordinal": 1,
+  "parent": "bms3lacb"
+}

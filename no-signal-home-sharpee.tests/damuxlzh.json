@@ -1,0 +1,191 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Aft Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "qrnpfj0s",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "s2bd3s7e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Central Junction"
+        ]
+      },
+      "command": "up",
+      "id": "xxz1r50b",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Upper Corridor"
+        ]
+      },
+      "command": "up",
+      "id": "zcll383y",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Captain's Cabin",
+          "A desk bolted to the bulkhead."
+        ]
+      },
+      "command": "east",
+      "id": "8onaesg0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The drawer has a simple mechanical lock, which is almost sweet."
+        ]
+      },
+      "command": "examine desk",
+      "id": "beg1osy5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The drawer skids open and a magnetic keycard slides out onto the deck",
+          "BRIDGE ACCESS, CAPTAIN ONLY"
+        ],
+        "states": [
+          "the captain's desk is forced"
+        ]
+      },
+      "command": "pry open desk",
+      "id": "14jt0r2d",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains bridge keycard"
+        ]
+      },
+      "command": "take keycard",
+      "id": "en7179yi",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The drawer is already open to persuasion. Just open it."
+        ]
+      },
+      "command": "pry desk",
+      "id": "gr09j8vw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Day 847 — Meridian lied about the cargo.",
+          "Do not trust the AI.",
+          "I can hear it thinking."
+        ]
+      },
+      "command": "read journal",
+      "id": "7v1nlhp2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Upper Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "462tgc1e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the bridge door with the bridge keycard."
+        ]
+      },
+      "command": "unlock bridge door with keycard",
+      "id": "ge5hdv2i",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the bridge door."
+        ]
+      },
+      "command": "open bridge door",
+      "id": "uidhjcsy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Bridge",
+          "a forward viewport full of stars."
+        ],
+        "states": [
+          "player.location = Bridge"
+        ]
+      },
+      "command": "north",
+      "id": "el7usqsk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "politely reverses it. SOMS is still in the loop."
+        ]
+      },
+      "command": "override panel",
+      "id": "70nun6d0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The status indicator shows green — the pod is functional."
+        ]
+      },
+      "command": "examine escape pod",
+      "id": "en9s3g72",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You have scored 30 out of 60, earning you the rank of a Trespasser."
+        ]
+      },
+      "command": "score",
+      "id": "82d4u19r",
+      "type": "turn"
+    }
+  ],
+  "id": "damuxlzh",
+  "ordinal": 0,
+  "parent": "avpheqkh"
+}

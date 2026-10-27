@@ -1,0 +1,50 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Taken.",
+          "Half charge. You have navigated worse on less."
+        ],
+        "states": [
+          "player.inventory contains flashlight"
+        ]
+      },
+      "command": "take flashlight",
+      "id": "5lvqy8bx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cockpit",
+          "something enormous and unlit takes up the whole of the sky."
+        ],
+        "states": [
+          "player.location = Tug Cockpit"
+        ]
+      },
+      "command": "south",
+      "id": "0kmgkogx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You hit it hard enough to hurt. The alarm stops.",
+          "close enough to read the weld seams.",
+          "getting larger"
+        ],
+        "states": [
+          "the proximity alarm is silent"
+        ]
+      },
+      "command": "press button",
+      "id": "mxpincsg",
+      "type": "turn"
+    }
+  ],
+  "id": "px8tf7x2",
+  "ordinal": 0,
+  "parent": "vmbcekxi"
+}

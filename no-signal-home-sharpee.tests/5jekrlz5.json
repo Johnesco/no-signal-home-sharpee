@@ -1,0 +1,44 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Study the docking controls first."
+        ]
+      },
+      "command": "maneuver",
+      "id": "pdkfj748",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Helm, thrusters, arm, seal — in that order",
+          "You have used worse this year."
+        ],
+        "states": [
+          "the instrument panel is live"
+        ]
+      },
+      "command": "examine docking controls",
+      "id": "evshojcp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the helm off autopilot."
+        ],
+        "states": [
+          "the docking controls is maneuvered"
+        ]
+      },
+      "command": "maneuver",
+      "id": "80cs57yx",
+      "type": "turn"
+    }
+  ],
+  "id": "5jekrlz5",
+  "ordinal": 0,
+  "parent": "px8tf7x2"
+}

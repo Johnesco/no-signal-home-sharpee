@@ -1,0 +1,207 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Aft Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "lqw40dg4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "uc56vuh1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ]
+      },
+      "command": "east",
+      "id": "n3xdl85m",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Maintenance Shaft",
+          "not quite a heartbeat."
+        ]
+      },
+      "command": "east",
+      "id": "segr460v",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fiber-optic bundle parts with a bright flash.",
+          "SOMS' voice is gone."
+        ],
+        "states": [
+          "the trunk cables is severed",
+          "the soms terminal is fragmenting"
+        ]
+      },
+      "command": "cut cables",
+      "id": "p06lx2tz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The trunk is already in two pieces"
+        ]
+      },
+      "command": "cut cables",
+      "id": "6yslmava",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "1vlpvg8e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "fcikavlk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Central Junction"
+        ]
+      },
+      "command": "up",
+      "id": "4cqjl0sh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Upper Corridor"
+        ]
+      },
+      "command": "up",
+      "id": "dtelsasw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Captain's Cabin"
+        ]
+      },
+      "command": "east",
+      "id": "6swhl793",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the captain's desk with the multi-tool."
+        ]
+      },
+      "command": "unlock desk with multi-tool",
+      "id": "w6eoot2w",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the captain's desk.",
+          "bridge keycard"
+        ]
+      },
+      "command": "open desk",
+      "id": "6ajd8b7h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the bridge keycard from the captain's desk."
+        ]
+      },
+      "command": "take keycard",
+      "id": "72rg1698",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Upper Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "qbnhv1yk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the bridge door with the bridge keycard."
+        ]
+      },
+      "command": "unlock bridge door with keycard",
+      "id": "icfu2qcx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the bridge door."
+        ]
+      },
+      "command": "open bridge door",
+      "id": "yxcrgmhg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Bridge",
+          "every screen up here is alive."
+        ]
+      },
+      "command": "north",
+      "id": "io3ov2rc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Every locked door on the ship clicks open simultaneously.",
+          "SOMS goes silent. Not dead — disabled. Contained.",
+          "(Ending: Override The AI)"
+        ]
+      },
+      "command": "override security panel",
+      "id": "o93fvq2n",
+      "type": "turn"
+    }
+  ],
+  "id": "pm1d7sag",
+  "ordinal": 1,
+  "parent": "avpheqkh"
+}

@@ -1,0 +1,19 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "The pod jolts free of The Stillwater with a bang that shakes your teeth.",
+          "You made it out. You left everyone behind.",
+          "(Ending: Escape Alone)"
+        ]
+      },
+      "command": "launch pod",
+      "id": "ocsbp0bl",
+      "type": "turn"
+    }
+  ],
+  "id": "qqknsk2u",
+  "ordinal": 0,
+  "parent": "damuxlzh"
+}

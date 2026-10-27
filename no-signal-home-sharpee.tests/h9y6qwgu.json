@@ -1,0 +1,66 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cockpit"
+        ],
+        "states": [
+          "player.location = Tug Cockpit"
+        ]
+      },
+      "command": "aft",
+      "id": "acyh2z5o",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cargo Hold"
+        ],
+        "states": [
+          "player.location = Tug Cargo Hold"
+        ]
+      },
+      "command": "fore",
+      "id": "zmteoo0f",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cockpit"
+        ]
+      },
+      "command": "go aft",
+      "id": "exuczok7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't go that way."
+        ],
+        "states": [
+          "player.location = Tug Cockpit"
+        ]
+      },
+      "command": "starboard",
+      "id": "z450ge3n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't go that way."
+        ]
+      },
+      "command": "port",
+      "id": "s52tqkqi",
+      "type": "turn"
+    }
+  ],
+  "id": "h9y6qwgu",
+  "ordinal": 2,
+  "parent": "vmbcekxi"
+}

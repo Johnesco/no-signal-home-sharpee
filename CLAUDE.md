@@ -134,6 +134,7 @@ ADRs live in `docs/adr/` once the first one exists (index: `docs/adr/README.md`)
 ## Project History
 
 ### Recent Changes
+- 2026-10-27 (#35): Chord 4.0 upgrade. Kinds lead every block, rooms name their region, the tests document is the `no-signal-home-sharpee.tests/` directory. Vasik's chip topic is text-keyed and gated on holding the chip, because the derived rule tests cannot bring a `concealed` thing into scope.
 - 2026-09-08 (#32): Chord edition migrated to 3.6.0 and moved to the repo root; TypeScript edition moved to `legacy/`; the desk pry, cable cut, security override, escape pod, and both endings ported from the TypeScript edition; adopted into the workspace docs model.
 - 2026-07-28 (#32): Chord edition drafted at 3.0.0: full world, Act 1, compile-check loop.
 - 2026-04-28: TypeScript engine bump to 0.9.113, 197/197 transcript assertions.

@@ -1,0 +1,102 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "DEEP REACH SALVAGE",
+          "Your name on someone else's paperwork."
+        ]
+      },
+      "command": "examine crates",
+      "id": "xx0rorp7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You have slept in worse. Not much worse."
+        ]
+      },
+      "command": "examine bedroll",
+      "id": "3w43k8kv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "DEEP REACH SALVAGE — DRIFT AUTHORIZATION",
+          "one of you was working."
+        ]
+      },
+      "command": "read datapad",
+      "id": "lxsd6zbt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken.",
+          "Half charge."
+        ]
+      },
+      "command": "take flashlight",
+      "id": "c6htizpi",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take ration bar",
+      "id": "rvjkh9fz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dropped."
+        ]
+      },
+      "command": "drop flashlight",
+      "id": "effxdpxt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take flashlight",
+      "id": "opdvfx8x",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dropped."
+        ]
+      },
+      "command": "drop ration bar",
+      "id": "j17sf39d",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken.",
+          "The hull comes through the viewport at closing speed",
+          "must have been a proximity alarm."
+        ]
+      },
+      "command": "take ration bar",
+      "id": "s1c7y9a0",
+      "type": "turn"
+    }
+  ],
+  "id": "24pdaim6",
+  "ordinal": 1,
+  "parent": "vmbcekxi"
+}

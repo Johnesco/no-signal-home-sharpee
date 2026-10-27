@@ -1,0 +1,208 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Approach vector, closing rate, attitude."
+        ]
+      },
+      "command": "examine instrument panel",
+      "id": "832gu7cw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Three percent"
+        ]
+      },
+      "command": "examine fuel gauge",
+      "id": "lrkj83z9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dead. No signal home."
+        ]
+      },
+      "command": "examine comms system",
+      "id": "3y9pyu4g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your chair. Your ship."
+        ]
+      },
+      "command": "examine seat",
+      "id": "3gidftxp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Helm, thrusters, arm, seal"
+        ]
+      },
+      "command": "examine docking controls",
+      "id": "3tajzju1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "worn pale in the middle"
+        ]
+      },
+      "command": "examine alarm button",
+      "id": "k3okbuki",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "currently full of freighter."
+        ]
+      },
+      "command": "examine viewport",
+      "id": "ne8c9552",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cargo Hold"
+        ]
+      },
+      "command": "north",
+      "id": "u9j91mjm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "DEEP REACH SALVAGE"
+        ]
+      },
+      "command": "examine crates",
+      "id": "d4t9eucb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "shaped by months of use"
+        ]
+      },
+      "command": "examine bedroll",
+      "id": "tgholw3m",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "DRIFT AUTHORIZATION"
+        ]
+      },
+      "command": "read datapad",
+      "id": "yruclgnh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "already"
+        ]
+      },
+      "command": "take flashlight",
+      "id": "tibjqyl0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take ration bar",
+      "id": "omonhnve",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dropped."
+        ]
+      },
+      "command": "drop flashlight",
+      "id": "juhkoy4y",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take flashlight",
+      "id": "g9pw90dy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dropped."
+        ]
+      },
+      "command": "drop ration bar",
+      "id": "hhe2mas8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take ration bar",
+      "id": "nbudpsen",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cockpit"
+        ]
+      },
+      "command": "south",
+      "id": "qj13fzxv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Three percent"
+        ]
+      },
+      "command": "examine fuel gauge",
+      "id": "0z09s416",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The Stillwater's hull fills the viewport. Every rivet.",
+          "You had time. You just did not use it."
+        ]
+      },
+      "command": "examine comms system",
+      "id": "a55vjs9h",
+      "type": "turn"
+    }
+  ],
+  "id": "itepknj7",
+  "ordinal": 1,
+  "parent": "px8tf7x2"
+}

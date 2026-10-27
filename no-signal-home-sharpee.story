@@ -1,7 +1,7 @@
 ## No Signal Home — a sci-fi salvage horror on a derelict corporate freighter.
 ## Chord edition. Ported from the TypeScript source (now in legacy/src/) — see
 ## docs/chord-edition.md for what carried over, what changed, and what is open.
-## Migrated to Chord 3.6.0 on 2026-09-08 (ticket #32).
+## Migrated to Chord 3.6.0 on 2026-09-08 (ticket #32), to Chord 4.0.0 on 2026-10-27 (#35).
 
 story
   title: No Signal Home
@@ -31,14 +31,9 @@ story
 
 create the Salvage Tug
   a region
-  containing the Tug Cargo Hold, the Tug Cockpit
 
 create the Lower Deck
   a region
-  containing the Airlock, the Forward Corridor, the Maintenance Shaft
-  containing the Cargo Bay, the Cargo Hold, the Storage Annex
-  containing the Lower Mid Corridor, the Cryo Bay, the Cryo Control Room
-  containing the Aft Corridor, the Engine Room, the Reactor Room
 
   after the player entering, once
     change the story to boarded
@@ -50,13 +45,9 @@ create the Lower Deck
 
 create the Mid Deck
   a region
-  containing the Central Junction, the Lab Corridor, the Science Lab
-  containing the Medbay, the Hab Corridor, the Mess Hall, the Library
 
 create the Upper Deck
   a region
-  containing the Upper Corridor, the Crew Bunks, the Common Area
-  containing the Captain's Cabin, the Bridge
 
 ## ===========================================================================
 ## THE TUG — two rooms. Your ship, your home, and the first thing you lose.
@@ -64,6 +55,7 @@ create the Upper Deck
 
 create the Tug Cargo Hold
   a room
+  in the Salvage Tug
   aka hold
   south to the Tug Cockpit
 
@@ -78,6 +70,7 @@ create the Tug Cargo Hold
 
 create the Tug Cockpit
   a room
+  in the Salvage Tug
   aka cockpit
   north to the Tug Cargo Hold
   south to the Airlock through the pressure hatch
@@ -92,6 +85,7 @@ create the Tug Cockpit
 ## --- the Chord form of the old MemoryTrait.
 
 create the proximity alarm
+  a thing
   aka alarm, klaxon
   scenery
   in the Tug Cockpit
@@ -101,6 +95,7 @@ create the proximity alarm
   has ever had.
 
 create the alarm button
+  a thing
   aka button, cutoff
   scenery, pushable
   in the Tug Cockpit
@@ -120,15 +115,17 @@ create the alarm button
   end on
 
 create the instrument panel
+  a thing
   aka instruments, panel, readouts
   scenery
   in the Tug Cockpit
-  states: dark, live
+  states: dim, live
 
   Approach vector, closing rate, attitude. The numbers move while you
   watch them, and none of them move in a direction you like.
 
 create the docking controls
+  a thing
   aka controls, docking, clamp
   scenery
   in the Tug Cockpit
@@ -145,6 +142,7 @@ create the docking controls
   end after
 
 create the thrusters
+  a thing
   aka thruster, retros
   scenery, plural
   in the Tug Cockpit
@@ -154,6 +152,7 @@ create the thrusters
   burn left in them, which is one more than the fuel gauge suggests.
 
 create the pressure readout
+  a thing
   aka readout, seal gauge
   scenery
   in the Tug Cockpit
@@ -163,6 +162,7 @@ create the pressure readout
   question about atmosphere.
 
 create the nav computer
+  a thing
   aka nav, navcom
   scenery
   in the Tug Cockpit
@@ -180,6 +180,7 @@ create the nav computer
   end after
 
 create the comms system
+  a thing
   aka comms, radio, transmitter
   scenery
   in the Tug Cockpit
@@ -195,6 +196,7 @@ create the comms system
   end after
 
 create the fuel gauge
+  a thing
   aka gauge, fuel
   scenery
   in the Tug Cockpit
@@ -207,6 +209,7 @@ create the fuel gauge
   end after
 
 create the pilot's seat
+  a thing
   aka seat, chair
   scenery
   in the Tug Cockpit
@@ -221,6 +224,7 @@ create the pilot's seat
   end after
 
 create the viewport
+  a thing
   aka window
   scenery
   in the Tug Cockpit
@@ -228,6 +232,7 @@ create the viewport
   Scratched, pitted, and currently full of freighter.
 
 create the shipping crates
+  a thing
   aka crates, crate
   scenery, plural
   in the Tug Cargo Hold
@@ -241,6 +246,7 @@ create the shipping crates
   end after
 
 create the bedroll
+  a thing
   aka bedding, nest
   scenery
   in the Tug Cargo Hold
@@ -256,6 +262,7 @@ create the bedroll
 ## --- Tug items.
 
 create the flashlight
+  a thing
   aka torch, lamp
   light-source, switchable, starts on
   in the Tug Cargo Hold
@@ -268,6 +275,7 @@ create the flashlight
   end after
 
 create the ration bar
+  a thing
   aka ration, bar
   edible
   in the Tug Cargo Hold
@@ -276,6 +284,7 @@ create the ration bar
   shop. YOUR PRODUCTIVITY IS YOUR LEGACY, says the wrapper.
 
 create the salvage manifest
+  a thing
   aka manifest, datapad
   readable
   in the Tug Cargo Hold
@@ -454,6 +463,7 @@ create the pressure hatch
 
 create the Airlock
   a room
+  in the Lower Deck
   aka lock
   north to the Tug Cockpit through the pressure hatch
   north is blocked while the docking seal is failed: seal-failed
@@ -476,6 +486,7 @@ create the Airlock
   end after
 
 create the docking seal
+  a thing
   aka seal, collar
   scenery
   in the Airlock
@@ -485,6 +496,7 @@ create the docking seal
   ribbed alloy doing a job it was rated for two decades ago.
 
 create the inspection window
+  a thing
   aka porthole
   scenery
   in the Airlock
@@ -493,6 +505,7 @@ create the inspection window
   tug.
 
 create the biohazard sign
+  a thing
   aka sign, decals
   scenery, readable
   in the Airlock
@@ -509,6 +522,7 @@ create the biohazard sign
 
 create the Forward Corridor
   a room
+  in the Lower Deck
   aka forward
   north to the Airlock
   south to the Cargo Bay
@@ -524,6 +538,7 @@ create the Forward Corridor
   end after
 
 create the loose floor panel
+  a thing
   aka floor plate
   scenery
   in the Forward Corridor
@@ -533,15 +548,17 @@ create the loose floor panel
 
 create the Maintenance Shaft
   a room, dark
+  in the Lower Deck
   aka shaft, conduit
   west to the Forward Corridor
-  south to the Engine Room
+  south to the Engine Room, one-way
 
   Bundled cable and fiber run the length of the conduit, strapped in fat
   bundles to the bulkhead. Some of it pulses, faintly, in a rhythm that is
   not quite a heartbeat.
 
 create the trunk cables
+  a thing
   aka cables, fiber, core cable, trunk
   scenery, plural, cuttable with the cable snips
   in the Maintenance Shaft
@@ -563,6 +580,7 @@ create the trunk cables
 
 create the Cargo Bay
   a room
+  in the Lower Deck
   aka bay
   north to the Forward Corridor
   east to the Storage Annex
@@ -573,6 +591,7 @@ create the Cargo Bay
   into a rough square. Somebody has been living in here.
 
 create the makeshift camp
+  a thing
   aka camp, barricade
   scenery
   in the Cargo Bay
@@ -590,6 +609,7 @@ create the cargo bulkhead
 
 create the Cargo Hold
   a room
+  in the Lower Deck
   aka deep hold
   north to the Cargo Bay through the cargo bulkhead
 
@@ -599,6 +619,7 @@ create the Cargo Hold
 
 create the Storage Annex
   a room
+  in the Lower Deck
   aka annex, storage
   west to the Cargo Bay
 
@@ -607,6 +628,7 @@ create the Storage Annex
 
 create the Lower Mid Corridor
   a room
+  in the Lower Deck
   aka mid corridor
   east to the Forward Corridor
   south to the Aft Corridor
@@ -619,6 +641,7 @@ create the Lower Mid Corridor
   through a hatch in the ceiling.
 
 create the elevator
+  a thing
   aka lift
   scenery
   in the Lower Mid Corridor
@@ -630,6 +653,7 @@ create the elevator
 
 create the Cryo Bay
   a room, dark
+  in the Lower Deck
   aka cryo
   south to the Cryo Control Room
 
@@ -640,6 +664,7 @@ create the Cryo Bay
 
 create the Cryo Control Room
   a room
+  in the Lower Deck
   aka cryo control
   north to the Cryo Bay
 
@@ -648,6 +673,7 @@ create the Cryo Control Room
 
 create the Aft Corridor
   a room
+  in the Lower Deck
   aka aft
   north to the Lower Mid Corridor
   south to the Engine Room
@@ -657,6 +683,7 @@ create the Aft Corridor
 
 create the Engine Room
   a room
+  in the Lower Deck
   aka engineering
   north to the Aft Corridor
   east to the Reactor Room
@@ -667,6 +694,7 @@ create the Engine Room
 
 create the Reactor Room
   a room
+  in the Lower Deck
   aka reactor
   west to the Engine Room
 
@@ -681,6 +709,7 @@ create the Reactor Room
 
 create the Central Junction
   a room
+  in the Mid Deck
   aka junction
   down to the Lower Mid Corridor
   up to the Upper Corridor
@@ -692,6 +721,7 @@ create the Central Junction
   anything.
 
 create the corporate signage
+  a thing
   aka signage, directory
   scenery, readable
   in the Central Junction
@@ -707,6 +737,7 @@ create the corporate signage
 
 create the Lab Corridor
   a room
+  in the Mid Deck
   aka lab hall
   east to the Central Junction
   west to the Science Lab
@@ -718,6 +749,7 @@ create the Lab Corridor
 
 create the Science Lab
   a room
+  in the Mid Deck
   aka lab
   east to the Lab Corridor
 
@@ -728,6 +760,7 @@ create the Science Lab
 
 create the Medbay
   a room
+  in the Mid Deck
   aka medical, infirmary
   north to the Lab Corridor
 
@@ -736,6 +769,7 @@ create the Medbay
 
 create the Hab Corridor
   a room
+  in the Mid Deck
   aka hab
   west to the Central Junction
   east to the Mess Hall
@@ -746,6 +780,7 @@ create the Hab Corridor
 
 create the Mess Hall
   a room
+  in the Mid Deck
   aka mess, canteen
   west to the Hab Corridor
 
@@ -755,6 +790,7 @@ create the Mess Hall
 
 create the Library
   a room
+  in the Mid Deck
   aka archive
   north to the Hab Corridor
 
@@ -769,6 +805,7 @@ create the Library
 
 create the Upper Corridor
   a room
+  in the Upper Deck
   aka upper hall
   down to the Central Junction
   south to the Crew Bunks
@@ -780,6 +817,7 @@ create the Upper Corridor
 
 create the Crew Bunks
   a room
+  in the Upper Deck
   aka bunks, quarters
   north to the Upper Corridor
   south to the Common Area
@@ -790,6 +828,7 @@ create the Crew Bunks
 
 create the Common Area
   a room
+  in the Upper Deck
   aka common room
   north to the Crew Bunks
 
@@ -799,6 +838,7 @@ create the Common Area
 
 create the Captain's Cabin
   a room
+  in the Upper Deck
   aka cabin
   west to the Upper Corridor
 
@@ -815,6 +855,7 @@ create the bridge door
 
 create the Bridge
   a room
+  in the Upper Deck
   aka command
   south to the Upper Corridor through the bridge door
 
@@ -823,6 +864,7 @@ create the Bridge
   every screen up here is alive.
 
 create the security override panel
+  a thing
   aka override panel, security panel, panel, security console, console
   scenery, overridable
   in the Bridge
@@ -831,6 +873,7 @@ create the security override panel
   locked or unlocked. Powerful — and dangerous.
 
 create the escape pod hatch
+  a thing
   aka pod, escape pod, escape hatch, emergency pod
   scenery, launchable
   in the Bridge
@@ -843,6 +886,7 @@ create the escape pod hatch
 ## ===========================================================================
 
 create the hazmat suit
+  a thing
   aka hazmat, yellow suit
   wearable
   in the Storage Annex
@@ -851,6 +895,7 @@ create the hazmat suit
   PRIORITY (TERMS APPLY).
 
 create the elevator parts
+  a thing
   aka motor, drive cable
   plural
   in the Storage Annex
@@ -859,6 +904,7 @@ create the elevator parts
   packaging. Exactly what is missing from the freight elevator.
 
 create the fabricator parts
+  a thing
   aka heating elements, cartridge
   plural
   in the Storage Annex
@@ -867,6 +913,7 @@ create the fabricator parts
   fabrication unit.
 
 create the multi-tool
+  a thing
   aka tool, pliers, pry bar
   in the Engine Room
 
@@ -874,6 +921,7 @@ create the multi-tool
   blade. Standard salvage issue, which is to say: yours, eventually.
 
 create the security override tool
+  a thing
   aka override tool, override, security tool, bypass, device
   in the Engine Room
 
@@ -881,6 +929,7 @@ create the security override tool
   housing, single button, small display.
 
 create the cable snips
+  a thing
   aka snips, cutters
   plural
   in the Engine Room
@@ -889,6 +938,7 @@ create the cable snips
   somebody kept them that way.
 
 create the stun baton
+  a thing
   aka baton
   in the Crew Bunks
 
@@ -896,6 +946,7 @@ create the stun baton
   theoretically.
 
 create the eva suit
+  a thing
   aka spacesuit, eva
   wearable
   in the Crew Bunks
@@ -904,6 +955,7 @@ create the eva suit
   anybody is getting back down that collar.
 
 create the medkit
+  a thing
   aka medical kit, kit
   in the Medbay
 
@@ -911,6 +963,7 @@ create the medkit
   treatment. Somebody left in a hurry without it.
 
 create the data chip
+  a thing
   aka chip, evidence
   concealed
   in the Mess Hall
@@ -938,6 +991,7 @@ create the captain's desk
   lock, which is almost sweet.
 
 create the bridge keycard
+  a thing
   aka keycard, access card
   in the captain's desk
 
@@ -945,6 +999,7 @@ create the bridge keycard
   embossed in silver because of course it is.
 
 create the captain's journal
+  a thing
   aka journal, logbook
   readable
   in the Captain's Cabin
@@ -971,6 +1026,7 @@ create the captain's journal
   end on
 
 create the cargo access code
+  a thing
   aka access code, keypad code
 
   A six-digit code on a scrap of packing label, in handwriting that was in
@@ -1073,6 +1129,7 @@ create Lis
   eyes focus on nothing at all, and then on you.
 
 create the soms terminal
+  a thing
   aka soms, terminal
   scenery
   in the Library
@@ -1094,7 +1151,7 @@ define topics for Reed
 end topics
 
 define topics for Vasik
-  about the data chip: phrase vasik-chip
+  about "the data chip", "the chip", "the evidence": phrase vasik-chip when the player holds the data chip
   about "the cargo", "the manifest": phrase vasik-cargo
   about "the crew": phrase vasik-crew
 end topics

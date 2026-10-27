@@ -1,0 +1,341 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Cargo Bay",
+          "Somebody has been living in here.",
+          "Okafor blocks your way!"
+        ]
+      },
+      "command": "south",
+      "id": "8qwzh5bb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tidy. The work of somebody who expects to still be here next month."
+        ]
+      },
+      "command": "examine camp",
+      "id": "w123ctyj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Everyone wants the hold."
+        ]
+      },
+      "command": "ask okafor about the cargo",
+      "id": "2mck7448",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Storage Annex",
+          "A yellow suit hangs from a hook by the door."
+        ]
+      },
+      "command": "east",
+      "id": "fs1t59qy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains hazmat suit"
+        ]
+      },
+      "command": "take hazmat suit",
+      "id": "aar56fr7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Cargo Bay"
+        ]
+      },
+      "command": "west",
+      "id": "qqn22i62",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "qeg63k20",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor",
+          "A ladder shaft goes up"
+        ]
+      },
+      "command": "west",
+      "id": "u3xk4f3g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The car is not going anywhere with the drive cable in two pieces."
+        ]
+      },
+      "command": "west",
+      "id": "rhfjxyxh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Central Junction"
+        ],
+        "states": [
+          "player.location = Central Junction"
+        ]
+      },
+      "command": "up",
+      "id": "mqd1jly3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "RESEARCH AND MEDICAL, PORT — HABITATION, STARBOARD"
+        ]
+      },
+      "command": "read signage",
+      "id": "tbt5ravh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lab Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "h8i7u1gw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Science Lab",
+          "smashed, thoroughly, by hand."
+        ]
+      },
+      "command": "west",
+      "id": "wz7dndns",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lab Corridor"
+        ]
+      },
+      "command": "east",
+      "id": "l8dgubkz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Medbay",
+          "bent outward, from the inside.",
+          "medkit"
+        ]
+      },
+      "command": "south",
+      "id": "uhh6x4su",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lab Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "zscsdn3v",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Central Junction"
+        ]
+      },
+      "command": "east",
+      "id": "ir10d4vz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hab Corridor",
+          "crew photographs"
+        ]
+      },
+      "command": "east",
+      "id": "9f5wtdmw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Mess Hall",
+          "Motivational posters"
+        ]
+      },
+      "command": "east",
+      "id": "a2s6kkcq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hidden here, you discover: a data chip."
+        ]
+      },
+      "command": "search",
+      "id": "o52slbkg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken.",
+          "Somebody hid this and then did not come back for it."
+        ],
+        "states": [
+          "player.inventory contains data chip"
+        ]
+      },
+      "command": "take chip",
+      "id": "kit5dhan",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hab Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "wqr8zib8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Library",
+          "One good chair"
+        ]
+      },
+      "command": "south",
+      "id": "zfe71scf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "It was awake before you came in.",
+          "Good morning. I am the Stillwater's onboard management system."
+        ]
+      },
+      "command": "examine terminal",
+      "id": "gusqe60h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hab Corridor"
+        ]
+      },
+      "command": "north",
+      "id": "ol78jzs1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Central Junction"
+        ]
+      },
+      "command": "west",
+      "id": "ubp7yjfe",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Upper Corridor",
+          "more like a submarine."
+        ]
+      },
+      "command": "up",
+      "id": "pms4btzw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Crew Bunks",
+          "stun baton"
+        ]
+      },
+      "command": "south",
+      "id": "7q1qxrrt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Common Area",
+          "Vasik"
+        ]
+      },
+      "command": "south",
+      "id": "k076g9a8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There were sixty of us."
+        ]
+      },
+      "command": "ask vasik about the crew",
+      "id": "8a2f1kjy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "No Signal Home"
+        ]
+      },
+      "command": "about",
+      "id": "1z8xa604",
+      "type": "turn"
+    }
+  ],
+  "id": "d9pg996b",
+  "ordinal": 1,
+  "parent": "xdw61q6h"
+}

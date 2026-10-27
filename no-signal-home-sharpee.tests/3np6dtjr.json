@@ -1,0 +1,76 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ],
+        "states": [
+          "player.location = Lower Mid Corridor"
+        ]
+      },
+      "command": "port",
+      "id": "yg3zta77",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ]
+      },
+      "command": "starboard",
+      "id": "h7pi3taj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Maintenance Shaft"
+        ],
+        "states": [
+          "player.location = Maintenance Shaft"
+        ]
+      },
+      "command": "go starboard",
+      "id": "yqquy73l",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ]
+      },
+      "command": "go port",
+      "id": "oesnc7qr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Cargo Bay"
+        ]
+      },
+      "command": "aft",
+      "id": "6tr20oew",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ],
+        "states": [
+          "player.location = Forward Corridor"
+        ]
+      },
+      "command": "fore",
+      "id": "fcd10hrn",
+      "type": "turn"
+    }
+  ],
+  "id": "3np6dtjr",
+  "ordinal": 2,
+  "parent": "xdw61q6h"
+}

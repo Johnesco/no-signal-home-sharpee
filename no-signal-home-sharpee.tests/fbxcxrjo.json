@@ -1,0 +1,42 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "The pod jolts free of The Stillwater with a bang that shakes your teeth.",
+          "You made it out. You left everyone behind.",
+          "(Ending: Escape Alone)"
+        ]
+      },
+      "command": "launch pod",
+      "id": "xvul75qc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The story restarts."
+        ]
+      },
+      "command": "restart",
+      "id": "kruvvmkz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cargo Hold"
+        ],
+        "notContains": [
+          "The game has ended"
+        ]
+      },
+      "command": "look",
+      "id": "k65kfkza",
+      "type": "turn"
+    }
+  ],
+  "id": "fbxcxrjo",
+  "ordinal": 1,
+  "parent": "damuxlzh"
+}

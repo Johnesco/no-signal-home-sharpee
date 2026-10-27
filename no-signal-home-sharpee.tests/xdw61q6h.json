@@ -1,0 +1,79 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Two atmospheres of somebody else's air on the far side"
+        ],
+        "states": [
+          "the pressure readout is live"
+        ]
+      },
+      "command": "check pressure",
+      "id": "428vphf6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "a green you do not entirely believe."
+        ],
+        "notContains": [
+          "has not decided yet"
+        ],
+        "states": [
+          "the docking controls is sealed"
+        ]
+      },
+      "command": "seal",
+      "id": "986af9g0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Airlock",
+          "Claw marks in the paint of the inner door frame",
+          "You are standing inside someone else's ship.",
+          "Behind you, the collar you came through ticks as it cools.",
+          "You are aboard a ship that is not yours"
+        ],
+        "states": [
+          "story.state = boarded",
+          "player.location = Airlock"
+        ]
+      },
+      "command": "south",
+      "id": "wvkf66wq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "BIOHAZARD — LEVEL 4 CONTAINMENT",
+          "PEOPLE FIRST. PROFIT ALWAYS."
+        ]
+      },
+      "command": "read sign",
+      "id": "z0w4dx8v",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor",
+          "machine oil"
+        ],
+        "states": [
+          "player.location = Forward Corridor"
+        ]
+      },
+      "command": "south",
+      "id": "epdgsam0",
+      "type": "turn"
+    }
+  ],
+  "id": "xdw61q6h",
+  "ordinal": 0,
+  "parent": "bms3lacb"
+}

@@ -1,0 +1,107 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "let the magnetics find their own way home",
+          "Hard contact. Much harder than it needed to be."
+        ],
+        "states": [
+          "the thrusters is cold"
+        ]
+      },
+      "command": "extend arm",
+      "id": "6ppcp9q9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "the seal is honest about carrying it."
+        ]
+      },
+      "command": "check pressure",
+      "id": "shvjx1kh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "a green you do not entirely believe."
+        ]
+      },
+      "command": "seal",
+      "id": "6wz3tlq1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Airlock",
+          "You are standing inside someone else's ship."
+        ]
+      },
+      "command": "south",
+      "id": "9p3lq9aw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "BIOHAZARD — LEVEL 4 CONTAINMENT"
+        ]
+      },
+      "command": "read sign",
+      "id": "2iz4nsag",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Forward Corridor"
+        ]
+      },
+      "command": "south",
+      "id": "0klhb2dl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A crack, deep and structural",
+          "The clamp sheared where you hit it.",
+          "taking your bed and your name and your three percent with it."
+        ],
+        "states": [
+          "the docking seal is failed"
+        ]
+      },
+      "command": "look",
+      "id": "bkutkpde",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Airlock"
+        ]
+      },
+      "command": "north",
+      "id": "mjrrsyem",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hard vacuum on the other side of that hatch. Not without a suit."
+        ]
+      },
+      "command": "north",
+      "id": "7q86ynmd",
+      "type": "turn"
+    }
+  ],
+  "id": "r2y2nbbz",
+  "ordinal": 1,
+  "parent": "5jekrlz5"
+}

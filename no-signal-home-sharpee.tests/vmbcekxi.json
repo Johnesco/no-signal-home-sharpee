@@ -1,0 +1,36 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "channels": [
+          {
+            "id": "info.title",
+            "is": "No Signal Home"
+          },
+          {
+            "id": "info.description",
+            "is": "Your fuel ran out beside a ship that has been dead for years. It is not as dead as it looks."
+          }
+        ]
+      },
+      "id": "uc1ixgne",
+      "type": "opening"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tug Cargo Hold",
+          "an alarm is trying to take your head off.",
+          "You can see a flashlight, a ration bar, and a salvage manifest here."
+        ],
+        "states": [
+          "story.state = adrift",
+          "the proximity alarm is screaming"
+        ]
+      },
+      "id": "2k5cx8rg",
+      "type": "boot"
+    }
+  ],
+  "id": "vmbcekxi"
+}

@@ -1,0 +1,107 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "A crack, deep and structural",
+          "your tug, still clamped on, frost blooming across the cockpit glass",
+          "Not reachable without a suit."
+        ],
+        "states": [
+          "the docking seal is failed"
+        ]
+      },
+      "command": "look",
+      "id": "uyp2n4j0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lower Mid Corridor"
+        ]
+      },
+      "command": "west",
+      "id": "fqhd88ab",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Aft Corridor",
+          "Something below is coming back to life."
+        ]
+      },
+      "command": "south",
+      "id": "odsblwl4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Engine Room",
+          "A tool rack lines the far wall.",
+          "Reed"
+        ],
+        "states": [
+          "player.location = Engine Room"
+        ]
+      },
+      "command": "south",
+      "id": "hsxa6y27",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains multi-tool"
+        ]
+      },
+      "command": "take multi-tool",
+      "id": "y6ap96m8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains cable snips"
+        ]
+      },
+      "command": "take cable snips",
+      "id": "zo70jdwf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains security override tool"
+        ]
+      },
+      "command": "take override tool",
+      "id": "2ymtakkw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "It's been helpful the entire time."
+        ]
+      },
+      "command": "ask reed about soms",
+      "id": "ahski2n4",
+      "type": "turn"
+    }
+  ],
+  "id": "avpheqkh",
+  "ordinal": 0,
+  "parent": "xdw61q6h"
+}

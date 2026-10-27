@@ -1,0 +1,37 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "fire the braking pair",
+          "that was most of it."
+        ],
+        "states": [
+          "the thrusters is burned"
+        ]
+      },
+      "command": "fire thrusters",
+      "id": "dfyi1nra",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "let the magnetics find their own way home"
+        ],
+        "notContains": [
+          "Hard contact."
+        ],
+        "states": [
+          "the docking controls is connected"
+        ]
+      },
+      "command": "extend arm",
+      "id": "9a7k3dck",
+      "type": "turn"
+    }
+  ],
+  "id": "bms3lacb",
+  "ordinal": 0,
+  "parent": "5jekrlz5"
+}
