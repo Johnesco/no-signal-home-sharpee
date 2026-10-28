@@ -74,7 +74,7 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 
 ## Current Feature Status
 
-### Implemented (Chord edition, verified 2026-09-08)
+### Implemented (Chord edition, verified 2026-10-27)
 - [x] All 26 rooms, 4 regions, exits, doors, and gated exits
 - [x] Opening sequence: alarm, five outcomes (best dock, rough dock, bad-seal death, two collision deaths), the seal failure, tug lost or stranded
 - [x] Opening memories and scoring (60 points across six awards, three ranks)
@@ -83,13 +83,13 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 - [x] Cable cut in the Maintenance Shaft; Override The AI ending
 - [x] Escape pod; Escape Alone ending
 - [x] Concealed data chip, captain's journal, biohazard and wayfinding signs
+- [x] Nautical direction input (`extend action going` at line 1363: fore/aft/port/starboard → compass; #34 closed)
 
 ### Planned (open issues on the board)
 - [ ] #21 Destroy ending (reactor overload); #25 Escape With Survivors; #26 Merge With AI
 - [ ] #22 Elevator repair (cryo deck access); #23 Cargo hold code (Vasik's trade for the override tool, Okafor's half)
 - [ ] #24 NPC patrol movement; #28 reactor warming; #29 AI spreading; #27 SeededRandom procedural systems
 - [ ] #30 Save/restore; #31 score reveal at end
-- [ ] #34 Nautical direction input via `extend action going` (spiked, not yet in the story)
 
 ## Working in this project
 
@@ -123,7 +123,7 @@ This project uses the [sdlc-baseline](https://github.com/Johnesco/sdlc-baseline)
 
 ### Project-specific deviations
 
-- **Nautical directions are compass-only until #34 lands.** Chord's direction set is closed, but a 2026-09-08 spike showed `extend action going` with bare-word patterns (`fore` / `means direction north`) works at 3.6.0. The prose stays nautical; input is compass until the ticket is done. Details in `docs/chord-edition.md` §1.
+- **Nautical direction input landed (commit 56edc72, #34 closed).** The `extend action going` block maps fore/aft/port/starboard to compass directions. Details in `docs/chord-edition.md` §1.
 - **The alarm nags instead of blocking.** Chord has no global action interceptor. A header daemon pushes the player toward the cockpit every turn while the alarm screams; the ten-turn clock still kills.
 - The 3.6.0 migration and the two endings were done in one session under #32; the endings arguably deserved their own ticket.
 
