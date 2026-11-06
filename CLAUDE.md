@@ -30,6 +30,7 @@ All design docs are in `docs/`. Read them before making any design or implementa
 - `procedural-systems.md` — the seeded-random systems (not yet in the Chord edition)
 - `writing-style.md` — prose rules
 - `chord-edition.md` — what the Chord port carried over, what changed, and the decisions still open
+- `playtest/` — dated playtest notes; `2026-10-30-room-probe.md` tried 255 commands across the walkthrough's 22 rooms (59% rejected, mostly unimplemented scenery). `probe-rooms.py` re-runs it.
 
 ## Writing Style Rules
 
