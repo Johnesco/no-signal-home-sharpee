@@ -6,8 +6,9 @@ came first is kept in `legacy/` as the behavioural reference until the Chord
 edition overtakes it. This file records what carried over, what changed, and
 the decisions still open.
 
-Status: **gate-clean at Chord 4.0.0** (migrated to 3.6.0 on 2026-09-08 under
-ticket #32, upgraded to 4.0 on 2026-10-27 under #35) with
+Status: **gate-clean at Chord 4.0.1** (migrated to 3.6.0 on 2026-09-08 under
+ticket #32, upgraded to 4.0 on 2026-10-27 under #35, to 4.0.1 on 2026-11-06
+under #36) with
 the full 26-room map, Act 1 including all five opening outcomes, the NPC
 conversation tables, the keycard path, the cable cut, and two endings
 (Escape Alone, Override The AI) ported from the TypeScript edition.

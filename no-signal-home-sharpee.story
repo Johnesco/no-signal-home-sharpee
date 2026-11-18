@@ -1060,6 +1060,11 @@ define trait overridable
   end on
 end trait
 
+## ACTIVATE is standard switching-on grammar; the override takes the word.
+
+remove from action switching_on
+  activate the thing
+
 define action overriding
   grammar
     override the target
@@ -1073,6 +1078,11 @@ define trait launchable
     win ending-escape-alone
   end on
 end trait
+
+## BOARD is standard entering grammar; the launch takes the word.
+
+remove from action entering
+  board the thing
 
 define action launching
   grammar

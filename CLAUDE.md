@@ -75,7 +75,7 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 
 ## Current Feature Status
 
-### Implemented (Chord edition, verified 2026-10-27)
+### Implemented (Chord edition, verified 2026-11-06)
 - [x] All 26 rooms, 4 regions, exits, doors, and gated exits
 - [x] Opening sequence: alarm, five outcomes (best dock, rough dock, bad-seal death, two collision deaths), the seal failure, tug lost or stranded
 - [x] Opening memories and scoring (60 points across six awards, three ranks)
@@ -135,6 +135,8 @@ ADRs live in `docs/adr/` once the first one exists (index: `docs/adr/README.md`)
 ## Project History
 
 ### Recent Changes
+- 2026-11-18 (#37): moved to the current engine. ACTIVATE (standard switching on) and BOARD (standard entering) are words the `overriding` and `launching` actions had been taking silently; `remove from action switching_on` and `remove from action entering` now say so, and both answer as before. 146/146 cards green. Built on top of the uncommitted #36 work, not yet shipped.
+- 2026-11-06 (#36): engine point-release bump. Pin bump only; the story has no edible or drinkable things, so the new `servings` rule touches nothing. 146/146 cards green.
 - 2026-10-27 (#35): Chord 4.0 upgrade. Kinds lead every block, rooms name their region, the tests document is the `no-signal-home-sharpee.tests/` directory. Vasik's chip topic is text-keyed and gated on holding the chip, because the derived rule tests cannot bring a `concealed` thing into scope.
 - 2026-09-08 (#32): Chord edition migrated to 3.6.0 and moved to the repo root; TypeScript edition moved to `legacy/`; the desk pry, cable cut, security override, escape pod, and both endings ported from the TypeScript edition; adopted into the workspace docs model.
 - 2026-07-28 (#32): Chord edition drafted at 3.0.0: full world, Act 1, compile-check loop.
