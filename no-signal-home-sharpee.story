@@ -412,7 +412,7 @@ define action sealing
 ## --- not care what you spend it on.
 
 define sequence the alarm clock
-  at turn 10
+  at turn 9
     kill the player alarm-collision when the proximity alarm is screaming
 end sequence
 

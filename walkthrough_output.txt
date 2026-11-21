@@ -3,28 +3,26 @@ You come up out of low-power sleep the way you always do — badly, and all at o
 
 You can see a flashlight, a ration bar, and a salvage manifest here.
 
-The alarm goes on doing the only thing it knows.
-
 > look
 Tug Cargo Hold
 Cramped cargo space, crates strapped to the walls, the gap between two shipping containers worn into the shape of a person. The strobe paints everything red, then nothing, then red.
 
 You can see a flashlight, a ration bar, and a salvage manifest here.
 
-You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
+The alarm goes on doing the only thing it knows.
 
 > take flashlight
 Taken.
 
 Half charge. You have navigated worse on less.
 
-Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
+You cannot hold a thought with that noise in it. Somewhere in this tug there is a button that stops it.
 
 > south
 Tug Cockpit
 Your cockpit. Instruments crowded into an arm's reach of the pilot's seat, every one of them wanting something. Through the viewport, something enormous and unlit takes up the whole of the sky.
 
-The alarm goes on doing the only thing it knows.
+Every cycle of that klaxon is a second you are not spending on whatever it is warning you about.
 
 > press button
 You hit it hard enough to hurt. The alarm stops.
@@ -318,6 +316,8 @@ A wide junction where the deck splits port and starboard. Corporate wayfinding o
 
 You can see Lis here.
 
+Lis notices you.
+
 > x corporate signage
 Backlit wayfinding panels, one of them flickering.
 
@@ -491,10 +491,6 @@ A wide junction where the deck splits port and starboard. Corporate wayfinding o
 Lab Corridor
 Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
 
-You can see Lis here.
-
-Lis notices you.
-
 > west
 Science Lab
 Workbenches under a drift of equipment. Sealed sample containers in a wall cabinet, all present, all accounted for. A research terminal blinks patiently in standby. Several instruments have been smashed, thoroughly, by hand.
@@ -502,10 +498,6 @@ Workbenches under a drift of equipment. Sealed sample containers in a wall cabin
 > east
 Lab Corridor
 Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
-
-You can see Lis here.
-
-Lis notices you.
 
 > south
 Medbay
@@ -574,11 +566,11 @@ Warmer colors here, or they were once. A bulletin board with crew photographs pi
 Central Junction
 A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
 
-Lis notices you.
-
 > down
 Lower Mid Corridor
 A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
+
+You can see Lis here.
 
 > open elevator
 The elevator can't be opened.
@@ -593,10 +585,6 @@ The corridor narrows toward the stern. The deck plates are warm underfoot, and g
 > north
 Lower Mid Corridor
 A junction. Directions painted on the walls in corporate sans-serif, half scraped away by decades of cargo handling. A ladder shaft goes up through a hatch in the ceiling.
-
-You can see Lis here.
-
-Lis notices you.
 
 > east
 Forward Corridor
@@ -944,6 +932,10 @@ The corporate signage is fixed in place.
 Lab Corridor
 Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhythm just slow enough to notice. Something chemical hangs in the air.
 
+You can see Lis here.
+
+Lis notices you.
+
 > south
 Medbay
 Treatment beds with restraints on them. A quarantine cell in the corner, its door standing open — bent outward, from the inside.
@@ -963,6 +955,10 @@ Sterile white gone grimy at hand height. The fluorescent panels flicker in a rhy
 > east
 Central Junction
 A wide junction where the deck splits port and starboard. Corporate wayfinding on every wall, the logo repeated until it stops meaning anything.
+
+You can see Lis here.
+
+Lis notices you.
 
 > east
 Hab Corridor
@@ -999,17 +995,17 @@ A wide junction where the deck splits port and starboard. Corporate wayfinding o
 
 You can see Lis here.
 
-Lis notices you.
-
 > up
 Upper Corridor
 A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It feels less like a ship up here and more like a submarine.
+
+You can see Lis here.
 
 > south
 Crew Bunks
 Sleeping pods stacked four high, most stripped. One has deep gouges torn into the wall beside it and dark staining on the mattress, and everybody after that slept somewhere else.
 
-You can see a stun baton and an eva suit here.
+You can see a stun baton, an eva suit, and Lis here.
 
 > take stun baton
 Taken.
@@ -1040,8 +1036,6 @@ A narrow corridor with a low ceiling, pipes and conduit run openly overhead. It 
 > east
 Captain's Cabin
 Modest quarters — more room than the bunks, but not by much. Framed photographs, a half-read book, dried flowers in a vase. A desk bolted to the bulkhead.
-
-You can see Lis here.
 
 > open captain's desk
 The captain's desk is locked.
@@ -1116,3 +1110,5 @@ You stare at the stars and try not to think about Reed's smile.
 *** THE END ***
 
 (Ending: Escape Alone)
+
+[The story has ended. RESTART, RESTORE or UNDO]
